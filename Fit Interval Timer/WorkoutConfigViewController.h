@@ -30,8 +30,8 @@
 // Reps and Sets
 @property (weak, nonatomic) IBOutlet UILabel *repsText;
 @property (weak, nonatomic) IBOutlet UILabel *setsText;
-@property (weak, nonatomic) IBOutlet UIStepper *repsSelector;
-@property (weak, nonatomic) IBOutlet UIStepper *setsSelector;
+- (IBAction)repsStepper:(UIStepper *)sender;
+- (IBAction)setsStepper:(UIStepper *)sender;
 
 // Time picker view
 @property (retain, nonatomic) NSMutableArray *secArray;

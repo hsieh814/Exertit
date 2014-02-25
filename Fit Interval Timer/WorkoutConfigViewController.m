@@ -148,4 +148,16 @@ Exercise *exercise;
     [self.delegate workoutConfigViewController:self didAddExercise:exercise];
 }
 
+/* Steppers for reps and sets */
+
+- (IBAction)repsStepper:(UIStepper *)sender {
+    double value = [sender value];
+    [self.repsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
+}
+
+- (IBAction)setsStepper:(UIStepper *)sender {
+    double value = [sender value];
+    [self.setsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
+}
+
 @end
