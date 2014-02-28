@@ -27,6 +27,11 @@
 		BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DD187516BF009B43EF /* MenuViewController.m */; };
 		BF2372E4187516BF009B43EF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DF187516BF009B43EF /* Workout.m */; };
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
+		BF8122F018C0469000606092 /* google_earth-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122EF18C0469000606092 /* google_earth-512.png */; };
+		BF8122F418C0494900606092 /* reddit-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F318C0494900606092 /* reddit-512.png */; };
+		BF8122F618C0495200606092 /* cloudflare-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F518C0495200606092 /* cloudflare-512.png */; };
+		BF8122F818C0495B00606092 /* coderwall-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F718C0495B00606092 /* coderwall-512.png */; };
+		BF8122FA18C0497A00606092 /* timer-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F918C0497A00606092 /* timer-512.png */; };
 		BF9713D318765548002F4BF1 /* workoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* workoutsTableViewController.m */; };
 		BF9713D618765E20002F4BF1 /* WorkoutDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* WorkoutDetailsViewController.m */; };
 		BFC4E0AA18B02FC90082BD3C /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0A918B02FC90082BD3C /* ExerciseViewController.m */; };
@@ -75,6 +80,11 @@
 		BF2372DF187516BF009B43EF /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		BF2372E0187516BF009B43EF /* WorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		BF2372E1187516BF009B43EF /* WorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
+		BF8122EF18C0469000606092 /* google_earth-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google_earth-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Google_Services/google_earth/google_earth-512.png"; sourceTree = "<group>"; };
+		BF8122F318C0494900606092 /* reddit-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Logos/reddit/reddit-512.png"; sourceTree = "<group>"; };
+		BF8122F518C0495200606092 /* cloudflare-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloudflare-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Logos/cloudflare/cloudflare-512.png"; sourceTree = "<group>"; };
+		BF8122F718C0495B00606092 /* coderwall-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coderwall-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Logos/coderwall/coderwall-512.png"; sourceTree = "<group>"; };
+		BF8122F918C0497A00606092 /* timer-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timer-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Objects/timer/timer-512.png"; sourceTree = "<group>"; };
 		BF9713D118765548002F4BF1 /* workoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = workoutsTableViewController.h; sourceTree = "<group>"; };
 		BF9713D218765548002F4BF1 /* workoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = workoutsTableViewController.m; sourceTree = "<group>"; };
 		BF9713D418765E20002F4BF1 /* WorkoutDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutDetailsViewController.h; sourceTree = "<group>"; };
@@ -166,6 +176,7 @@
 				BF2098841871F80400D52321 /* timerViewController.h */,
 				BF2098851871F80400D52321 /* timerViewController.m */,
 				BF2372D61875164F009B43EF /* SWRevealViewController */,
+				BF8122EE18C0467B00606092 /* Images */,
 				BF2098871871F80400D52321 /* Images.xcassets */,
 				BF2098761871F80400D52321 /* Supporting Files */,
 			);
@@ -208,6 +219,18 @@
 				BF0E67DB189E034800A0456F /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		BF8122EE18C0467B00606092 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF8122F918C0497A00606092 /* timer-512.png */,
+				BF8122F718C0495B00606092 /* coderwall-512.png */,
+				BF8122F518C0495200606092 /* cloudflare-512.png */,
+				BF8122F318C0494900606092 /* reddit-512.png */,
+				BF8122EF18C0469000606092 /* google_earth-512.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,9 +310,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
+				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
+				BF8122F618C0495200606092 /* cloudflare-512.png in Resources */,
+				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
 				BF2098831871F80400D52321 /* Main.storyboard in Resources */,
+				BF8122F818C0495B00606092 /* coderwall-512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
