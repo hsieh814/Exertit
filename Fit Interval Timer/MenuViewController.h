@@ -10,6 +10,6 @@
 
 @interface MenuViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *workoutList;
+@property (nonatomic, strong) NSMutableArray *favoriteWorkoutList;
 
 @end
