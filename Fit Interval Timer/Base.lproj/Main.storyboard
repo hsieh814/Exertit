@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="280" y="451"/>
         </scene>
-        <!--Workout Details View Controller - New Workout-->
+        <!--New Workout View Controller - New Workout-->
         <scene sceneID="e3X-qD-qfr">
             <objects>
-                <tableViewController id="Tay-uA-Y6L" customClass="WorkoutDetailsViewController" sceneMemberID="viewController">
+                <tableViewController id="Tay-uA-Y6L" customClass="NewWorkoutViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RJr-Ee-9WV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

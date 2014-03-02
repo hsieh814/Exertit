@@ -1,19 +1,19 @@
 //
-//  WorkoutDetailsViewController.m
+//  NewWorkoutViewController.m
 //  Fit Interval Timer
 //
 //  Created by Lena Hsieh on 2014-01-02.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
-#import "WorkoutDetailsViewController.h"
+#import "NewWorkoutViewController.h"
 #import "Workout.h"
 
-@interface WorkoutDetailsViewController ()
+@interface NewWorkoutViewController ()
 
 @end
 
-@implementation WorkoutDetailsViewController
+@implementation NewWorkoutViewController
 
 UIToolbar *pickerToolbar;
 Workout *workout;
@@ -148,14 +148,14 @@ Workout *workout;
 
 - (IBAction)cancel:(id)sender
 {
-    [self.delegate workoutDetailsViewControllerDidCancel:self];
+    [self.delegate newWorkoutViewControllerDidCancel:self];
 }
 
 - (IBAction)done:(id)sender
 {
     workout.workoutName = self.nameTextField.text;
     
-    [self.delegate workoutDetailsViewController:self didAddWorkout:workout];
+    [self.delegate newWorkoutViewController:self didAddWorkout:workout];
 
 }
 

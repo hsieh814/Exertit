@@ -35,7 +35,7 @@
 		BF8122F818C0495B00606092 /* coderwall-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F718C0495B00606092 /* coderwall-512.png */; };
 		BF8122FA18C0497A00606092 /* timer-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F918C0497A00606092 /* timer-512.png */; };
 		BF9713D318765548002F4BF1 /* workoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* workoutsTableViewController.m */; };
-		BF9713D618765E20002F4BF1 /* WorkoutDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* WorkoutDetailsViewController.m */; };
+		BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */; };
 		BFC4E0AA18B02FC90082BD3C /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0A918B02FC90082BD3C /* ExerciseViewController.m */; };
 		BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */; };
 /* End PBXBuildFile section */
@@ -92,8 +92,8 @@
 		BF8122F918C0497A00606092 /* timer-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timer-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Objects/timer/timer-512.png"; sourceTree = "<group>"; };
 		BF9713D118765548002F4BF1 /* workoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = workoutsTableViewController.h; sourceTree = "<group>"; };
 		BF9713D218765548002F4BF1 /* workoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = workoutsTableViewController.m; sourceTree = "<group>"; };
-		BF9713D418765E20002F4BF1 /* WorkoutDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutDetailsViewController.h; sourceTree = "<group>"; };
-		BF9713D518765E20002F4BF1 /* WorkoutDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutDetailsViewController.m; sourceTree = "<group>"; };
+		BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
+		BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
 		BFC4E0A818B02FC90082BD3C /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		BFC4E0A918B02FC90082BD3C /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 				BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */,
 				BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */,
 				BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */,
-				BF9713D418765E20002F4BF1 /* WorkoutDetailsViewController.h */,
-				BF9713D518765E20002F4BF1 /* WorkoutDetailsViewController.m */,
+				BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */,
+				BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */,
 				BF9713D118765548002F4BF1 /* workoutsTableViewController.h */,
 				BF9713D218765548002F4BF1 /* workoutsTableViewController.m */,
 				BF20987E1871F80400D52321 /* timerAppDelegate.h */,
@@ -348,7 +348,7 @@
 				BF2098861871F80400D52321 /* timerViewController.m in Sources */,
 				BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */,
 				BF2372E4187516BF009B43EF /* Workout.m in Sources */,
-				BF9713D618765E20002F4BF1 /* WorkoutDetailsViewController.m in Sources */,
+				BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
 				BF2372E2187516BF009B43EF /* Exercise.m in Sources */,
 				BF2098801871F80400D52321 /* timerAppDelegate.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  WorkoutDetailsViewController.h
+//  NewWorkoutViewController.h
 //  Fit Interval Timer
 //
 //  Created by Lena Hsieh on 2014-01-02.
@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "Workout.h"
 
-@class WorkoutDetailsViewController;
+@class NewWorkoutViewController;
 
-@protocol WorkoutDetailsViewControllerDelegate <NSObject>
-- (void)workoutDetailsViewControllerDidCancel:(WorkoutDetailsViewController *)controller;
-- (void)workoutDetailsViewController:(WorkoutDetailsViewController *)controller didAddWorkout:(Workout *)workout;
+@protocol NewWorkoutViewControllerDelegate <NSObject>
+- (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller;
+- (void)newWorkoutViewController:(NewWorkoutViewController *)controller didAddWorkout:(Workout *)workout;
 @end
 
-@interface WorkoutDetailsViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface NewWorkoutViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic, weak) id <WorkoutDetailsViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <NewWorkoutViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *durationTextField;
 

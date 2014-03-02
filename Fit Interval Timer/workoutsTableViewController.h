@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WorkoutDetailsViewController.h"
+#import "NewWorkoutViewController.h"
 
-@interface workoutsTableViewController : UITableViewController <WorkoutDetailsViewControllerDelegate>
+@interface workoutsTableViewController : UITableViewController <NewWorkoutViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 

@@ -96,24 +96,24 @@
     if ([segue.identifier isEqualToString:@"AddWorkout"]) {
         
         UINavigationController *navigationController = segue.destinationViewController;
-        WorkoutDetailsViewController *workoutDetailsViewController = [navigationController viewControllers][0];
-        workoutDetailsViewController.delegate = self;
+        NewWorkoutViewController *newWorkoutViewController = [navigationController viewControllers][0];
+        newWorkoutViewController.delegate = self;
     }
 }
 
-#pragma mark - PlayerDetailsViewControllerDelegate
+#pragma mark - NewWorkoutViewControllerDelegate
 
-- (void)workoutDetailsViewControllerDidCancel:(WorkoutDetailsViewController *)controller
+- (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)workoutDetailsViewControllerDidSave:(WorkoutDetailsViewController *)controller
+- (void)newWorkoutViewControllerDidSave:(NewWorkoutViewController *)controller
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)workoutDetailsViewController:(WorkoutDetailsViewController *)controller didAddWorkout:(Workout *)workout;
+- (void)newWorkoutViewController:(NewWorkoutViewController *)controller didAddWorkout:(Workout *)workout;
 {
     // Add workout to the workout array
     [self.workoutList addObject:workout];
