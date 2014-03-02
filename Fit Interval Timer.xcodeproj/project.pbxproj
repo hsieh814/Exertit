@@ -37,6 +37,7 @@
 		BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */; };
 		BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */; };
 		BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */; };
+		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
 		BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
+		BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,24 +158,26 @@
 			isa = PBXGroup;
 			children = (
 				BF2098811871F80400D52321 /* Main.storyboard */,
+				BF2372DE187516BF009B43EF /* Workout.h */,
+				BF2372DF187516BF009B43EF /* Workout.m */,
+				BF2372DA187516BF009B43EF /* Exercise.h */,
+				BF2372DB187516BF009B43EF /* Exercise.m */,
 				BF7BF56618C29A4C009D9BE8 /* MenuCell.h */,
 				BF7BF56718C29A4C009D9BE8 /* MenuCell.m */,
 				BF2372DC187516BF009B43EF /* MenuViewController.h */,
 				BF2372DD187516BF009B43EF /* MenuViewController.m */,
-				BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */,
-				BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */,
-				BF2372DE187516BF009B43EF /* Workout.h */,
-				BF2372DF187516BF009B43EF /* Workout.m */,
 				BF2372E0187516BF009B43EF /* WorkoutCell.h */,
 				BF2372E1187516BF009B43EF /* WorkoutCell.m */,
-				BF2372DA187516BF009B43EF /* Exercise.h */,
-				BF2372DB187516BF009B43EF /* Exercise.m */,
+				BF9713D118765548002F4BF1 /* AllWorkoutsTableViewController.h */,
+				BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */,
+				BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */,
+				BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */,
 				BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */,
 				BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */,
 				BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */,
 				BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */,
-				BF9713D118765548002F4BF1 /* AllWorkoutsTableViewController.h */,
-				BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */,
+				BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */,
+				BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */,
 				BF20987E1871F80400D52321 /* timerAppDelegate.h */,
 				BF20987F1871F80400D52321 /* timerAppDelegate.m */,
 				BF2098841871F80400D52321 /* timerViewController.h */,
@@ -340,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */,
 				BF2098861871F80400D52321 /* timerViewController.m in Sources */,
 				BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */,
 				BF2372E4187516BF009B43EF /* Workout.m in Sources */,

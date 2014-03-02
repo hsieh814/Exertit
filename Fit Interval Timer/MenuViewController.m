@@ -9,6 +9,8 @@
 #import "MenuViewController.h"
 #import "Workout.h"
 #import "MenuCell.h"
+#import "SWRevealViewController.h"
+#import "SettingsTableViewController.h"
 
 @interface MenuViewController ()
 
@@ -43,6 +45,50 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/*  1- Click a cell on the slide out menu
+    2- Calls didSelectRowAtIndexPath to determine the segue to perform
+    3- Calls prepareForSegue to set the new Front view
+ */
+
+// Determine which segue to perform based on the cell selected
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"---- didSelectRowAtIndexPath ----");
+
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"AllWorkouts" sender:self];
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            [self performSegueWithIdentifier:@"Settings" sender:self];
+            break;
+    }
+}
+
+// Set the new Front view for the slide-out menu
+- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+{
+    NSLog(@"---- prepareForSegue -----");
+
+    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
+        
+        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+            
+            UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
+            [navController setViewControllers: @[dvc] animated: NO ];
+            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+        };
+        
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -128,12 +174,8 @@
         }
         
     }
-
-
-
     
     return cell;
-    
 }
 
 
