@@ -31,10 +31,11 @@
     
     self.favoriteWorkoutList = [[NSMutableArray alloc] init];
     
+    /**********************************************************/
     Workout *wk = [[Workout alloc]init];
     wk.workoutName = @"name";
-    
     [self.favoriteWorkoutList addObject:wk];
+    /**********************************************************/
 
 }
 
@@ -62,6 +63,31 @@
         // Default menu
         return 5;
     }
+}
+
+// Titles for the table sections
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0){
+        return @"Favorites";
+    } else {
+        return @" ";
+    }
+}
+
+// Customize header colors
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Set the text color of our header/footer text.
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+    
+    // Set the background color of our header/footer.
+    header.contentView.backgroundColor = [UIColor colorWithRed:64/255.0f green:136/255.0f blue:255/255.0f alpha:1.0f];
+    
+    // You can also do this to set the background color of our header/footer,
+    //    but the gradients/other effects will be retained.
+    // view.tintColor = [UIColor blackColor];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
