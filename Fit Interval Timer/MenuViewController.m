@@ -28,6 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.favoriteWorkoutList = [[NSMutableArray alloc] init];
+    
+    Workout *wk = [[Workout alloc]init];
+    wk.workoutName = @"name";
+    
+    [self.favoriteWorkoutList addObject:wk];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +71,9 @@
 
     if (indexPath.section == 0) {
         // Favorite list
+        Workout *workout = [self.favoriteWorkoutList objectAtIndex:indexPath.row];
+        cell.menuCellName.text = workout.workoutName;
+        cell.menuCellImage.image = [UIImage imageNamed:@"mandriva-512.png"];
         
     } else if (indexPath.section == 1) {
         // Default menu list

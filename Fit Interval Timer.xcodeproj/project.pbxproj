@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
+		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
 		BF2098741871F80400D52321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098731871F80400D52321 /* UIKit.framework */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Fit Interval Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit Interval Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF2098711871F80400D52321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -229,6 +231,7 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF1FFC0018C2AD97009224C9 /* mandriva-512.png */,
 				BF8122F918C0497A00606092 /* timer-512.png */,
 				BF8122F718C0495B00606092 /* coderwall-512.png */,
 				BF8122F518C0495200606092 /* cloudflare-512.png */,
@@ -318,6 +321,7 @@
 				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
 				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
+				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
 				BF8122F618C0495200606092 /* cloudflare-512.png in Resources */,
 				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
