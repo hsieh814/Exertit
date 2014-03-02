@@ -1,5 +1,5 @@
 //
-//  workoutsTableViewController.h
+//  AllWorkoutsTableViewController.h
 //  Fit Interval Timer
 //
 //  Created by Lena Hsieh on 2014-01-02.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewWorkoutViewController.h"
 
-@interface workoutsTableViewController : UITableViewController <NewWorkoutViewControllerDelegate>
+@interface AllWorkoutsTableViewController : UITableViewController <NewWorkoutViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 

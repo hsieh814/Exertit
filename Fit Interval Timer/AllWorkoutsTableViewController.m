@@ -1,21 +1,21 @@
 //
-//  workoutsTableViewController.m
+//  AllWorkoutsTableViewController.m
 //  Fit Interval Timer
 //
 //  Created by Lena Hsieh on 2014-01-02.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
-#import "workoutsTableViewController.h"
+#import "AllWorkoutsTableViewController.h"
 #import "SWRevealViewController.h"
 #import "WorkoutCell.h"
 #import "Workout.h"
 
-@interface workoutsTableViewController ()
+@interface AllWorkoutsTableViewController ()
 
 @end
 
-@implementation workoutsTableViewController
+@implementation AllWorkoutsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
