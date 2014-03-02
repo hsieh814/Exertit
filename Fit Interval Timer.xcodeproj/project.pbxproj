@@ -36,7 +36,6 @@
 		BF8122FA18C0497A00606092 /* timer-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F918C0497A00606092 /* timer-512.png */; };
 		BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */; };
 		BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */; };
-		BFC4E0AA18B02FC90082BD3C /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0A918B02FC90082BD3C /* ExerciseViewController.m */; };
 		BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -94,8 +93,6 @@
 		BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllWorkoutsTableViewController.m; sourceTree = "<group>"; };
 		BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
 		BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
-		BFC4E0A818B02FC90082BD3C /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
-		BFC4E0A918B02FC90082BD3C /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,8 +167,6 @@
 				BF2372E1187516BF009B43EF /* WorkoutCell.m */,
 				BF2372DA187516BF009B43EF /* Exercise.h */,
 				BF2372DB187516BF009B43EF /* Exercise.m */,
-				BFC4E0A818B02FC90082BD3C /* ExerciseViewController.h */,
-				BFC4E0A918B02FC90082BD3C /* ExerciseViewController.m */,
 				BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */,
 				BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */,
 				BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */,
@@ -357,7 +352,6 @@
 				BF20987C1871F80400D52321 /* main.m in Sources */,
 				BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */,
 				BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */,
-				BFC4E0AA18B02FC90082BD3C /* ExerciseViewController.m in Sources */,
 				BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
