@@ -61,10 +61,13 @@
             [self performSegueWithIdentifier:@"AllWorkouts" sender:self];
             break;
         case 1:
+            [self performSegueWithIdentifier:@"AllExercises" sender:self];
             break;
         case 2:
+            [self performSegueWithIdentifier:@"Timer" sender:self];
             break;
         case 3:
+            [self performSegueWithIdentifier:@"IntervalTimer" sender:self];
             break;
         case 4:
             [self performSegueWithIdentifier:@"Settings" sender:self];

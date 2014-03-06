@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface timerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface TimerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIPickerView *time_picker;
 
@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *secDisplay;
 
 @property (nonatomic, strong) NSTimer *secondsTimer;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;

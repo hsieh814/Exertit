@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */; };
+		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
@@ -16,7 +18,7 @@
 		BF20987C1871F80400D52321 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20987B1871F80400D52321 /* main.m */; };
 		BF2098801871F80400D52321 /* timerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20987F1871F80400D52321 /* timerAppDelegate.m */; };
 		BF2098831871F80400D52321 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2098811871F80400D52321 /* Main.storyboard */; };
-		BF2098861871F80400D52321 /* timerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2098851871F80400D52321 /* timerViewController.m */; };
+		BF2098861871F80400D52321 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2098851871F80400D52321 /* TimerViewController.m */; };
 		BF2098881871F80400D52321 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2098871871F80400D52321 /* Images.xcassets */; };
 		BF20988F1871F80400D52321 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20988E1871F80400D52321 /* XCTest.framework */; };
 		BF2098901871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerViewController.h; sourceTree = "<group>"; };
+		BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
+		BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllExercisesTableViewController.h; sourceTree = "<group>"; };
+		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
@@ -65,8 +71,8 @@
 		BF20987E1871F80400D52321 /* timerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timerAppDelegate.h; sourceTree = "<group>"; };
 		BF20987F1871F80400D52321 /* timerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timerAppDelegate.m; sourceTree = "<group>"; };
 		BF2098821871F80400D52321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BF2098841871F80400D52321 /* timerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timerViewController.h; sourceTree = "<group>"; };
-		BF2098851871F80400D52321 /* timerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timerViewController.m; sourceTree = "<group>"; };
+		BF2098841871F80400D52321 /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		BF2098851871F80400D52321 /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		BF2098871871F80400D52321 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BF20988D1871F80400D52321 /* Fit Interval TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fit Interval TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20988E1871F80400D52321 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -176,12 +182,16 @@
 				BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */,
 				BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */,
 				BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */,
+				BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */,
+				BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */,
+				BF2098841871F80400D52321 /* TimerViewController.h */,
+				BF2098851871F80400D52321 /* TimerViewController.m */,
+				BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */,
+				BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */,
 				BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */,
 				BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */,
 				BF20987E1871F80400D52321 /* timerAppDelegate.h */,
 				BF20987F1871F80400D52321 /* timerAppDelegate.m */,
-				BF2098841871F80400D52321 /* timerViewController.h */,
-				BF2098851871F80400D52321 /* timerViewController.m */,
 				BF2372D61875164F009B43EF /* SWRevealViewController */,
 				BF8122EE18C0467B00606092 /* Images */,
 				BF2098871871F80400D52321 /* Images.xcassets */,
@@ -346,9 +356,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */,
-				BF2098861871F80400D52321 /* timerViewController.m in Sources */,
+				BF2098861871F80400D52321 /* TimerViewController.m in Sources */,
 				BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */,
 				BF2372E4187516BF009B43EF /* Workout.m in Sources */,
+				BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */,
+				BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */,
 				BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
 				BF2372E2187516BF009B43EF /* Exercise.m in Sources */,

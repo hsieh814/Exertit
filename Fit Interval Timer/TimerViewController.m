@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 hsieh. All rights reserved.
 //
 
-#import "timerViewController.h"
+#import "TimerViewController.h"
+#import "SWRevealViewController.h"
 
-@interface timerViewController ()
+@interface TimerViewController ()
 
 @end
 
@@ -16,12 +17,19 @@ static int minutesCount = 0;
 static int secondsCount = 0;
 static bool pauseTimer = 0;
 
-@implementation timerViewController
+@implementation TimerViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    // Slide out menu intialization
+    
+    _sidebarButton.target = self.revealViewController;
+    _sidebarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
     // Initialize time array with times value to pick from
     self.minArray = [[NSMutableArray alloc] init];
     self.secArray = [[NSMutableArray alloc] init];

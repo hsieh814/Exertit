@@ -62,7 +62,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOV-UJ-wLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="451"/>
+            <point key="canvasLocation" x="892" y="-260"/>
         </scene>
         <!--New Workout View Controller - New Workout-->
         <scene sceneID="e3X-qD-qfr">
@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bt-bl-TBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="451"/>
+            <point key="canvasLocation" x="1912" y="-242"/>
         </scene>
         <!--Workout View Controller - workout name-->
         <scene sceneID="axe-wD-HK1">
@@ -169,7 +169,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qL-az-Ydq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="1134"/>
+            <point key="canvasLocation" x="1912" y="441"/>
         </scene>
         <!--Workout Config View Controller - workout name-->
         <scene sceneID="Uje-qC-w6k">
@@ -302,19 +302,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMh-oW-vFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1998" y="1134"/>
+            <point key="canvasLocation" x="2746" y="441"/>
         </scene>
-        <!--Table View Controller - Exercises-->
+        <!--All Exercises Table View Controller - Exercises-->
         <scene sceneID="998-UP-Ilg">
             <objects>
-                <tableViewController id="thw-RJ-vhI" sceneMemberID="viewController">
+                <tableViewController id="thw-RJ-vhI" customClass="AllExercisesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="M2n-wn-3DO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fnI-O7-AXg">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fnI-O7-AXg" id="3LW-rd-X4t">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -327,11 +327,16 @@
                             <outlet property="delegate" destination="thw-RJ-vhI" id="ZMo-Jt-gAm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Exercises" id="uMc-RS-XUD"/>
+                    <navigationItem key="navigationItem" title="Exercises" id="uMc-RS-XUD">
+                        <barButtonItem key="leftBarButtonItem" title="=" id="Vev-D9-eUn"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sidebarButton" destination="Vev-D9-eUn" id="Qsu-fq-OqN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrB-Ec-PFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="1133"/>
+            <point key="canvasLocation" x="892" y="678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gf1-jB-VPn">
@@ -346,7 +351,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m97-61-iLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576" y="1134"/>
+            <point key="canvasLocation" x="2324" y="441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dvf-KY-70J">
@@ -361,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Wg-I4-3zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="1134"/>
+            <point key="canvasLocation" x="1456" y="441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wrc-gg-EJa">
@@ -377,12 +382,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXE-Zu-TNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="451"/>
+            <point key="canvasLocation" x="1456" y="-242"/>
         </scene>
-        <!--Timer View Controller - Workout 1-->
+        <!--Timer View Controller - Timer-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="timerViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="TimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zJH-xU-Aad"/>
                         <viewControllerLayoutGuide type="bottom" id="8jG-p4-h0X"/>
@@ -465,19 +470,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Workout 1" id="fbQ-XO-rYb">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="j1l-Up-e2d"/>
+                    <navigationItem key="navigationItem" title="Timer" id="fbQ-XO-rYb">
+                        <barButtonItem key="leftBarButtonItem" title="=" id="77l-AT-CWr"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="minDisplay" destination="4G9-0g-8jW" id="U84-YU-mzR"/>
                         <outlet property="minTime" destination="DAs-ue-Acy" id="ob3-5Q-aj4"/>
                         <outlet property="secDisplay" destination="2Dt-Si-UaE" id="pgW-Rv-OaD"/>
                         <outlet property="secTime" destination="POb-oG-0dI" id="fmw-vI-0c1"/>
+                        <outlet property="sidebarButton" destination="77l-AT-CWr" id="Cgr-yU-oMv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576" y="451"/>
+            <point key="canvasLocation" x="892" y="1379"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="ZH0-Qq-aWC">
@@ -546,13 +553,42 @@
                     <connections>
                         <segue destination="kHR-gO-6v0" kind="custom" identifier="Settings" customClass="SWRevealViewControllerSegue" id="YdT-fY-bJd"/>
                         <segue destination="1mR-fs-wtz" kind="custom" identifier="AllWorkouts" customClass="SWRevealViewControllerSegue" id="GI5-kF-lOt"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="Timer" customClass="SWRevealViewControllerSegue" id="x6f-G8-QRS"/>
+                        <segue destination="i6E-f0-6Gx" kind="custom" identifier="IntervalTimer" customClass="SWRevealViewControllerSegue" id="brh-Kf-i4J"/>
+                        <segue destination="thw-RJ-vhI" kind="custom" identifier="AllExercises" customClass="SWRevealViewControllerSegue" id="TQ4-FN-9Dh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKM-os-7MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263" y="-257"/>
+            <point key="canvasLocation" x="161" y="-260"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Interval Timer View Controller - Interval Timer-->
+        <scene sceneID="iSD-2F-oWG">
+            <objects>
+                <viewController id="i6E-f0-6Gx" customClass="IntervalTimerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ojc-pW-6V0"/>
+                        <viewControllerLayoutGuide type="bottom" id="r46-Qe-Aak"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9cC-2N-JLA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Interval Timer" id="zjY-O9-Ja0">
+                        <barButtonItem key="leftBarButtonItem" title="=" id="Fv0-gr-HkQ"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="sidebarButton" destination="Fv0-gr-HkQ" id="jat-AT-A7Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cgh-VU-c6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388" y="1379"/>
+        </scene>
+        <!--Settings Table View Controller - Settings-->
         <scene sceneID="Whz-Mq-nKX">
             <objects>
                 <tableViewController id="kHR-gO-6v0" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -560,15 +596,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableFooterView" contentMode="scaleToFill" id="6wG-cv-wPq">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Title" id="3Mf-1R-CeH">
-                                    <barButtonItem key="leftBarButtonItem" title="=" id="lmW-Ae-h9F"/>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <connections>
                             <outlet property="dataSource" destination="kHR-gO-6v0" id="1rr-Yc-eeN"/>
                             <outlet property="delegate" destination="kHR-gO-6v0" id="f71-hW-Sjz"/>
@@ -578,15 +605,17 @@
                         <barButtonItem id="UpF-k2-H1G"/>
                         <barButtonItem id="opL-Gb-0Qk"/>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" title="Settings" id="tZ4-9J-VKy">
+                        <barButtonItem key="leftBarButtonItem" title="=" id="E1y-U1-sJ8"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="sidebarButton" destination="lmW-Ae-h9F" id="sUb-GG-EVo"/>
+                        <outlet property="sidebarButton" destination="E1y-U1-sJ8" id="owf-vu-2P5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkn-hr-LJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707" y="-257"/>
+            <point key="canvasLocation" x="-117" y="1379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ScG-7z-xzB">
@@ -625,6 +654,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="GI5-kF-lOt"/>
     </inferredMetricsTieBreakers>
 </document>

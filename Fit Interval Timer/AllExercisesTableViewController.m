@@ -1,19 +1,19 @@
 //
-//  SettingsTableViewController.m
+//  AllExercisesTableViewController.m
 //  Fit Interval Timer
 //
-//  Created by Lena Hsieh on 3/2/2014.
+//  Created by Lena Hsieh on 3/5/2014.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
-#import "SettingsTableViewController.h"
+#import "AllExercisesTableViewController.h"
 #import "SWRevealViewController.h"
 
-@interface SettingsTableViewController ()
+@interface AllExercisesTableViewController ()
 
 @end
 
-@implementation SettingsTableViewController
+@implementation AllExercisesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,7 +34,6 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-
 }
 
 - (void)didReceiveMemoryWarning
