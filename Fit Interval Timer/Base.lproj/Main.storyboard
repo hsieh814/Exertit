@@ -171,6 +171,35 @@
             </objects>
             <point key="canvasLocation" x="1912" y="441"/>
         </scene>
+        <!--Table View Controller - Add Exercice-->
+        <scene sceneID="h6M-qq-ohd">
+            <objects>
+                <tableViewController id="Fhe-II-sV6" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="86O-ep-02Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7QI-I1-0Uu">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7QI-I1-0Uu" id="EKD-QQ-Gn5">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fhe-II-sV6" id="JiV-0J-RD4"/>
+                            <outlet property="delegate" destination="Fhe-II-sV6" id="QgD-Ji-Dus"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Exercice" id="H1u-b6-vAi"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UdO-ru-ZdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3162" y="441"/>
+        </scene>
         <!--Workout Config View Controller - workout name-->
         <scene sceneID="Uje-qC-w6k">
             <objects>
@@ -274,7 +303,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="thw-RJ-vhI" kind="push" id="2aE-gj-E9i"/>
+                                            <segue destination="Fhe-II-sV6" kind="push" id="Vap-ag-pNX"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -654,7 +683,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="GI5-kF-lOt"/>
     </inferredMetricsTieBreakers>
 </document>
