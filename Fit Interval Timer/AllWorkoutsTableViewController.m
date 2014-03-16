@@ -17,6 +17,8 @@
 
 @end
 
+timerAppDelegate *appDelegate;
+
 @implementation AllWorkoutsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -32,6 +34,8 @@
 {
     [super viewDidLoad];
 
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     // Slide out menu intialization
     
     _sidebarButton.target = self.revealViewController;
@@ -44,7 +48,7 @@
     self.workoutList = [[NSMutableArray alloc] init];
     
 /************************************************************************************/
-    timerAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
     
     // Fetch the workouts and reload the table
@@ -76,6 +80,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.fetchedRecordArray objectAtIndex:indexPath.row];
     cell.workoutNameLabel.text = workout.workoutName;
@@ -87,6 +93,8 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
@@ -94,6 +102,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     // Swipe to delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.workoutList removeObjectAtIndex:[indexPath row]];
@@ -104,10 +114,13 @@
 /* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if ([segue.identifier isEqualToString:@"AddWorkout"]) {
         
         UINavigationController *navigationController = segue.destinationViewController;
         NewWorkoutViewController *newWorkoutViewController = [navigationController viewControllers][0];
+        newWorkoutViewController.managedObjectContext = self.managedObjectContext;
         newWorkoutViewController.delegate = self;
     }
 }
@@ -116,23 +129,30 @@
 
 - (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller
 {
-	[self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)newWorkoutViewControllerDidSave:(NewWorkoutViewController *)controller
 {
-	[self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)newWorkoutViewController:(NewWorkoutViewController *)controller didAddWorkout:(Workout *)workout;
+- (void)newWorkoutViewController:(NewWorkoutViewController *)controller;
 {
-    // Add workout to the workout array
-    [self.workoutList addObject:workout];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+    // Re-fetch the workout list
+    self.fetchedRecordArray = [appDelegate getAllWorkouts];
 
     // Display the new workout in the table
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.workoutList count] - 1 inSection:0];
-	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.fetchedRecordArray count] - 1 inSection:0];
+//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    [self.tableView reloadData];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

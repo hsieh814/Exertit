@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Workout.h"
 
 @interface timerAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,5 +20,8 @@
 
 // Fetch data methods
 -(NSArray *)getAllWorkouts;
+
+// Add data methods
+-(void)addWorkoutEntry:(Workout*)newWorkout;
 
 @end

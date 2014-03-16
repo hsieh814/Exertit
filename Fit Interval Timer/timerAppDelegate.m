@@ -20,39 +20,39 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Create objects
-    NSManagedObjectContext *context = [self managedObjectContext];
-    Workout *workout = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"Workout"
-                                      inManagedObjectContext:context];
-    workout.workoutName = @"lala";
-    workout.minDuration = @"1";
-    workout.secDuration = @"30";
-
-    Exercise *exercise = [NSEntityDescription
-                                            insertNewObjectForEntityForName:@"Exercise"
-                                            inManagedObjectContext:context];
-    exercise.exerciseName = @"pushup";
-    exercise.exerciseSecDuration = @"30";
-    exercise.exerciseMinDuration = @"0";
-    
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    
-    // Add the exercise to the workout
-    [workout addToExerciseObject:exercise];
-    
-    // Create fetch requests and log the object attributes
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Workout"
-                                              inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (Workout *wk in fetchedObjects) {
-        NSLog(@"Name: %@", wk.workoutName);
-    }
+//    // Create objects
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    Workout *workout = [NSEntityDescription
+//                                      insertNewObjectForEntityForName:@"Workout"
+//                                      inManagedObjectContext:context];
+//    workout.workoutName = @"lala";
+//    workout.minDuration = @"1";
+//    workout.secDuration = @"30";
+//
+//    Exercise *exercise = [NSEntityDescription
+//                                            insertNewObjectForEntityForName:@"Exercise"
+//                                            inManagedObjectContext:context];
+//    exercise.exerciseName = @"pushup";
+//    exercise.exerciseSecDuration = @"30";
+//    exercise.exerciseMinDuration = @"0";
+//    
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//    }
+//    
+//    // Add the exercise to the workout
+//    [workout addToExerciseObject:exercise];
+//    
+//    // Create fetch requests and log the object attributes
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Workout"
+//                                              inManagedObjectContext:context];
+//    [fetchRequest setEntity:entity];
+//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//    for (Workout *wk in fetchedObjects) {
+//        NSLog(@"Name: %@", wk.workoutName);
+//    }
     
     return YES;
 }
@@ -161,6 +161,18 @@
     NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     return fetchedRecords;
+}
+
+// Add workout entry
+-(void)addWorkoutEntry:(Workout*)newWorkout
+{
+    Workout *workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:self.managedObjectContext];
+    workout = newWorkout;
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
 }
 
 @end

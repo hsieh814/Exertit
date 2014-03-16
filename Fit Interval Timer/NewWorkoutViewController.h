@@ -13,7 +13,7 @@
 
 @protocol NewWorkoutViewControllerDelegate <NSObject>
 - (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller;
-- (void)newWorkoutViewController:(NewWorkoutViewController *)controller didAddWorkout:(Workout *)workout;
+- (void)newWorkoutViewController:(NewWorkoutViewController *)controller;
 @end
 
 @interface NewWorkoutViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
@@ -29,5 +29,7 @@
 
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
+
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @end

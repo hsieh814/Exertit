@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NewWorkoutViewController.h"
+#import "timerAppDelegate.h"
 
 @interface AllWorkoutsTableViewController : UITableViewController <NewWorkoutViewControllerDelegate>
 

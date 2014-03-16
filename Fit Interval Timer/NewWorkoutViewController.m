@@ -8,6 +8,7 @@
 
 #import "NewWorkoutViewController.h"
 #import "Workout.h"
+#import "timerAppDelegate.h"
 
 @interface NewWorkoutViewController ()
 
@@ -17,7 +18,7 @@
 
 UIToolbar *pickerToolbar;
 Workout *workout;
-
+timerAppDelegate *appDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,6 +32,8 @@ Workout *workout;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 
     // Initialize time array with times value to pick from
     self.minArray = [[NSMutableArray alloc] init];
@@ -50,9 +53,9 @@ Workout *workout;
     for (int i = 2; i < 12; i++) {
         [self.secArray addObject:[NSString stringWithFormat:@"%d", i*5]];
     }
-
+    
     // Workout object initiailization
-    workout = [[Workout alloc] init];
+    workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:self.managedObjectContext];
     
     // Time pick initialization
 //    self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 500, self.timePicker.frame.size.width, self.timePicker.frame.size.height)];
@@ -83,6 +86,8 @@ Workout *workout;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     // Touch row to add text
     if (indexPath.section == 0) {
         [self.nameTextField becomeFirstResponder];
@@ -96,6 +101,8 @@ Workout *workout;
 // Time picker Done button
 -(void)pickerDone
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (workout.secDuration == NULL) {
         workout.secDuration = @"00";
     }
@@ -117,6 +124,8 @@ Workout *workout;
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (component == 1) {
         return [self.secArray count];
     } else {
@@ -128,6 +137,8 @@ Workout *workout;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (component == 1) {
         return [self.secArray objectAtIndex:row];
     } else {
@@ -137,6 +148,8 @@ Workout *workout;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (component == 1) {
         workout.secDuration = [self.secArray objectAtIndex:row];
     } else {
@@ -148,15 +161,16 @@ Workout *workout;
 
 - (IBAction)cancel:(id)sender
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     [self.delegate newWorkoutViewControllerDidCancel:self];
 }
 
 - (IBAction)done:(id)sender
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     workout.workoutName = self.nameTextField.text;
-    
-    [self.delegate newWorkoutViewController:self didAddWorkout:workout];
-
+    [self.delegate newWorkoutViewController:self];
 }
 
 @end

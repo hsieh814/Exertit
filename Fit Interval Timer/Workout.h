@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * workoutName;
 @property (nonatomic, retain) NSString * secDuration;
 @property (nonatomic, retain) NSSet *toExercise;
+
 @end
 
 @interface Workout (CoreDataGeneratedAccessors)
