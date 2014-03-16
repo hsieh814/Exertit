@@ -10,6 +10,8 @@
 
 @interface MenuViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *favoriteWorkoutList;
+@property (nonatomic, strong) NSArray *favoriteWorkoutList;
+
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @end

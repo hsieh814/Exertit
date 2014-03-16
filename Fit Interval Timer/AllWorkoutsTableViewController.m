@@ -10,6 +10,8 @@
 #import "SWRevealViewController.h"
 #import "WorkoutCell.h"
 #import "Workout.h"
+#import "Exercise.h"
+#import "timerAppDelegate.h"
 
 @interface AllWorkoutsTableViewController ()
 
@@ -40,7 +42,16 @@
     
     // Initialize the workout array
     self.workoutList = [[NSMutableArray alloc] init];
-
+    
+/************************************************************************************/
+    timerAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    // Fetch the workouts and reload the table
+    self.fetchedRecordArray = [appDelegate getAllWorkouts];
+    [self.tableView reloadData];
+/************************************************************************************/
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,13 +71,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.workoutList count];
+    return [self.fetchedRecordArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
-    Workout *workout = [self.workoutList objectAtIndex:indexPath.row];
+    Workout *workout = [self.fetchedRecordArray objectAtIndex:indexPath.row];
     cell.workoutNameLabel.text = workout.workoutName;
     cell.workoutDurationLabel.text = [NSString stringWithFormat:@"%@:%@", workout.minDuration, workout.secDuration];
 

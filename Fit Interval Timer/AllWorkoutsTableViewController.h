@@ -15,4 +15,8 @@
 
 @property (nonatomic, strong) NSMutableArray *workoutList;
 
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+
+@property (nonatomic, strong) NSArray *fetchedRecordArray;
+
 @end

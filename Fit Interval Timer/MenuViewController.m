@@ -8,15 +8,19 @@
 
 #import "MenuViewController.h"
 #import "Workout.h"
+#import "Exercise.h"
 #import "MenuCell.h"
 #import "SWRevealViewController.h"
 #import "SettingsTableViewController.h"
+#import "timerAppDelegate.h"
 
 @interface MenuViewController ()
 
 @end
 
 @implementation MenuViewController
+
+@synthesize managedObjectContext = _managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,14 +35,20 @@
 {
     [super viewDidLoad];
     
-    self.favoriteWorkoutList = [[NSMutableArray alloc] init];
+//    self.favoriteWorkoutList = [[NSMutableArray alloc] init];
+//    
+//    /**********************************************************/
+//    Workout *wk = [[Workout alloc]init];
+//    wk.workoutName = @"name";
+//    [self.favoriteWorkoutList addObject:wk];
+//    /**********************************************************/
     
-    /**********************************************************/
-    Workout *wk = [[Workout alloc]init];
-    wk.workoutName = @"name";
-    [self.favoriteWorkoutList addObject:wk];
-    /**********************************************************/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    
+    timerAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 }
 
 - (void)didReceiveMemoryWarning

@@ -2,18 +2,22 @@
 //  Exercise.h
 //  Fit Interval Timer
 //
-//  Created by Lena Hsieh on 2013-12-31.
-//  Copyright (c) 2013 hsieh. All rights reserved.
+//  Created by Lena Hsieh on 3/11/2014.
+//  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Exercise : NSObject
+@class Workout;
 
-@property (nonatomic, copy) NSString *exerciseName;
-@property (nonatomic, copy) NSString *exerciseSecDuration;
-@property (nonatomic, copy) NSString *exerciseMinDuration;
-@property (nonatomic, assign) NSInteger *exerciseSets;
-@property (nonatomic, assign) NSInteger *exerciseReps;
+@interface Exercise : NSManagedObject
+
+@property (nonatomic, retain) NSString * exerciseName;
+@property (nonatomic, retain) NSString * exerciseSets;
+@property (nonatomic, retain) NSString * exerciseMinDuration;
+@property (nonatomic, retain) NSString * exerciseSecDuration;
+@property (nonatomic, retain) NSString * exerciseReps;
+@property (nonatomic, retain) Workout *toWorkout;
 
 @end
