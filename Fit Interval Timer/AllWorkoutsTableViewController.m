@@ -45,7 +45,7 @@ timerAppDelegate *appDelegate;
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     // Initialize the workout array
-    self.workoutList = [[NSMutableArray alloc] init];
+//    self.workoutList = [[NSMutableArray alloc] init];
     
 /************************************************************************************/
     appDelegate = [UIApplication sharedApplication].delegate;
@@ -106,7 +106,14 @@ timerAppDelegate *appDelegate;
 
     // Swipe to delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.workoutList removeObjectAtIndex:[indexPath row]];
+        [self.managedObjectContext deleteObject:[self.fetchedRecordArray objectAtIndex:[indexPath row]]];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+        self.fetchedRecordArray = [appDelegate getAllWorkouts];
         [tableView reloadData];
     }
 }
