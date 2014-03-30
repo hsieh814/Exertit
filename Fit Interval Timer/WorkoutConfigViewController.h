@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
+#import "AddExerciseViewController.h"
+#import "ExerciseCell.h"
 
 @class WorkoutConfigViewController;
 
@@ -16,13 +18,13 @@
 - (void)workoutConfigViewController:(WorkoutConfigViewController *)controller didAddExercise:(Exercise *)exercise;
 @end
 
-@interface WorkoutConfigViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface WorkoutConfigViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AddExerciseViewControllerDelegate>
 
 // Delegate
 @property (nonatomic, weak) id <WorkoutConfigViewControllerDelegate> delegate;
 
 // Selected exercise
-@property (weak, nonatomic) IBOutlet UITableViewCell *selectedExercise;
+@property (weak, nonatomic) IBOutlet ExerciseCell *selectedExercise;
 
 // Duration
 @property (weak, nonatomic) IBOutlet UITextField *durationText;
@@ -30,6 +32,8 @@
 // Reps and Sets
 @property (weak, nonatomic) IBOutlet UILabel *repsText;
 @property (weak, nonatomic) IBOutlet UILabel *setsText;
+@property (weak, nonatomic) IBOutlet UIStepper *repsStepperItem;
+@property (weak, nonatomic) IBOutlet UIStepper *setsStepperItem;
 - (IBAction)repsStepper:(UIStepper *)sender;
 - (IBAction)setsStepper:(UIStepper *)sender;
 
@@ -41,5 +45,9 @@
 // Toolbar buttons
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
+
+// Core data
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSArray *fetchedRecordArray;
 
 @end

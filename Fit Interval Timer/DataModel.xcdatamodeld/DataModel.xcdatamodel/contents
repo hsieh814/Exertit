@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="exerciseMinDuration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exerciseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exerciseReps" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exerciseSecDuration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exerciseSets" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="toWorkout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="toExercise" inverseEntity="Workout" syncable="YES"/>
     </entity>
     <entity name="Workout" representedClassName="Workout" syncable="YES">
         <attribute name="minDuration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secDuration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workoutName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="toExercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="toWorkout" inverseEntity="Exercise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Workout" positionX="160" positionY="192" width="128" height="103"/>
-        <element name="Exercise" positionX="421" positionY="198" width="128" height="133"/>
+        <element name="Exercise" positionX="-63" positionY="-63" width="128" height="118"/>
+        <element name="Workout" positionX="-389" positionY="-78" width="128" height="88"/>
     </elements>
 </model>

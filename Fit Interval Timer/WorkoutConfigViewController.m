@@ -8,10 +8,13 @@
 
 #import "WorkoutConfigViewController.h"
 #import "Exercise.h"
+#import "timerAppDelegate.h"
 
 @interface WorkoutConfigViewController ()
 
 @end
+
+timerAppDelegate *appDelegate;
 
 @implementation WorkoutConfigViewController
 
@@ -30,6 +33,11 @@ Exercise *exercise;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+    // Managed Object Context
+    appDelegate = [UIApplication sharedApplication].delegate;
+//    self.managedObjectContext = appDelegate.managedObjectContext;
     
     // Initialize time array with times value to pick from
     self.minArray = [[NSMutableArray alloc] init];
@@ -50,8 +58,8 @@ Exercise *exercise;
         [self.secArray addObject:[NSString stringWithFormat:@"%d", i*5]];
     }
 
-    // Workout object initiailization
-    exercise = [[Exercise alloc] init];
+    // Exercise object initiailization
+    exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:self.managedObjectContext];
     
     // Time pick initialization
     //    self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 500, self.timePicker.frame.size.width, self.timePicker.frame.size.height)];
@@ -85,6 +93,8 @@ Exercise *exercise;
 // Time picker Done button
 -(void)pickerDone
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (exercise.exerciseSecDuration == NULL) {
         exercise.exerciseSecDuration = @"00";
     }
@@ -106,6 +116,8 @@ Exercise *exercise;
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (component == 1) {
         return [self.secArray count];
     } else {
@@ -117,6 +129,8 @@ Exercise *exercise;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (component == 1) {
         return [self.secArray objectAtIndex:row];
     } else {
@@ -126,6 +140,8 @@ Exercise *exercise;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if (component == 1) {
         exercise.exerciseSecDuration = [self.secArray objectAtIndex:row];
     } else {
@@ -137,13 +153,16 @@ Exercise *exercise;
 
 - (IBAction)cancel:(id)sender
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     NSLog(@"Cancel");
     [self.delegate workoutConfigViewControllerDidCancel:self];
 }
 
 - (IBAction)done:(id)sender
 {
-    //workout.workoutName = self.nameTextField.text;
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     NSLog(@"Done");
     [self.delegate workoutConfigViewController:self didAddExercise:exercise];
 }
@@ -151,13 +170,54 @@ Exercise *exercise;
 /* Steppers for reps and sets */
 
 - (IBAction)repsStepper:(UIStepper *)sender {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     double value = [sender value];
     [self.repsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
 }
 
 - (IBAction)setsStepper:(UIStepper *)sender {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     double value = [sender value];
     [self.setsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
+}
+
+/* Segue */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    if ([segue.identifier isEqualToString:@"AddExercise"]) {
+        
+
+    }
+}
+
+
+/* AddExerciseViewController delegate */
+
+- (void)addExerciseViewControllerDidCancel:(AddExerciseViewController *)controller
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+}
+
+- (void)addExerciseViewController:(AddExerciseViewController *)controller didAddExercise:(Exercise *)addExercise;
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
+    exercise = addExercise;
+    if (exercise.exerciseReps != nil && exercise.exerciseSets != nil) {
+        NSLog(@"set the reps and sets to default exercise values");
+        [self.repsStepperItem setValue:[exercise.exerciseReps doubleValue]];
+        [self.setsStepperItem setValue:[exercise.exerciseSets doubleValue]];
+    } else if (exercise.exerciseSecDuration != nil && exercise.exerciseMinDuration != nil) {
+        NSLog(@"set the min and sec to default exercise values");
+        self.durationText.text = [NSString stringWithFormat:@"%@:%@", exercise.exerciseMinDuration, exercise.exerciseSecDuration];
+    }
+    
+    self.selectedExercise.exerciseName.text = exercise.exerciseName;
 }
 
 @end

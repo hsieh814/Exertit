@@ -7,21 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Workout.h"
 
 @interface timerAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-// Core data
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator ;
-
-// Fetch data methods
--(NSArray *)getAllWorkouts;
-
-// Add data methods
--(void)addWorkoutEntry:(Workout*)newWorkout;
 
 @end

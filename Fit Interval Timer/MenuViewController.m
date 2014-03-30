@@ -34,21 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    self.favoriteWorkoutList = [[NSMutableArray alloc] init];
-//    
-//    /**********************************************************/
-//    Workout *wk = [[Workout alloc]init];
-//    wk.workoutName = @"name";
-//    [self.favoriteWorkoutList addObject:wk];
-//    /**********************************************************/
-    
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-    
-    timerAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 }
 
 - (void)didReceiveMemoryWarning

@@ -2,21 +2,19 @@
 //  Exercise.m
 //  Fit Interval Timer
 //
-//  Created by Lena Hsieh on 3/11/2014.
+//  Created by Lena Hsieh on 2014-03-24.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
 #import "Exercise.h"
-#import "Workout.h"
 
 
 @implementation Exercise
 
-@dynamic exerciseName;
-@dynamic exerciseSets;
 @dynamic exerciseMinDuration;
-@dynamic exerciseSecDuration;
+@dynamic exerciseName;
 @dynamic exerciseReps;
-@dynamic toWorkout;
+@dynamic exerciseSecDuration;
+@dynamic exerciseSets;
 
 @end

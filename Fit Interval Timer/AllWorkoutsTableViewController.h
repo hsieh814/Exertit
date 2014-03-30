@@ -10,14 +10,9 @@
 #import "NewWorkoutViewController.h"
 #import "timerAppDelegate.h"
 
-@interface AllWorkoutsTableViewController : UITableViewController <NewWorkoutViewControllerDelegate>
+@interface AllWorkoutsTableViewController : UITableViewController /*<NewWorkoutViewControllerDelegate>*/
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-
-@property (nonatomic, strong) NSMutableArray *workoutList;
-
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-
-@property (nonatomic, strong) NSArray *fetchedRecordArray;
+@property (nonatomic) NSMutableArray *workoutList;
 
 @end

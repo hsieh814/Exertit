@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewExerciseViewController.h"
+#import "timerAppDelegate.h"
 
-@interface AllExercisesTableViewController : UITableViewController
+@interface AllExercisesTableViewController : UITableViewController <NewExerciseViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (nonatomic) NSMutableArray *exerciseList;
 
 @end

@@ -50,6 +50,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -61,22 +63,29 @@
 /* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
         
         UINavigationController *navigationController = segue.destinationViewController;
         WorkoutConfigViewController *workoutConfigViewController = [navigationController viewControllers][0];
+        workoutConfigViewController.managedObjectContext = self.managedObjectContext;
         workoutConfigViewController.delegate = self;
     }
 }
 
 - (void)workoutConfigViewControllerDidCancel:(WorkoutConfigViewController *)controller
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     NSLog(@"Hit Cancel");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)workoutConfigViewController:(WorkoutConfigViewController *)controller didAddExercise:(Exercise *)exercise
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+
     // Add workout to the workout array
 //    [self.workoutList addObject:workout];
     

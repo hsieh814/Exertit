@@ -54,9 +54,6 @@ timerAppDelegate *appDelegate;
         [self.secArray addObject:[NSString stringWithFormat:@"%d", i*5]];
     }
     
-    // Workout object initiailization
-    workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:self.managedObjectContext];
-    
     // Time pick initialization
 //    self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 500, self.timePicker.frame.size.width, self.timePicker.frame.size.height)];
     self.timePicker = [[UIPickerView alloc] init];
@@ -75,7 +72,14 @@ timerAppDelegate *appDelegate;
     
     pickerToolbar.items = [NSArray arrayWithObjects:space, done, nil];
     self.durationTextField.inputAccessoryView = pickerToolbar;
-
+    
+    // Create an exercise with MagicalRecord if it does not exist
+    // exercise may exist if editing a existing one
+    if (!self.workout) {
+        self.workout = [Workout createEntity];
+    }
+    // Set the attributes to the corresponding areas
+    self.nameTextField.text = self.workout.workoutName;
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,14 +107,14 @@ timerAppDelegate *appDelegate;
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 
-    if (workout.secDuration == NULL) {
-        workout.secDuration = @"00";
+    if (self.workout.secDuration == NULL) {
+        self.workout.secDuration = @"00";
     }
-    if (workout.minDuration == NULL) {
-        workout.minDuration = @"00";
+    if (self.workout.minDuration == NULL) {
+        self.workout.minDuration = @"00";
     }
     
-    self.durationTextField.text = [NSString stringWithFormat:@"%@:%@", workout.minDuration, workout.secDuration];
+    self.durationTextField.text = [NSString stringWithFormat:@"%@:%@", self.workout.minDuration, self.workout.secDuration];
     [self.durationTextField resignFirstResponder];
 }
 
@@ -151,10 +155,21 @@ timerAppDelegate *appDelegate;
     NSLog(@"%@", NSStringFromSelector(_cmd));
 
     if (component == 1) {
-        workout.secDuration = [self.secArray objectAtIndex:row];
+        self.workout.secDuration = [self.secArray objectAtIndex:row];
     } else {
-        workout.minDuration = [self.minArray objectAtIndex:row];
+        self.workout.minDuration = [self.minArray objectAtIndex:row];
     }
+}
+
+/* Save data */
+- (void)saveContext {
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"You successfully saved your context.");
+        } else if (error) {
+            NSLog(@"Error saving context: %@", error.description);
+        }
+    }];
 }
 
 /* Bar buttons: cancel and done */
@@ -162,15 +177,22 @@ timerAppDelegate *appDelegate;
 - (IBAction)cancel:(id)sender
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-
-    [self.delegate newWorkoutViewControllerDidCancel:self];
+    
+    // Delete the newly created exercise
+    [self.workout deleteEntity];
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)done:(id)sender
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-    workout.workoutName = self.nameTextField.text;
-    [self.delegate newWorkoutViewController:self];
+    
+    self.workout.workoutName = self.nameTextField.text;
+    
+    [self saveContext];
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

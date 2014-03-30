@@ -44,7 +44,6 @@ typedef enum
 
 @end
 
-
 @implementation SWDirectionPanGestureRecognizer
 {
     BOOL _dragging;
@@ -560,6 +559,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     // now set the desired initial position
     [self _setFrontViewPosition:initialPosition withDuration:0.0];
+
 }
 
 

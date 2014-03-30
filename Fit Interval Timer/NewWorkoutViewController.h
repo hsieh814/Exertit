@@ -11,16 +11,17 @@
 
 @class NewWorkoutViewController;
 
-@protocol NewWorkoutViewControllerDelegate <NSObject>
-- (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller;
-- (void)newWorkoutViewController:(NewWorkoutViewController *)controller;
-@end
+//@protocol NewWorkoutViewControllerDelegate <NSObject>
+//- (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller;
+//- (void)newWorkoutViewController:(NewWorkoutViewController *)controller;
+//@end
 
 @interface NewWorkoutViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic, weak) id <NewWorkoutViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *durationTextField;
+
+@property (nonatomic, strong) Workout *workout;
 
 // Time picker view
 @property (retain, nonatomic) NSMutableArray *secArray;
@@ -30,6 +31,5 @@
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
 
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @end

@@ -8,6 +8,10 @@
 
 #import "AllExercisesTableViewController.h"
 #import "SWRevealViewController.h"
+#import "Exercise.h"
+#import "ExerciseCell.h"
+#import "timerAppDelegate.h"
+#import "AddExerciseViewController.h"
 
 @interface AllExercisesTableViewController ()
 
@@ -17,6 +21,8 @@
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -27,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Slide out menu intialization
     _sidebarButton.target = self.revealViewController;
@@ -34,7 +41,25 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    // Fetch all exercises
+    [self fetchAllExercises];
+    
+    // Reload table
+    [self.tableView reloadData];
+ }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Fetch all exercises
+    [self fetchAllExercises];
+    
+    // Reload table
+    [self.tableView reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -47,74 +72,96 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return self.exerciseList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    // Configure the cell...
+    ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
+    Exercise *exercise = self.exerciseList[indexPath.row];
+    cell.exerciseName.text = exercise.exerciseName;
+    
+    NSLog(@"%@", exercise);
     
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Swipe to delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        Exercise *exerciseToRemove = self.exerciseList[indexPath.row];
+        [exerciseToRemove deleteEntity];
+        [self saveContext];
+
+        [self.exerciseList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
+/* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    if ([segue.identifier isEqualToString:@"AddExercise"]) {
+        
+    }
 }
 
- */
+/* Fetch all exercises using MagicalRecords */
+- (void)fetchAllExercises
+{
+    self.exerciseList = [[Exercise findAllSortedBy:@"exerciseName" ascending:YES] mutableCopy];
+}
+
+/* Save data to the store */
+- (void)saveContext {
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+}
+
+#pragma mark - NewExerciseViewControllerDelegate
+
+- (void)newExerciseViewControllerDidCancel:(NewExerciseViewController *)controller
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)newExerciseViewControllerDidSave:(NewExerciseViewController *)controller
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)newExerciseViewController:(NewExerciseViewController *)controller;
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
 
 @end

@@ -11,4 +11,6 @@
 
 @interface WorkoutViewController : UITableViewController <WorkoutConfigViewControllerDelegate>
 
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+
 @end
