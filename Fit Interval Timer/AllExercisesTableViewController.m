@@ -12,6 +12,7 @@
 #import "ExerciseCell.h"
 #import "timerAppDelegate.h"
 #import "AddExerciseViewController.h"
+#import "WorkoutConfigViewController.h"
 
 @interface AllExercisesTableViewController ()
 
@@ -30,25 +31,23 @@
     return self;
 }
 
+// called the first time we enter the view
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    // Slide out menu intialization
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
+    if (_sidebarButton != nil) {
+        // Slide out menu intialization
+        _sidebarButton.target = self.revealViewController;
+        _sidebarButton.action = @selector(revealToggle:);
     
-    // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    // Fetch all exercises
-    [self fetchAllExercises];
-    
-    // Reload table
-    [self.tableView reloadData];
+        // Set the gesture
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
  }
 
+// called everytime we enter the view
 - (void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
@@ -119,6 +118,21 @@
     }
 }
 
+/* Called when a row is selected */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    // Get the previous view controller
+    if ([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2] isKindOfClass:[WorkoutConfigViewController class]]) {
+        
+        // Previous view controller is the WorkoutConfigViewController. Need to pass the selected exercise back.
+        Exercise *selectedExercise = self.exerciseList[indexPath.row];
+        [self.delegate allExercisesViewControllerDidSelectWorkout:self didSelectExercise:selectedExercise];
+    }
+
+}
+
 /* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -162,6 +176,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
-
 
 @end

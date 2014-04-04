@@ -149,13 +149,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bkZ-WB-0m9">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" id="bkZ-WB-0m9" customClass="ExerciseCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bkZ-WB-0m9" id="L2y-IS-57z">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exerciseName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1S-My-HIo">
+                                            <rect key="frame" x="20" y="11" width="109" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exerciseName" destination="s1S-My-HIo" id="xyi-2R-kyW"/>
+                                    <outlet property="exericseName" destination="s1S-My-HIo" id="VlU-BJ-K3C"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -248,7 +261,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" id="7QI-I1-0Uu" customClass="ExerciseCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7QI-I1-0Uu" id="EKD-QQ-Gn5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -283,7 +296,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdO-ru-ZdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3162" y="441"/>
+            <point key="canvasLocation" x="3289" y="451"/>
         </scene>
         <!--Workout Config View Controller - workout name-->
         <scene sceneID="Uje-qC-w6k">
@@ -370,25 +383,24 @@
                         <sections>
                             <tableViewSection id="xLI-G5-mY1">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aEY-yn-kcB" customClass="ExerciseCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aEY-yn-kcB">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aEY-yn-kcB" id="d2i-QP-eMc">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROx-dn-xbp">
-                                                    <rect key="frame" x="20" y="7" width="151" height="30"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl8-qm-eEJ">
+                                                    <rect key="frame" x="20" y="11" width="267" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <state key="normal" title="Select Exercise">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Fhe-II-sV6" kind="push" identifier="AddExercise" id="Vap-ag-pNX"/>
+                                            <segue destination="thw-RJ-vhI" kind="push" identifier="selectExercise" id="eUJ-xo-tsP"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -411,7 +423,7 @@
                         <outlet property="durationText" destination="5Lv-Yi-ZKT" id="d0p-wL-fL3"/>
                         <outlet property="repsStepperItem" destination="TFj-8b-bP0" id="VaS-Hq-bYf"/>
                         <outlet property="repsText" destination="71n-wQ-yLi" id="jev-HE-8Af"/>
-                        <outlet property="selectedExercise" destination="aEY-yn-kcB" id="ku7-ug-cAj"/>
+                        <outlet property="selectedExerciseLabel" destination="Nl8-qm-eEJ" id="Br8-lg-3A1"/>
                         <outlet property="setsStepperItem" destination="s2G-dX-QBf" id="VSZ-51-Gnd"/>
                         <outlet property="setsText" destination="VTY-3j-LAq" id="tqV-Fm-KaD"/>
                     </connections>
@@ -788,6 +800,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="GI5-kF-lOt"/>
     </inferredMetricsTieBreakers>
 </document>

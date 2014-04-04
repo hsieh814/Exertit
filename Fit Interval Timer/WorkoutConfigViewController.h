@@ -8,23 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
-#import "AddExerciseViewController.h"
+#import "AllExercisesTableViewController.h"
 #import "ExerciseCell.h"
+#import "ExerciseSetting.h"
 
-@class WorkoutConfigViewController;
-
-@protocol WorkoutConfigViewControllerDelegate <NSObject>
-- (void)workoutConfigViewControllerDidCancel:(WorkoutConfigViewController *)controller;
-- (void)workoutConfigViewController:(WorkoutConfigViewController *)controller didAddExercise:(Exercise *)exercise;
-@end
-
-@interface WorkoutConfigViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AddExerciseViewControllerDelegate>
-
-// Delegate
-@property (nonatomic, weak) id <WorkoutConfigViewControllerDelegate> delegate;
+@interface WorkoutConfigViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>
 
 // Selected exercise
-@property (weak, nonatomic) IBOutlet ExerciseCell *selectedExercise;
+@property (weak, nonatomic) IBOutlet UILabel *selectedExerciseLabel;
 
 // Duration
 @property (weak, nonatomic) IBOutlet UITextField *durationText;
@@ -46,8 +37,7 @@
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
 
-// Core data
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSArray *fetchedRecordArray;
+@property (nonatomic, strong) Workout *workout;
+@property (nonatomic, strong) ExerciseSetting *exerciseSetting;
 
 @end

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WorkoutConfigViewController.h"
 
-@interface WorkoutViewController : UITableViewController <WorkoutConfigViewControllerDelegate>
+@interface WorkoutViewController : UITableViewController
 
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic) NSMutableArray *exercisesForWorkout;
+
+@property (nonatomic, strong) Workout *workout;
 
 @end

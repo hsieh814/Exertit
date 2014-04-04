@@ -7,6 +7,10 @@
 //
 
 #import "WorkoutViewController.h"
+#import "Workout.h"
+#import "Exercise.h"
+#import "ExerciseSetting.h"
+#import "SWRevealViewController.h"
 
 @interface WorkoutViewController ()
 
@@ -26,6 +30,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+}
+
+// called everytime we enter the view
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Fetch all exercises
+    [self fetchAllExercisesForWorkout];
+    
+    // Reload table
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,50 +67,67 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell" forIndexPath:indexPath];
+    ExerciseSetting *exerciseSetting = [self.exercisesForWorkout objectAtIndex:indexPath.row];
+    cell.exerciseName.text = exerciseSetting.name;
     
     return cell;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Swipe to delete
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        Workout *workoutToRemove = self.workoutList[indexPath.row];
+//        [workoutToRemove deleteEntity];
+//        [self saveContext];
+        
+//        [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 /* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
-        
         UINavigationController *navigationController = segue.destinationViewController;
-        WorkoutConfigViewController *workoutConfigViewController = [navigationController viewControllers][0];
-        workoutConfigViewController.managedObjectContext = self.managedObjectContext;
-        workoutConfigViewController.delegate = self;
+        WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navigationController.childViewControllers[0];
+        
+        workoutConfigViewController.workout = self.workout;
+        
+        // Set the title of next controller to the workout's name
+        workoutConfigViewController.title = self.workout.workoutName;
+        
+        // Set the WorkoutConfigViewController delegate
+//        workoutConfigViewController.delegate = self;
     }
 }
 
-- (void)workoutConfigViewControllerDidCancel:(WorkoutConfigViewController *)controller
+- (void)fetchAllExercisesForWorkout
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    NSLog(@"Hit Cancel");
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSArray *workouts = [[Workout findAllSortedBy:@"workoutName" ascending:NO] mutableCopy];
+    if (workouts.count == 1) {
+        NSLog(@"fetchAllExercisesForWorkout - found workout");
+        Workout *workout = workouts[0];
+        self.exercisesForWorkout = [[workout.exerciseGroup allObjects] mutableCopy];
+    } else {
+        NSLog(@"fetchAllExercisesForWorkout - more than one workout");
+    }
 }
 
-- (void)workoutConfigViewController:(WorkoutConfigViewController *)controller didAddExercise:(Exercise *)exercise
-{
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-
-    // Add workout to the workout array
-//    [self.workoutList addObject:workout];
-    
-    // Display the new workout in the table
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.workoutList count] - 1 inSection:0];
-//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-    NSLog(@"Hit done button");
-    [self dismissViewControllerAnimated:YES completion:nil];
+/* Save data to the store */
+- (void)saveContext {
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
 @end

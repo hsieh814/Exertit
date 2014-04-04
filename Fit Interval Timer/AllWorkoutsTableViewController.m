@@ -11,14 +11,11 @@
 #import "Workout.h"
 #import "WorkoutCell.h"
 #import "Exercise.h"
-#import "timerAppDelegate.h"
 #import "WorkoutViewController.h"
 
 @interface AllWorkoutsTableViewController ()
 
 @end
-
-timerAppDelegate *appDelegate;
 
 @implementation AllWorkoutsTableViewController
 
@@ -31,6 +28,7 @@ timerAppDelegate *appDelegate;
     return self;
 }
 
+// called the first time we enter the view
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,15 +41,9 @@ timerAppDelegate *appDelegate;
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    // Fetch all workouts
-    [self fetchAllWorkouts];
-    
-    // Reload table
-    [self.tableView reloadData];
-    
 }
 
+// called everytime we enter the view
 - (void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
@@ -92,15 +84,13 @@ timerAppDelegate *appDelegate;
     cell.workoutNameLabel.text = workout.workoutName;
     cell.workoutDurationLabel.text = [NSString stringWithFormat:@"%@:%@", workout.minDuration, workout.secDuration];
 
-    NSLog(@"%@", workout);
-
     return cell;
 }
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Return NO if you do not want the specified item to be editable.
     return YES;
@@ -125,13 +115,22 @@ timerAppDelegate *appDelegate;
 /* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if ([segue.identifier isEqualToString:@"AddWorkout"]) {
 
         
     }else if ([segue.identifier isEqualToString:@"goToWorkout"]) {
-
+        // index of the selected row
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        UINavigationController *navigationController = segue.destinationViewController;
+        WorkoutViewController *workoutViewController = (WorkoutViewController *)navigationController.childViewControllers[0];
+        
+        Workout *selectedWorkout = self.workoutList[indexPath.row];
+        workoutViewController.workout = selectedWorkout;
+        
+        // Set the title of next controller to the workout's name
+        workoutViewController.title = selectedWorkout.workoutName;
     }
 }
 
@@ -145,29 +144,5 @@ timerAppDelegate *appDelegate;
 - (void)saveContext {
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
-
-#pragma mark - NewWorkoutViewControllerDelegate
-
-//- (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller
-//{
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-//
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-//
-//- (void)newWorkoutViewControllerDidSave:(NewWorkoutViewController *)controller
-//{
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-//
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-//
-//- (void)newWorkoutViewController:(NewWorkoutViewController *)controller;
-//{
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-//
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 
 @end

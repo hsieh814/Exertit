@@ -11,11 +11,6 @@
 
 @class NewWorkoutViewController;
 
-//@protocol NewWorkoutViewControllerDelegate <NSObject>
-//- (void)newWorkoutViewControllerDidCancel:(NewWorkoutViewController *)controller;
-//- (void)newWorkoutViewController:(NewWorkoutViewController *)controller;
-//@end
-
 @interface NewWorkoutViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;

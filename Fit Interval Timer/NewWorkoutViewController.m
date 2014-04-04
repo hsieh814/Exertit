@@ -17,8 +17,6 @@
 @implementation NewWorkoutViewController
 
 UIToolbar *pickerToolbar;
-Workout *workout;
-timerAppDelegate *appDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

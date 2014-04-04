@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "NewWorkoutViewController.h"
-#import "timerAppDelegate.h"
 
-@interface AllWorkoutsTableViewController : UITableViewController /*<NewWorkoutViewControllerDelegate>*/
+@interface AllWorkoutsTableViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic) NSMutableArray *workoutList;
