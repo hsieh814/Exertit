@@ -17,6 +17,9 @@
 @implementation WorkoutConfigViewController
 
 UIToolbar *pickerToolbar;
+NSTimeInterval nsTimeInterval;
+NSString *seconds;
+NSString *minutes;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -70,6 +73,9 @@ UIToolbar *pickerToolbar;
     pickerToolbar.items = [NSArray arrayWithObjects:space, done, nil];
     self.durationText.inputAccessoryView = pickerToolbar;
     
+    // NSTimeInterval set to 0
+    nsTimeInterval = 0.0;
+    
     // Initialize newExericse object
     self.exerciseSetting = [ExerciseSetting createEntity];
 }
@@ -114,16 +120,17 @@ UIToolbar *pickerToolbar;
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    if (self.exerciseSetting.sec == NULL) {
-        self.exerciseSetting.sec = @"00";
+    if (seconds == nil) {
+        seconds = @"00";
     }
-    if (self.exerciseSetting.min == NULL) {
-        self.exerciseSetting.min = @"00";
+    if (minutes == nil) {
+        minutes = @"00";
     }
-    NSTimeInterval nsTimeInterval = [self.exerciseSetting.min doubleValue] * 60 + [self.exerciseSetting.sec doubleValue];
+    
+    nsTimeInterval = [minutes doubleValue] * 60 + [seconds doubleValue];
     self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
-    NSLog(@"\n *************************************** \n %@ \n ***************************************\n", self.exerciseSetting.timeInterval);
-    self.durationText.text = [NSString stringWithFormat:@"%@:%@", self.exerciseSetting.min, self.exerciseSetting.sec];
+    self.durationText.text = [NSString stringWithFormat:@"%@:%@", minutes, seconds];
+    
     [self.durationText resignFirstResponder];
 }
 
@@ -158,9 +165,9 @@ UIToolbar *pickerToolbar;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (component == 1) {
-        self.exerciseSetting.sec = [self.secArray objectAtIndex:row];
+        seconds = [self.secArray objectAtIndex:row];
     } else {
-        self.exerciseSetting.min = [self.minArray objectAtIndex:row];
+        minutes = [self.minArray objectAtIndex:row];
     }
 }
 

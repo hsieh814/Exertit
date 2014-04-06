@@ -13,10 +13,8 @@
 
 @interface ExerciseSetting : NSManagedObject
 
-@property (nonatomic, retain) NSString * min;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * reps;
-@property (nonatomic, retain) NSString * sec;
 @property (nonatomic, retain) NSNumber * sets;
 @property (nonatomic, retain) NSNumber * timeInterval;
 @property (nonatomic, retain) Exercise *baseExercise;

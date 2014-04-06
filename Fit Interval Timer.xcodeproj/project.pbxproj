@@ -38,7 +38,7 @@
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
 		BF1501A518F1DF4900002C6A /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1501A418F1DF4900002C6A /* Workout.m */; };
 		BF1501A818F1DF4900002C6A /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1501A718F1DF4900002C6A /* Exercise.m */; };
-		BF1501B118F1ED4F00002C6A /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1501B018F1ED4F00002C6A /* ExerciseSetting.m */; };
+		BF1501B418F1FB9900002C6A /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1501B318F1FB9900002C6A /* ExerciseSetting.m */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
@@ -150,8 +150,8 @@
 		BF1501A418F1DF4900002C6A /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		BF1501A618F1DF4900002C6A /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
 		BF1501A718F1DF4900002C6A /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
-		BF1501AF18F1ED4F00002C6A /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
-		BF1501B018F1ED4F00002C6A /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
+		BF1501B218F1FB9900002C6A /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
+		BF1501B318F1FB9900002C6A /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Fit Interval Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit Interval Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -342,8 +342,8 @@
 		BF0E4CB318EA5DA900573517 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				BF1501AF18F1ED4F00002C6A /* ExerciseSetting.h */,
-				BF1501B018F1ED4F00002C6A /* ExerciseSetting.m */,
+				BF1501B218F1FB9900002C6A /* ExerciseSetting.h */,
+				BF1501B318F1FB9900002C6A /* ExerciseSetting.m */,
 				BF1501A618F1DF4900002C6A /* Exercise.h */,
 				BF1501A718F1DF4900002C6A /* Exercise.m */,
 				BF1501A318F1DF4900002C6A /* Workout.h */,
@@ -636,7 +636,7 @@
 				BF00D39018E8592600DA4CD7 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */,
 				BF00D39418E8592600DA4CD7 /* NSPersistentStore+MagicalRecord.m in Sources */,
-				BF1501B118F1ED4F00002C6A /* ExerciseSetting.m in Sources */,
+				BF1501B418F1FB9900002C6A /* ExerciseSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

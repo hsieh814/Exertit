@@ -55,7 +55,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Return the number of sections.
     return 1;
@@ -63,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Return the number of rows in the section.
     return self.exercisesForWorkout.count;
@@ -71,7 +71,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell" forIndexPath:indexPath];
     ExerciseSetting *exerciseSetting = [self.exercisesForWorkout objectAtIndex:indexPath.row];
@@ -87,12 +87,12 @@
     
     // Swipe to delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        Workout *workoutToRemove = self.workoutList[indexPath.row];
-//        [workoutToRemove deleteEntity];
-//        [self saveContext];
+        ExerciseSetting *exerciseSettingToRemove = self.exercisesForWorkout[indexPath.row];
+        [exerciseSettingToRemove deleteEntity];
+        [self saveContext];
         
-//        [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -106,30 +106,16 @@
         WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navigationController.childViewControllers[0];
         
         workoutConfigViewController.workout = self.workout;
-        NSLog(@"----------\n %@", self.workout);
         
         // Set the title of next controller to the workout's name
         workoutConfigViewController.title = self.workout.workoutName;
-        
-        // Set the WorkoutConfigViewController delegate
-//        workoutConfigViewController.delegate = self;
     }
 }
 
 - (void)fetchAllExercisesForWorkout
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
-//    NSArray *workouts = [[Workout findAllSortedBy:@"workoutName" ascending:NO] mutableCopy];
-//    if (workouts.count == 1) {
-//        NSLog(@"fetchAllExercisesForWorkout - found workout");
-//        Workout *workout = workouts[0];
-//        self.exercisesForWorkout = [[workout.exerciseGroup allObjects] mutableCopy];
-//    } else {
-//        NSLog(@"fetchAllExercisesForWorkout - more than one workout");
-//    }
     
-    NSLog(@"--> \n %@", self.workout);
     self.exercisesForWorkout = [[self.workout.exerciseGroup allObjects] mutableCopy];
 }
 

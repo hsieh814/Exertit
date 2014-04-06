@@ -13,10 +13,8 @@
 
 @implementation ExerciseSetting
 
-@dynamic min;
 @dynamic name;
 @dynamic reps;
-@dynamic sec;
 @dynamic sets;
 @dynamic timeInterval;
 @dynamic baseExercise;
