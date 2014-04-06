@@ -55,14 +55,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     // Return the number of rows in the section.
-    return 0;
+    return self.exercisesForWorkout.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,6 +106,7 @@
         WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navigationController.childViewControllers[0];
         
         workoutConfigViewController.workout = self.workout;
+        NSLog(@"----------\n %@", self.workout);
         
         // Set the title of next controller to the workout's name
         workoutConfigViewController.title = self.workout.workoutName;
@@ -115,14 +120,17 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    NSArray *workouts = [[Workout findAllSortedBy:@"workoutName" ascending:NO] mutableCopy];
-    if (workouts.count == 1) {
-        NSLog(@"fetchAllExercisesForWorkout - found workout");
-        Workout *workout = workouts[0];
-        self.exercisesForWorkout = [[workout.exerciseGroup allObjects] mutableCopy];
-    } else {
-        NSLog(@"fetchAllExercisesForWorkout - more than one workout");
-    }
+//    NSArray *workouts = [[Workout findAllSortedBy:@"workoutName" ascending:NO] mutableCopy];
+//    if (workouts.count == 1) {
+//        NSLog(@"fetchAllExercisesForWorkout - found workout");
+//        Workout *workout = workouts[0];
+//        self.exercisesForWorkout = [[workout.exerciseGroup allObjects] mutableCopy];
+//    } else {
+//        NSLog(@"fetchAllExercisesForWorkout - more than one workout");
+//    }
+    
+    NSLog(@"--> \n %@", self.workout);
+    self.exercisesForWorkout = [[self.workout.exerciseGroup allObjects] mutableCopy];
 }
 
 /* Save data to the store */

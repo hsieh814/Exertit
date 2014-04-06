@@ -120,7 +120,9 @@ UIToolbar *pickerToolbar;
     if (self.exerciseSetting.min == NULL) {
         self.exerciseSetting.min = @"00";
     }
-    
+    NSTimeInterval nsTimeInterval = [self.exerciseSetting.min doubleValue] * 60 + [self.exerciseSetting.sec doubleValue];
+    self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
+    NSLog(@"\n *************************************** \n %@ \n ***************************************\n", self.exerciseSetting.timeInterval);
     self.durationText.text = [NSString stringWithFormat:@"%@:%@", self.exerciseSetting.min, self.exerciseSetting.sec];
     [self.durationText resignFirstResponder];
 }
@@ -177,13 +179,16 @@ UIToolbar *pickerToolbar;
 - (IBAction)done:(id)sender
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    NSLog(@"%@", self.workout);
     
-    NSLog(@"++++++++++++++++++++++++++++++++++");
+    NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSLog(@"%@", self.exerciseSetting);
     
     [self.workout addExerciseGroupObject:self.exerciseSetting];
-    NSLog(@"%@", self.workout);
     [self saveContext];
+    
+    NSLog(@"#########################################################");
+    NSLog(@"%@", self.workout);
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -205,25 +210,28 @@ UIToolbar *pickerToolbar;
     
     double value = [sender value];
     [self.repsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
+    self.exerciseSetting.reps = [NSNumber numberWithDouble:value];
 }
 
 - (IBAction)setsStepper:(UIStepper *)sender {
 
     double value = [sender value];
     [self.setsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
+    self.exerciseSetting.sets = [NSNumber numberWithDouble:value];
 }
 
 #pragma mark - AllExercisesTableViewControllerDelegate
 
-// Pass the selected exercise
+// Pass the selected Exercise object
 - (void)allExercisesViewControllerDidSelectWorkout:(AllExercisesTableViewController *)controller didSelectExercise:(Exercise *)exercise
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // display the selected exercise's name
     self.selectedExerciseLabel.text = exercise.exerciseName;
-    NSLog(@"%@", exercise.exerciseName);
     self.exerciseSetting.name = exercise.exerciseName;
+    self.exerciseSetting.baseExercise = exercise;
+    NSLog(@"%@", self.exerciseSetting.baseExercise);
     [self.navigationController popViewControllerAnimated:YES];
 }
 
