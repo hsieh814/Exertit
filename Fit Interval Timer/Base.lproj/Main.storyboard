@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EbL-XK-Bkt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EbL-XK-Bkt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--All Workouts Table View Controller - Workouts-->
@@ -38,7 +38,7 @@
                                 <connections>
                                     <outlet property="workoutDurationLabel" destination="kOe-Mz-2Tc" id="VCd-qe-i2N"/>
                                     <outlet property="workoutNameLabel" destination="vN9-TV-8Ja" id="Tlp-9Z-rOi"/>
-                                    <segue destination="L7m-bP-KA4" kind="modal" identifier="goToWorkout" id="vDP-TK-cqq"/>
+                                    <segue destination="iUr-fp-oIT" kind="push" identifier="goToWorkout" id="yhK-hJ-eqv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -82,11 +82,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-z7-qMK">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-z7-qMK">
                                                     <rect key="frame" x="20" y="7" width="280" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -105,6 +106,9 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J9G-QY-P4Y">
                                                     <rect key="frame" x="20" y="7" width="280" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.97162506780000002" green="1" blue="0.96887629789999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.97254908080000002" green="1" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -161,6 +165,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWi-Rd-v5c">
                                                     <rect key="frame" x="20" y="7" width="280" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -225,9 +230,10 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" placeholder="duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Lv-Yi-ZKT">
-                                    <rect key="frame" x="148" y="27" width="61" height="30"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="00:00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Lv-Yi-ZKT">
+                                    <rect key="frame" x="148" y="27" width="54" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -366,6 +372,8 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.98708177658939411" green="0.99843430519104004" blue="0.98370775364040441" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.98287123031855428" blue="0.98397416870469023" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="exerciseName" destination="cu6-f6-9yr" id="tiE-rj-my8"/>
                                 </connections>
@@ -408,21 +416,6 @@
             </objects>
             <point key="canvasLocation" x="2324" y="441"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dvf-KY-70J">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="L7m-bP-KA4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c2M-dt-ppy">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="iUr-fp-oIT" kind="relationship" relationship="rootViewController" id="zvc-V2-F75"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Wg-I4-3zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1456" y="441"/>
-        </scene>
         <!--Workout View Controller - workout name-->
         <scene sceneID="tcZ-Rq-YVK">
             <objects>
@@ -458,6 +451,7 @@
                             <outlet property="delegate" destination="iUr-fp-oIT" id="bbf-Di-ZIB"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="workout name" id="woD-p1-dgm">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="Gs7-Rt-2VD">
                             <connections>
@@ -465,6 +459,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAb-lD-7FE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -756,7 +751,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="GI5-kF-lOt"/>
+        <segue reference="eUJ-xo-tsP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,9 +7,6 @@
 //
 
 #import "timerAppDelegate.h" 
-#import "Workout.h"
-#import "Exercise.h"
-#import "SWRevealViewController.h"
 
 @implementation timerAppDelegate {
 }

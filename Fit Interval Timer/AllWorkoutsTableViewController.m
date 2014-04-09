@@ -31,7 +31,7 @@
 // called the first time we enter the view
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     NSLog(@"%@", NSStringFromSelector(_cmd));
 
@@ -123,8 +123,7 @@
     }else if ([segue.identifier isEqualToString:@"goToWorkout"]) {
         // index of the selected row
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        UINavigationController *navigationController = segue.destinationViewController;
-        WorkoutViewController *workoutViewController = (WorkoutViewController *)navigationController.childViewControllers[0];
+        WorkoutViewController *workoutViewController = segue.destinationViewController;
         
         Workout *selectedWorkout = self.workoutList[indexPath.row];
         workoutViewController.workout = selectedWorkout;

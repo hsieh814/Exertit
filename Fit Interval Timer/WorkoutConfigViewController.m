@@ -60,6 +60,7 @@ NSString *minutes;
     self.timePicker.showsSelectionIndicator = YES;
     self.timePicker.delegate = self;
     self.timePicker.dataSource = self;
+    self.timePicker.backgroundColor = [UIColor whiteColor];
     self.durationText.inputView = self.timePicker;
     
     // Done bar button
@@ -186,13 +187,12 @@ NSString *minutes;
 - (IBAction)done:(id)sender
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    NSLog(@"%@", self.workout);
-    
-    NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    NSLog(@"%@", self.exerciseSetting);
     
     [self.workout addExerciseGroupObject:self.exerciseSetting];
     [self saveContext];
+    
+    NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    NSLog(@"%@", self.exerciseSetting);
     
     NSLog(@"#########################################################");
     NSLog(@"%@", self.workout);

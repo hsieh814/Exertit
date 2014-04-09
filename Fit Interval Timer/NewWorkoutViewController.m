@@ -58,6 +58,7 @@ UIToolbar *pickerToolbar;
     self.timePicker.showsSelectionIndicator = YES;
     self.timePicker.delegate = self;
     self.timePicker.dataSource = self;
+    self.timePicker.backgroundColor = [UIColor whiteColor];
     self.durationTextField.inputView = self.timePicker;
     
     // Done bar button

@@ -20,8 +20,6 @@
 
 @implementation MenuViewController
 
-@synthesize managedObjectContext = _managedObjectContext;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
