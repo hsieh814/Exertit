@@ -11,7 +11,6 @@
 #import "Exercise.h"
 #import "ExerciseCell.h"
 #import "timerAppDelegate.h"
-#import "AddExerciseViewController.h"
 #import "WorkoutConfigViewController.h"
 
 @interface AllExercisesTableViewController ()
@@ -122,13 +121,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
-    // Get the previous view controller
-    if ([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2] isKindOfClass:[WorkoutConfigViewController class]]) {
-        
+    
+    if ([self.presentingViewController isKindOfClass:[SWRevealViewController class]]) {
         // Previous view controller is the WorkoutConfigViewController. Need to pass the selected exercise back.
         Exercise *selectedExercise = self.exerciseList[indexPath.row];
         [self.delegate allExercisesViewControllerDidSelectWorkout:self didSelectExercise:selectedExercise];
+    } else {
+        NSLog(@"here");
+//        [self performSegueWithIdentifier:@"EditExercise" sender:self];
     }
 
 }
@@ -139,7 +139,18 @@
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
+        NSLog(@"AddExercise segue");
         
+    } else if ([segue.identifier isEqualToString:@"EditExercise"]) {
+        NSLog(@"EditExercise segue");
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        NewExerciseViewController *newExerciseViewController = (NewExerciseViewController *)navigationController.childViewControllers[0];
+        newExerciseViewController.title = @"Edit Exercise";
+        Exercise *selectedExercise = self.exerciseList[indexPath.row];
+        newExerciseViewController.exercise = selectedExercise;
     }
 }
 
