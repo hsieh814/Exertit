@@ -108,8 +108,22 @@
     
     // Swipe to delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // Remove Exercise object
         Exercise *exerciseToRemove = self.exerciseList[indexPath.row];
         [exerciseToRemove deleteEntity];
+        
+        // Remove the associated ExerciseSetting objects
+        // Change NSSet to NSArray to get object at index
+        NSArray *exerciseSettingArray = [exerciseToRemove.highLevelExercise allObjects];
+        
+        if (sizeof(exerciseSettingArray) > 0) {
+            for (int i = 0; i < [exerciseSettingArray count]; i++) {
+                ExerciseSetting *exerciseSetting = exerciseSettingArray[i];
+                [exerciseSetting deleteEntity];
+            }
+        }
+        
         [self saveContext];
 
         [self.exerciseList removeObjectAtIndex:indexPath.row];

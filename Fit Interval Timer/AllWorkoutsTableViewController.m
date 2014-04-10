@@ -103,8 +103,18 @@
 
     // Swipe to delete
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // Remove the Workout object
         Workout *workoutToRemove = self.workoutList[indexPath.row];
         [workoutToRemove deleteEntity];
+        
+        // Need to also remove the associated ExerciseSetting objects
+        NSArray *exerciseSettingArray = [workoutToRemove.exerciseGroup allObjects];
+        for (int i = 0; i < [exerciseSettingArray count]; i++) {
+            ExerciseSetting *exerciseSetting = exerciseSettingArray[i];
+            [exerciseSetting deleteEntity];
+        }
+        
         [self saveContext];
         
         [self.workoutList removeObjectAtIndex:indexPath.row];

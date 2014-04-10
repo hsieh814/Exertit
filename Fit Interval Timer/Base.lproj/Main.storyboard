@@ -376,7 +376,6 @@
                                 <color key="tintColor" red="1" green="0.98287123031855428" blue="0.98397416870469023" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="exerciseName" destination="cu6-f6-9yr" id="tiE-rj-my8"/>
-                                    <segue destination="4o3-o4-DGq" kind="modal" identifier="EditExercise" id="tBf-Ap-ymt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -396,6 +395,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="sidebarButton" destination="Vev-D9-eUn" id="Qsu-fq-OqN"/>
+                        <segue destination="4o3-o4-DGq" kind="modal" identifier="EditExercise" id="3iG-zs-gfc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrB-Ec-PFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -802,6 +802,7 @@
         <scene sceneID="zuU-FV-Br5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="4o3-o4-DGq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Hjr-Jx-p8z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kt4-q9-vxa">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

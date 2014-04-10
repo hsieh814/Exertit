@@ -75,7 +75,15 @@
 
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell" forIndexPath:indexPath];
     ExerciseSetting *exerciseSetting = [self.exercisesForWorkout objectAtIndex:indexPath.row];
-    cell.exerciseName.text = exerciseSetting.name;
+    if (exerciseSetting.baseExercise == nil) {
+        NSLog(@"something fishy...");
+        [exerciseSetting deleteEntity];
+        [self saveContext];
+        
+        [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
+    } else {
+        cell.exerciseName.text = exerciseSetting.name;
+    }
     
     return cell;
 }
@@ -92,6 +100,7 @@
         [self saveContext];
         
         [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
