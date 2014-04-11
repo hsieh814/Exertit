@@ -15,7 +15,7 @@
 
 static int minutesCount = 0;
 static int secondsCount = 0;
-static bool pauseTimer = 0;
+static bool pauseTimer = 1;
 
 @implementation TimerViewController
 
@@ -35,13 +35,16 @@ static bool pauseTimer = 0;
     self.secArray = [[NSMutableArray alloc] init];
 
     for (int j = 0; j < 60; j++) {
-        [self.minArray addObject:[NSString stringWithFormat:@"%d", j]];
+        [self.minArray addObject:[NSString stringWithFormat:@"%02d", j]];
     }
     
     for (int i = 0; i < 12; i++) {
-        [self.secArray addObject:[NSString stringWithFormat:@"%d", i*5]];
+        [self.secArray addObject:[NSString stringWithFormat:@"%02d", i*5]];
     }
     
+    // Set the default setMin and setSec to zero
+    self.setMin = 0;
+    self.setSec = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,9 +87,13 @@ static bool pauseTimer = 0;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (component == 1) {
-        self.secTime.text = [self.secArray objectAtIndex:row];
+        self.secDisplay.text = [self.secArray objectAtIndex:row];
+        secondsCount = [self.secDisplay.text intValue];
+        self.setSec = secondsCount;
     } else {
-        self.minTime.text = [self.minArray objectAtIndex:row];
+        self.minDisplay.text = [self.minArray objectAtIndex:row];
+        minutesCount = [self.minDisplay.text intValue];
+        self.setMin = minutesCount;
     }
 }
 
@@ -94,36 +101,50 @@ static bool pauseTimer = 0;
 
 - (IBAction)startTimer:(id)sender {
     
-    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                         target: self
-                                                       selector:@selector(decrementTimer)
-                                                       userInfo:nil
-                                                        repeats:YES];
-    secondsCount = [self.secTime.text intValue];
-    minutesCount = [self.minTime.text intValue];
-    self.minDisplay.text = [NSString stringWithFormat:@"%02d", minutesCount];
-    self.secDisplay.text = [NSString stringWithFormat:@"%02d", secondsCount];
-    
-//    [(UIButton *)sender setHidden:YES];
-    
-}
-
-- (IBAction)stopTimer:(id)sender {
-
     if (pauseTimer) {
+
+        // Change label to PAUSE
+        [self.startLabel setTitle:@"PAUSE" forState:UIControlStateNormal];
+        
         self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                              target: self
                                                            selector:@selector(decrementTimer)
                                                            userInfo:nil
                                                             repeats:YES];
+        
         pauseTimer = 0;
-        NSLog(@"Resume");
     } else {
+        // Change label to RESUME
+        [self.startLabel setTitle:@"RESUME" forState:UIControlStateNormal];
+        
         [self.secondsTimer invalidate];
         self.secondsTimer = nil;
         pauseTimer = 1;
-        NSLog(@"stop");
     }
+    
+//    [(UIButton *)sender setHidden:YES];
+    
+}
+
+- (IBAction)resetTimer:(id)sender {
+    // Stop the timer
+    [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
+    
+    // Set the timer back to the selected min and sec
+    minutesCount = self.setMin;
+    secondsCount = self.setSec;
+    
+    NSLog(@"%20d", self.setMin);
+    NSLog(@"%20d", self.setSec);
+
+    // Reset the min and sec display to 00
+    self.minDisplay.text = [NSString stringWithFormat:@"%02d", minutesCount];
+    self.secDisplay.text = [NSString stringWithFormat:@"%02d", secondsCount];
+    
+    // Change back to START label and the pauseTimer boolean to 1
+    [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
+    pauseTimer = 1;
 }
 
 - (void)decrementTimer {
