@@ -542,6 +542,17 @@
                                     <action selector="resetTimer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Py6-Og-clx"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rjd-6M-Wbe">
+                                <rect key="frame" x="81" y="307" width="159" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Stopwatch"/>
+                                    <segment title="Timer"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="6tE-LN-aKs"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -555,6 +566,8 @@
                         <outlet property="secDisplay" destination="2Dt-Si-UaE" id="pgW-Rv-OaD"/>
                         <outlet property="sidebarButton" destination="77l-AT-CWr" id="Cgr-yU-oMv"/>
                         <outlet property="startLabel" destination="bbc-Qv-KJc" id="fHk-FE-BDT"/>
+                        <outlet property="switcher" destination="Rjd-6M-Wbe" id="aBC-aj-RBZ"/>
+                        <outlet property="timePicker" destination="ClY-3b-bHO" id="Lky-O2-OPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
