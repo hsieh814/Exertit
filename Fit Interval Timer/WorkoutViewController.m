@@ -105,7 +105,7 @@
         [self saveContext];
         
         [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
