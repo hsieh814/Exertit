@@ -6,6 +6,7 @@
         <relationship name="highLevelExercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExerciseSetting" inverseName="baseExercise" inverseEntity="ExerciseSetting" syncable="YES"/>
     </entity>
     <entity name="ExerciseSetting" representedClassName="ExerciseSetting" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -17,11 +18,11 @@
         <attribute name="minDuration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secDuration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workoutName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="exerciseGroup" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ExerciseSetting" inverseName="workoutGroup" inverseEntity="ExerciseSetting" syncable="YES"/>
+        <relationship name="exerciseGroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExerciseSetting" inverseName="workoutGroup" inverseEntity="ExerciseSetting" syncable="YES"/>
     </entity>
     <elements>
         <element name="Exercise" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="ExerciseSetting" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="Workout" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ExerciseSetting" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Workout" positionX="0" positionY="0" width="128" height="103"/>
     </elements>
 </model>

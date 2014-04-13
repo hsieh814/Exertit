@@ -188,11 +188,11 @@ NSString *minutes;
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    [self.workout addExerciseGroupObject:self.exerciseSetting];
-    [self saveContext];
-    
     NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSLog(@"%@", self.exerciseSetting);
+    
+    [self.workout addExerciseGroupObject:self.exerciseSetting];
+    [self saveContext];
     
     NSLog(@"#########################################################");
     NSLog(@"%@", self.workout);
