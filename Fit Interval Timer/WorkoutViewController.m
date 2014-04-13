@@ -131,6 +131,11 @@
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     self.exercisesForWorkout = [[self.workout.exerciseGroup allObjects] mutableCopy];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
+    self.exercisesForWorkout = [[self.workout.exerciseGroup sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]] mutableCopy];
+//    [self.exercisesForWorkout sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    
+    NSLog(@"%@", self.exercisesForWorkout);
 }
 
 /* Save data to the store */
