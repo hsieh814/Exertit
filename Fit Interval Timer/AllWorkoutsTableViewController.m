@@ -136,7 +136,8 @@
         WorkoutViewController *workoutViewController = segue.destinationViewController;
         
         Workout *selectedWorkout = self.workoutList[indexPath.row];
-        workoutViewController.workout = selectedWorkout;
+//        workoutViewController.workout = selectedWorkout;
+        workoutViewController.workoutName = selectedWorkout.workoutName;
         
         // Set the title of next controller to the workout's name
         workoutViewController.title = selectedWorkout.workoutName;

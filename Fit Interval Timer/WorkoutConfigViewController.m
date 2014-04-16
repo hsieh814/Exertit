@@ -190,7 +190,6 @@ NSString *minutes;
     
     int size = (int)[self.workout.exerciseGroup count];
     self.exerciseSetting.index = [NSNumber numberWithInt:size];
-    
     NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSLog(@"%@", self.exerciseSetting);
     

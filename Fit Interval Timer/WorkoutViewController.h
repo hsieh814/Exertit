@@ -14,5 +14,6 @@
 @property (nonatomic) NSMutableArray *exercisesForWorkout;
 
 @property (nonatomic, strong) Workout *workout;
+@property (nonatomic, strong) NSString *workoutName;
 
 @end

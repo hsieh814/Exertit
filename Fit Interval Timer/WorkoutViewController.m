@@ -130,10 +130,12 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+//    NSString *name = self.workout.workoutName;
+    NSArray *array = [Workout findByAttribute:@"workoutName" withValue:self.workoutName];
+    self.workout = [array objectAtIndex:0];
     self.exercisesForWorkout = [[self.workout.exerciseGroup allObjects] mutableCopy];
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
     self.exercisesForWorkout = [[self.workout.exerciseGroup sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]] mutableCopy];
-//    [self.exercisesForWorkout sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     
     NSLog(@"%@", self.exercisesForWorkout);
 }
@@ -191,15 +193,36 @@
             
             // Is destination valid and is it different from source?
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
+                                
+                ExerciseSetting *origObject = [self.exercisesForWorkout objectAtIndex:indexPath.row];
+                ExerciseSetting *sourceObject = [self.exercisesForWorkout objectAtIndex:sourceIndexPath.row];
+                NSLog(@"--> sourceObject\n%@", sourceObject);
+                NSInteger origIndex = [origObject.index integerValue];
+                NSInteger sourceIndex = [sourceObject.index integerValue];
                 
-                // ... update data source.
-                [self.exercisesForWorkout exchangeObjectAtIndex:indexPath.row withObjectAtIndex:sourceIndexPath.row];
+                NSLog(@"origIndex = %ld , sourceIndex = %ld", origIndex, sourceIndex);
+                
+                [self.exercisesForWorkout removeObjectAtIndex:sourceIndexPath.row];
+                [self.exercisesForWorkout insertObject:sourceObject atIndex:indexPath.row];
+                
+                int i = 0;
+                for (ExerciseSetting *exerciseSetting in self.exercisesForWorkout) {
+                    exerciseSetting.index = [NSNumber numberWithInt:i];
+                    i++;
+                }
+                
+                [self saveContext];
+                NSLog(@"%@", self.exercisesForWorkout);
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
+                NSLog(@"########\nindexPath = %ld , sourceIndexPath = %ld", indexPath.row, sourceIndexPath.row);
                 
                 // ... and update source so it is in sync with UI changes.
                 sourceIndexPath = indexPath;
+                NSLog(@"$$$$$$$$\nindexPath = %ld , sourceIndexPath = %ld", indexPath.row, sourceIndexPath.row);
+                [self saveContext];
+
             }
             break;
         }
