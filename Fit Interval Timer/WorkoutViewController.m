@@ -193,7 +193,7 @@
             
             // Is destination valid and is it different from source?
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
-                                
+
                 ExerciseSetting *origObject = [self.exercisesForWorkout objectAtIndex:indexPath.row];
                 ExerciseSetting *sourceObject = [self.exercisesForWorkout objectAtIndex:sourceIndexPath.row];
                 NSLog(@"--> sourceObject\n%@", sourceObject);
@@ -201,15 +201,12 @@
                 NSInteger sourceIndex = [sourceObject.index integerValue];
                 
                 NSLog(@"origIndex = %ld , sourceIndex = %ld", origIndex, sourceIndex);
+
+//                origObject.index = [NSNumber numberWithInteger:sourceIndex];
+//                sourceObject.index = [NSNumber numberWithInteger:origIndex];
                 
                 [self.exercisesForWorkout removeObjectAtIndex:sourceIndexPath.row];
                 [self.exercisesForWorkout insertObject:sourceObject atIndex:indexPath.row];
-                
-                int i = 0;
-                for (ExerciseSetting *exerciseSetting in self.exercisesForWorkout) {
-                    exerciseSetting.index = [NSNumber numberWithInt:i];
-                    i++;
-                }
                 
                 [self saveContext];
                 NSLog(@"%@", self.exercisesForWorkout);
@@ -246,6 +243,14 @@
                 
             }];
             sourceIndexPath = nil;
+            
+            // Update the ExerciseSetting's index
+            int i = 0;
+            for (ExerciseSetting *exerciseSetting in self.exercisesForWorkout) {
+                exerciseSetting.index = [NSNumber numberWithInt:i];
+                i++;
+            }
+            
             break;
         }
     }
