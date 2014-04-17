@@ -250,7 +250,7 @@
                 exerciseSetting.index = [NSNumber numberWithInt:i];
                 i++;
             }
-            
+            [self saveContext];
             break;
         }
     }
