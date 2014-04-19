@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface IntervalTimerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
@@ -30,7 +31,6 @@
 - (IBAction)setCooldown:(id)sender;
 - (IBAction)setRepetitionsNumber:(id)sender;
 - (IBAction)startIntervalTimer:(id)sender;
-
-- (void)enableStartButton;
+- (IBAction)setDefault:(id)sender;
 
 @end

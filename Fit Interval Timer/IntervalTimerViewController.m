@@ -87,6 +87,9 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     self.highIntervalDuration.inputAccessoryView = pickerToolbar;
     self.cooldownDuration.inputAccessoryView = pickerToolbar;
 
+    // Change the textfields' border color
+    [self changeTextFieldBorderColor];
+    
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
 }
@@ -103,6 +106,20 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/* Change all the textfields' border color */
+-(void)changeTextFieldBorderColor
+{
+    UIColor *textFieldBorderColor = [UIColor colorWithRed:14.0f/255.0f green:(95.0f/255.0f) blue:254.0f/255.0f alpha:1.0];
+    
+    for (UITextField *subView in self.view.subviews) {
+        if ([subView isKindOfClass:[UITextField class]]) {
+            [[subView layer] setBorderColor:[textFieldBorderColor CGColor]];
+            subView.layer.borderWidth= 1.0f;
+            subView.layer.cornerRadius = 8.0f;
+        }
+    }
 }
 
 /* UIPickerViewDataSource */
@@ -187,6 +204,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     }
 }
 
+/* Check if all the textfields have valid text, then enable the start button */
 - (void)enableStartButton {
     if (isSetWarmup && isSetLowInterval && isSetHighInterval && isSetCooldown && isSetRepetition) {
         [self.startButton setEnabled:YES];
@@ -199,11 +217,11 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     [self.view endEditing:YES];
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
-    return YES;
-}
+//-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//
+//    return YES;
+//}
 
 - (IBAction)setWarmup:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
@@ -213,7 +231,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     } else {
         isSetWarmup = YES;
     }
-    self.enableStartButton;
+    [self enableStartButton];
 }
 
 - (IBAction)setLowInterval:(id)sender {
@@ -224,7 +242,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     } else {
         isSetLowInterval = YES;
     }
-    self.enableStartButton;
+    [self enableStartButton];
 }
 
 - (IBAction)setHighInterval:(id)sender {
@@ -235,7 +253,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     } else {
         isSetHighInterval = YES;
     }
-    self.enableStartButton;
+    [self enableStartButton];
 }
 
 - (IBAction)setCooldown:(id)sender {
@@ -246,24 +264,28 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     } else {
         isSetCooldown = YES;
     }
-    self.enableStartButton;
+    [self enableStartButton];
 }
 
 - (IBAction)setRepetitionsNumber:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    if ([self.repetitions.text isEqualToString:@""]) {
+    int repetitionText = [self.repetitions.text intValue];
+    if ([self.repetitions.text isEqualToString:@""] || repetitionText == 0) {
         isSetRepetition = NO;
         [self.startButton setEnabled:NO];
     } else {
         isSetRepetition = YES;
     }
     NSLog(@"%d , %d , %d , %d , %d", isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepetition);
-    self.enableStartButton;
+    [self enableStartButton];
 }
 
 - (IBAction)startIntervalTimer:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+}
+
+- (IBAction)setDefault:(id)sender {
 }
 
 @end

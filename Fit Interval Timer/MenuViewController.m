@@ -160,7 +160,7 @@
                 cell.menuCellImage.image = [UIImage imageNamed:@"timer-512.png"];
                 break;
             case 3:
-                cell.menuCellName.text = @"Interval Training";
+                cell.menuCellName.text = @"Interval Trainer";
                 cell.menuCellImage.image = [UIImage imageNamed:@"cloudflare-512.png"];
                 break;
             case 4:
