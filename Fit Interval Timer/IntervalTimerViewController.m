@@ -90,6 +90,9 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     // Change the textfields' border color
     [self changeTextFieldBorderColor];
     
+    // Set the textfields' text to default value saved
+    [self getDefaultTextFieldData];
+     
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
 }
@@ -285,7 +288,32 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 }
 
+/* Save the textfields' text as default */
 - (IBAction)setDefault:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:self.warmupDuration.text forKey:@"warmup"];
+    [defaults setObject:self.lowIntervalDuration.text forKey:@"lowInterval"];
+    [defaults setObject:self.highIntervalDuration.text forKey:@"highInterval"];
+    [defaults setObject:self.cooldownDuration.text forKey:@"cooldown"];
+    [defaults setObject:self.repetitions.text forKey:@"repetitions"];
+
+    [defaults synchronize];
+}
+
+/* Get the saved default textfields' text */
+- (void)getDefaultTextFieldData
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.warmupDuration.text = [defaults objectForKey:@"warmup"];
+    self.lowIntervalDuration.text = [defaults objectForKey:@"lowInterval"];
+    self.highIntervalDuration.text = [defaults objectForKey:@"highInterval"];
+    self.cooldownDuration.text = [defaults objectForKey:@"cooldown"];
+    self.repetitions.text = [defaults objectForKey:@"repetitions"];
 }
 
 @end
