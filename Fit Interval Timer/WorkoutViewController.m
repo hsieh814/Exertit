@@ -145,6 +145,7 @@
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
+/* Long press cell to rearrange */
 - (IBAction)longPressGestureRecognized:(id)sender {
     
     UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
@@ -194,30 +195,18 @@
             // Is destination valid and is it different from source?
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
 
-                ExerciseSetting *origObject = [self.exercisesForWorkout objectAtIndex:indexPath.row];
                 ExerciseSetting *sourceObject = [self.exercisesForWorkout objectAtIndex:sourceIndexPath.row];
-                NSLog(@"--> sourceObject\n%@", sourceObject);
-                NSInteger origIndex = [origObject.index integerValue];
-                NSInteger sourceIndex = [sourceObject.index integerValue];
-                
-                NSLog(@"origIndex = %ld , sourceIndex = %ld", origIndex, sourceIndex);
-
-//                origObject.index = [NSNumber numberWithInteger:sourceIndex];
-//                sourceObject.index = [NSNumber numberWithInteger:origIndex];
                 
                 [self.exercisesForWorkout removeObjectAtIndex:sourceIndexPath.row];
                 [self.exercisesForWorkout insertObject:sourceObject atIndex:indexPath.row];
                 
                 [self saveContext];
-                NSLog(@"%@", self.exercisesForWorkout);
                 
                 // ... move the rows.
                 [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:indexPath];
-                NSLog(@"########\nindexPath = %ld , sourceIndexPath = %ld", indexPath.row, sourceIndexPath.row);
                 
                 // ... and update source so it is in sync with UI changes.
                 sourceIndexPath = indexPath;
-                NSLog(@"$$$$$$$$\nindexPath = %ld , sourceIndexPath = %ld", indexPath.row, sourceIndexPath.row);
                 [self saveContext];
 
             }
@@ -250,7 +239,9 @@
                 exerciseSetting.index = [NSNumber numberWithInt:i];
                 i++;
             }
+            
             [self saveContext];
+            
             break;
         }
     }
