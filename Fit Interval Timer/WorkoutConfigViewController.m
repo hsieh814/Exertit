@@ -101,9 +101,7 @@ NSString *minutes;
     
     if ([segue.identifier isEqualToString:@"selectExercise"]) {
         AllExercisesTableViewController *allExercisesTableViewController = segue.destinationViewController;
-        
-//        allExercisesTableViewController.workout = self.workout;
-        
+                
         // Set the title of next controller
         allExercisesTableViewController.title = @"Select Exercise";
         // Hide the sidebar button

@@ -71,6 +71,7 @@
 		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 		BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */; };
 		BFD0659818D7F0C500A64C6D /* NewExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659718D7F0C500A64C6D /* NewExerciseViewController.m */; };
+		BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +199,8 @@
 		BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 		BFD0659618D7F0C500A64C6D /* NewExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExerciseViewController.h; sourceTree = "<group>"; };
 		BFD0659718D7F0C500A64C6D /* NewExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExerciseViewController.m; sourceTree = "<group>"; };
+		BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunIntervalTrainerViewController.h; sourceTree = "<group>"; };
+		BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunIntervalTrainerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +423,8 @@
 				BF2098851871F80400D52321 /* TimerViewController.m */,
 				BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */,
 				BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */,
+				BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */,
+				BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */,
 				BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */,
 				BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */,
 				BF0E4CB218EA5D9800573517 /* Libraries */,
@@ -617,6 +622,7 @@
 				BF00D38F18E8592600DA4CD7 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				BF00D39918E8592600DA4CD7 /* MagicalRecord+Options.m in Sources */,
 				BF20987C1871F80400D52321 /* main.m in Sources */,
+				BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */,
 				BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */,
 				BF00D38D18E8592600DA4CD7 /* NSManagedObject+MagicalRecord.m in Sources */,
 				BF00D39718E8592600DA4CD7 /* MagicalRecord+ErrorHandling.m in Sources */,

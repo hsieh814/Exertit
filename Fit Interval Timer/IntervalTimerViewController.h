@@ -14,9 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 // Time picker view
+@property (strong, nonatomic) IBOutlet UIPickerView *timePicker;
 @property (retain, nonatomic) NSMutableArray *secArray;
 @property (retain, nonatomic) NSMutableArray *minArray;
-@property (strong, nonatomic) IBOutlet UIPickerView *timePicker;
 
 @property (weak, nonatomic) IBOutlet UITextField *warmupDuration;
 @property (weak, nonatomic) IBOutlet UITextField *lowIntervalDuration;

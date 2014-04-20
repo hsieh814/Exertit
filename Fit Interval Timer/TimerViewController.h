@@ -10,6 +10,8 @@
 
 @interface TimerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
 // Array of the sec and min values
 @property (retain, nonatomic) NSMutableArray *secArray;
 @property (retain, nonatomic) NSMutableArray *minArray;
@@ -25,13 +27,12 @@
 // Time picker
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
 
+// Timer
 @property (nonatomic, strong) NSTimer *secondsTimer;
 
 // Segmented control: stopwatch and timer
 @property (nonatomic, assign) int selectedSwitcher;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *switcher;
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 // Start and Reset button labels
 @property (weak, nonatomic) IBOutlet UIButton *startLabel;

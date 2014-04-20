@@ -291,7 +291,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 /* Save the textfields' text as default */
 - (IBAction)setDefault:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:self.warmupDuration.text forKey:@"warmup"];
@@ -299,7 +299,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     [defaults setObject:self.highIntervalDuration.text forKey:@"highInterval"];
     [defaults setObject:self.cooldownDuration.text forKey:@"cooldown"];
     [defaults setObject:self.repetitions.text forKey:@"repetitions"];
-
+    
     [defaults synchronize];
 }
 

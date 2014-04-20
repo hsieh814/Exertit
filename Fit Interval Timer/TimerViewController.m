@@ -173,8 +173,6 @@ static bool pauseTimer = 1;
             [self.secondsTimer invalidate];
             self.secondsTimer = nil;
             
-            pauseTimer = 1;
-            [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
             minutesCount = self.setMin;
             secondsCount = self.setSec;
             [self displayMinValue:minutesCount andSecValue:secondsCount];
