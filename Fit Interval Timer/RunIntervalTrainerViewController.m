@@ -59,6 +59,16 @@ int state;
     
 }
 
+// Called before exiting the view
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    // Stop the timer
+    [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
