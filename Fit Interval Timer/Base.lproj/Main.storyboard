@@ -58,72 +58,58 @@
             <point key="canvasLocation" x="892" y="-260"/>
         </scene>
         <!--New Exercise View Controller - New Exercise-->
-        <scene sceneID="iE0-T3-uEG">
+        <scene sceneID="RlH-Yf-Y9O">
             <objects>
-                <tableViewController id="jFl-Iq-d0f" customClass="NewExerciseViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="WMa-gW-YEc">
+                <viewController id="6bZ-SM-b8v" customClass="NewExerciseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Y6-3U-3Sg"/>
+                        <viewControllerLayoutGuide type="bottom" id="qRb-ya-n0k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h7w-xW-GNU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Exercise Name:" id="U8z-14-Hyv">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zj3-FN-PzX">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zj3-FN-PzX" id="TY7-M4-0Cp">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWi-Rd-v5c">
-                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="New Exercise" id="57l-NP-qid">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Yvm-CP-mID">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXERCISE NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQ0-ya-AUi">
+                                <rect key="frame" x="48" y="120" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1L3-EL-GbY">
+                                <rect key="frame" x="39" y="149" width="242" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.49411767719999999" blue="0.96470594409999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setWarmup:" destination="i6E-f0-6Gx" eventType="editingDidEnd" id="94z-6H-0Iq"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Exercise" id="dSa-mN-V1H">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mc1-EE-bxV">
                             <connections>
-                                <action selector="cancel:" destination="jFl-Iq-d0f" id="qve-Ua-TFu"/>
+                                <action selector="cancel:" destination="6bZ-SM-b8v" id="EKs-IM-J0e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6Ug-hn-hH5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="loW-sJ-26C">
                             <connections>
-                                <action selector="done:" destination="jFl-Iq-d0f" id="gRn-yQ-Bij"/>
+                                <action selector="done:" destination="6bZ-SM-b8v" id="41P-ZL-H83"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="exerciseNameTextField" destination="IWi-Rd-v5c" id="mV6-cX-OKP"/>
+                        <outlet property="exerciseNameTextField" destination="1L3-EL-GbY" id="g8a-oP-4I3"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Utz-a2-fH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="laf-dk-OK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="1125"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0xE-fp-ggQ">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="4Cz-kJ-UmZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2pm-Rx-5gv">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="jFl-Iq-d0f" kind="relationship" relationship="rootViewController" id="Mx7-f6-48p"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j4V-ae-LRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1888" y="1125"/>
+            <point key="canvasLocation" x="2324" y="1125"/>
         </scene>
         <!--Workout Config View Controller - workout name-->
         <scene sceneID="Uje-qC-w6k">
@@ -285,7 +271,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.98708177658939411" green="0.99843430519104004" blue="0.98370775364040441" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="tintColor" red="1" green="0.98287123031855428" blue="0.98397416870469023" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="exerciseName" destination="cu6-f6-9yr" id="tiE-rj-my8"/>
@@ -301,7 +287,7 @@
                         <barButtonItem key="leftBarButtonItem" title="=" id="Vev-D9-eUn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LPq-hb-2oX">
                             <connections>
-                                <segue destination="4Cz-kJ-UmZ" kind="modal" identifier="AddExercise" modalTransitionStyle="coverVertical" id="oXL-OM-n1S"/>
+                                <segue destination="4o3-o4-DGq" kind="modal" identifier="AddExercise" id="y1w-0d-dno"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -936,59 +922,6 @@
             </objects>
             <point key="canvasLocation" x="-265" y="451"/>
         </scene>
-        <!--New Exercise View Controller - New Exercise-->
-        <scene sceneID="URQ-mL-o3R">
-            <objects>
-                <tableViewController id="JuI-Ug-gtc" customClass="NewExerciseViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="y9p-df-zqV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Exercise Name:" id="bZf-94-rYW">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jg7-5H-1Ax">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jg7-5H-1Ax" id="bxc-JT-Y4g">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jak-LS-A4I">
-                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="New Exercise" id="WVU-Rg-UwZ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bqk-45-vrd">
-                            <connections>
-                                <action selector="cancel:" destination="JuI-Ug-gtc" id="BwP-Xc-gZa"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4HP-VY-ac7">
-                            <connections>
-                                <action selector="done:" destination="JuI-Ug-gtc" id="7uy-4R-KKq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="exerciseNameTextField" destination="jak-LS-A4I" id="s1D-Cv-8dD"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8eH-3E-ae3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2422" y="1125"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zuU-FV-Br5">
             <objects>
@@ -998,7 +931,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="JuI-Ug-gtc" kind="relationship" relationship="rootViewController" id="L8u-LU-3GX"/>
+                        <segue destination="6bZ-SM-b8v" kind="relationship" relationship="rootViewController" id="xed-2T-yAB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2N-TH-cLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1014,5 +947,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="GI5-kF-lOt"/>
         <segue reference="TQ4-FN-9Dh"/>
+        <segue reference="y1w-0d-dno"/>
     </inferredMetricsTieBreakers>
 </document>

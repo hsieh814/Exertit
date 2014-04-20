@@ -180,27 +180,4 @@
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
-#pragma mark - NewExerciseViewControllerDelegate
-
-- (void)newExerciseViewControllerDidCancel:(NewExerciseViewController *)controller
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)newExerciseViewControllerDidSave:(NewExerciseViewController *)controller
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)newExerciseViewController:(NewExerciseViewController *)controller;
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}
-
 @end

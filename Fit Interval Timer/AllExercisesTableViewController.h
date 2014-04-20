@@ -17,7 +17,7 @@
 - (void)allExercisesViewControllerDidSelectWorkout:(AllExercisesTableViewController *)controller didSelectExercise:(Exercise *)exercise;
 @end
 
-@interface AllExercisesTableViewController : UITableViewController <NewExerciseViewControllerDelegate>
+@interface AllExercisesTableViewController : UITableViewController
 
 @property (nonatomic, weak) id <AllExercisesTableViewControllerDelegate> delegate;
 

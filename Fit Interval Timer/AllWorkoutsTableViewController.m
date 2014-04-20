@@ -129,7 +129,7 @@
     if ([segue.identifier isEqualToString:@"AddWorkout"]) {
 
         
-    }else if ([segue.identifier isEqualToString:@"goToWorkout"]) {
+    } else if ([segue.identifier isEqualToString:@"goToWorkout"]) {
         // index of the selected row
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         WorkoutViewController *workoutViewController = segue.destinationViewController;

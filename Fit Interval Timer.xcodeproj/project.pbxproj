@@ -68,10 +68,10 @@
 		BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */; };
 		BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */; };
 		BFB59D0E19046EEC0014D5CB /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D0D19046EEC0014D5CB /* Common.m */; };
+		BFB59D171904883A0014D5CB /* NewExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D161904883A0014D5CB /* NewExerciseViewController.m */; };
 		BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */; };
 		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 		BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */; };
-		BFD0659818D7F0C500A64C6D /* NewExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659718D7F0C500A64C6D /* NewExerciseViewController.m */; };
 		BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -194,14 +194,14 @@
 		BFA8D03318D007C200F58B2B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		BFB59D0C19046EEC0014D5CB /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		BFB59D0D19046EEC0014D5CB /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		BFB59D151904883A0014D5CB /* NewExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExerciseViewController.h; sourceTree = "<group>"; };
+		BFB59D161904883A0014D5CB /* NewExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExerciseViewController.m; sourceTree = "<group>"; };
 		BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 		BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		BFD0659318D7E7BD00A64C6D /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCell.h; sourceTree = "<group>"; };
 		BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
-		BFD0659618D7F0C500A64C6D /* NewExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExerciseViewController.h; sourceTree = "<group>"; };
-		BFD0659718D7F0C500A64C6D /* NewExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExerciseViewController.m; sourceTree = "<group>"; };
 		BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunIntervalTrainerViewController.h; sourceTree = "<group>"; };
 		BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunIntervalTrainerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -422,8 +422,8 @@
 				BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */,
 				BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */,
 				BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */,
-				BFD0659618D7F0C500A64C6D /* NewExerciseViewController.h */,
-				BFD0659718D7F0C500A64C6D /* NewExerciseViewController.m */,
+				BFB59D151904883A0014D5CB /* NewExerciseViewController.h */,
+				BFB59D161904883A0014D5CB /* NewExerciseViewController.m */,
 				BF2098841871F80400D52321 /* TimerViewController.h */,
 				BF2098851871F80400D52321 /* TimerViewController.m */,
 				BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */,
@@ -602,6 +602,7 @@
 				BF00D39318E8592600DA4CD7 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */,
 				BF00D38918E8592600DA4CD7 /* NSString+MagicalDataImport.m in Sources */,
+				BFB59D171904883A0014D5CB /* NewExerciseViewController.m in Sources */,
 				BF00D38318E8592600DA4CD7 /* MagicalImportFunctions.m in Sources */,
 				BF00D38C18E8592600DA4CD7 /* NSManagedObject+MagicalFinders.m in Sources */,
 				BF7F054318FB4479003ECD72 /* Workout.m in Sources */,
@@ -634,7 +635,6 @@
 				BF00D39718E8592600DA4CD7 /* MagicalRecord+ErrorHandling.m in Sources */,
 				BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */,
 				BF00D39818E8592600DA4CD7 /* MagicalRecord+iCloud.m in Sources */,
-				BFD0659818D7F0C500A64C6D /* NewExerciseViewController.m in Sources */,
 				BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */,
 				BF00D39B18E8592600DA4CD7 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				BF00D39518E8592600DA4CD7 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Workout.h"
 
-@interface NewWorkoutViewController : UIViewController <UITextFieldDelegate>
+@interface NewWorkoutViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 

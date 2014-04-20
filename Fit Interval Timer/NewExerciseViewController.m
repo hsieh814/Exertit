@@ -2,7 +2,7 @@
 //  NewExerciseViewController.m
 //  Fit Interval Timer
 //
-//  Created by Lena Hsieh on 3/17/2014.
+//  Created by Lena Hsieh on 2014-04-20.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
@@ -15,13 +15,9 @@
 
 @implementation NewExerciseViewController
 
-//timerAppDelegate *appDelegate;
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -48,22 +44,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    // Touch row to add text
-    if (indexPath.section == 0) {
-        [self.exerciseNameTextField becomeFirstResponder];
-    }
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-	if ([textField.text length] > 0) {
-        self.title = textField.text;
-        self.exercise.exerciseName = textField.text;	}
-}
-
 /* Save data */
 - (void)saveContext {
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
@@ -75,10 +55,18 @@
     }];
 }
 
-/* Bar buttons: cancel and done */
+- (IBAction)done:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    self.exercise.exerciseName = self.exerciseNameTextField.text;
+    
+    // save the context
+    [self saveContext];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
 
-- (IBAction)cancel:(id)sender
-{
+- (IBAction)cancel:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     // Delete the newly created exercise
@@ -86,19 +74,6 @@
     
     // modal segue
     [self dismissModalViewControllerAnimated:YES];
-}
-                
-- (IBAction)done:(id)sender
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    self.exercise.exerciseName = self.exerciseNameTextField.text;
-    
-    // save the context
-    [self saveContext];
-
-    [self dismissModalViewControllerAnimated:YES];
-
 }
 
 @end
