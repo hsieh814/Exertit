@@ -27,16 +27,9 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="workoutDuration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOe-Mz-2Tc">
-                                            <rect key="frame" x="159" y="11" width="128" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="workoutDurationLabel" destination="kOe-Mz-2Tc" id="VCd-qe-i2N"/>
                                     <outlet property="workoutNameLabel" destination="vN9-TV-8Ja" id="Tlp-9Z-rOi"/>
                                     <segue destination="iUr-fp-oIT" kind="push" identifier="goToWorkout" id="yhK-hJ-eqv"/>
                                 </connections>
@@ -63,86 +56,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOV-UJ-wLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="-260"/>
-        </scene>
-        <!--New Workout View Controller - New Workout-->
-        <scene sceneID="e3X-qD-qfr">
-            <objects>
-                <tableViewController id="Tay-uA-Y6L" customClass="NewWorkoutViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RJr-Ee-9WV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Workout Name:" id="IrI-Dl-lmb">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PRU-jP-aJl">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PRU-jP-aJl" id="C1X-l6-NAj">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-z7-qMK">
-                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Workout Duration" id="EEj-MK-IU5">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lh8-Re-Z2e">
-                                        <rect key="frame" x="0.0" y="211" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lh8-Re-Z2e" id="Yi4-i9-eZW">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J9G-QY-P4Y">
-                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.97162506780000002" green="1" blue="0.96887629789999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="tintColor" red="0.97254908080000002" green="1" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Tay-uA-Y6L" id="dle-wd-0JI"/>
-                            <outlet property="delegate" destination="Tay-uA-Y6L" id="GNG-zt-apl"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="New Workout" id="opQ-GQ-JFd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dTY-er-g7h">
-                            <connections>
-                                <action selector="cancel:" destination="Tay-uA-Y6L" id="xMP-BZ-WxF"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="H8A-0O-4Fn">
-                            <connections>
-                                <action selector="done:" destination="Tay-uA-Y6L" id="gy4-KF-UHx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="durationTextField" destination="J9G-QY-P4Y" id="W1D-cX-Aal"/>
-                        <outlet property="nameTextField" destination="s5a-z7-qMK" id="dzh-g3-04X"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9bt-bl-TBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1912" y="-242"/>
         </scene>
         <!--New Exercise View Controller - New Exercise-->
         <scene sceneID="iE0-T3-uEG">
@@ -475,12 +388,66 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Tay-uA-Y6L" kind="relationship" relationship="rootViewController" id="3o9-iS-ep2"/>
+                        <segue destination="TDA-h9-FZc" kind="relationship" relationship="rootViewController" id="gAR-KZ-rsa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXE-Zu-TNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1456" y="-242"/>
+        </scene>
+        <!--New Workout View Controller - New Workout-->
+        <scene sceneID="BHa-G7-s6c">
+            <objects>
+                <viewController id="TDA-h9-FZc" customClass="NewWorkoutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bsO-p0-zi6"/>
+                        <viewControllerLayoutGuide type="bottom" id="RJk-sA-gbO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HbA-G2-1JB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WORKOUT NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-Fr-y8w">
+                                <rect key="frame" x="48" y="124" width="168" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-rK-3VB">
+                                <rect key="frame" x="39" y="153" width="242" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.49411767719999999" blue="0.96470594409999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setWarmup:" destination="i6E-f0-6Gx" eventType="editingDidEnd" id="NGi-9H-KXt"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Workout" id="RuK-po-21Z">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kJk-Xg-HAZ">
+                            <connections>
+                                <action selector="cancel:" destination="TDA-h9-FZc" id="y2F-sM-9wf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7HF-3s-7BC">
+                            <connections>
+                                <action selector="done:" destination="TDA-h9-FZc" id="koK-Ax-mQV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="VgD-rK-3VB" id="icY-RD-L6g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Xk-ag-WAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888" y="-242"/>
         </scene>
         <!--Run Interval Trainer View Controller-->
         <scene sceneID="emM-VU-KrO">

@@ -82,7 +82,6 @@
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.workoutList objectAtIndex:indexPath.row];
     cell.workoutNameLabel.text = workout.workoutName;
-    cell.workoutDurationLabel.text = [NSString stringWithFormat:@"%@:%@", workout.minDuration, workout.secDuration];
 
     return cell;
 }

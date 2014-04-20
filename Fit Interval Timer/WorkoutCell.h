@@ -11,6 +11,5 @@
 @interface WorkoutCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *workoutNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *workoutDurationLabel;
 
 @end
