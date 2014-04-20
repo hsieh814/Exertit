@@ -86,7 +86,11 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     self.lowIntervalDuration.inputAccessoryView = pickerToolbar;
     self.highIntervalDuration.inputAccessoryView = pickerToolbar;
     self.cooldownDuration.inputAccessoryView = pickerToolbar;
-
+    
+//    self.navigationController.navigationBar.barTintColor = themeNavBar;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     // Change the textfields' border color
     [self changeTextFieldBorderColor];
     
