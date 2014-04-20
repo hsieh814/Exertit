@@ -113,12 +113,10 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 /* Change all the textfields' border color */
 -(void)changeTextFieldBorderColor
-{
-    UIColor *textFieldBorderColor = [UIColor colorWithRed:14.0f/255.0f green:(95.0f/255.0f) blue:254.0f/255.0f alpha:1.0];
-    
+{    
     for (UITextField *subView in self.view.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
-            [[subView layer] setBorderColor:[textFieldBorderColor CGColor]];
+            [[subView layer] setBorderColor:[themeBlue CGColor]];
             subView.layer.borderWidth= 1.0f;
             subView.layer.cornerRadius = 8.0f;
         }

@@ -67,6 +67,7 @@
 		BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */; };
 		BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */; };
 		BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */; };
+		BFB59D0E19046EEC0014D5CB /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D0D19046EEC0014D5CB /* Common.m */; };
 		BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */; };
 		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 		BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */; };
@@ -191,6 +192,8 @@
 		BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
 		BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
 		BFA8D03318D007C200F58B2B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		BFB59D0C19046EEC0014D5CB /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		BFB59D0D19046EEC0014D5CB /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 		BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -403,6 +406,8 @@
 				BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */,
 				BF20987E1871F80400D52321 /* timerAppDelegate.h */,
 				BF20987F1871F80400D52321 /* timerAppDelegate.m */,
+				BFB59D0C19046EEC0014D5CB /* Common.h */,
+				BFB59D0D19046EEC0014D5CB /* Common.m */,
 				BF0E4CB318EA5DA900573517 /* ManagedObjects */,
 				BF0E4CB518EA5DDC00573517 /* TableCells */,
 				BF2372DC187516BF009B43EF /* MenuViewController.h */,
@@ -602,6 +607,7 @@
 				BF7F054318FB4479003ECD72 /* Workout.m in Sources */,
 				BF00D39118E8592600DA4CD7 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */,
+				BFB59D0E19046EEC0014D5CB /* Common.m in Sources */,
 				BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */,
 				BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,

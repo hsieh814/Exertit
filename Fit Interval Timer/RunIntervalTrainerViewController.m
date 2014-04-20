@@ -18,7 +18,7 @@
 NSString *warmupDuration, *lowIntervalDuration, *highIntervalDuration, *cooldownDuration, *repetitions;
 static int minutesCount = 0;
 static int secondsCount = 0;
-static bool isTimerRunning = YES;
+static bool isTimerRunning = YES, done = NO;
 int repetitionCount, repetitionTotal;
 
 // STATES
@@ -143,8 +143,7 @@ int state;
         } else {
             // Reached the end of the interval training- disable timer
             NSLog(@"end of interval trainer");
-            [self.secondsTimer invalidate];
-            self.secondsTimer = nil;
+            [self endIntervalTrainer];
         }
         
     } else if (secondsCount == 0) {
@@ -166,21 +165,25 @@ int state;
         case WARM_UP:
             NSLog(@"+++ WARM UP");
             self.categoryLabel.text = @"WARM UP";
+            self.categoryLabel.textColor = themeBlue;
             return warmupDuration;
             break;
         case LOW_INT:
             NSLog(@"+++ LOW INT");
             self.categoryLabel.text = @"LOW";
+            self.categoryLabel.textColor = themeGreen;
             return lowIntervalDuration;
             break;
         case HIGH_INT:
             NSLog(@"+++ HIGH INT");
             self.categoryLabel.text = @"HIGH";
+            self.categoryLabel.textColor = themeRed;
             return highIntervalDuration;
             break;
         case COOL_DOWN:
             NSLog(@"+++ COOL DOWN");
             self.categoryLabel.text = @"COOL DOWN";
+            self.categoryLabel.textColor = themeBlue;
             return cooldownDuration;
             break;
         default:
@@ -209,9 +212,28 @@ int state;
     self.secDisplay.text = [NSString stringWithFormat:@"%02d", seconds];
 }
 
+/* Finish interval trainer */
+-(void)endIntervalTrainer
+{
+    done = YES;
+    
+    // Stop the timer
+    [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
+    isTimerRunning = NO;
+    
+    [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
+    
+    self.categoryLabel.text = @"FINISHED";
+}
+
 /* PAUSE and RESET timer buttons*/
 
 - (IBAction)pauseTimer:(id)sender {
+    if (done) {
+        // Already finished the interval trainer, need to reset back to initial settings
+        [self initialSetup];
+    }
     if (isTimerRunning) {
         // Stop the timer
         [self.secondsTimer invalidate];
