@@ -123,6 +123,17 @@
         
         // Set the title of next controller to the workout's name
         workoutConfigViewController.title = self.workout.workoutName;
+    } else if ([segue.identifier isEqualToString:@"GoToExercise"]) {
+        // index of the selected row
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        UINavigationController *navController = segue.destinationViewController;
+        WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navController.childViewControllers[0];
+        
+        ExerciseSetting *selectedExerciseSetting = self.exercisesForWorkout[indexPath.row];
+        workoutConfigViewController.exerciseSetting = selectedExerciseSetting;
+        
+        // Set the title of next controller to the workout's name
+        workoutConfigViewController.title = selectedExerciseSetting.name;
     }
 }
 

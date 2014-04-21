@@ -15,6 +15,8 @@
 
 @implementation NewExerciseViewController
 
+bool createNewExercise;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,6 +35,7 @@
     // exercise may exist if editing a existing one
     if (!self.exercise) {
         self.exercise = [Exercise createEntity];
+        createNewExercise = YES;
     }
     // Set the attributes to the corresponding areas
     self.exerciseNameTextField.text = self.exercise.exerciseName;
@@ -69,8 +72,10 @@
 - (IBAction)cancel:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    // Delete the newly created exercise
-    [self.exercise deleteEntity];
+    if (createNewExercise) {
+        // Delete the newly created exercise
+        [self.exercise deleteEntity];
+    }
     
     // modal segue
     [self dismissModalViewControllerAnimated:YES];

@@ -20,6 +20,7 @@ UIToolbar *pickerToolbar;
 NSTimeInterval nsTimeInterval;
 NSString *seconds;
 NSString *minutes;
+bool createdNewExerciseSetting;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -77,8 +78,21 @@ NSString *minutes;
     // NSTimeInterval set to 0
     nsTimeInterval = 0.0;
     
-    // Initialize newExericse object
-    self.exerciseSetting = [ExerciseSetting createEntity];
+    if (!self.exerciseSetting) {
+        // Initialize newExericse object
+        self.exerciseSetting = [ExerciseSetting createEntity];
+        createdNewExerciseSetting = YES;
+    } else {
+        // Editing the settings
+        self.repsText.text = [self.exerciseSetting.reps stringValue];
+        self.setsText.text = [self.exerciseSetting.sets stringValue];
+        self.selectedExerciseLabel.text = self.exerciseSetting.name;
+        
+        int totalTimeInSeconds = [self.exerciseSetting.timeInterval intValue];
+        NSInteger minutes = totalTimeInSeconds / 60;
+        NSInteger seconds = (totalTimeInSeconds % 60) / 5;
+        self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:minutes], [self.secArray objectAtIndex:seconds]];
+    }
 }
 
 // called everytime we enter the view
@@ -172,16 +186,6 @@ NSString *minutes;
 
 /* Bar buttons */
 
-- (IBAction)cancel:(id)sender
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
-    // Delete the newly created exercise entity
-    [self.exerciseSetting deleteEntity];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (IBAction)done:(id)sender
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
@@ -196,6 +200,18 @@ NSString *minutes;
     
     NSLog(@"#########################################################");
     NSLog(@"%@", self.workout);
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancel:(id)sender
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (createdNewExerciseSetting) {
+        // Delete the newly created exercise entity
+        [self.exerciseSetting deleteEntity];
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

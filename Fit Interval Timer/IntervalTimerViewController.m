@@ -117,7 +117,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     for (UITextField *subView in self.view.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
             [[subView layer] setBorderColor:[themeBlue CGColor]];
-            subView.layer.borderWidth= 1.0f;
+            subView.layer.borderWidth= 0.5f;
             subView.layer.cornerRadius = 8.0f;
         }
     }
