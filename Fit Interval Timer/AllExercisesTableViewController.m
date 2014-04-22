@@ -88,8 +88,6 @@
     Exercise *exercise = self.exerciseList[indexPath.row];
     cell.exerciseName.text = exercise.exerciseName;
     
-    NSLog(@"%@", exercise);
-    
     return cell;
 }
 
@@ -143,7 +141,7 @@
         [self.delegate allExercisesViewControllerDidSelectWorkout:self didSelectExercise:selectedExercise];
     } else {
         NSLog(@"here");
-//        [self performSegueWithIdentifier:@"EditExercise" sender:self];
+        [self performSegueWithIdentifier:@"EditExercise" sender:self];
     }
 
 }

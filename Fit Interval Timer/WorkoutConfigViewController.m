@@ -81,12 +81,22 @@ bool createdNewExerciseSetting;
     if (!self.exerciseSetting) {
         // Initialize newExericse object
         self.exerciseSetting = [ExerciseSetting createEntity];
+        NSLog(@"new exercise");
         createdNewExerciseSetting = YES;
     } else {
         // Editing the settings
-        self.repsText.text = [self.exerciseSetting.reps stringValue];
-        self.setsText.text = [self.exerciseSetting.sets stringValue];
+        createdNewExerciseSetting = NO;
+        
         self.selectedExerciseLabel.text = self.exerciseSetting.name;
+        
+        NSInteger repInt = [self.exerciseSetting.reps integerValue];
+        NSInteger setInt = [self.exerciseSetting.sets integerValue];
+        
+        self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
+        self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
+        
+        [self.repsStepperItem setValue:[self.exerciseSetting.reps doubleValue]];
+        [self.setsStepperItem setValue:[self.exerciseSetting.sets doubleValue]];
         
         int totalTimeInSeconds = [self.exerciseSetting.timeInterval intValue];
         NSInteger minutes = totalTimeInSeconds / 60;
@@ -141,7 +151,6 @@ bool createdNewExerciseSetting;
     }
     
     nsTimeInterval = [minutes doubleValue] * 60 + [seconds doubleValue];
-    self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
     self.durationText.text = [NSString stringWithFormat:@"%@:%@", minutes, seconds];
     
     [self.durationText resignFirstResponder];
@@ -190,6 +199,11 @@ bool createdNewExerciseSetting;
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+    self.exerciseSetting.reps = [NSNumber numberWithInteger:[self.repsText.text integerValue]];
+    self.exerciseSetting.sets = [NSNumber numberWithInteger:[self.setsText.text integerValue]];
+
+    self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
+
     int size = (int)[self.workout.exerciseGroup count];
     self.exerciseSetting.index = [NSNumber numberWithInt:size];
     NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -207,8 +221,9 @@ bool createdNewExerciseSetting;
 - (IBAction)cancel:(id)sender
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
+    NSLog(@"createNewExerciseSetting = %d", createdNewExerciseSetting);
     if (createdNewExerciseSetting) {
+        NSLog(@"wrong");
         // Delete the newly created exercise entity
         [self.exerciseSetting deleteEntity];
     }
@@ -233,14 +248,14 @@ bool createdNewExerciseSetting;
     
     double value = [sender value];
     [self.repsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
-    self.exerciseSetting.reps = [NSNumber numberWithDouble:value];
+//    self.exerciseSetting.reps = [NSNumber numberWithDouble:value];
 }
 
 - (IBAction)setsStepper:(UIStepper *)sender {
 
     double value = [sender value];
     [self.setsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
-    self.exerciseSetting.sets = [NSNumber numberWithDouble:value];
+//    self.exerciseSetting.sets = [NSNumber numberWithDouble:value];
 }
 
 #pragma mark - AllExercisesTableViewControllerDelegate
