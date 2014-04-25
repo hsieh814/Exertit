@@ -11,6 +11,7 @@
 
 @interface WorkoutViewController : UITableViewController
 
+// Array of ExerciseSetting objects
 @property (nonatomic) NSMutableArray *exercisesForWorkout;
 
 @property (nonatomic, strong) Workout *workout;

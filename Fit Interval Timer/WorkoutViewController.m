@@ -87,7 +87,7 @@
         
         [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
     } else {
-        cell.exerciseName.text = exerciseSetting.name;
+        cell.exerciseName.text = exerciseSetting.baseExercise.exerciseName;
     }
     
     return cell;
@@ -133,7 +133,7 @@
         workoutConfigViewController.exerciseSetting = selectedExerciseSetting;
         
         // Set the title of next controller to the workout's name
-        workoutConfigViewController.title = selectedExerciseSetting.name;
+        workoutConfigViewController.title = selectedExerciseSetting.baseExercise.exerciseName;
     }
 }
 
