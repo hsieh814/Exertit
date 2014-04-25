@@ -87,7 +87,7 @@ bool createdNewExerciseSetting;
         // Editing the settings
         createdNewExerciseSetting = NO;
         
-        self.selectedExerciseLabel.text = self.exerciseSetting.name;
+        self.selectedExerciseLabel.text = self.exerciseSetting.baseExercise.exerciseName;
         
         NSInteger repInt = [self.exerciseSetting.reps integerValue];
         NSInteger setInt = [self.exerciseSetting.sets integerValue];
@@ -267,7 +267,6 @@ bool createdNewExerciseSetting;
 
     // display the selected exercise's name
     self.selectedExerciseLabel.text = exercise.exerciseName;
-    self.exerciseSetting.name = exercise.exerciseName;
     self.exerciseSetting.baseExercise = exercise;
     NSLog(@"%@", self.exerciseSetting.baseExercise);
     [self.navigationController popViewControllerAnimated:YES];

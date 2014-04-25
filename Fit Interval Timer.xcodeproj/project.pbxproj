@@ -36,6 +36,7 @@
 		BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */; };
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
+		BF1B9BDC1909FDD0004356DE /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1B9BDB1909FDD0004356DE /* ExerciseSetting.m */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
@@ -56,7 +57,6 @@
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
 		BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BF56718C29A4C009D9BE8 /* MenuCell.m */; };
-		BF7F053D18FB4479003ECD72 /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7F053C18FB4479003ECD72 /* ExerciseSetting.m */; };
 		BF7F054018FB4479003ECD72 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7F053F18FB4479003ECD72 /* Exercise.m */; };
 		BF7F054318FB4479003ECD72 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7F054218FB4479003ECD72 /* Workout.m */; };
 		BF8122F018C0469000606092 /* google_earth-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122EF18C0469000606092 /* google_earth-512.png */; };
@@ -147,6 +147,8 @@
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		BF1B9BDA1909FDD0004356DE /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
+		BF1B9BDB1909FDD0004356DE /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Fit Interval Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit Interval Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,8 +178,6 @@
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BF7BF56618C29A4C009D9BE8 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		BF7BF56718C29A4C009D9BE8 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
-		BF7F053B18FB4479003ECD72 /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
-		BF7F053C18FB4479003ECD72 /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 		BF7F053E18FB4479003ECD72 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
 		BF7F053F18FB4479003ECD72 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		BF7F054118FB4479003ECD72 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
@@ -347,8 +347,8 @@
 			children = (
 				BF7F053E18FB4479003ECD72 /* Exercise.h */,
 				BF7F053F18FB4479003ECD72 /* Exercise.m */,
-				BF7F053B18FB4479003ECD72 /* ExerciseSetting.h */,
-				BF7F053C18FB4479003ECD72 /* ExerciseSetting.m */,
+				BF1B9BDA1909FDD0004356DE /* ExerciseSetting.h */,
+				BF1B9BDB1909FDD0004356DE /* ExerciseSetting.m */,
 				BF7F054118FB4479003ECD72 /* Workout.h */,
 				BF7F054218FB4479003ECD72 /* Workout.m */,
 			);
@@ -613,6 +613,7 @@
 				BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
 				BF00D38518E8592600DA4CD7 /* NSEntityDescription+MagicalDataImport.m in Sources */,
+				BF1B9BDC1909FDD0004356DE /* ExerciseSetting.m in Sources */,
 				BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */,
 				BF7F054018FB4479003ECD72 /* Exercise.m in Sources */,
 				BF00D38A18E8592600DA4CD7 /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -625,7 +626,6 @@
 				BF00D38718E8592600DA4CD7 /* NSObject+MagicalDataImport.m in Sources */,
 				BF00D39A18E8592600DA4CD7 /* MagicalRecord+Setup.m in Sources */,
 				BF00D39218E8592600DA4CD7 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
-				BF7F053D18FB4479003ECD72 /* ExerciseSetting.m in Sources */,
 				BF00D38F18E8592600DA4CD7 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				BF00D39918E8592600DA4CD7 /* MagicalRecord+Options.m in Sources */,
 				BF20987C1871F80400D52321 /* main.m in Sources */,

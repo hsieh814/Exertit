@@ -2,7 +2,7 @@
 //  ExerciseSetting.h
 //  Fit Interval Timer
 //
-//  Created by Lena Hsieh on 2014-04-13.
+//  Created by Lena Hsieh on 2014-04-24.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
@@ -13,11 +13,10 @@
 
 @interface ExerciseSetting : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * index;
 @property (nonatomic, retain) NSNumber * reps;
 @property (nonatomic, retain) NSNumber * sets;
 @property (nonatomic, retain) NSNumber * timeInterval;
-@property (nonatomic, retain) NSNumber * index;
 @property (nonatomic, retain) Exercise *baseExercise;
 @property (nonatomic, retain) Workout *workoutGroup;
 
