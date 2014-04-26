@@ -248,14 +248,12 @@ bool createdNewExerciseSetting;
     
     double value = [sender value];
     [self.repsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
-//    self.exerciseSetting.reps = [NSNumber numberWithDouble:value];
 }
 
 - (IBAction)setsStepper:(UIStepper *)sender {
 
     double value = [sender value];
     [self.setsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
-//    self.exerciseSetting.sets = [NSNumber numberWithDouble:value];
 }
 
 #pragma mark - AllExercisesTableViewControllerDelegate

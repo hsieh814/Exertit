@@ -11,6 +11,7 @@
 #import "Exercise.h"
 #import "ExerciseSetting.h"
 #import "SWRevealViewController.h"
+#import "RunWorkoutViewController.h"
 
 @interface WorkoutViewController ()
 
@@ -115,18 +116,20 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+    // index of the selected row
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UINavigationController *navController = segue.destinationViewController;
+    
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navigationController.childViewControllers[0];
         
+        WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navController.childViewControllers[0];
         workoutConfigViewController.workout = self.workout;
         
         // Set the title of next controller to the workout's name
         workoutConfigViewController.title = self.workout.workoutName;
+        
     } else if ([segue.identifier isEqualToString:@"GoToExercise"]) {
-        // index of the selected row
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        UINavigationController *navController = segue.destinationViewController;
+
         WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navController.childViewControllers[0];
         
         ExerciseSetting *selectedExerciseSetting = self.exercisesForWorkout[indexPath.row];
@@ -134,6 +137,14 @@
         
         // Set the title of next controller to the workout's name
         workoutConfigViewController.title = selectedExerciseSetting.baseExercise.exerciseName;
+        
+    } else if ([segue.identifier isEqualToString:@"StartWorkout"]) {
+        
+        RunWorkoutViewController *runWorkoutViewController = (RunWorkoutViewController *)navController.childViewControllers[0];
+        runWorkoutViewController.workout = self.workout;
+        
+        // Set the title of next controller to the workout's name
+        runWorkoutViewController.title = self.workout.workoutName;
     }
 }
 
