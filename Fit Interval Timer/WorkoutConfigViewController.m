@@ -204,8 +204,11 @@ bool createdNewExerciseSetting;
 
     self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
 
-    int size = (int)[self.workout.exerciseGroup count];
-    self.exerciseSetting.index = [NSNumber numberWithInt:size];
+    // Only need to set the index if it is a new ExerciseSetting- not when editting
+    if (createdNewExerciseSetting) {
+        int size = (int)[self.workout.exerciseGroup count];
+        self.exerciseSetting.index = [NSNumber numberWithInt:size];
+    }
     NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSLog(@"%@", self.exerciseSetting);
     

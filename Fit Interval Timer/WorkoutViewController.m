@@ -142,6 +142,7 @@
         
         RunWorkoutViewController *runWorkoutViewController = (RunWorkoutViewController *)navController.childViewControllers[0];
         runWorkoutViewController.workout = self.workout;
+        runWorkoutViewController.exercisesForWorkout = self.exercisesForWorkout;
         
         // Set the title of next controller to the workout's name
         runWorkoutViewController.title = self.workout.workoutName;

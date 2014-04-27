@@ -87,7 +87,7 @@ int state;
     cooldownDuration = [defaults objectForKey:@"cooldown"];
     repetitions = [defaults objectForKey:@"repetitions"];
     
-    // Convert the string repetition to int in repetitionTotal
+    // Convert the string repetition to int and display in repetitionTotal
     repetitionTotal = [repetitions intValue];
     
     // Set the total repetitions text
