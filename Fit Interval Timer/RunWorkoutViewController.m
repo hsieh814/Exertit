@@ -16,7 +16,7 @@
 
 @implementation RunWorkoutViewController
 
-int exerciseIndex, minutesCount, secondsCount;
+int exerciseIndex, minutesCount, secondsCount, pauseTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,9 @@ int exerciseIndex, minutesCount, secondsCount;
 {
     [super viewDidLoad];
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Timer is invalid
+    pauseTimer = 1;
     
     exerciseIndex = 0;
     
@@ -92,7 +95,64 @@ int exerciseIndex, minutesCount, secondsCount;
 /* Start timer if there is a time set for the exercise */
 - (IBAction)startTimer:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    if (pauseTimer) {
+        // Change label to PAUSE
+        [self.startLabel setTitle:@"PAUSE" forState:UIControlStateNormal];
+        
+        self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                             target: self
+                                                           selector:@selector(timer)
+                                                           userInfo:nil
+                                                            repeats:YES];
+        
+        pauseTimer = 0;
+    } else {
+        // Change label to RESUME
+        [self.startLabel setTitle:@"RESUME" forState:UIControlStateNormal];
+        
+        [self.secondsTimer invalidate];
+        self.secondsTimer = nil;
+        pauseTimer = 1;
+    }
 
+}
+
+/* Reset timer */
+- (IBAction)resetTimer:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    // Stop the timer
+    [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
+    
+    // Reset timer
+    [self setMinuteAndSecondsFromTimeInterval];
+    [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
+    pauseTimer = 1;
+}
+
+// Called every second when timePicker is active
+- (void)timer {
+
+    // Timer
+    if (secondsCount == 0 && minutesCount == 0) {
+        [self.secondsTimer invalidate];
+        self.secondsTimer = nil;
+        
+        // Reset timer
+        [self setMinuteAndSecondsFromTimeInterval];
+        [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
+        pauseTimer = 1;
+        
+    } else if (secondsCount == 0) {
+        minutesCount--;
+        secondsCount = 59;
+    } else {
+        secondsCount--;
+    }
+    
+    [self displayMinValue:minutesCount andSecValue:secondsCount];
 }
 
 /* Go to next exercise */

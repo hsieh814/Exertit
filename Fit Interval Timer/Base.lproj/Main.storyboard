@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsQ-9A-6ej">
-                                <rect key="frame" x="114" y="280" width="92" height="30"/>
+                                <rect key="frame" x="57" y="280" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="START">
@@ -233,6 +233,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgh-bE-vVT">
+                                <rect key="frame" x="178" y="280" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="RESET">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetTimer:" destination="1m9-mY-1Sw" eventType="touchUpInside" id="NZd-eX-fOX"/>
+                                    <action selector="resetTimer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rv2-tK-gVx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -253,6 +265,7 @@
                         <outlet property="repsTotal" destination="m42-bi-Aqn" id="JMg-bH-k8p"/>
                         <outlet property="secDisplay" destination="Fae-YC-JMd" id="7RB-02-e8Y"/>
                         <outlet property="setsTotal" destination="GhF-Hh-uY9" id="Ta2-8g-S7s"/>
+                        <outlet property="startLabel" destination="NsQ-9A-6ej" id="nVf-Xb-3yx"/>
                         <outlet property="weightLabel" destination="8jf-Aj-f8H" id="W42-a7-1Z4"/>
                     </connections>
                 </viewController>

@@ -22,12 +22,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *secDisplay;
+@property (weak, nonatomic) IBOutlet UIButton *startLabel;
 @property (weak, nonatomic) IBOutlet UILabel *repsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *setsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextExerciseName;
 
 - (IBAction)startTimer:(id)sender;
+- (IBAction)resetTimer:(id)sender;
 - (IBAction)nextExercise:(id)sender;
 - (IBAction)stopWorkout:(id)sender;
 
