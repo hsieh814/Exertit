@@ -64,7 +64,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     // Next exercise label
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
         ExerciseSetting *nextExerciseSetting = [self.exercisesForWorkout objectAtIndex:(exerciseIndex + 1)];
-        [self.nextExerciseName setTitle:[NSString stringWithFormat:@"%@", nextExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
+        [self.nextExerciseName setTitle:[NSString stringWithFormat:@"%@ >", nextExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
     } else {
         [self.nextExerciseName setTitle:@"Done Workout!" forState:UIControlStateNormal];
     }

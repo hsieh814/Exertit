@@ -78,6 +78,10 @@ bool createdNewExerciseSetting;
     // NSTimeInterval set to 0
     nsTimeInterval = 0.0;
     
+    // Set the minutes and seconds to nil to avoid messing up next picker's values
+    minutes = nil;
+    seconds = nil;
+    
     if (!self.exerciseSetting) {
         // Initialize newExericse object
         self.exerciseSetting = [ExerciseSetting createEntity];
@@ -88,7 +92,7 @@ bool createdNewExerciseSetting;
         createdNewExerciseSetting = NO;
         
         self.selectedExerciseLabel.text = self.exerciseSetting.baseExercise.exerciseName;
-        
+
         NSInteger repInt = [self.exerciseSetting.reps integerValue];
         NSInteger setInt = [self.exerciseSetting.sets integerValue];
         
@@ -98,10 +102,18 @@ bool createdNewExerciseSetting;
         [self.repsStepperItem setValue:[self.exerciseSetting.reps doubleValue]];
         [self.setsStepperItem setValue:[self.exerciseSetting.sets doubleValue]];
         
+        // Set the saved values for the time picker and time label
         int totalTimeInSeconds = [self.exerciseSetting.timeInterval intValue];
-        NSInteger minutes = totalTimeInSeconds / 60;
-        NSInteger seconds = (totalTimeInSeconds % 60) / 5;
-        self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:minutes], [self.secArray objectAtIndex:seconds]];
+        int min = totalTimeInSeconds / 60;
+        int sec = (totalTimeInSeconds % 60) / 5;
+        self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:min], [self.secArray objectAtIndex:sec]];
+
+        [self.timePicker selectRow:min inComponent:0 animated:YES];
+        [self.timePicker selectRow:sec inComponent:1 animated:YES];
+        
+        minutes = [NSString stringWithFormat:@"%02zd", min];
+        seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
+        NSLog(@"minutes = %@ , seconds = %@", minutes, seconds);
     }
 }
 
@@ -144,12 +156,15 @@ bool createdNewExerciseSetting;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (seconds == nil) {
+        NSLog(@"seconds == nil");
         seconds = @"00";
     }
     if (minutes == nil) {
+        NSLog(@"minutes == nil");
         minutes = @"00";
     }
-    
+    NSLog(@"--> %@ , %@", minutes, seconds);
+    NSLog(@"--> minutes double  = %g", [minutes doubleValue]);
     nsTimeInterval = [minutes doubleValue] * 60 + [seconds doubleValue];
     self.durationText.text = [NSString stringWithFormat:@"%@:%@", minutes, seconds];
     
