@@ -22,10 +22,10 @@
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"Data"];
 
     // Set the status bar text color to white rather than default black
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // Change the navigation bar color to the theme color, and the text to white
-    [[UINavigationBar appearance] setBarTintColor:themeNavBar];
+    [[UINavigationBar appearance] setBarTintColor:themeNavBar6];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 

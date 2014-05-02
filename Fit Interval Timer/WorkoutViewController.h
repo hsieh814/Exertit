@@ -17,4 +17,6 @@
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) NSString *workoutName;
 
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @end

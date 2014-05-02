@@ -37,6 +37,9 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
                                                initWithTarget:self action:@selector(longPressGestureRecognized:)];
     [self.tableView addGestureRecognizer:longPress];
+    
+    // Change start button text color
+    [self.startButton setTitleColor:themeNavBar6 forState:UIControlStateNormal];
 }
 
 // called everytime we enter the view

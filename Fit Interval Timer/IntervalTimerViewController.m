@@ -95,6 +95,8 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
      
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
+    
+    [self.startButton setTitleColor:themeNavBar6 forState:UIControlStateNormal];
 }
 
 // called everytime we enter the view
@@ -116,9 +118,10 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 {    
     for (UITextField *subView in self.view.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
-            [[subView layer] setBorderColor:[themeBlue CGColor]];
-            subView.layer.borderWidth= 0.5f;
+            [[subView layer] setBorderColor:[themeGrey2 CGColor]];
+            subView.layer.borderWidth= 1.0f;
             subView.layer.cornerRadius = 8.0f;
+            subView.textColor = [UIColor blackColor];
         }
     }
 }
