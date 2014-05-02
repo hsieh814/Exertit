@@ -15,7 +15,7 @@
 @interface WorkoutConfigViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>
 
 // Selected exercise
-@property (weak, nonatomic) IBOutlet UILabel *selectedExerciseLabel;
+@property (weak, nonatomic) IBOutlet UIButton *selectedExerciseButton;
 
 // Duration
 @property (weak, nonatomic) IBOutlet UITextField *durationText;
@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIStepper *setsStepperItem;
 - (IBAction)repsStepper:(UIStepper *)sender;
 - (IBAction)setsStepper:(UIStepper *)sender;
+
+// Weight
+@property (weak, nonatomic) IBOutlet UITextField *weightLabel;
 
 // Time picker view
 @property (retain, nonatomic) NSMutableArray *secArray;

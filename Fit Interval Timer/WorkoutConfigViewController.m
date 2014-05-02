@@ -91,14 +91,14 @@ bool createdNewExerciseSetting;
         // Editing the settings
         createdNewExerciseSetting = NO;
         
-        self.selectedExerciseLabel.text = self.exerciseSetting.baseExercise.exerciseName;
+        [self.selectedExerciseButton setTitle:self.exerciseSetting.baseExercise.exerciseName forState:UIControlStateNormal];
 
         NSInteger repInt = [self.exerciseSetting.reps integerValue];
         NSInteger setInt = [self.exerciseSetting.sets integerValue];
         
         self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
         self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
-        
+        self.weightLabel.text = [NSString stringWithFormat:@"%d", [self.exerciseSetting.weight intValue]];
         [self.repsStepperItem setValue:[self.exerciseSetting.reps doubleValue]];
         [self.setsStepperItem setValue:[self.exerciseSetting.sets doubleValue]];
         
@@ -115,6 +115,13 @@ bool createdNewExerciseSetting;
         seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
         NSLog(@"minutes = %@ , seconds = %@", minutes, seconds);
     }
+    
+    // Dismiss keyboard when outside is touched
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 // called everytime we enter the view
@@ -208,6 +215,21 @@ bool createdNewExerciseSetting;
     }
 }
 
+/* Hide keyboard when empty space is touched */
+-(void)dismissKeyboard {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    UIView *v = self.view;
+    
+    if ([v isEqual:0]) {
+        NSLog(@"hello");
+    }
+    
+    NSInteger n = v.tag;
+    
+    [self.view endEditing:YES];
+}
+
 /* Bar buttons */
 
 - (IBAction)done:(id)sender
@@ -216,7 +238,7 @@ bool createdNewExerciseSetting;
     
     self.exerciseSetting.reps = [NSNumber numberWithInteger:[self.repsText.text integerValue]];
     self.exerciseSetting.sets = [NSNumber numberWithInteger:[self.setsText.text integerValue]];
-
+    self.exerciseSetting.weight = [NSNumber numberWithInteger:[self.weightLabel.text integerValue]];
     self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
 
     // Only need to set the index if it is a new ExerciseSetting- not when editting
@@ -282,7 +304,8 @@ bool createdNewExerciseSetting;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // display the selected exercise's name
-    self.selectedExerciseLabel.text = exercise.exerciseName;
+    [self.selectedExerciseButton setTitle:exercise.exerciseName forState:UIControlStateNormal];
+
     self.exerciseSetting.baseExercise = exercise;
     NSLog(@"%@", self.exerciseSetting.baseExercise);
     [self.navigationController popViewControllerAnimated:YES];

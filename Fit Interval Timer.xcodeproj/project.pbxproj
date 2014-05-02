@@ -36,7 +36,6 @@
 		BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */; };
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
-		BF1B9BDC1909FDD0004356DE /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1B9BDB1909FDD0004356DE /* ExerciseSetting.m */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
@@ -74,6 +73,7 @@
 		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 		BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */; };
 		BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */; };
+		BFFEB93C191349A200AE929C /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEB93B191349A200AE929C /* ExerciseSetting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,8 +148,6 @@
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
-		BF1B9BDA1909FDD0004356DE /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
-		BF1B9BDB1909FDD0004356DE /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Fit Interval Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit Interval Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +205,8 @@
 		BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 		BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunIntervalTrainerViewController.h; sourceTree = "<group>"; };
 		BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunIntervalTrainerViewController.m; sourceTree = "<group>"; };
+		BFFEB93A191349A200AE929C /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
+		BFFEB93B191349A200AE929C /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,8 +350,8 @@
 			children = (
 				BF7F053E18FB4479003ECD72 /* Exercise.h */,
 				BF7F053F18FB4479003ECD72 /* Exercise.m */,
-				BF1B9BDA1909FDD0004356DE /* ExerciseSetting.h */,
-				BF1B9BDB1909FDD0004356DE /* ExerciseSetting.m */,
+				BFFEB93A191349A200AE929C /* ExerciseSetting.h */,
+				BFFEB93B191349A200AE929C /* ExerciseSetting.m */,
 				BF7F054118FB4479003ECD72 /* Workout.h */,
 				BF7F054218FB4479003ECD72 /* Workout.m */,
 			);
@@ -618,7 +618,6 @@
 				BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
 				BF00D38518E8592600DA4CD7 /* NSEntityDescription+MagicalDataImport.m in Sources */,
-				BF1B9BDC1909FDD0004356DE /* ExerciseSetting.m in Sources */,
 				BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */,
 				BF7F054018FB4479003ECD72 /* Exercise.m in Sources */,
 				BF00D38A18E8592600DA4CD7 /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -636,6 +635,7 @@
 				BF20987C1871F80400D52321 /* main.m in Sources */,
 				BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */,
 				BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */,
+				BFFEB93C191349A200AE929C /* ExerciseSetting.m in Sources */,
 				BF00D38D18E8592600DA4CD7 /* NSManagedObject+MagicalRecord.m in Sources */,
 				BF00D39718E8592600DA4CD7 /* MagicalRecord+ErrorHandling.m in Sources */,
 				BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */,

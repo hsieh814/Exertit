@@ -10,6 +10,7 @@
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="timeInterval" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="baseExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="highLevelExercise" inverseEntity="Exercise" syncable="YES"/>
         <relationship name="workoutGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="exerciseGroup" inverseEntity="Workout" syncable="YES"/>
     </entity>
@@ -21,7 +22,7 @@
     </entity>
     <elements>
         <element name="Exercise" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="ExerciseSetting" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ExerciseSetting" positionX="0" positionY="0" width="128" height="148"/>
         <element name="Workout" positionX="0" positionY="0" width="128" height="103"/>
     </elements>
 </model>
