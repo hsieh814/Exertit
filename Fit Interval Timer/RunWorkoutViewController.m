@@ -57,6 +57,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     self.nameLabel.text = self.exerciseSetting.baseExercise.exerciseName;
     self.repsTotal.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.reps];
     self.setsTotal.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.sets];
+    self.weightLabel.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.weight];
     
     // Set the min and sec display
     [self setMinuteAndSecondsFromTimeInterval];
