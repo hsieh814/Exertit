@@ -48,8 +48,7 @@ static bool pauseTimer = 1;
     
     // Default selected switcher is stopwatch
     self.selectedSwitcher = 0;
-    [self.timePicker setUserInteractionEnabled:NO];
-    [self.timePicker setAlpha:.6];
+    [self enableTimePicker:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,6 +100,20 @@ static bool pauseTimer = 1;
     }
 }
 
+// Enable or diable the time picker
+- (void)enableTimePicker:(bool)isEnable
+{
+    double transparency;
+    if (isEnable) {
+        transparency = 1.0;
+    } else {
+        transparency = 0.6;
+    }
+    
+    [self.timePicker setUserInteractionEnabled:isEnable];
+    [self.timePicker setAlpha:transparency];
+}
+
 /* START and RESET button actions */
 
 - (IBAction)startTimer:(id)sender {
@@ -123,6 +136,9 @@ static bool pauseTimer = 1;
                                                             repeats:YES];
         
         pauseTimer = 0;
+        
+        // Disable the time picker
+        [self enableTimePicker:NO];
         
     } else {
         // Change label to RESUME
@@ -155,6 +171,9 @@ static bool pauseTimer = 1;
     // Change back to START label and the pauseTimer boolean to 1
     [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
     pauseTimer = 1;
+    
+    // Enable the time picker
+    [self enableTimePicker:YES];
 }
 
 // Called every second when timePicker is active
@@ -200,16 +219,14 @@ static bool pauseTimer = 1;
         case 0:
             // stopwatch
             self.selectedSwitcher = 0;
-            [self.timePicker setUserInteractionEnabled:NO];
-            [self.timePicker setAlpha:.6];
+            [self enableTimePicker:NO];
             minutesCount = 0;
             secondsCount = 0;
             break;
         case 1:
             // timer
             self.selectedSwitcher = 1;
-            [self.timePicker setUserInteractionEnabled:YES];
-            [self.timePicker setAlpha:1];
+            [self enableTimePicker:YES];
             minutesCount = self.setMin;
             secondsCount = self.setSec;
             break;

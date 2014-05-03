@@ -111,7 +111,8 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0){
-        return @"Favorites";
+//        return @"Favorites";
+        return @"";
     } else {
         return @" ";
     }
