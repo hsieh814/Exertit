@@ -12,7 +12,7 @@
 #import "ExerciseCell.h"
 #import "ExerciseSetting.h"
 
-@interface WorkoutConfigViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>
+@interface WorkoutConfigViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>
 
 // Selected exercise
 @property (weak, nonatomic) IBOutlet UIButton *selectedExerciseButton;
@@ -25,8 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *setsText;
 @property (weak, nonatomic) IBOutlet UIStepper *repsStepperItem;
 @property (weak, nonatomic) IBOutlet UIStepper *setsStepperItem;
-- (IBAction)repsStepper:(UIStepper *)sender;
-- (IBAction)setsStepper:(UIStepper *)sender;
+- (IBAction)repsStepper:(id)sender;
+- (IBAction)setsStepper:(id)sender;
 
 // Weight
 @property (weak, nonatomic) IBOutlet UITextField *weightLabel;
