@@ -28,26 +28,8 @@
     [[UINavigationBar appearance] setBarTintColor:themeNavBar6];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
-    // Set Interval Trainer default values
-    [self setDefault];
     
     return YES;
-}
-
-/* Set the default for Interval Trainer */
-- (void)setDefault {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:@"02:00" forKey:@"warmup"];
-    [defaults setObject:@"01:00" forKey:@"lowInterval"];
-    [defaults setObject:@"00:30" forKey:@"highInterval"];
-    [defaults setObject:@"02:00" forKey:@"cooldown"];
-    [defaults setObject:@"10" forKey:@"repetitions"];
-    
-    [defaults synchronize];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
