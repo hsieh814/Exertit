@@ -15,7 +15,6 @@
 @implementation RunIntervalTrainerViewController
 
 // Private variables declaration
-NSString *warmupDuration, *lowIntervalDuration, *highIntervalDuration, *cooldownDuration, *repetitions;
 static int minutesCount = 0;
 static int secondsCount = 0;
 static bool isTimerRunning = YES, done = NO;
@@ -42,12 +41,15 @@ int state;
     [super viewDidLoad];
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    // Get the default interval trainer values
-    [self getDefaultTextFieldData];
-    
-    NSLog(@"warmup = %@\nlow interval = %@\nhigh interval = %@\ncool down = %@\nrepetitions = %@",
-          warmupDuration, lowIntervalDuration, highIntervalDuration, cooldownDuration, repetitions);
+    NSLog(@"\nwarmup = %@\nlow interval = %@\nhigh interval = %@\ncool down = %@\nrepetitions = %@",
+          self.warmupDuration, self.lowIntervalDuration, self.highIntervalDuration, self.cooldownDuration, self.repetitions);
 
+    // Convert the string repetition to int and display in repetitionTotal
+    repetitionTotal = [self.repetitions intValue];
+    
+    // Set the total repetitions text
+    self.totalRep.text = self.repetitions;
+    
     [self initialSetup];
     
     NSLog(@"state = %d", state);
@@ -81,23 +83,20 @@ int state;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    warmupDuration = [defaults objectForKey:@"warmup"];
-    lowIntervalDuration = [defaults objectForKey:@"lowInterval"];
-    highIntervalDuration = [defaults objectForKey:@"highInterval"];
-    cooldownDuration = [defaults objectForKey:@"cooldown"];
-    repetitions = [defaults objectForKey:@"repetitions"];
+    self.warmupDuration = [defaults objectForKey:@"warmup"];
+    self.lowIntervalDuration = [defaults objectForKey:@"lowInterval"];
+    self.highIntervalDuration = [defaults objectForKey:@"highInterval"];
+    self.cooldownDuration = [defaults objectForKey:@"cooldown"];
+    self.repetitions = [defaults objectForKey:@"repetitions"];
     
-    // Convert the string repetition to int and display in repetitionTotal
-    repetitionTotal = [repetitions intValue];
-    
-    // Set the total repetitions text
-    self.totalRep.text = repetitions;
+
 }
 
 // Initial setup of the starting state and repetition count
 -(void)initialSetup
 {
-    if ( ![warmupDuration isEqualToString:@"00:00"]) {
+    // Skip WARM_UP if not set
+    if ( ![self.warmupDuration isEqualToString:@"00:00"]) {
         state = WARM_UP;
     } else {
         state = LOW_INT;
@@ -126,9 +125,16 @@ int state;
                 repetitionCount++;
                 self.currentRep.text = [NSString stringWithFormat:@"%d", repetitionCount];
                 if (repetitionCount == repetitionTotal) {
-                    // Go to cool down
-                    NSLog(@"Go to cool down");
-                    state = COOL_DOWN;
+                    // Skip COOL_DOWN if not set
+                    if (![self.cooldownDuration isEqualToString:@"00:00"]) {
+                        // Go to cool down
+                        NSLog(@"Go to cool down");
+                        state = COOL_DOWN;
+                    } else {
+                        NSLog(@"No cool down set");
+                        [self endIntervalTrainer];
+                        return;
+                    }
                 } else {
                     // Go back to low interval
                     NSLog(@"Go back to low interval state");
@@ -166,25 +172,25 @@ int state;
             NSLog(@"+++ WARM UP");
             self.categoryLabel.text = @"WARM UP";
             self.categoryLabel.textColor = themeBlue;
-            return warmupDuration;
+            return self.warmupDuration;
             break;
         case LOW_INT:
             NSLog(@"+++ LOW INT");
             self.categoryLabel.text = @"LOW";
             self.categoryLabel.textColor = themeGreen;
-            return lowIntervalDuration;
+            return self.lowIntervalDuration;
             break;
         case HIGH_INT:
             NSLog(@"+++ HIGH INT");
             self.categoryLabel.text = @"HIGH";
             self.categoryLabel.textColor = themeRed;
-            return highIntervalDuration;
+            return self.highIntervalDuration;
             break;
         case COOL_DOWN:
             NSLog(@"+++ COOL DOWN");
             self.categoryLabel.text = @"COOL DOWN";
             self.categoryLabel.textColor = themeBlue;
-            return cooldownDuration;
+            return self.cooldownDuration;
             break;
         default:
             break;
@@ -225,6 +231,7 @@ int state;
     [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
     
     self.categoryLabel.text = @"FINISHED";
+    self.categoryLabel.textColor = themeBlue;
 }
 
 /* PAUSE and RESET timer buttons*/

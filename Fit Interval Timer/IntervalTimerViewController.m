@@ -8,6 +8,7 @@
 
 #import "IntervalTimerViewController.h"
 #import "SWRevealViewController.h"
+#import "RunIntervalTrainerViewController.h"
 
 @interface IntervalTimerViewController ()
 
@@ -309,6 +310,24 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     self.highIntervalDuration.text = [defaults objectForKey:@"highInterval"];
     self.cooldownDuration.text = [defaults objectForKey:@"cooldown"];
     self.repetitions.text = [defaults objectForKey:@"repetitions"];
+}
+
+/* Segue */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    if ([segue.identifier isEqualToString:@"RunInterval"]) {
+        NSLog(@"********************* set the string value");
+        RunIntervalTrainerViewController *runIntervalTrainerViewController = segue.destinationViewController;
+        
+        // Pass the textfield's duration values
+        runIntervalTrainerViewController.warmupDuration = self.warmupDuration.text;
+        runIntervalTrainerViewController.lowIntervalDuration = self.lowIntervalDuration.text;
+        runIntervalTrainerViewController.highIntervalDuration = self.highIntervalDuration.text;
+        runIntervalTrainerViewController.cooldownDuration = self.cooldownDuration.text;
+        runIntervalTrainerViewController.repetitions = self.repetitions.text;
+    }
 }
 
 @end

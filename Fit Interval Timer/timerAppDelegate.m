@@ -29,9 +29,27 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
+    // Set Interval Trainer default values
+    [self setDefault];
+    
     return YES;
 }
-							
+
+/* Set the default for Interval Trainer */
+- (void)setDefault {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:@"02:00" forKey:@"warmup"];
+    [defaults setObject:@"01:00" forKey:@"lowInterval"];
+    [defaults setObject:@"00:30" forKey:@"highInterval"];
+    [defaults setObject:@"02:00" forKey:@"cooldown"];
+    [defaults setObject:@"10" forKey:@"repetitions"];
+    
+    [defaults synchronize];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

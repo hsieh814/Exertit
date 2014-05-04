@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *resetLabel;
 
+@property (strong, nonatomic) NSString *warmupDuration, *lowIntervalDuration, *highIntervalDuration, *cooldownDuration, *repetitions;
+
 - (IBAction)pauseTimer:(id)sender;
 - (IBAction)resetTimer:(id)sender;
 
