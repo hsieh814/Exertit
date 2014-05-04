@@ -25,7 +25,7 @@
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // Change the navigation bar color to the theme color, and the text to white
-    [[UINavigationBar appearance] setBarTintColor:themeNavBar6];
+    [[UINavigationBar appearance] setBarTintColor:themeNavBar4];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     

@@ -36,7 +36,10 @@ bool createNewExercise;
     if (!self.exercise) {
         self.exercise = [Exercise createEntity];
         createNewExercise = YES;
+    } else {
+        createNewExercise = NO;
     }
+    
     // Set the attributes to the corresponding areas
     self.exerciseNameTextField.text = self.exercise.exerciseName;
 }
