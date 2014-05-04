@@ -22,7 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *secDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *colonLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startLabel;
+@property (weak, nonatomic) IBOutlet UIButton *resetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *repsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *setsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;

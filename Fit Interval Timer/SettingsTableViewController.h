@@ -12,4 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectTheme;
+
+- (IBAction)changeTheme:(id)sender;
+
 @end

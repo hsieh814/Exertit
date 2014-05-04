@@ -85,7 +85,6 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell" forIndexPath:indexPath];
     ExerciseSetting *exerciseSetting = [self.exercisesForWorkout objectAtIndex:indexPath.row];
     if (exerciseSetting.baseExercise == nil) {
-        NSLog(@"something fishy...");
         [exerciseSetting deleteEntity];
         [self saveContext];
         
@@ -111,6 +110,8 @@
         [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
 
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self enableOrDisableStartButton];
     }
 }
 
@@ -161,11 +162,28 @@
     self.exercisesForWorkout = [[self.workout.exerciseGroup allObjects] mutableCopy];
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
     self.exercisesForWorkout = [[self.workout.exerciseGroup sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]] mutableCopy];
+    
+    [self enableOrDisableStartButton];
 }
 
 /* Save data to the store */
 - (void)saveContext {
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+}
+
+/* Only enable the START button when there is at least one exercise */
+- (void)enableOrDisableStartButton
+{
+    double transparency = 0.6;
+    bool isEnable = NO;
+    
+    if ([self.exercisesForWorkout count] > 0) {
+        transparency = 1.0;
+        isEnable = YES;
+    }
+    
+    [self.startButton setUserInteractionEnabled:isEnable];
+    [self.startButton setAlpha:transparency];
 }
 
 /* Long press cell to rearrange */

@@ -62,6 +62,13 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     // Set the min and sec display
     [self setMinuteAndSecondsFromTimeInterval];
     
+    if ([self.exerciseSetting.timeInterval intValue] == 0) {
+        NSLog(@"Time 00:00");
+        [self enableTimer:NO];
+    } else {
+        [self enableTimer:YES];
+    }
+    
     // Next exercise label
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
         ExerciseSetting *nextExerciseSetting = [self.exercisesForWorkout objectAtIndex:(exerciseIndex + 1)];
@@ -91,6 +98,28 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     
     self.minDisplay.text = [NSString stringWithFormat:@"%02d", minutes];
     self.secDisplay.text = [NSString stringWithFormat:@"%02d", seconds];
+}
+
+// Enable or diable the timer
+- (void)enableTimer:(bool)isEnable
+{
+    double transparency;
+    if (isEnable) {
+        transparency = 1.0;
+    } else {
+        transparency = 0.3;
+    }
+    
+    [self.minDisplay setUserInteractionEnabled:isEnable];
+    [self.minDisplay setAlpha:transparency];
+    [self.colonLabel setUserInteractionEnabled:isEnable];
+    [self.colonLabel setAlpha:transparency];
+    [self.secDisplay setUserInteractionEnabled:isEnable];
+    [self.secDisplay setAlpha:transparency];
+    [self.startLabel setUserInteractionEnabled:isEnable];
+    [self.startLabel setAlpha:transparency];
+    [self.resetLabel setUserInteractionEnabled:isEnable];
+    [self.resetLabel setAlpha:transparency];
 }
 
 /* Start timer if there is a time set for the exercise */

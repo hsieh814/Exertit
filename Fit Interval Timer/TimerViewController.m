@@ -107,7 +107,7 @@ static bool pauseTimer = 1;
     if (isEnable) {
         transparency = 1.0;
     } else {
-        transparency = 0.6;
+        transparency = 0.3;
     }
     
     [self.timePicker setUserInteractionEnabled:isEnable];
