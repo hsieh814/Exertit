@@ -21,6 +21,7 @@ NSString *seconds;
 NSString *minutes;
 UITextField *selectedTextField;
 bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepetition;
+CGRect activeTextFieldRect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -98,6 +99,20 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
     
     [self.startButton setTitleColor:themeNavBar6 forState:UIControlStateNormal];
+    
+    // Move view up when showing keyboard
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+    // Tap gesture: hide keyboard when taping on view
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboardOnTap:)];
+    [self.scrollView addGestureRecognizer:gestureRecognizer];
+
+    self.warmupDuration.delegate = self;
+    self.lowIntervalDuration.delegate = self;
+    self.highIntervalDuration.delegate = self;
+    self.cooldownDuration.delegate = self;
+    self.repetitions.delegate = self;
 }
 
 // called everytime we enter the view
@@ -125,6 +140,60 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
             subView.textColor = [UIColor blackColor];
         }
     }
+}
+
+/* Called when a text field is active */
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    // Save the active textfield's coordinates
+    activeTextFieldRect = textField.frame;
+}
+
+- (IBAction)hideKeyboardOnTap:(id)sender
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    [self.scrollView endEditing:YES];
+}
+
+/* Show keyboard: called when UIKeyboardDidShowNotification is sent */
+- (void)keyboardWasShown:(NSNotification *)aNotification
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    // Get the height of the keyboard
+    NSDictionary *info = [aNotification userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    // Get scoll view frame size
+    CGRect aRect = self.scrollView.frame;
+
+    aRect.size.height -= keyboardSize.height + self.navigationController.navigationBar.frame.origin.y + 15;
+    
+    UIEdgeInsets contectInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    self.scrollView.contentInset = contectInsets;
+    self.scrollView.scrollIndicatorInsets = contectInsets;
+    
+    // Only scroll if text field is hidden by keyboard
+    // Check is textfield's point is within aRect (area not hidden by keyboard)
+    if (!CGRectContainsPoint(aRect, activeTextFieldRect.origin)) {
+        NSLog(@"need to scroll");
+        CGPoint scrollPoint = CGPointMake(0.0, activeTextFieldRect.origin.y - keyboardSize.height);
+        [self.scrollView setContentOffset:scrollPoint];
+    }
+    
+}
+
+/* Hide keyboard: called when UIKeyboardWillHideNotification is sent */
+- (void)keyboardWillBeHidden:(NSNotification *)aNotification
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
 /* UIPickerViewDataSource */
@@ -176,7 +245,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if (component == 1) {
         return [self.secArray count];
@@ -189,7 +258,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if (component == 1) {
         return [self.secArray objectAtIndex:row];
@@ -200,7 +269,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if (component == 1) {
         seconds = [self.secArray objectAtIndex:row];
@@ -219,11 +288,15 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 /* Hide keyboard when empty space is touched */
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.view endEditing:YES];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    [self.scrollView endEditing:YES];
 }
 
 - (IBAction)setWarmup:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    activeTextFieldRect = self.warmupDuration.frame;
+    
     if ([self.warmupDuration.text isEqualToString:@""]) {
         isSetWarmup = NO;
         [self.startButton setEnabled:NO];
@@ -231,10 +304,13 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
         isSetWarmup = YES;
     }
     [self enableStartButton];
+    
 }
 
 - (IBAction)setLowInterval:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    activeTextFieldRect = self.lowIntervalDuration.frame;
+    
     if ([self.lowIntervalDuration.text isEqualToString:@""] || [self.lowIntervalDuration.text isEqualToString:@"00:00"]) {
         isSetLowInterval = NO;
         [self.startButton setEnabled:NO];
@@ -246,6 +322,8 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 - (IBAction)setHighInterval:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    activeTextFieldRect = self.highIntervalDuration.frame;
+    
     if ([self.highIntervalDuration.text isEqualToString:@""] || [self.highIntervalDuration.text isEqualToString:@"00:00"]) {
         isSetHighInterval = NO;
         [self.startButton setEnabled:NO];
@@ -257,6 +335,8 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 - (IBAction)setCooldown:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    activeTextFieldRect = self.cooldownDuration.frame;
+    
     if ([self.cooldownDuration.text isEqualToString:@""]) {
         isSetCooldown = NO;
         [self.startButton setEnabled:NO];
@@ -268,6 +348,8 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 
 - (IBAction)setRepetitionsNumber:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    activeTextFieldRect = self.cooldownDuration.frame;
+
     int repetitionText = [self.repetitions.text intValue];
     if ([self.repetitions.text isEqualToString:@""] || repetitionText == 0) {
         isSetRepetition = NO;
@@ -275,7 +357,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     } else {
         isSetRepetition = YES;
     }
-    NSLog(@"%d , %d , %d , %d , %d", isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepetition);
+    
     [self enableStartButton];
 }
 
@@ -310,6 +392,12 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     self.highIntervalDuration.text = [defaults objectForKey:@"highInterval"];
     self.cooldownDuration.text = [defaults objectForKey:@"cooldown"];
     self.repetitions.text = [defaults objectForKey:@"repetitions"];
+}
+
+/* Enable or disable START button */
+- (void)checkTextFieldForEnablingStartButton
+{
+    
 }
 
 /* Segue */

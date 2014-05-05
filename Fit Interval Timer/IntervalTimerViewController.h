@@ -18,6 +18,9 @@
 @property (retain, nonatomic) NSMutableArray *secArray;
 @property (retain, nonatomic) NSMutableArray *minArray;
 
+// Scroll view
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic) IBOutlet UITextField *warmupDuration;
 @property (weak, nonatomic) IBOutlet UITextField *lowIntervalDuration;
 @property (weak, nonatomic) IBOutlet UITextField *highIntervalDuration;
