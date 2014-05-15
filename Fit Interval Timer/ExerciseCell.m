@@ -26,4 +26,15 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)buttonClicked:(id)sender
+{
+    if (sender == self.deleteButton) {
+        NSLog(@"clicked delete button");
+    } else  if (sender == self.favButton) {
+        NSLog(@"clicked fav button");
+    } else {
+        NSLog(@"clicked neither");
+    }
+}
+
 @end

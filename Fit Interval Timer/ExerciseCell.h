@@ -11,5 +11,7 @@
 @interface ExerciseCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *exerciseName;
+@property (weak, nonatomic) IBOutlet UIButton *favButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end

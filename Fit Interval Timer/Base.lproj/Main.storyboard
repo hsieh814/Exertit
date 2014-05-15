@@ -446,12 +446,36 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY3-6h-gxN">
+                                            <rect key="frame" x="269" y="0.0" width="51" height="59"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.071911520889999997" blue="0.1494543321" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Delete">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="fnI-O7-AXg" eventType="touchUpInside" id="Aix-EJ-YHQ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U9-QA-dmb">
+                                            <rect key="frame" x="217" y="0.0" width="52" height="59"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Fav">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="fnI-O7-AXg" eventType="touchUpInside" id="LS5-Ar-gHC"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="tintColor" red="1" green="0.98287123031855428" blue="0.98397416870469023" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="deleteButton" destination="NY3-6h-gxN" id="Day-wA-E78"/>
                                     <outlet property="exerciseName" destination="cu6-f6-9yr" id="tiE-rj-my8"/>
+                                    <outlet property="favButton" destination="9U9-QA-dmb" id="ncx-IH-ice"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

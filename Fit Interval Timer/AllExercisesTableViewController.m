@@ -37,15 +37,25 @@
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (_sidebarButton != nil) {
+        
+        SWRevealViewController *revealController = [self revealViewController];
+
+        [revealController panGestureRecognizer];
+        [revealController tapGestureRecognizer];
+        
         // Slide out menu intialization
-        _sidebarButton.target = self.revealViewController;
-        _sidebarButton.action = @selector(revealToggle:);
+        self.sidebarButton.target = revealController;
+        self.sidebarButton.action = @selector(revealToggle:);
     
         // Set the gesture
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-
  }
+
+// Handle multiple gestures on a view. Makes sure that both gestures work.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
 
 // called everytime we enter the view
 - (void)viewDidAppear:(BOOL)animated
@@ -58,7 +68,6 @@
     // Reload table
     [self.tableView reloadData];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
