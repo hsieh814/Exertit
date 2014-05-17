@@ -17,6 +17,10 @@ static int minutesCount = 0;
 static int secondsCount = 0;
 static bool pauseTimer = 1;
 
+// selectedSwitcher
+static const int STOPWATCH = 0;
+static const int TIMER = 1;
+
 @implementation TimerViewController
 
 - (void)viewDidLoad
@@ -47,7 +51,7 @@ static bool pauseTimer = 1;
     self.setSec = 0;
     
     // Default selected switcher is stopwatch
-    self.selectedSwitcher = 0;
+    self.selectedSwitcher = STOPWATCH;
     [self enableTimePicker:NO];
 }
 
@@ -119,7 +123,7 @@ static bool pauseTimer = 1;
 - (IBAction)startTimer:(id)sender {
     
     // Timer- don't change label if min and sec are zeros
-    if (self.selectedSwitcher == 1) {
+    if (self.selectedSwitcher == TIMER) {
         if (self.setMin == 0 && self.setSec == 0) {
             return;
         }
@@ -135,27 +139,25 @@ static bool pauseTimer = 1;
                                                            userInfo:nil
                                                             repeats:YES];
         
-        pauseTimer = 0;
+        pauseTimer = FALSE;
         
         // Disable the time picker
         [self enableTimePicker:NO];
         
     } else {
+        [self stopRunningTimer];
+
         // Change label to RESUME
         [self.startLabel setTitle:@"RESUME" forState:UIControlStateNormal];
-        
-        [self.secondsTimer invalidate];
-        self.secondsTimer = nil;
-        pauseTimer = 1;
     }
 }
 
 - (IBAction)resetTimer:(id)sender {
     // Stop the timer
-    [self.secondsTimer invalidate];
-    self.secondsTimer = nil;
+    [self stopRunningTimer];
+    [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
     
-    if (self.selectedSwitcher == 0) {
+    if (self.selectedSwitcher == STOPWATCH) {
         // Stopwatch
         minutesCount = 0;
         secondsCount = 0;
@@ -168,17 +170,13 @@ static bool pauseTimer = 1;
     // Reset the min and sec display
     [self displayMinValue:minutesCount andSecValue:secondsCount];
     
-    // Change back to START label and the pauseTimer boolean to 1
-    [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
-    pauseTimer = 1;
-    
     // Enable the time picker
     [self enableTimePicker:YES];
 }
 
 // Called every second when timePicker is active
 - (void)timer {
-    if (self.selectedSwitcher == 0) {
+    if (self.selectedSwitcher == STOPWATCH) {
         // Stopwatch
         if (secondsCount == 59) {
             minutesCount++;
@@ -189,13 +187,15 @@ static bool pauseTimer = 1;
     } else {
         // Timer
         if (secondsCount == 0 && minutesCount == 0) {
-            [self.secondsTimer invalidate];
-            self.secondsTimer = nil;
-            
+            [self stopRunningTimer];
+            [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
+
             minutesCount = self.setMin;
             secondsCount = self.setSec;
             [self displayMinValue:minutesCount andSecValue:secondsCount];
 
+            [self enableTimePicker:TRUE];
+            
         } else if (secondsCount == 0) {
             minutesCount--;
             secondsCount = 59;
@@ -211,21 +211,21 @@ static bool pauseTimer = 1;
 - (IBAction)indexChanged:(id)sender {
     
     // Must stop timer first
-    [self.secondsTimer invalidate];
-    self.secondsTimer = nil;
-    
+    [self stopRunningTimer];
+    [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
+
     switch (self.switcher.selectedSegmentIndex)
     {
         case 0:
             // stopwatch
-            self.selectedSwitcher = 0;
+            self.selectedSwitcher = STOPWATCH;
             [self enableTimePicker:NO];
             minutesCount = 0;
             secondsCount = 0;
             break;
         case 1:
             // timer
-            self.selectedSwitcher = 1;
+            self.selectedSwitcher = TIMER;
             [self enableTimePicker:YES];
             minutesCount = self.setMin;
             secondsCount = self.setSec;
@@ -234,16 +234,27 @@ static bool pauseTimer = 1;
             break;
     }
     
-    pauseTimer = 1;
-
     [self displayMinValue:minutesCount andSecValue:secondsCount];
-    [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
 }
 
 // Change the display values for the min and sec labels
 -(void)displayMinValue:(int)minutes andSecValue:(int)seconds {
     self.minDisplay.text = [NSString stringWithFormat:@"%02d", minutes];
     self.secDisplay.text = [NSString stringWithFormat:@"%02d", seconds];
+}
+
+// Run the timer
+-(void)runTimer
+{
+    
+}
+
+-(void)stopRunningTimer
+{
+    [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
+    
+    pauseTimer = TRUE;
 }
 
 @end

@@ -82,6 +82,7 @@
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.workoutList objectAtIndex:indexPath.row];
     cell.workoutNameLabel.text = workout.workoutName;
+    cell.workoutNameLabel.textColor = themeNavBar4;
 
     return cell;
 }

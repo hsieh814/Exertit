@@ -63,12 +63,15 @@ CGRect activeTextFieldRect;
     }
     
     // Time pick initialization
-    //    self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 500, self.timePicker.frame.size.width, self.timePicker.frame.size.height)];
     self.timePicker = [[UIPickerView alloc] init];
     self.timePicker.showsSelectionIndicator = YES;
     self.timePicker.delegate = self;
     self.timePicker.dataSource = self;
     self.timePicker.backgroundColor = [UIColor whiteColor];
+    
+    // Fool user with circular time picker
+    [self.timePicker selectRow:(10 * [self.secArray count]) inComponent:1 animated:NO];
+    [self.timePicker selectRow:(10 * [self.minArray count]) inComponent:0 animated:NO];
     
     self.warmupDuration.inputView = self.timePicker;
     self.lowIntervalDuration.inputView = self.timePicker;
@@ -90,7 +93,7 @@ CGRect activeTextFieldRect;
     self.cooldownDuration.inputAccessoryView = pickerToolbar;
     
     // Change the textfields' border color
-    [self changeTextFieldBorderColor];
+    [self changeTextFieldBorderAndTextColor];
     
     // Set the textfields' text to default value saved
     [self getDefaultTextFieldData];
@@ -98,7 +101,7 @@ CGRect activeTextFieldRect;
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
     
-    [self.startButton setTitleColor:themeNavBar6 forState:UIControlStateNormal];
+    [self.startButton setTitleColor:themeGreen forState:UIControlStateNormal];
     
     // Move view up when showing keyboard
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
@@ -130,16 +133,18 @@ CGRect activeTextFieldRect;
 }
 
 /* Change all the textfields' border color */
--(void)changeTextFieldBorderColor
+-(void)changeTextFieldBorderAndTextColor
 {    
     for (UITextField *subView in self.view.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
             [[subView layer] setBorderColor:[themeGrey2 CGColor]];
             subView.layer.borderWidth= 1.0f;
             subView.layer.cornerRadius = 8.0f;
-            subView.textColor = [UIColor blackColor];
         }
     }
+    
+    self.warmupTextField.textColor = self.lowIntervalTextField.textColor = self.highIntervalTextField.textColor
+        = self.cooldownTextField.textColor = self.repetitionsTextField.textColor = themeNavBar4;
 }
 
 /* Called when a text field is active */
@@ -247,10 +252,11 @@ CGRect activeTextFieldRect;
 {
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+    // Fool user with circular time picker by setting the number of rows to a large numnber
     if (component == 1) {
-        return [self.secArray count];
+        return [self.secArray count] * 20;
     } else {
-        return [self.minArray count];
+        return [self.minArray count] * 20;
     }
 }
 
@@ -260,10 +266,17 @@ CGRect activeTextFieldRect;
 {
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+    // Circular time picker- jump back to middle if user reaches end of picker
     if (component == 1) {
-        return [self.secArray objectAtIndex:row];
+        if (row == 0 || row == ([self.secArray count] * 20 -1)) {
+            [self.timePicker selectRow:(5 * [self.secArray count]) inComponent:1 animated:YES];
+        }
+        return [self.secArray objectAtIndex:(row % [self.secArray count])];
     } else {
-        return [self.minArray objectAtIndex:row];
+        if (row == 0 || row == ([self.minArray count] * 20 -1)) {
+            [self.timePicker selectRow:(5 * [self.minArray count]) inComponent:0 animated:YES];
+        }
+        return [self.minArray objectAtIndex:(row % [self.minArray count])];
     }
 }
 
@@ -272,9 +285,9 @@ CGRect activeTextFieldRect;
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if (component == 1) {
-        seconds = [self.secArray objectAtIndex:row];
+        seconds = [self.secArray objectAtIndex:(row % [self.secArray count])];
     } else {
-        minutes = [self.minArray objectAtIndex:row];
+        minutes = [self.minArray objectAtIndex:(row % [self.minArray count])];
     }
 }
 

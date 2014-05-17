@@ -34,8 +34,11 @@
     if (!self.workout) {
         self.workout = [Workout createEntity];
     }
+    
     // Set the attributes to the corresponding areas
     self.nameTextField.text = self.workout.workoutName;
+    
+    self.nameTextField.textColor = themeNavBar4;
 }
 
 - (void)didReceiveMemoryWarning

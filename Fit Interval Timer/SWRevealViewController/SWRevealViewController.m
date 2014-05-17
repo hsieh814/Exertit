@@ -919,8 +919,9 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     BOOL draggableBorderAllowing = (
         _frontViewPosition != FrontViewPositionLeft || _draggableBorderWidth == 0.0f ||
-        xLocation <= _draggableBorderWidth || xLocation >= (width - _draggableBorderWidth) );
-
+        xLocation <= _draggableBorderWidth /*|| xLocation >= (width - _draggableBorderWidth)*/ );
+    //Comment out the last argument b/c the menu is on left side. Need to be able to drag from right to delete cells.
+    
     // allow gesture only within the bounds defined by the draggableBorderWidth property
     return draggableBorderAllowing ;
 }

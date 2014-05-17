@@ -96,6 +96,7 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *exercise = self.exerciseList[indexPath.row];
     cell.exerciseName.text = exercise.exerciseName;
+    cell.exerciseName.textColor = themeNavBar4;
     
     return cell;
 }

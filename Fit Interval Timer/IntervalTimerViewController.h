@@ -21,6 +21,13 @@
 // Scroll view
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+// Textfields
+@property (weak, nonatomic) IBOutlet UITextField *warmupTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lowIntervalTextField;
+@property (weak, nonatomic) IBOutlet UITextField *highIntervalTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cooldownTextField;
+@property (weak, nonatomic) IBOutlet UITextField *repetitionsTextField;
+
 @property (weak, nonatomic) IBOutlet UITextField *warmupDuration;
 @property (weak, nonatomic) IBOutlet UITextField *lowIntervalDuration;
 @property (weak, nonatomic) IBOutlet UITextField *highIntervalDuration;

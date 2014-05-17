@@ -42,6 +42,8 @@ bool createNewExercise;
     
     // Set the attributes to the corresponding areas
     self.exerciseNameTextField.text = self.exercise.exerciseName;
+    
+    self.exerciseNameTextField.textColor = themeNavBar4;
 }
 
 - (void)didReceiveMemoryWarning
