@@ -39,6 +39,19 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     
     // Start with index = 0
     [self startNextExercise];
+    
+    // Color and text customization
+    [self.startLabel setTitleColor:appleGreen forState:UIControlStateNormal];
+    [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
+    [self.nextExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    
+    // Cicle button
+    self.startLabel.layer.cornerRadius = self.startLabel.bounds.size.width/2.0;
+    self.startLabel.layer.borderWidth = 1.0;
+    self.startLabel.layer.borderColor = self.startLabel.titleLabel.textColor.CGColor;
+    self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
+    self.resetLabel.layer.borderWidth = 1.0;
+    self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
 }
 
 - (void)didReceiveMemoryWarning

@@ -50,13 +50,17 @@ static const int TIMER = 1;
     self.setMin = 0;
     self.setSec = 0;
     
+    // Fool user with circular time picker
+    [self.timePicker selectRow:(10 * [self.secArray count]) inComponent:1 animated:NO];
+    [self.timePicker selectRow:(10 * [self.minArray count]) inComponent:0 animated:NO];
+    
     // Default selected switcher is stopwatch
     self.selectedSwitcher = STOPWATCH;
     [self enableTimePicker:NO];
     
     // Color and text customization
     [self.startLabel setTitleColor:appleGreen forState:UIControlStateNormal];
-    [self.resetLabel setTitleColor:appleBlue forState:UIControlStateNormal];
+    [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
     self.switcher.tintColor = themeNavBar4;
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:16], NSFontAttributeName, nil];
     [self.switcher setTitleTextAttributes:attributes forState:UIControlStateNormal];

@@ -16,6 +16,7 @@
 
 // Selected exercise
 @property (weak, nonatomic) IBOutlet UIButton *selectedExerciseButton;
+@property (weak, nonatomic) IBOutlet UILabel *selectedExerciseArrow;
 
 // Duration
 @property (weak, nonatomic) IBOutlet UITextField *durationText;

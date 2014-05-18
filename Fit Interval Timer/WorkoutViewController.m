@@ -39,7 +39,11 @@
     [self.tableView addGestureRecognizer:longPress];
     
     // Change start button text color
-    [self.startButton setTitleColor:themeNavBar6 forState:UIControlStateNormal];
+    [self.startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.startButton.backgroundColor = appleGreen;
+    self.startButton.layer.borderColor = appleGreen.CGColor;
+    self.startButton.layer.borderWidth = 1.0;
+//    self.startButton.layer.cornerRadius = 8.0f;
 }
 
 // called everytime we enter the view

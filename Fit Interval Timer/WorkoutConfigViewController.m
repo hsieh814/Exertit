@@ -81,38 +81,15 @@ bool createdNewExerciseSetting;
     minutes = nil;
     seconds = nil;
 
-    if (!self.exerciseSetting) {
-        // Initialize newExericse object
-        self.exerciseSetting = [ExerciseSetting createEntity];
-        createdNewExerciseSetting = YES;
-    } else {
-        // Editing the settings
-        createdNewExerciseSetting = NO;
-        
-        [self.selectedExerciseButton setTitle:self.exerciseSetting.baseExercise.exerciseName forState:UIControlStateNormal];
-
-        NSInteger repInt = [self.exerciseSetting.reps integerValue];
-        NSInteger setInt = [self.exerciseSetting.sets integerValue];
-        
-        self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
-        self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
-        self.weightLabel.text = [NSString stringWithFormat:@"%d", [self.exerciseSetting.weight intValue]];
-        [self.repsStepperItem setValue:[self.exerciseSetting.reps doubleValue]];
-        [self.setsStepperItem setValue:[self.exerciseSetting.sets doubleValue]];
-        
-        // Set the saved values for the time picker and time label
-        int totalTimeInSeconds = [self.exerciseSetting.timeInterval intValue];
-        int min = totalTimeInSeconds / 60;
-        int sec = (totalTimeInSeconds % 60) / 5;
-        self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:min], [self.secArray objectAtIndex:sec]];
-
-        [self.timePicker selectRow:min inComponent:0 animated:YES];
-        [self.timePicker selectRow:sec inComponent:1 animated:YES];
-        
-        minutes = [NSString stringWithFormat:@"%02zd", min];
-        seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
-    }
+    [self initialSetup];
     
+    // Color and text customizations
+    [self.selectedExerciseButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    self.selectedExerciseArrow.textColor = themeNavBar4;
+    self.repsStepperItem.tintColor = themeNavBar4;
+    self.setsStepperItem.tintColor = themeNavBar4;
+    [self changeTextFieldBorderAndTextColor];
+
     // Dismiss keyboard when outside is touched
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -132,6 +109,57 @@ bool createdNewExerciseSetting;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Set the values to the textfields and steppers
+-(void)initialSetup
+{
+    if (!self.exerciseSetting) {
+        // Initialize newExericse object
+        self.exerciseSetting = [ExerciseSetting createEntity];
+        createdNewExerciseSetting = YES;
+    } else {
+        // Editing the settings
+        createdNewExerciseSetting = NO;
+        
+        [self.selectedExerciseButton setTitle:self.exerciseSetting.baseExercise.exerciseName forState:UIControlStateNormal];
+        
+        NSInteger repInt = [self.exerciseSetting.reps integerValue];
+        NSInteger setInt = [self.exerciseSetting.sets integerValue];
+        
+        self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
+        self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
+        self.weightLabel.text = [NSString stringWithFormat:@"%d", [self.exerciseSetting.weight intValue]];
+        [self.repsStepperItem setValue:[self.exerciseSetting.reps doubleValue]];
+        [self.setsStepperItem setValue:[self.exerciseSetting.sets doubleValue]];
+        
+        // Set the saved values for the time picker and time label
+        int totalTimeInSeconds = [self.exerciseSetting.timeInterval intValue];
+        int min = totalTimeInSeconds / 60;
+        int sec = (totalTimeInSeconds % 60) / 5;
+        self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:min], [self.secArray objectAtIndex:sec]];
+        
+        [self.timePicker selectRow:min inComponent:0 animated:YES];
+        [self.timePicker selectRow:sec inComponent:1 animated:YES];
+        
+        minutes = [NSString stringWithFormat:@"%02zd", min];
+        seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
+    }
+}
+
+/* Change all the textfields' border color and text color*/
+-(void)changeTextFieldBorderAndTextColor
+{
+    for (UITextField *subView in self.view.subviews) {
+        if ([subView isKindOfClass:[UITextField class]]) {
+            [[subView layer] setBorderColor:[themeNavBar4 CGColor]];
+            subView.layer.borderWidth= 1.0f;
+            subView.layer.cornerRadius = 8.0f;
+        }
+    }
+    
+    self.durationText.textColor = themeNavBar4;
+    self.weightLabel.textColor = themeNavBar4;
 }
 
 /* Segue */

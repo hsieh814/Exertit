@@ -52,6 +52,18 @@ int state;
     
     [self initialSetup];
     [self runTimer];
+    
+    // Color and text customization
+    [self.pauseLabel setTitleColor:appleGreen forState:UIControlStateNormal];
+    [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
+    
+    // Cicle button
+    self.pauseLabel.layer.cornerRadius = self.pauseLabel.bounds.size.width/2.0;
+    self.pauseLabel.layer.borderWidth = 1.0;
+    self.pauseLabel.layer.borderColor = self.pauseLabel.titleLabel.textColor.CGColor;
+    self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
+    self.resetLabel.layer.borderWidth = 1.0;
+    self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
 }
 
 // Called before exiting the view
@@ -210,7 +222,7 @@ int state;
         [self stopRunningTimer];
         
         // Change label to START
-        [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
+        [self.pauseLabel setTitle:@"RESUME" forState:UIControlStateNormal];
 
     } else {
         // Start the timer
