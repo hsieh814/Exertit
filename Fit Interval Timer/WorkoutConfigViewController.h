@@ -19,6 +19,7 @@
 
 // Duration
 @property (weak, nonatomic) IBOutlet UITextField *durationText;
+- (IBAction)durationAction:(id)sender;
 
 // Reps and Sets
 @property (weak, nonatomic) IBOutlet UILabel *repsText;

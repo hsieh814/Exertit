@@ -51,45 +51,22 @@ int state;
     self.totalRep.text = self.repetitions;
     
     [self initialSetup];
-    
-    NSLog(@"state = %d", state);
-    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                         target: self
-                                                       selector:@selector(timer)
-                                                       userInfo:nil
-                                                        repeats:YES];
-    
+    [self runTimer];
 }
 
 // Called before exiting the view
 -(void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Stop the timer
-    [self.secondsTimer invalidate];
-    self.secondsTimer = nil;
+    [self stopRunningTimer];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-/* Get the saved default textfields' text */
-- (void)getDefaultTextFieldData
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.warmupDuration = [defaults objectForKey:@"warmup"];
-    self.lowIntervalDuration = [defaults objectForKey:@"lowInterval"];
-    self.highIntervalDuration = [defaults objectForKey:@"highInterval"];
-    self.cooldownDuration = [defaults objectForKey:@"cooldown"];
-    self.repetitions = [defaults objectForKey:@"repetitions"];
-    
-
 }
 
 // Initial setup of the starting state and repetition count
@@ -113,47 +90,39 @@ int state;
 // Called every second when timePicker is active
 - (void)timer {
 
-    // Timer
     if (secondsCount == 0 && minutesCount == 0) {
-        NSLog(@"--> Next state");
-        
         if (state != COOL_DOWN) {
-            NSLog(@"Not the end yet");
             if (state == HIGH_INT) {
                 // Need to decrement the repetition count
-                NSLog(@"decrement repetition count");
                 repetitionCount++;
                 self.currentRep.text = [NSString stringWithFormat:@"%d", repetitionCount];
+                
                 if (repetitionCount == repetitionTotal) {
                     // Skip COOL_DOWN if not set
                     if (![self.cooldownDuration isEqualToString:@"00:00"]) {
                         // Go to cool down
-                        NSLog(@"Go to cool down");
                         state = COOL_DOWN;
                     } else {
-                        NSLog(@"No cool down set");
+                        NSLog(@"------ FINISH WITHOUT COOL DOWN ------");
                         [self endIntervalTrainer];
                         return;
                     }
                 } else {
                     // Go back to low interval
-                    NSLog(@"Go back to low interval state");
                     state = LOW_INT;
                 }
             } else {
                 // Either in WARM UP or LOW INT state, just increment to next state
                 state++;
             }
-            NSLog(@"state = %d", state);
             [self setMinuteAndSecondsFromStringTime:[self getTimeInStringFormatFromState]];
         } else {
             // Reached the end of the interval training- disable timer
-            NSLog(@"end of interval trainer");
+            NSLog(@"------ FINISH ------");
             [self endIntervalTrainer];
         }
         
     } else if (secondsCount == 0) {
-        NSLog(@"secondsCount is 0");
         minutesCount--;
         secondsCount = 59;
     } else {
@@ -166,28 +135,27 @@ int state;
 // Return the States time in string format
 -(NSString *)getTimeInStringFormatFromState
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     switch (state) {
         case WARM_UP:
-            NSLog(@"+++ WARM UP");
+            NSLog(@"++++++ WARM UP");
             self.categoryLabel.text = @"WARM UP";
             self.categoryLabel.textColor = themeBlue;
             return self.warmupDuration;
             break;
         case LOW_INT:
-            NSLog(@"+++ LOW INT");
+            NSLog(@"++++++ LOW INTERVAL");
             self.categoryLabel.text = @"LOW";
             self.categoryLabel.textColor = themeGreen;
             return self.lowIntervalDuration;
             break;
         case HIGH_INT:
-            NSLog(@"+++ HIGH INT");
+            NSLog(@"++++++ HIGH INTERVAL");
             self.categoryLabel.text = @"HIGH";
             self.categoryLabel.textColor = themeRed;
             return self.highIntervalDuration;
             break;
         case COOL_DOWN:
-            NSLog(@"+++ COOL DOWN");
+            NSLog(@"++++++ COOL DOWN");
             self.categoryLabel.text = @"COOL DOWN";
             self.categoryLabel.textColor = themeBlue;
             return self.cooldownDuration;
@@ -201,13 +169,11 @@ int state;
 // Set the timer's minute and second from the State's string time
 -(void)setMinuteAndSecondsFromStringTime:(NSString *)time
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     NSArray *array = [time componentsSeparatedByString:@":"];
     minutesCount = [[array objectAtIndex:0] intValue];
     secondsCount = [[array objectAtIndex:1] intValue];
-    
-    NSLog(@"minutesCount = %d , secondsCount = %d", minutesCount, secondsCount);
 }
 
 /* Change the display values for the min and sec labels */
@@ -224,9 +190,7 @@ int state;
     done = YES;
     
     // Stop the timer
-    [self.secondsTimer invalidate];
-    self.secondsTimer = nil;
-    isTimerRunning = NO;
+    [self stopRunningTimer];
     
     [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
     
@@ -243,39 +207,47 @@ int state;
     }
     if (isTimerRunning) {
         // Stop the timer
-        [self.secondsTimer invalidate];
-        self.secondsTimer = nil;
+        [self stopRunningTimer];
         
         // Change label to START
         [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
-        
-        isTimerRunning = NO;
-        
+
     } else {
         // Start the timer
-        self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                             target: self
-                                                           selector:@selector(timer)
-                                                           userInfo:nil
-                                                            repeats:YES];
+        [self runTimer];
         
         // Change label to PAUSE
         [self.pauseLabel setTitle:@"PAUSE" forState:UIControlStateNormal];
-        
-        isTimerRunning = YES;
     }
 }
 
 - (IBAction)resetTimer:(id)sender {
     // Stop the timer
-    [self.secondsTimer invalidate];
-    self.secondsTimer = nil;
+    [self stopRunningTimer];
     
     // Reset back to initial setup
     [self initialSetup];
     
     // Change the PAUSE button to START
     [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
+}
+
+// Run timer
+-(void)runTimer
+{
+    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                         target: self
+                                                       selector:@selector(timer)
+                                                       userInfo:nil
+                                                        repeats:YES];
+    isTimerRunning = YES;
+}
+
+// Stop timer
+-(void)stopRunningTimer
+{
+    [self.secondsTimer invalidate];
+    self.secondsTimer = nil;
     
     isTimerRunning = NO;
 }

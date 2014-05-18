@@ -793,8 +793,8 @@
                                     <action selector="resetTimer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Py6-Og-clx"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rjd-6M-Wbe">
-                                <rect key="frame" x="81" y="334" width="159" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rjd-6M-Wbe">
+                                <rect key="frame" x="20" y="334" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Stopwatch"/>
@@ -952,6 +952,7 @@
                                         </state>
                                         <connections>
                                             <action selector="startIntervalTimer:" destination="i6E-f0-6Gx" eventType="touchUpInside" id="2KI-Fb-0kP"/>
+                                            <segue destination="OQl-gL-kKt" kind="push" identifier="RunInterval" id="DWU-wa-lJq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low Interval" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbp-hh-WM1">

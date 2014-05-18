@@ -16,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Setup Core Data with Magical Record
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"Data"];

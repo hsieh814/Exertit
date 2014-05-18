@@ -687,8 +687,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (UIPanGestureRecognizer*)panGestureRecognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     if ( _panGestureRecognizer == nil )
     {
         SWDirectionPanGestureRecognizer *panRecognizer =
@@ -705,8 +703,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (UITapGestureRecognizer*)tapGestureRecognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     if ( _tapGestureRecognizer == nil )
     {
         UITapGestureRecognizer *tapRecognizer =
@@ -738,8 +734,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 // disable userInteraction on the entire control
 - (void)_disableUserInteraction
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     [_contentView setUserInteractionEnabled:NO];
     [_contentView setDisableLayout:YES];
 }
@@ -747,8 +741,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 // restore userInteraction on the control
 - (void)_restoreUserInteraction
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     // we use the stored userInteraction state just in case a developer decided
     // to have our view interaction disabled beforehand
     [_contentView setUserInteractionEnabled:_userInteractionStore];
@@ -759,8 +751,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_notifyPanGestureBegan
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureBegan:)] )
         [_delegate revealControllerPanGestureBegan:self];
     
@@ -773,8 +763,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_notifyPanGestureMoved
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     CGFloat xLocation, dragProgress;
     [self _getDragLocation:&xLocation progress:&dragProgress];
     if ( [_delegate respondsToSelector:@selector(revealController:panGestureMovedToLocation:progress:)] )
@@ -783,8 +771,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_notifyPanGestureEnded
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     CGFloat xLocation, dragProgress;
     [self _getDragLocation:&xLocation progress:&dragProgress];
     if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:)] )
@@ -866,8 +852,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     // only allow gesture if no previous request is in process
     if ( _animationQueue.count == 0 )
     {
@@ -884,8 +868,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (BOOL)_tapGestureShouldBegin
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     if ( _frontViewPosition == FrontViewPositionLeft ||
         _frontViewPosition == FrontViewPositionRightMostRemoved ||
         _frontViewPosition ==FrontViewPositionLeftSideMostRemoved )
@@ -902,8 +884,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (BOOL)_panGestureShouldBegin
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
 //    // only allow gesture if no previous request is in process
 //    if ( recognizer != _panGestureRecognizer || _animationQueue.count != 0 )
 //        return NO;
@@ -931,8 +911,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_handleTapGesture:(UITapGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     NSTimeInterval duration = _toggleAnimationDuration;
     [self _setFrontViewPosition:FrontViewPositionLeft withDuration:duration];
 }
@@ -941,8 +919,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_handleRevealGesture:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     switch ( recognizer.state )
     {
         case UIGestureRecognizerStateBegan:
@@ -970,8 +946,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_handleRevealGestureStateBeganWithRecognizer:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     // we know that we will not get here unless the animationQueue is empty because the recognizer
     // delegate prevents it, however we do not want any forthcoming programatic actions to disturb
     // the gesture, so we just enqueue a dummy block to ensure any programatic acctions will be
@@ -990,8 +964,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_handleRevealGestureStateChangedWithRecognizer:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     CGFloat translation = [recognizer translationInView:_contentView].x;
     
     CGFloat baseLocation = [_contentView frontLocationForPosition:_panInitialFrontPosition];
@@ -1018,8 +990,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)_handleRevealGestureStateEndedWithRecognizer:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
     UIView *frontView = _contentView.frontView;
     
     CGFloat xLocation = frontView.frame.origin.x;
@@ -1096,9 +1066,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 
 - (void)_handleRevealGestureStateCancelledWithRecognizer:(UIPanGestureRecognizer *)recognizer
-{    
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
+{
     [self _restoreUserInteraction];
     [self _notifyPanGestureEnded];
     [self _dequeue];

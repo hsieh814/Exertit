@@ -133,11 +133,7 @@ static const int TIMER = 1;
         // Change label to PAUSE
         [self.startLabel setTitle:@"PAUSE" forState:UIControlStateNormal];
         
-        self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                             target: self
-                                                           selector:@selector(timer)
-                                                           userInfo:nil
-                                                            repeats:YES];
+        [self runTimer];
         
         pauseTimer = FALSE;
         
@@ -246,9 +242,14 @@ static const int TIMER = 1;
 // Run the timer
 -(void)runTimer
 {
-    
+    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                         target: self
+                                                       selector:@selector(timer)
+                                                       userInfo:nil
+                                                        repeats:YES];
 }
 
+// Stop the timer
 -(void)stopRunningTimer
 {
     [self.secondsTimer invalidate];

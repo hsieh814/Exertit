@@ -47,8 +47,6 @@
 
 // Determine which segue to perform based on the cell selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"---- didSelectRowAtIndexPath ----");
-
     switch (indexPath.row) {
         case 0:
             [self performSegueWithIdentifier:@"AllWorkouts" sender:self];
@@ -71,8 +69,6 @@
 // Set the new Front view for the slide-out menu
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
-    NSLog(@"---- prepareForSegue -----");
-
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         

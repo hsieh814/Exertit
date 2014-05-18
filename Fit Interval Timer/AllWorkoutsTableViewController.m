@@ -33,8 +33,6 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-
     // Slide out menu intialization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
@@ -77,7 +75,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.workoutList objectAtIndex:indexPath.row];

@@ -56,14 +56,13 @@ bool createdNewExerciseSetting;
     }
     
     // Time pick initialization
-    //    self.timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 500, self.timePicker.frame.size.width, self.timePicker.frame.size.height)];
     self.timePicker = [[UIPickerView alloc] init];
     self.timePicker.showsSelectionIndicator = YES;
     self.timePicker.delegate = self;
     self.timePicker.dataSource = self;
     self.timePicker.backgroundColor = [UIColor whiteColor];
     self.durationText.inputView = self.timePicker;
-    
+
     // Done bar button
     pickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     pickerToolbar.barStyle = UIBarStyleDefault;
@@ -81,11 +80,10 @@ bool createdNewExerciseSetting;
     // Set the minutes and seconds to nil to avoid messing up next picker's values
     minutes = nil;
     seconds = nil;
-    
+
     if (!self.exerciseSetting) {
         // Initialize newExericse object
         self.exerciseSetting = [ExerciseSetting createEntity];
-        NSLog(@"new exercise");
         createdNewExerciseSetting = YES;
     } else {
         // Editing the settings
@@ -113,7 +111,6 @@ bool createdNewExerciseSetting;
         
         minutes = [NSString stringWithFormat:@"%02zd", min];
         seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
-        NSLog(@"minutes = %@ , seconds = %@", minutes, seconds);
     }
     
     // Dismiss keyboard when outside is touched
@@ -163,15 +160,11 @@ bool createdNewExerciseSetting;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (seconds == nil) {
-        NSLog(@"seconds == nil");
         seconds = @"00";
     }
     if (minutes == nil) {
-        NSLog(@"minutes == nil");
         minutes = @"00";
     }
-    NSLog(@"--> %@ , %@", minutes, seconds);
-    NSLog(@"--> minutes double  = %g", [minutes doubleValue]);
     nsTimeInterval = [minutes doubleValue] * 60 + [seconds doubleValue];
     self.durationText.text = [NSString stringWithFormat:@"%@:%@", minutes, seconds];
     
@@ -199,6 +192,8 @@ bool createdNewExerciseSetting;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     if (component == 1) {
         return [self.secArray objectAtIndex:row];
     } else {
@@ -224,8 +219,6 @@ bool createdNewExerciseSetting;
     if ([v isEqual:0]) {
         NSLog(@"hello");
     }
-    
-    NSInteger n = v.tag;
     
     [self.view endEditing:YES];
 }

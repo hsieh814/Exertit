@@ -184,7 +184,6 @@ CGRect activeTextFieldRect;
     // Only scroll if text field is hidden by keyboard
     // Check is textfield's point is within aRect (area not hidden by keyboard)
     if (!CGRectContainsPoint(aRect, activeTextFieldRect.origin)) {
-        NSLog(@"need to scroll");
         CGPoint scrollPoint = CGPointMake(0.0, activeTextFieldRect.origin.y - keyboardSize.height);
         [self.scrollView setContentOffset:scrollPoint];
     }
@@ -217,23 +216,14 @@ CGRect activeTextFieldRect;
     
     if ([self.warmupDuration isFirstResponder]) {
         selectedTextField = self.warmupDuration;
-        NSLog(@"1");
-        
     } else if ([self.lowIntervalDuration isFirstResponder]) {
         selectedTextField = self.lowIntervalDuration;
-        NSLog(@"2");
     } else if ([self.highIntervalDuration isFirstResponder]) {
         selectedTextField = self.highIntervalDuration;
-        NSLog(@"3");
-
     } else if ([self.cooldownDuration isFirstResponder]) {
         selectedTextField = self.cooldownDuration;
-        NSLog(@"4");
-
     } else if ([self.repetitions isFirstResponder]) {
         selectedTextField = self.repetitions;
-        NSLog(@"5");
-
     }
     
     selectedTextField.text = [NSString stringWithFormat:@"%@:%@", minutes, seconds];
@@ -291,13 +281,6 @@ CGRect activeTextFieldRect;
     }
 }
 
-/* Check if all the textfields have valid text, then enable the start button */
-- (void)enableStartButton {
-    if (isSetWarmup && isSetLowInterval && isSetHighInterval && isSetCooldown && isSetRepetition) {
-        [self.startButton setEnabled:YES];
-    }
-}
-
 /* Hide keyboard when empty space is touched */
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -312,7 +295,6 @@ CGRect activeTextFieldRect;
     
     if ([self.warmupDuration.text isEqualToString:@""]) {
         isSetWarmup = NO;
-        [self.startButton setEnabled:NO];
     } else {
         isSetWarmup = YES;
     }
@@ -326,7 +308,6 @@ CGRect activeTextFieldRect;
     
     if ([self.lowIntervalDuration.text isEqualToString:@""] || [self.lowIntervalDuration.text isEqualToString:@"00:00"]) {
         isSetLowInterval = NO;
-        [self.startButton setEnabled:NO];
     } else {
         isSetLowInterval = YES;
     }
@@ -339,7 +320,6 @@ CGRect activeTextFieldRect;
     
     if ([self.highIntervalDuration.text isEqualToString:@""] || [self.highIntervalDuration.text isEqualToString:@"00:00"]) {
         isSetHighInterval = NO;
-        [self.startButton setEnabled:NO];
     } else {
         isSetHighInterval = YES;
     }
@@ -352,7 +332,6 @@ CGRect activeTextFieldRect;
     
     if ([self.cooldownDuration.text isEqualToString:@""]) {
         isSetCooldown = NO;
-        [self.startButton setEnabled:NO];
     } else {
         isSetCooldown = YES;
     }
@@ -366,12 +345,23 @@ CGRect activeTextFieldRect;
     int repetitionText = [self.repetitions.text intValue];
     if ([self.repetitions.text isEqualToString:@""] || repetitionText == 0) {
         isSetRepetition = NO;
-        [self.startButton setEnabled:NO];
     } else {
         isSetRepetition = YES;
     }
     
     [self enableStartButton];
+}
+
+/* Check if all the textfields have valid text, then enable the start button */
+- (void)enableStartButton {
+    if (isSetWarmup && isSetLowInterval && isSetHighInterval && isSetCooldown && isSetRepetition) {
+        [self.startButton setEnabled:YES];
+        self.startButton.alpha = 1.0;
+    } else {
+        [self.startButton setEnabled:NO];
+        // Manually gray out the START button
+        self.startButton.alpha = 0.3;
+    }
 }
 
 - (IBAction)startIntervalTimer:(id)sender {
@@ -419,7 +409,6 @@ CGRect activeTextFieldRect;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if ([segue.identifier isEqualToString:@"RunInterval"]) {
-        NSLog(@"********************* set the string value");
         RunIntervalTrainerViewController *runIntervalTrainerViewController = segue.destinationViewController;
         
         // Pass the textfield's duration values
