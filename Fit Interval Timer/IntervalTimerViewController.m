@@ -101,7 +101,7 @@ CGRect activeTextFieldRect;
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
     
-    [self.startButton setTitleColor:themeGreen forState:UIControlStateNormal];
+    [self.startButton setTitleColor:appleGreen forState:UIControlStateNormal];
     
     // Move view up when showing keyboard
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];

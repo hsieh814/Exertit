@@ -53,6 +53,21 @@ static const int TIMER = 1;
     // Default selected switcher is stopwatch
     self.selectedSwitcher = STOPWATCH;
     [self enableTimePicker:NO];
+    
+    // Color and text customization
+    [self.startLabel setTitleColor:appleGreen forState:UIControlStateNormal];
+    [self.resetLabel setTitleColor:appleBlue forState:UIControlStateNormal];
+    self.switcher.tintColor = themeNavBar4;
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:16], NSFontAttributeName, nil];
+    [self.switcher setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    // Cicle button
+    self.startLabel.layer.cornerRadius = self.startLabel.bounds.size.width/2.0;
+    self.startLabel.layer.borderWidth = 1.0;
+    self.startLabel.layer.borderColor = self.startLabel.titleLabel.textColor.CGColor;
+    self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
+    self.resetLabel.layer.borderWidth = 1.0;
+    self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -170,13 +185,13 @@ static const int TIMER = 1;
         // Set the timer back to the selected min and sec
         minutesCount = self.setMin;
         secondsCount = self.setSec;
+        
+        // Enable the time picker
+        [self enableTimePicker:YES];
     }
 
     // Reset the min and sec display
     [self displayMinValue:minutesCount andSecValue:secondsCount];
-    
-    // Enable the time picker
-    [self enableTimePicker:YES];
 }
 
 // Called every second when timePicker is active

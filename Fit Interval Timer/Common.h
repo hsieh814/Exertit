@@ -16,6 +16,12 @@
 #define themeNavBar5 [UIColor colorWithRed:(14.0f/255.0f) green:(130.0f/255.0f) blue:(128.0f/255.0f) alpha:1.0]
 #define themeNavBar6 [UIColor colorWithRed:(0.0f/255.0f) green:(207.0f/255.0f) blue:(169.0f/255.0f) alpha:1.0]
 
+// Apple color
+#define appleRed [UIColor colorWithRed:(252.0f/255.0f) green:(87.0f/255.0f) blue:(93.0f/255.0f) alpha:1.0]
+#define appleYellow [UIColor colorWithRed:(254.0f/255.0f) green:(240.0f/255.0f) blue:(136.0f/255.0f) alpha:1.0]
+#define appleBlue [UIColor colorWithRed:(54.0f/255.0f) green:(162.0f/255.0f) blue:(231.0f/255.0f) alpha:1.0]
+#define appleGreen [UIColor colorWithRed:(136.0f/255.0f) green:(226.0f/255.0f) blue:(83.0f/255.0f) alpha:1.0]
+
 // Text color
 #define themeBlue [UIColor colorWithRed:(14.0f/255.0f) green:(95.0f/255.0f) blue:(254.0f/255.0f) alpha:1.0]
 // Interval trainer high and low labels
