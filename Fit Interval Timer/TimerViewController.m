@@ -73,10 +73,11 @@ static const int TIMER = 1;
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    // Fool user with circular time picker by setting the number of rows to a large numnber
     if (component == 1) {
-        return [self.secArray count];
+        return [self.secArray count] * 20;
     } else {
-        return [self.minArray count];
+        return [self.minArray count] * 20;
     }
 }
 
@@ -84,21 +85,29 @@ static const int TIMER = 1;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    // Circular time picker- jump back to middle if user reaches end of picker
     if (component == 1) {
-        return [self.secArray objectAtIndex:row];
+        if (row == 0 || row == ([self.secArray count] * 20 -1)) {
+            [self.timePicker selectRow:(5 * [self.secArray count]) inComponent:1 animated:YES];
+        }
+        return [self.secArray objectAtIndex:(row % [self.secArray count])];
     } else {
-        return [self.minArray objectAtIndex:row];
+        if (row == 0 || row == ([self.minArray count] * 20 -1)) {
+            [self.timePicker selectRow:(5 * [self.minArray count]) inComponent:0 animated:YES];
+        }
+        return [self.minArray objectAtIndex:(row % [self.minArray count])];
     }
+
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (component == 1) {
-        self.secDisplay.text = [self.secArray objectAtIndex:row];
+        self.secDisplay.text = [self.secArray objectAtIndex:(row % [self.secArray count])];
         secondsCount = [self.secDisplay.text intValue];
         self.setSec = secondsCount;
     } else {
-        self.minDisplay.text = [self.minArray objectAtIndex:row];
+        self.minDisplay.text = [self.minArray objectAtIndex:(row % [self.minArray count])];
         minutesCount = [self.minDisplay.text intValue];
         self.setMin = minutesCount;
     }
