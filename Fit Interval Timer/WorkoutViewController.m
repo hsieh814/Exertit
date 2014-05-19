@@ -43,7 +43,18 @@
     self.startButton.backgroundColor = appleGreen;
     self.startButton.layer.borderColor = appleGreen.CGColor;
     self.startButton.layer.borderWidth = 1.0;
-//    self.startButton.layer.cornerRadius = 8.0f;
+    self.startButton.layer.cornerRadius = 8.0f;
+    
+    // TableView customization
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = lightBlue;
+    
+    // Make tableview start lower
+//    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+//    self.tableView.contentInset = inset;
+    
+//    // This will remove extra separators from tableview
+//    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 // called everytime we enter the view
@@ -96,6 +107,11 @@
     } else {
         cell.exerciseName.text = exerciseSetting.baseExercise.exerciseName;
     }
+    cell.exerciseName.textColor = themeNavBar4;
+
+    // Cell customization
+    cell.layer.cornerRadius = 8.0f;
+    cell.layer.masksToBounds = YES;
     
     return cell;
 }

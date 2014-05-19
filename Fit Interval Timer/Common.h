@@ -22,6 +22,10 @@
 #define appleBlue [UIColor colorWithRed:(54.0f/255.0f) green:(162.0f/255.0f) blue:(231.0f/255.0f) alpha:1.0]
 #define appleGreen [UIColor colorWithRed:(136.0f/255.0f) green:(226.0f/255.0f) blue:(83.0f/255.0f) alpha:1.0]
 
+// Tableview color
+#define lightBlue [UIColor colorWithRed:(232.0f/255.0f) green:(252.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0]
+#define lightGreen [UIColor colorWithRed:(232.0f/255.0f) green:(255.0f/255.0f) blue:(243.0f/255.0f) alpha:1.0]
+
 // Text color
 #define themeBlue [UIColor colorWithRed:(14.0f/255.0f) green:(95.0f/255.0f) blue:(254.0f/255.0f) alpha:1.0]
 // Interval trainer high and low labels

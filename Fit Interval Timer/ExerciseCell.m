@@ -8,7 +8,10 @@
 
 #import "ExerciseCell.h"
 
-@implementation ExerciseCell
+@implementation ExerciseCell : UITableViewCell
+
+CGFloat widthBorder = 10;
+CGFloat heightBorder = 2;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -35,6 +38,20 @@
     } else {
         NSLog(@"clicked neither");
     }
+}
+
+
+// Override tableviewcell to set the cell's frame
+-(void)setFrame:(CGRect)frame
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    frame.origin.x += widthBorder;   // make table start a few pixels right from its origin
+    frame.size.width -= 2 * widthBorder;    // decrease table's width
+    frame.origin.y += heightBorder;
+    frame.size.height -= 2 * heightBorder;  // add a gap between cells
+    
+    [super setFrame:frame];
 }
 
 @end

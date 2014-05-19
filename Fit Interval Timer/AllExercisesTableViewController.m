@@ -49,6 +49,14 @@
     
         // Set the gesture
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        
+        // Tableview customization
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.backgroundColor = lightBlue;
+        
+        // Make tableview start lower
+        UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+        self.tableView.contentInset = inset;
     }
  }
 
@@ -98,8 +106,16 @@
     cell.exerciseName.text = exercise.exerciseName;
     cell.exerciseName.textColor = themeNavBar4;
     
+    cell.layer.cornerRadius = 8.0f;
+    cell.layer.masksToBounds = YES;
+    
     return cell;
 }
+
+//// Change the background color of cells
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    cell.backgroundColor = cellBlue;
+//}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

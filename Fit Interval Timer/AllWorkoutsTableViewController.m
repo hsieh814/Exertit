@@ -39,6 +39,14 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    // TableView customization
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = lightBlue;
+    
+    // Make tableview start lower
+    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+    self.tableView.contentInset = inset;
 }
 
 // called everytime we enter the view
@@ -82,6 +90,9 @@
     cell.workoutNameLabel.text = workout.workoutName;
     cell.workoutNameLabel.textColor = themeNavBar4;
 
+    cell.layer.cornerRadius = 8.0f;
+    cell.layer.masksToBounds = YES;
+    
     return cell;
 }
 

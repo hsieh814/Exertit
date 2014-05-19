@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// Subclassing UITableViewCell to change width of cell
 @interface ExerciseCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *exerciseName;
