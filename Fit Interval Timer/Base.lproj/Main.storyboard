@@ -62,8 +62,8 @@
             <objects>
                 <viewController id="6bZ-SM-b8v" customClass="NewExerciseViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9Y6-3U-3Sg"/>
-                        <viewControllerLayoutGuide type="bottom" id="qRb-ya-n0k"/>
+                        <viewControllerLayoutGuide type="top" id="NwU-QW-ufi"/>
+                        <viewControllerLayoutGuide type="bottom" id="pRL-yh-snm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h7w-xW-GNU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -130,8 +130,8 @@
             <objects>
                 <viewController title="kk" id="1m9-mY-1Sw" customClass="RunWorkoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cVF-jB-CYh"/>
-                        <viewControllerLayoutGuide type="bottom" id="FE1-Pr-DHW"/>
+                        <viewControllerLayoutGuide type="top" id="LE2-1M-OVH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nhh-8s-qv4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="plS-WC-VQG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -294,8 +294,8 @@
             <objects>
                 <viewController id="6WA-fh-Xcu" customClass="WorkoutConfigViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="85S-CK-4UX"/>
-                        <viewControllerLayoutGuide type="bottom" id="GKL-bc-6Ot"/>
+                        <viewControllerLayoutGuide type="top" id="m5D-oQ-BUP"/>
+                        <viewControllerLayoutGuide type="bottom" id="LVe-en-y7y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T74-51-XsJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -599,8 +599,8 @@
             <objects>
                 <viewController id="TDA-h9-FZc" customClass="NewWorkoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bsO-p0-zi6"/>
-                        <viewControllerLayoutGuide type="bottom" id="RJk-sA-gbO"/>
+                        <viewControllerLayoutGuide type="top" id="TAe-lD-nhT"/>
+                        <viewControllerLayoutGuide type="bottom" id="SiJ-4g-c5w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HbA-G2-1JB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -651,8 +651,8 @@
             <objects>
                 <viewController id="OQl-gL-kKt" customClass="RunIntervalTrainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oGe-ab-OPB"/>
-                        <viewControllerLayoutGuide type="bottom" id="DDG-w2-ely"/>
+                        <viewControllerLayoutGuide type="top" id="08o-XB-dQZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="CpM-Zb-iOZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="taz-8p-VPj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -753,8 +753,8 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="TimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zJH-xU-Aad"/>
-                        <viewControllerLayoutGuide type="bottom" id="8jG-p4-h0X"/>
+                        <viewControllerLayoutGuide type="top" id="ylC-8i-wFV"/>
+                        <viewControllerLayoutGuide type="bottom" id="0e1-b8-thk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -845,8 +845,8 @@
             <objects>
                 <viewController id="EbL-XK-Bkt" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eYE-26-Dpc"/>
-                        <viewControllerLayoutGuide type="bottom" id="oCP-5x-wgE"/>
+                        <viewControllerLayoutGuide type="top" id="Gq4-eI-6eE"/>
+                        <viewControllerLayoutGuide type="bottom" id="EIQ-UY-8b0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PVW-rB-VkB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -921,8 +921,8 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="i6E-f0-6Gx" customClass="IntervalTimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ojc-pW-6V0"/>
-                        <viewControllerLayoutGuide type="bottom" id="r46-Qe-Aak"/>
+                        <viewControllerLayoutGuide type="top" id="tbO-JC-lvy"/>
+                        <viewControllerLayoutGuide type="bottom" id="UQW-9d-Epc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9cC-2N-JLA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
