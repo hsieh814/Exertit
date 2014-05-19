@@ -38,6 +38,9 @@
     // Set the attributes to the corresponding areas
     self.nameTextField.text = self.workout.workoutName;
     
+    // Color customization
+    self.view.backgroundColor = lightBlue;
+    self.workoutNameLabel.textColor = themeNavBar4;
     self.nameTextField.textColor = themeNavBar4;
 }
 
@@ -61,11 +64,16 @@
 - (IBAction)done:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    self.workout.workoutName = self.nameTextField.text;
+    if ([self.nameTextField.text isEqualToString:@""]) {
+        // don't save the workout since the name is empty
+        [self.workout deleteEntity];
+    } else {
+        self.workout.workoutName = self.nameTextField.text;
+    }
     
     [self saveContext];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -74,6 +82,6 @@
     // Delete the newly created exercise
     [self.workout deleteEntity];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

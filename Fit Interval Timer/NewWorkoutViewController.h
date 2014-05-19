@@ -11,6 +11,7 @@
 
 @interface NewWorkoutViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *workoutNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @property (nonatomic, strong) Workout *workout;

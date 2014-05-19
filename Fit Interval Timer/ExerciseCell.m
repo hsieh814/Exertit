@@ -44,7 +44,7 @@ CGFloat heightBorder = 2;
 // Override tableviewcell to set the cell's frame
 -(void)setFrame:(CGRect)frame
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     frame.origin.x += widthBorder;   // make table start a few pixels right from its origin
     frame.size.width -= 2 * widthBorder;    // decrease table's width

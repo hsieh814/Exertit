@@ -43,6 +43,9 @@ bool createNewExercise;
     // Set the attributes to the corresponding areas
     self.exerciseNameTextField.text = self.exercise.exerciseName;
     
+    // Color customization
+    self.view.backgroundColor = lightBlue;
+    self.exerciseNameLabel.textColor = themeNavBar4;
     self.exerciseNameTextField.textColor = themeNavBar4;
 }
 
@@ -66,12 +69,17 @@ bool createNewExercise;
 - (IBAction)done:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    self.exercise.exerciseName = self.exerciseNameTextField.text;
+    if ([self.exerciseNameTextField.text isEqualToString:@""]) {
+        // don't save exercise since empty name
+        [self.exercise deleteEntity];
+    } else {
+        self.exercise.exerciseName = self.exerciseNameTextField.text;
+    }
     
     // save the context
     [self saveContext];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -82,8 +90,7 @@ bool createNewExercise;
         [self.exercise deleteEntity];
     }
     
-    // modal segue
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

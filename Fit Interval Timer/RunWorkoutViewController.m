@@ -43,6 +43,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     // Color and text customization
     [self.startLabel setTitleColor:appleGreen forState:UIControlStateNormal];
     [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
+    [self.previousExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
     [self.nextExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
     
     // Cicle button
@@ -64,7 +65,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
 -(void)startNextExercise
 {
     NSLog(@"[%@] %@: index = %d", NSStringFromClass([self class]), NSStringFromSelector(_cmd), exerciseIndex);
-
+    
     self.exerciseSetting = [self.exercisesForWorkout objectAtIndex: exerciseIndex];
 
     self.nameLabel.text = self.exerciseSetting.baseExercise.exerciseName;
@@ -82,7 +83,15 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
         [self enableTimer:YES];
     }
     
-    // Next exercise label
+    // Set previous exercise label if not the first exercise
+    if (exerciseIndex != 0) {
+        ExerciseSetting *previousExerciseSetting = [self.exercisesForWorkout objectAtIndex:(exerciseIndex - 1)];
+        [self.previousExerciseName setTitle:[NSString stringWithFormat:@"< %@", previousExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
+    } else {
+        [self.previousExerciseName setTitle:@"" forState:UIControlStateNormal];
+    }
+    
+    // Set next exercise label if not the last exercise
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
         ExerciseSetting *nextExerciseSetting = [self.exercisesForWorkout objectAtIndex:(exerciseIndex + 1)];
         [self.nextExerciseName setTitle:[NSString stringWithFormat:@"%@ >", nextExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
@@ -196,6 +205,16 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     }
     
     [self displayMinValue:minutesCount andSecValue:secondsCount];
+}
+
+/* Go to previous exercise */
+- (IBAction)previousExercise:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (exerciseIndex != 0) {
+        exerciseIndex--;
+        [self startNextExercise];
+    }
 }
 
 /* Go to next exercise */

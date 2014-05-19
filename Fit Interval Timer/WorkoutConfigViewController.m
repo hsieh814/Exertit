@@ -267,14 +267,9 @@ bool createdNewExerciseSetting;
         int size = (int)[self.workout.exerciseGroup count];
         self.exerciseSetting.index = [NSNumber numberWithInt:size];
     }
-    NSLog(@"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    NSLog(@"%@", self.exerciseSetting);
     
     [self.workout addExerciseGroupObject:self.exerciseSetting];
     [self saveContext];
-    
-    NSLog(@"#########################################################");
-    NSLog(@"%@", self.workout);
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
