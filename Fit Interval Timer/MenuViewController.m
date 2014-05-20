@@ -32,6 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[UINavigationBar appearance] setBarTintColor:darkBlue2];
+
+    self.tableView.backgroundColor = darkBlue2;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorColor = themeNavBar4;
+
+    // This will remove extra separators from tableview
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,20 +108,26 @@
         return [self.favoriteWorkoutList count];
     } else {
         // Default menu
-        return 5;
+        return 7;
     }
 }
 
-// Titles for the table sections
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+// Set the row height
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (section == 0){
-//        return @"Favorites";
-        return @"";
-    } else {
-        return @" ";
-    }
+    return 60;
 }
+
+// Titles for the table sections
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    if (section == 0){
+////        return @"Favorites";
+//        return @"";
+//    } else {
+//        return @" ";
+//    }
+//}
 
 // Customize header colors
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
@@ -164,9 +179,20 @@
                 cell.menuCellName.text = @"Settings";
                 cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
                 break;
+            case 5:
+                cell.menuCellName.text = @"How-to-Guide";
+                cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
+                break;
+            case 6:
+                cell.menuCellName.text = @"About";
+                cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
+                break;
         }
         
     }
+    
+    cell.backgroundColor = darkBlue2;
+    cell.menuCellName.textColor = [UIColor whiteColor];
     
     return cell;
 }
