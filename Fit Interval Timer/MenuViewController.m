@@ -33,9 +33,7 @@
 {
     [super viewDidLoad];
     
-    [[UINavigationBar appearance] setBarTintColor:darkBlue2];
-
-    self.tableView.backgroundColor = darkBlue2;
+    self.tableView.backgroundColor = darkBlue;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = themeNavBar4;
 
@@ -58,18 +56,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            [self performSegueWithIdentifier:@"AllWorkouts" sender:self];
             break;
         case 1:
-            [self performSegueWithIdentifier:@"AllExercises" sender:self];
+            [self performSegueWithIdentifier:@"AllWorkouts" sender:self];
             break;
         case 2:
-            [self performSegueWithIdentifier:@"Timer" sender:self];
+            [self performSegueWithIdentifier:@"AllExercises" sender:self];
             break;
         case 3:
-            [self performSegueWithIdentifier:@"IntervalTimer" sender:self];
+            [self performSegueWithIdentifier:@"Timer" sender:self];
             break;
         case 4:
+            [self performSegueWithIdentifier:@"IntervalTimer" sender:self];
+            break;
+        case 5:
             [self performSegueWithIdentifier:@"Settings" sender:self];
             break;
     }
@@ -108,7 +108,7 @@
         return [self.favoriteWorkoutList count];
     } else {
         // Default menu
-        return 7;
+        return 8;
     }
 }
 
@@ -160,30 +160,32 @@
         
         switch (indexPath.row) {
             case 0:
+                break;
+            case 1:
                 cell.menuCellName.text = @"All Workouts";
                 cell.menuCellImage.image = [UIImage imageNamed:@"google_earth-512.png"];
                 break;
-            case 1:
+            case 2:
                 cell.menuCellName.text = @"All Exercises";
                 cell.menuCellImage.image = [UIImage imageNamed:@"coderwall-512.png"];
                 break;
-            case 2:
+            case 3:
                 cell.menuCellName.text = @"Timer";
                 cell.menuCellImage.image = [UIImage imageNamed:@"timer-512.png"];
                 break;
-            case 3:
+            case 4:
                 cell.menuCellName.text = @"Interval Trainer";
                 cell.menuCellImage.image = [UIImage imageNamed:@"cloudflare-512.png"];
                 break;
-            case 4:
+            case 5:
                 cell.menuCellName.text = @"Settings";
                 cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
                 break;
-            case 5:
+            case 6:
                 cell.menuCellName.text = @"How-to-Guide";
                 cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
                 break;
-            case 6:
+            case 7:
                 cell.menuCellName.text = @"About";
                 cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
                 break;
@@ -191,7 +193,7 @@
         
     }
     
-    cell.backgroundColor = darkBlue2;
+    cell.backgroundColor = darkBlue;
     cell.menuCellName.textColor = [UIColor whiteColor];
     
     return cell;

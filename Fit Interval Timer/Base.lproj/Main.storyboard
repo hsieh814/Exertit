@@ -855,7 +855,7 @@
                     </view>
                     <connections>
                         <segue destination="Gze-PU-WmI" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="QnL-gy-CYz"/>
-                        <segue destination="Kqk-aA-Sq9" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="Ie7-cV-1Wc"/>
+                        <segue destination="aRQ-nu-3xN" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="w9f-Mq-REK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dkr-Fo-mxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -872,7 +872,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="60" id="2Q8-CI-y6Y" customClass="MenuCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Q8-CI-y6Y" id="Ga5-UR-zA2">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
@@ -1175,21 +1175,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkn-hr-LJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-25" y="1873"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ScG-7z-xzB">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="Kqk-aA-Sq9" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bs7-MI-Knw">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="aRQ-nu-3xN" kind="relationship" relationship="rootViewController" id="s3R-6B-Ob0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DYU-1P-AUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-265" y="-260"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="15Q-zX-I9u">
