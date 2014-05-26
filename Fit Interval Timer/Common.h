@@ -12,7 +12,8 @@
 #define themeNavBar [UIColor colorWithRed:(0.0f/255.0f) green:(149.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0]
 #define themeNavBar2 [UIColor colorWithRed:(0.0f/255.0f) green:(140.0f/255.0f) blue:(171.0f/255.0f) alpha:1.0]
 #define themeNavBar3 [UIColor colorWithRed:(0.0f/255.0f) green:(163.0f/255.0f) blue:(128.0f/255.0f) alpha:1.0]
-#define themeNavBar4 [UIColor colorWithRed:(0.0f/255.0f) green:(155.0f/255.0f) blue:(176.0f/255.0f) alpha:1.0]
+#define themeNavBar4_old [UIColor colorWithRed:(0.0f/255.0f) green:(155.0f/255.0f) blue:(176.0f/255.0f) alpha:1.0]
+#define themeNavBar4 [UIColor colorWithRed:(0.0f/255.0f) green:(182.0f/255.0f) blue:(207.0f/255.0f) alpha:1.0]
 #define themeNavBar5 [UIColor colorWithRed:(14.0f/255.0f) green:(130.0f/255.0f) blue:(128.0f/255.0f) alpha:1.0]
 #define themeNavBar6 [UIColor colorWithRed:(0.0f/255.0f) green:(207.0f/255.0f) blue:(169.0f/255.0f) alpha:1.0]
 
