@@ -157,37 +157,36 @@
         
     } else if (indexPath.section == 1) {
         // Default menu list
-        
         switch (indexPath.row) {
             case 0:
                 break;
             case 1:
                 cell.menuCellName.text = @"All Workouts";
-                cell.menuCellImage.image = [UIImage imageNamed:@"google_earth-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"workouts_120.png"];
                 break;
             case 2:
                 cell.menuCellName.text = @"All Exercises";
-                cell.menuCellImage.image = [UIImage imageNamed:@"coderwall-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"exercises_120.png"];
                 break;
             case 3:
                 cell.menuCellName.text = @"Timer";
-                cell.menuCellImage.image = [UIImage imageNamed:@"timer-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"timer_120.png"];
                 break;
             case 4:
                 cell.menuCellName.text = @"Interval Trainer";
-                cell.menuCellImage.image = [UIImage imageNamed:@"cloudflare-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"interval_trainer_120.png"];
                 break;
             case 5:
                 cell.menuCellName.text = @"Settings";
-                cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"settings_120.png"];
                 break;
             case 6:
                 cell.menuCellName.text = @"How-to-Guide";
-                cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"howtoguide_120.png"];
                 break;
             case 7:
                 cell.menuCellName.text = @"About";
-                cell.menuCellImage.image = [UIImage imageNamed:@"reddit-512.png"];
+                cell.menuCellImage.image = [UIImage imageNamed:@"about_120.png"];
                 break;
         }
         
@@ -195,7 +194,7 @@
     
     cell.backgroundColor = darkBlue;
     cell.menuCellName.textColor = [UIColor whiteColor];
-    
+        
     return cell;
 }
 

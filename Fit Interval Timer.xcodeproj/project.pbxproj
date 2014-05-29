@@ -35,16 +35,6 @@
 		BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37F18E8592600DA4CD7 /* MagicalRecord.m */; };
 		BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */; };
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
-		BF033CE5193296450085F261 /* exertit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CE4193296450085F261 /* exertit@2x.png */; };
-		BF033CE8193296FD0085F261 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CE6193296FD0085F261 /* 1.png */; };
-		BF033CE9193296FD0085F261 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CE7193296FD0085F261 /* 2.png */; };
-		BF033CEE193299370085F261 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CEA193299370085F261 /* 3.png */; };
-		BF033CEF193299370085F261 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CEB193299370085F261 /* 4.png */; };
-		BF033CF0193299370085F261 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CEC193299370085F261 /* 5.png */; };
-		BF033CF1193299370085F261 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CED193299370085F261 /* 6.png */; };
-		BF033CF319329BAF0085F261 /* 2_b.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CF219329BAF0085F261 /* 2_b.png */; };
-		BF033CF619329BB90085F261 /* 3_b.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CF419329BB90085F261 /* 3_b.png */; };
-		BF033CF719329BB90085F261 /* 6_b.png in Resources */ = {isa = PBXBuildFile; fileRef = BF033CF519329BB90085F261 /* 6_b.png */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
@@ -62,6 +52,11 @@
 		BF2098991871F80400D52321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2098971871F80400D52321 /* InfoPlist.strings */; };
 		BF20989B1871F80400D52321 /* Fit_Interval_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20989A1871F80400D52321 /* Fit_Interval_TimerTests.m */; };
 		BF20CE9218B159720047D651 /* WorkoutConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */; };
+		BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */; };
+		BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EA193448E200A5C1DB /* timer_120.png */; };
+		BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EC1934496C00A5C1DB /* timer_120.png */; };
+		BF22E0EF19344A7000A5C1DB /* exercises_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EE19344A7000A5C1DB /* exercises_120.png */; };
+		BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0F019344BA000A5C1DB /* workouts_120.png */; };
 		BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DD187516BF009B43EF /* MenuViewController.m */; };
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
@@ -79,6 +74,9 @@
 		BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */; };
 		BFB59D0E19046EEC0014D5CB /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D0D19046EEC0014D5CB /* Common.m */; };
 		BFB59D171904883A0014D5CB /* NewExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D161904883A0014D5CB /* NewExerciseViewController.m */; };
+		BFBAC98A19359BB800F93A1B /* settings_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BFBAC98919359BB800F93A1B /* settings_120.png */; };
+		BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BFBAC98D19359F6F00F93A1B /* howtoguide_120.png */; };
+		BFBAC9901935A30400F93A1B /* about_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BFBAC98F1935A30400F93A1B /* about_120.png */; };
 		BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */; };
 		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 		BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */; };
@@ -156,16 +154,6 @@
 		BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
 		BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllExercisesTableViewController.h; sourceTree = "<group>"; };
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
-		BF033CE4193296450085F261 /* exertit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "exertit@2x.png"; path = "Images/exertit@2x.png"; sourceTree = "<group>"; };
-		BF033CE6193296FD0085F261 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = Images/1.png; sourceTree = "<group>"; };
-		BF033CE7193296FD0085F261 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = Images/2.png; sourceTree = "<group>"; };
-		BF033CEA193299370085F261 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = Images/3.png; sourceTree = "<group>"; };
-		BF033CEB193299370085F261 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4.png; path = Images/4.png; sourceTree = "<group>"; };
-		BF033CEC193299370085F261 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5.png; path = Images/5.png; sourceTree = "<group>"; };
-		BF033CED193299370085F261 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = Images/6.png; sourceTree = "<group>"; };
-		BF033CF219329BAF0085F261 /* 2_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2_b.png; path = Images/2_b.png; sourceTree = "<group>"; };
-		BF033CF419329BB90085F261 /* 3_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3_b.png; path = Images/3_b.png; sourceTree = "<group>"; };
-		BF033CF519329BB90085F261 /* 6_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6_b.png; path = Images/6_b.png; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
@@ -190,6 +178,11 @@
 		BF20989A1871F80400D52321 /* Fit_Interval_TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fit_Interval_TimerTests.m; sourceTree = "<group>"; };
 		BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutConfigViewController.h; sourceTree = "<group>"; };
 		BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutConfigViewController.m; sourceTree = "<group>"; };
+		BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = interval_trainer_120.png; path = Images/interval_trainer_120.png; sourceTree = "<group>"; };
+		BF22E0EA193448E200A5C1DB /* timer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer_120.png; path = Images/timer_120.png; sourceTree = "<group>"; };
+		BF22E0EC1934496C00A5C1DB /* timer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer_120.png; path = Images/timer_120.png; sourceTree = "<group>"; };
+		BF22E0EE19344A7000A5C1DB /* exercises_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exercises_120.png; path = Images/exercises_120.png; sourceTree = "<group>"; };
+		BF22E0F019344BA000A5C1DB /* workouts_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workouts_120.png; path = Images/workouts_120.png; sourceTree = "<group>"; };
 		BF2372DC187516BF009B43EF /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		BF2372DD187516BF009B43EF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		BF2372E0187516BF009B43EF /* WorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
@@ -217,6 +210,9 @@
 		BFB59D0D19046EEC0014D5CB /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		BFB59D151904883A0014D5CB /* NewExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExerciseViewController.h; sourceTree = "<group>"; };
 		BFB59D161904883A0014D5CB /* NewExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExerciseViewController.m; sourceTree = "<group>"; };
+		BFBAC98919359BB800F93A1B /* settings_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_120.png; path = Images/settings_120.png; sourceTree = "<group>"; };
+		BFBAC98D19359F6F00F93A1B /* howtoguide_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = howtoguide_120.png; path = Images/howtoguide_120.png; sourceTree = "<group>"; };
+		BFBAC98F1935A30400F93A1B /* about_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_120.png; path = Images/about_120.png; sourceTree = "<group>"; };
 		BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 		BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -506,16 +502,14 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BF033CF419329BB90085F261 /* 3_b.png */,
-				BF033CF519329BB90085F261 /* 6_b.png */,
-				BF033CF219329BAF0085F261 /* 2_b.png */,
-				BF033CEA193299370085F261 /* 3.png */,
-				BF033CEB193299370085F261 /* 4.png */,
-				BF033CEC193299370085F261 /* 5.png */,
-				BF033CED193299370085F261 /* 6.png */,
-				BF033CE6193296FD0085F261 /* 1.png */,
-				BF033CE7193296FD0085F261 /* 2.png */,
-				BF033CE4193296450085F261 /* exertit@2x.png */,
+				BFBAC98F1935A30400F93A1B /* about_120.png */,
+				BFBAC98D19359F6F00F93A1B /* howtoguide_120.png */,
+				BFBAC98919359BB800F93A1B /* settings_120.png */,
+				BF22E0F019344BA000A5C1DB /* workouts_120.png */,
+				BF22E0EE19344A7000A5C1DB /* exercises_120.png */,
+				BF22E0EC1934496C00A5C1DB /* timer_120.png */,
+				BF22E0EA193448E200A5C1DB /* timer_120.png */,
+				BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */,
 				BF1FFC0018C2AD97009224C9 /* mandriva-512.png */,
 				BF8122F918C0497A00606092 /* timer-512.png */,
 				BF8122F718C0495B00606092 /* coderwall-512.png */,
@@ -603,25 +597,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF033CE8193296FD0085F261 /* 1.png in Resources */,
-				BF033CF319329BAF0085F261 /* 2_b.png in Resources */,
+				BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */,
 				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
 				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
 				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
-				BF033CF619329BB90085F261 /* 3_b.png in Resources */,
+				BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */,
+				BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */,
 				BF8122F618C0495200606092 /* cloudflare-512.png in Resources */,
-				BF033CF0193299370085F261 /* 5.png in Resources */,
-				BF033CE9193296FD0085F261 /* 2.png in Resources */,
+				BFBAC98A19359BB800F93A1B /* settings_120.png in Resources */,
+				BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */,
 				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
-				BF033CEF193299370085F261 /* 4.png in Resources */,
-				BF033CEE193299370085F261 /* 3.png in Resources */,
+				BFBAC9901935A30400F93A1B /* about_120.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
 				BF2098831871F80400D52321 /* Main.storyboard in Resources */,
-				BF033CF719329BB90085F261 /* 6_b.png in Resources */,
-				BF033CE5193296450085F261 /* exertit@2x.png in Resources */,
-				BF033CF1193299370085F261 /* 6.png in Resources */,
 				BF8122F818C0495B00606092 /* coderwall-512.png in Resources */,
+				BF22E0EF19344A7000A5C1DB /* exercises_120.png in Resources */,
+				BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
