@@ -446,26 +446,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" editingAccessoryType="disclosureIndicator" rowHeight="60" id="fnI-O7-AXg" customClass="ExerciseCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" editingAccessoryType="disclosureIndicator" rowHeight="60" id="fnI-O7-AXg" customClass="ExerciseCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fnI-O7-AXg" id="3LW-rd-X4t">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exerciseName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cu6-f6-9yr">
-                                            <rect key="frame" x="54" y="20" width="246" height="20"/>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hn4-E0-99H">
+                                            <rect key="frame" x="161" y="0.0" width="70" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Edit">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="fnI-O7-AXg" eventType="touchUpInside" id="lbS-Zj-n0G"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxG-wb-fML">
+                                            <rect key="frame" x="230" y="0.0" width="70" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Delete">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="fnI-O7-AXg" eventType="touchUpInside" id="B41-nb-uHX"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-Gp-jcB">
+                                            <rect key="frame" x="0.0" y="-1" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-kt-ZL6">
+                                                    <rect key="frame" x="56" y="19" width="212" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nqY-Gp-jcB" firstAttribute="top" secondItem="Hn4-E0-99H" secondAttribute="top" id="6Yd-Mb-rGx"/>
+                                        <constraint firstItem="nqY-Gp-jcB" firstAttribute="top" secondItem="3LW-rd-X4t" secondAttribute="top" id="Cz4-0X-8s9"/>
+                                        <constraint firstItem="nqY-Gp-jcB" firstAttribute="top" secondItem="pxG-wb-fML" secondAttribute="top" id="NnB-I7-ZYR"/>
+                                        <constraint firstAttribute="trailing" secondItem="nqY-Gp-jcB" secondAttribute="trailing" id="OgK-jy-GaI"/>
+                                        <constraint firstItem="nqY-Gp-jcB" firstAttribute="leading" secondItem="3LW-rd-X4t" secondAttribute="leading" id="PqL-IS-jDO"/>
+                                        <constraint firstItem="nqY-Gp-jcB" firstAttribute="bottom" secondItem="Hn4-E0-99H" secondAttribute="bottom" id="QZM-cM-tqv"/>
+                                        <constraint firstItem="nqY-Gp-jcB" firstAttribute="bottom" secondItem="pxG-wb-fML" secondAttribute="bottom" id="ftG-2N-8S2"/>
+                                        <constraint firstAttribute="bottom" secondItem="nqY-Gp-jcB" secondAttribute="bottom" id="guO-ik-VEa"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="tintColor" red="1" green="0.98287123031855428" blue="0.98397416870469023" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="exerciseName" destination="cu6-f6-9yr" id="tiE-rj-my8"/>
+                                    <outlet property="contentViewLeftConstraint" destination="PqL-IS-jDO" id="jq5-5f-alE"/>
+                                    <outlet property="contentViewRightConstraint" destination="OgK-jy-GaI" id="rnO-b0-rpl"/>
+                                    <outlet property="deleteButton" destination="pxG-wb-fML" id="GCb-Ur-IKg"/>
+                                    <outlet property="editButton" destination="Hn4-E0-99H" id="7Q4-Gw-s4U"/>
+                                    <outlet property="exerciseName" destination="5h2-kt-ZL6" id="eLh-6v-7ht"/>
+                                    <outlet property="myContentView" destination="nqY-Gp-jcB" id="9q8-ig-IuC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -13,7 +13,9 @@
 #import "timerAppDelegate.h"
 #import "WorkoutConfigViewController.h"
 
-@interface AllExercisesTableViewController ()
+@interface AllExercisesTableViewController () <ExerciseCellDelegate>
+
+@property (nonatomic, strong) NSMutableArray *cellsCurrentlyEditing;
 
 @end
 
@@ -57,6 +59,9 @@
         // Make tableview start lower
         UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
         self.tableView.contentInset = inset;
+        
+        // Swipable cells
+        self.cellsCurrentlyEditing = [NSMutableSet new];
     }
  }
 
@@ -109,6 +114,15 @@
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;
     
+    // For swipe utility buttons
+    cell.itemText = cell.exerciseName.text;
+    cell.delegate = self;
+    
+    // If the current cell's index path is in the set of editing cells, then the cell should be set as open.
+    if ([self.cellsCurrentlyEditing containsObject:indexPath]) {
+        [cell openCell];
+    }
+    
     return cell;
 }
 
@@ -123,7 +137,7 @@
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 // Override to support editing the table view.
@@ -167,7 +181,7 @@
         [self.delegate allExercisesViewControllerDidSelectWorkout:self didSelectExercise:selectedExercise];
     } else {
         NSLog(@"here");
-        [self performSegueWithIdentifier:@"EditExercise" sender:self];
+//        [self performSegueWithIdentifier:@"EditExercise" sender:self];
     }
 
 }
@@ -202,6 +216,32 @@
 /* Save data to the store */
 - (void)saveContext {
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+}
+
+#pragma mark - SwipeableCellDelegate
+- (void)editButtonActionForItemText:(NSString *)itemText {
+    NSLog(@"AllExercises- Edit for %@", itemText);
+}
+
+- (void)deleteButtonActionForItemText:(NSString *)itemText {
+    NSLog(@"AllExericses- Delete for %@", itemText);
+}
+
+//4
+- (void)closeModal
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)cellDidOpen:(UITableViewCell *)cell
+{
+    NSIndexPath *currentEditingIndexPath = [self.tableView indexPathForCell:cell];
+    [self.cellsCurrentlyEditing addObject:currentEditingIndexPath];
+}
+
+- (void)cellDidClose:(UITableViewCell *)cell
+{
+    [self.cellsCurrentlyEditing removeObject:[self.tableView indexPathForCell:cell]];
 }
 
 @end
