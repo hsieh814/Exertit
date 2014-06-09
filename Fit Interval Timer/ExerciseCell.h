@@ -28,5 +28,6 @@
 @property (nonatomic, weak) id <ExerciseCellDelegate> delegate;
 
 - (void)openCell;
+- (void)closeActivatedCells;
 
 @end

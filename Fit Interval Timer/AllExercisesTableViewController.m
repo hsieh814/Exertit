@@ -15,8 +15,6 @@
 
 @interface AllExercisesTableViewController () <ExerciseCellDelegate>
 
-@property (nonatomic, strong) NSMutableArray *cellsCurrentlyEditing;
-
 @end
 
 @implementation AllExercisesTableViewController
@@ -59,15 +57,7 @@
         // Make tableview start lower
         UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
         self.tableView.contentInset = inset;
-        
-        // Swipable cells
-        self.cellsCurrentlyEditing = [NSMutableSet new];
     }
- }
-
-// Handle multiple gestures on a view. Makes sure that both gestures work.
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
 }
 
 // called everytime we enter the view
@@ -117,11 +107,6 @@
     // For swipe utility buttons
     cell.itemText = cell.exerciseName.text;
     cell.delegate = self;
-    
-    // If the current cell's index path is in the set of editing cells, then the cell should be set as open.
-    if ([self.cellsCurrentlyEditing containsObject:indexPath]) {
-        [cell openCell];
-    }
     
     return cell;
 }
@@ -180,8 +165,8 @@
         Exercise *selectedExercise = self.exerciseList[indexPath.row];
         [self.delegate allExercisesViewControllerDidSelectWorkout:self didSelectExercise:selectedExercise];
     } else {
-        NSLog(@"here");
-//        [self performSegueWithIdentifier:@"EditExercise" sender:self];
+        // Hide the utility buttons of the active cell when tapping on cell.
+        [self.activeCell closeActivatedCells];
     }
 
 }
@@ -197,12 +182,10 @@
     } else if ([segue.identifier isEqualToString:@"EditExercise"]) {
         NSLog(@"EditExercise segue");
         
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
         UINavigationController *navigationController = segue.destinationViewController;
         NewExerciseViewController *newExerciseViewController = (NewExerciseViewController *)navigationController.childViewControllers[0];
         newExerciseViewController.title = @"Edit Exercise";
-        Exercise *selectedExercise = self.exerciseList[indexPath.row];
+        Exercise *selectedExercise = self.exerciseList[self.indexPath.row];
         newExerciseViewController.exercise = selectedExercise;
     }
 }
@@ -221,10 +204,32 @@
 #pragma mark - SwipeableCellDelegate
 - (void)editButtonActionForItemText:(NSString *)itemText {
     NSLog(@"AllExercises- Edit for %@", itemText);
+    
+    [self performSegueWithIdentifier:@"EditExercise" sender:self];
 }
 
 - (void)deleteButtonActionForItemText:(NSString *)itemText {
     NSLog(@"AllExericses- Delete for %@", itemText);
+    
+    // Remove Exercise object (the active cell currently showing the utility buttons)
+    Exercise *exerciseToRemove = self.exerciseList[self.indexPath.row];
+    [exerciseToRemove deleteEntity];
+    
+    // Remove the associated ExerciseSetting objects
+    // Change NSSet to NSArray to get object at index
+    NSArray *exerciseSettingArray = [exerciseToRemove.highLevelExercise allObjects];
+    
+    if (sizeof(exerciseSettingArray) > 0) {
+        for (int i = 0; i < [exerciseSettingArray count]; i++) {
+            ExerciseSetting *exerciseSetting = exerciseSettingArray[i];
+            [exerciseSetting deleteEntity];
+        }
+    }
+    
+    [self saveContext];
+    
+    [self.exerciseList removeObjectAtIndex:self.indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 //4
@@ -233,15 +238,31 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+// Called when showing a cell's utility buttons
 - (void)cellDidOpen:(UITableViewCell *)cell
 {
-    NSIndexPath *currentEditingIndexPath = [self.tableView indexPathForCell:cell];
-    [self.cellsCurrentlyEditing addObject:currentEditingIndexPath];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    self.indexPath = [self.tableView indexPathForCell:cell];
+    
+    if (self.activeCell != nil) {
+        // There is no active cell (no cells with utility buttons showing)
+        [self.activeCell closeActivatedCells];
+    }
+    
+    self.activeCell = (ExerciseCell *)[self.tableView cellForRowAtIndexPath:self.indexPath];
+
 }
 
+// Called when hiding a cell's utility buttons
 - (void)cellDidClose:(UITableViewCell *)cell
 {
-    [self.cellsCurrentlyEditing removeObject:[self.tableView indexPathForCell:cell]];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Avoid setting activeCell to nil when closing a cell that does isn't showing its utility buttons.
+    if (self.activeCell == cell) {
+        self.activeCell = nil;
+    }
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "NewExerciseViewController.h"
 #import "timerAppDelegate.h"
 #import "Workout.h"
+#import "ExerciseCell.h"
 
 @class AllExercisesTableViewController;
 
@@ -23,6 +24,9 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic) NSMutableArray *exerciseList;
+
+@property (nonatomic, strong) ExerciseCell* activeCell;
+@property (nonatomic, strong) NSIndexPath* indexPath;
 
 // Select Exercise
 @property (nonatomic, strong) Workout *workout;

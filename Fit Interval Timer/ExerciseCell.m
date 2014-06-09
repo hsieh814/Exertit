@@ -22,6 +22,7 @@
 
 // Swipe utility buttons
 static CGFloat const kBounceValue = 20.0f;
+NSIndexPath *currentlyEdittingCell;
 
 @implementation ExerciseCell : UITableViewCell
 
@@ -61,15 +62,17 @@ CGFloat heightBorder = 2;
 // To recognize multiple pan gestures (swiping cells and vertical scrolling)
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     return YES;
 }
 
+// When an utility button is clicked- set the method to perform in the AllExercisesTable class.
 - (IBAction)buttonClicked:(id)sender {
+    
     if (sender == self.editButton) {
-        NSLog(@"EDIT");
         [self.delegate editButtonActionForItemText:self.itemText];
     } else if (sender == self.deleteButton) {
-        NSLog(@"DELETE");
         [self.delegate deleteButtonActionForItemText:self.itemText];
     } else {
         NSLog(@"Clicked unknown button!");
@@ -78,6 +81,8 @@ CGFloat heightBorder = 2;
 
 // Fix issue where cells stay open (showing utility buttons) even when vertically scrolling. Makes sure cell closes when srolling.
 - (void)prepareForReuse {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     [super prepareForReuse];
     [self resetConstraintContstantsToZero:NO notifyDelegateDidClose:NO];
 }
@@ -92,8 +97,8 @@ CGFloat heightBorder = 2;
 
 - (void)panThisCell:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
             NSLog(@"UIGestureRecognizerStateBegan");
@@ -195,7 +200,8 @@ CGFloat heightBorder = 2;
 
 - (CGFloat)buttonTotalWidth
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
     // Need the left-most button since the pan goes from (full width)-(width of button2 to edge of right side)
     return CGRectGetWidth(self.frame) - CGRectGetMinX(self.editButton.frame);
 }
@@ -242,9 +248,17 @@ CGFloat heightBorder = 2;
     }];
 }
 
+- (void)closeActivatedCells
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    [self resetConstraintContstantsToZero:YES notifyDelegateDidClose:YES];
+}
 
 - (void)setConstraintsToShowAllButtons:(BOOL)animated notifyDelegateDidOpen:(BOOL)notifyDelegate
 {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     if (notifyDelegate) {
         [self.delegate cellDidOpen:self];
     }
