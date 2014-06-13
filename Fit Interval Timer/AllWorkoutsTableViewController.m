@@ -13,11 +13,13 @@
 #import "Exercise.h"
 #import "WorkoutViewController.h"
 
-@interface AllWorkoutsTableViewController ()
+@interface AllWorkoutsTableViewController () <WorkoutCellDelegate>
 
 @end
 
 @implementation AllWorkoutsTableViewController
+
+bool isScrolling = NO;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -54,7 +56,7 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    // Fetch all exercises
+    // Fetch all workouts
     [self fetchAllWorkouts];
     
     // Reload table
@@ -87,11 +89,14 @@
 
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.workoutList objectAtIndex:indexPath.row];
-    cell.workoutNameLabel.text = workout.workoutName;
-    cell.workoutNameLabel.textColor = themeNavBar4;
+    cell.workoutName.text = workout.workoutName;
+    cell.workoutName.textColor = themeNavBar4;
 
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;
+    
+    cell.itemText = cell.workoutName.text;
+    cell.delegate = self;
     
     return cell;
 }
@@ -102,33 +107,22 @@
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    isScrolling = YES;
+    [self.activeCell closeActivatedCells];
+}
 
-    // Swipe to delete
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        // Remove the Workout object
-        Workout *workoutToRemove = self.workoutList[indexPath.row];
-        [workoutToRemove deleteEntity];
-        
-        // Need to also remove the associated ExerciseSetting objects
-        NSArray *exerciseSettingArray = [workoutToRemove.exerciseGroup allObjects];
-        for (int i = 0; i < [exerciseSettingArray count]; i++) {
-            ExerciseSetting *exerciseSetting = exerciseSettingArray[i];
-            [exerciseSetting deleteEntity];
-        }
-        
-        [self saveContext];
-        
-        [self.workoutList removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    isScrolling = NO;
 }
 
 /* Segue */
@@ -161,6 +155,99 @@
 /* Save data to the store */
 - (void)saveContext {
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+}
+
+#pragma mark - SwipeableCellDelegate
+- (void)editButtonActionForItemText:(NSString *)itemText {
+    NSLog(@"Edit for %@", itemText);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rename Workout"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Rename", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField *alertTextField = [alert textFieldAtIndex:0];
+    alertTextField.text = itemText;
+    alertTextField.clearButtonMode = YES;
+    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [alertTextField becomeFirstResponder];
+    [alert addSubview:alertTextField];
+    [alert show];
+}
+
+- (void)deleteButtonActionForItemText:(NSString *)itemText {
+    NSLog(@"Delete for %@", itemText);
+    
+    // Remove the Workout object
+    Workout *workoutToRemove = self.workoutList[self.indexPath.row];
+    [workoutToRemove deleteEntity];
+    
+    // Need to also remove the associated ExerciseSetting objects
+    NSArray *exerciseSettingArray = [workoutToRemove.exerciseGroup allObjects];
+    for (int i = 0; i < [exerciseSettingArray count]; i++) {
+        ExerciseSetting *exerciseSetting = exerciseSettingArray[i];
+        [exerciseSetting deleteEntity];
+    }
+    
+    [self saveContext];
+    
+    [self.workoutList removeObjectAtIndex:self.indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (buttonIndex == alert.cancelButtonIndex)
+    {
+        NSLog(@"CANCEL alert view");
+        [self.activeCell closeActivatedCells];
+    }
+    else
+    {
+        NSLog(@"RENAME alert view");
+        Workout *editWorkout = self.workoutList[self.indexPath.row];
+        editWorkout.workoutName = [[alert textFieldAtIndex:0]text];
+        
+        // Reload data
+        [self viewDidAppear:YES];
+    }
+}
+
+//4
+- (void)closeModal
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Called when showing a cell's utility buttons
+- (void)cellDidOpen:(UITableViewCell *)cell
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    self.indexPath = [self.tableView indexPathForCell:cell];
+    
+    if (self.activeCell != nil) {
+        // There is no active cell (no cells with utility buttons showing)
+        [self.activeCell closeActivatedCells];
+    }
+    
+    self.activeCell = (WorkoutCell *)[self.tableView cellForRowAtIndexPath:self.indexPath];
+    
+}
+
+// Called when hiding a cell's utility buttons
+- (void)cellDidClose:(UITableViewCell *)cell
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Avoid setting activeCell to nil when closing a cell that does isn't showing its utility buttons.
+    if (self.activeCell == cell) {
+        self.activeCell = nil;
+    }
 }
 
 @end

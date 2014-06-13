@@ -13,24 +13,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkoutCell" rowHeight="60" id="NLs-LF-kRK" customClass="WorkoutCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkoutCell" rowHeight="60" id="NLs-LF-kRK" customClass="WorkoutCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NLs-LF-kRK" id="QoO-O6-xlH">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="workoutName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-TV-8Ja">
-                                            <rect key="frame" x="47" y="19" width="240" height="21"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY1-F0-GVK">
+                                            <rect key="frame" x="230" y="0.0" width="70" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Delete">
+                                                <color key="titleColor" red="1" green="0.98287123030000001" blue="0.98397416869999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="NLs-LF-kRK" eventType="touchUpInside" id="nyi-NG-Gnu"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSU-ZF-xS4">
+                                            <rect key="frame" x="161" y="0.0" width="70" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Edit">
+                                                <color key="titleColor" red="1" green="0.98287123030000001" blue="0.98397416869999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="NLs-LF-kRK" eventType="touchUpInside" id="EIz-Rz-F0h"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIs-AR-sTd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hea-os-j9T">
+                                                    <rect key="frame" x="50" y="19" width="214" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="UIs-AR-sTd" secondAttribute="bottom" id="5fN-op-PQp"/>
+                                        <constraint firstAttribute="trailing" secondItem="UIs-AR-sTd" secondAttribute="trailing" id="KA4-rc-FqZ"/>
+                                        <constraint firstItem="UIs-AR-sTd" firstAttribute="leading" secondItem="QoO-O6-xlH" secondAttribute="leading" id="P2P-qn-IoA"/>
+                                        <constraint firstItem="UIs-AR-sTd" firstAttribute="top" secondItem="QoO-O6-xlH" secondAttribute="top" id="YjS-fK-pst"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="workoutNameLabel" destination="vN9-TV-8Ja" id="Tlp-9Z-rOi"/>
+                                    <outlet property="contentViewLeftConstraint" destination="P2P-qn-IoA" id="FJv-t9-Pja"/>
+                                    <outlet property="contentViewRightConstraint" destination="KA4-rc-FqZ" id="93u-oU-HgV"/>
+                                    <outlet property="deleteButton" destination="QY1-F0-GVK" id="Oxf-uF-dTO"/>
+                                    <outlet property="editButton" destination="cSU-ZF-xS4" id="Fq5-eb-rwN"/>
+                                    <outlet property="myContentView" destination="UIs-AR-sTd" id="Efg-DT-y14"/>
+                                    <outlet property="workoutName" destination="hea-os-j9T" id="boT-fQ-qfn"/>
                                     <segue destination="iUr-fp-oIT" kind="push" identifier="goToWorkout" id="yhK-hJ-eqv"/>
                                 </connections>
                             </tableViewCell>
@@ -476,7 +518,7 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-Gp-jcB">
-                                            <rect key="frame" x="0.0" y="-1" width="320" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-kt-ZL6">

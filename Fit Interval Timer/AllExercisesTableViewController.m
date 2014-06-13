@@ -94,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *exercise = self.exerciseList[indexPath.row];
