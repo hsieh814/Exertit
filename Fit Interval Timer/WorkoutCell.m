@@ -43,13 +43,6 @@ CGFloat workoutHeightBorder = 2;
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-    
-    // Utility buttons images
-//    [self.editButton setBackgroundImage:[UIImage imageNamed:@"reddit-512.png"] forState:UIControlStateNormal];
-//    [self.deleteButton setBackgroundImage:[UIImage imageNamed:@"delete_save.png"] forState:UIControlStateNormal];
-//    self.deleteButton.frame = CGRectMake(0, 0, 10, 10);
-//    [self.deleteButton setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-//    self.deleteButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
 }
 
 // Override tableviewcell to set the cell's frame

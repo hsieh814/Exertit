@@ -105,6 +105,13 @@ bool isScrolling = NO;
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+    if (self.activeCell == nil) {
+        [self performSegueWithIdentifier:@"goToWorkout" sender:self];
+    } else {
+        NSLog(@"!!!!!!!!!!!!!!!!!!!!!");
+        // Hide the utility buttons of the active cell when tapping on cell.
+        [self.activeCell closeActivatedCells];
+    }
 }
 
 // Override to support conditional editing of the table view.
