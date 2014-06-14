@@ -35,6 +35,10 @@
 		BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37F18E8592600DA4CD7 /* MagicalRecord.m */; };
 		BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */; };
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
+		BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7CD194BEE05004AA489 /* swipe_delete.png */; };
+		BF04D7D2194BF591004AA489 /* swipe_edit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D1194BF591004AA489 /* swipe_edit_2.png */; };
+		BF04D7D4194BF627004AA489 /* swipe_edit_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D3194BF627004AA489 /* swipe_edit_3.png */; };
+		BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D5194BF65E004AA489 /* swipe_edit.png */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
@@ -154,6 +158,10 @@
 		BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
 		BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllExercisesTableViewController.h; sourceTree = "<group>"; };
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
+		BF04D7CD194BEE05004AA489 /* swipe_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_delete.png; path = Images/swipe_delete.png; sourceTree = "<group>"; };
+		BF04D7D1194BF591004AA489 /* swipe_edit_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_edit_2.png; path = Images/swipe_edit_2.png; sourceTree = "<group>"; };
+		BF04D7D3194BF627004AA489 /* swipe_edit_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_edit_3.png; path = Images/swipe_edit_3.png; sourceTree = "<group>"; };
+		BF04D7D5194BF65E004AA489 /* swipe_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_edit.png; path = Images/swipe_edit.png; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
@@ -502,6 +510,10 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF04D7D5194BF65E004AA489 /* swipe_edit.png */,
+				BF04D7D3194BF627004AA489 /* swipe_edit_3.png */,
+				BF04D7D1194BF591004AA489 /* swipe_edit_2.png */,
+				BF04D7CD194BEE05004AA489 /* swipe_delete.png */,
 				BFBAC98F1935A30400F93A1B /* about_120.png */,
 				BFBAC98D19359F6F00F93A1B /* howtoguide_120.png */,
 				BFBAC98919359BB800F93A1B /* settings_120.png */,
@@ -600,6 +612,7 @@
 				BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */,
 				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
+				BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */,
 				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
 				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
 				BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */,
@@ -610,9 +623,12 @@
 				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
 				BFBAC9901935A30400F93A1B /* about_120.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
+				BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */,
 				BF2098831871F80400D52321 /* Main.storyboard in Resources */,
+				BF04D7D2194BF591004AA489 /* swipe_edit_2.png in Resources */,
 				BF8122F818C0495B00606092 /* coderwall-512.png in Resources */,
 				BF22E0EF19344A7000A5C1DB /* exercises_120.png in Resources */,
+				BF04D7D4194BF627004AA489 /* swipe_edit_3.png in Resources */,
 				BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
