@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (nonatomic, weak) IBOutlet UIView *myContentView;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseName;
+@property (weak, nonatomic) IBOutlet UIImageView *categoyImage;
 
 // For setting the test label, which is in the cell's content view
 @property (nonatomic, strong) NSString *itemText;

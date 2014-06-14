@@ -50,7 +50,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hea-os-j9T">
-                                                    <rect key="frame" x="51" y="19" width="212" height="21"/>
+                                                    <rect key="frame" x="59" y="19" width="200" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -528,7 +528,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-kt-ZL6">
-                                                    <rect key="frame" x="51" y="19" width="212" height="21"/>
+                                                    <rect key="frame" x="48" y="21" width="200" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -541,6 +541,10 @@
                                                     <color key="textColor" red="0.54509806630000002" green="0.88627457620000005" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="category_blue.png" highlightedImage="category_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ief-dN-Bwz">
+                                                    <rect key="frame" x="20" y="18" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
@@ -555,6 +559,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="tintColor" red="1" green="0.98287123031855428" blue="0.98397416870469023" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="categoyImage" destination="Ief-dN-Bwz" id="1ux-5n-Ywi"/>
                                     <outlet property="contentViewLeftConstraint" destination="PqL-IS-jDO" id="jq5-5f-alE"/>
                                     <outlet property="contentViewRightConstraint" destination="OgK-jy-GaI" id="rnO-b0-rpl"/>
                                     <outlet property="deleteButton" destination="pxG-wb-fML" id="GCb-Ur-IKg"/>
@@ -1304,6 +1309,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="category_blue.png" width="125" height="125"/>
+        <image name="category_red.png" width="125" height="125"/>
         <image name="swipe_delete.png" width="70" height="60"/>
         <image name="swipe_edit.png" width="292" height="250"/>
     </resources>

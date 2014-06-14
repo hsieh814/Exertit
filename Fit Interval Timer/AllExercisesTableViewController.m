@@ -94,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *exercise = self.exerciseList[indexPath.row];
@@ -107,6 +107,9 @@
     // For swipe utility buttons
     cell.itemText = cell.exerciseName.text;
     cell.delegate = self;
+
+    UIImage *img = [UIImage imageNamed:@"category_red.png"];
+    [cell.categoyImage setImage:img];
     
     return cell;
 }
