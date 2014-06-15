@@ -19,8 +19,6 @@
 
 @implementation AllWorkoutsTableViewController
 
-bool isScrolling = NO;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -108,7 +106,6 @@ bool isScrolling = NO;
     if (self.activeCell == nil) {
         [self performSegueWithIdentifier:@"goToWorkout" sender:self];
     } else {
-        NSLog(@"!!!!!!!!!!!!!!!!!!!!!");
         // Hide the utility buttons of the active cell when tapping on cell.
         [self.activeCell closeActivatedCells];
     }
@@ -123,19 +120,12 @@ bool isScrolling = NO;
     return NO;
 }
 
+// Begin scrolling -> hide active cell's utility buttons
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    isScrolling = YES;
     [self.activeCell closeActivatedCells];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    isScrolling = NO;
 }
 
 /* Segue */

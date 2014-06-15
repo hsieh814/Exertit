@@ -80,8 +80,11 @@
 		BFAC644B194CCE2800AC9DF8 /* category_green.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6447194CCE2800AC9DF8 /* category_green.png */; };
 		BFAC644C194CCE2800AC9DF8 /* category_red.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6448194CCE2800AC9DF8 /* category_red.png */; };
 		BFAC644D194CCE2800AC9DF8 /* category_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6449194CCE2800AC9DF8 /* category_yellow.png */; };
+		BFAC6450194CE32000AC9DF8 /* NewExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAC644F194CE32000AC9DF8 /* NewExerciseTableViewController.m */; };
+		BFAC6453194CE4BB00AC9DF8 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAC6452194CE4BB00AC9DF8 /* DefaultCell.m */; };
+		BFAC6456194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAC6455194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m */; };
+		BFAC6458194D65E400AC9DF8 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6457194D65E400AC9DF8 /* checkmark.png */; };
 		BFB59D0E19046EEC0014D5CB /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D0D19046EEC0014D5CB /* Common.m */; };
-		BFB59D171904883A0014D5CB /* NewExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB59D161904883A0014D5CB /* NewExerciseViewController.m */; };
 		BFBAC98A19359BB800F93A1B /* settings_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BFBAC98919359BB800F93A1B /* settings_120.png */; };
 		BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BFBAC98D19359F6F00F93A1B /* howtoguide_120.png */; };
 		BFBAC9901935A30400F93A1B /* about_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BFBAC98F1935A30400F93A1B /* about_120.png */; };
@@ -222,10 +225,15 @@
 		BFAC6447194CCE2800AC9DF8 /* category_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_green.png; path = Images/category_green.png; sourceTree = "<group>"; };
 		BFAC6448194CCE2800AC9DF8 /* category_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_red.png; path = Images/category_red.png; sourceTree = "<group>"; };
 		BFAC6449194CCE2800AC9DF8 /* category_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_yellow.png; path = Images/category_yellow.png; sourceTree = "<group>"; };
+		BFAC644E194CE32000AC9DF8 /* NewExerciseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExerciseTableViewController.h; sourceTree = "<group>"; };
+		BFAC644F194CE32000AC9DF8 /* NewExerciseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExerciseTableViewController.m; sourceTree = "<group>"; };
+		BFAC6451194CE4BB00AC9DF8 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
+		BFAC6452194CE4BB00AC9DF8 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		BFAC6454194CF24A00AC9DF8 /* DefaultCellTitleUnderline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCellTitleUnderline.h; sourceTree = "<group>"; };
+		BFAC6455194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCellTitleUnderline.m; sourceTree = "<group>"; };
+		BFAC6457194D65E400AC9DF8 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = Images/checkmark.png; sourceTree = "<group>"; };
 		BFB59D0C19046EEC0014D5CB /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		BFB59D0D19046EEC0014D5CB /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
-		BFB59D151904883A0014D5CB /* NewExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewExerciseViewController.h; sourceTree = "<group>"; };
-		BFB59D161904883A0014D5CB /* NewExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewExerciseViewController.m; sourceTree = "<group>"; };
 		BFBAC98919359BB800F93A1B /* settings_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_120.png; path = Images/settings_120.png; sourceTree = "<group>"; };
 		BFBAC98D19359F6F00F93A1B /* howtoguide_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = howtoguide_120.png; path = Images/howtoguide_120.png; sourceTree = "<group>"; };
 		BFBAC98F1935A30400F93A1B /* about_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_120.png; path = Images/about_120.png; sourceTree = "<group>"; };
@@ -395,6 +403,8 @@
 			children = (
 				BFD0659318D7E7BD00A64C6D /* ExerciseCell.h */,
 				BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */,
+				BFAC6451194CE4BB00AC9DF8 /* DefaultCell.h */,
+				BFAC6452194CE4BB00AC9DF8 /* DefaultCell.m */,
 				BF7BF56618C29A4C009D9BE8 /* MenuCell.h */,
 				BF7BF56718C29A4C009D9BE8 /* MenuCell.m */,
 				BF2372E0187516BF009B43EF /* WorkoutCell.h */,
@@ -459,8 +469,10 @@
 				BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */,
 				BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */,
 				BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */,
-				BFB59D151904883A0014D5CB /* NewExerciseViewController.h */,
-				BFB59D161904883A0014D5CB /* NewExerciseViewController.m */,
+				BFAC644E194CE32000AC9DF8 /* NewExerciseTableViewController.h */,
+				BFAC644F194CE32000AC9DF8 /* NewExerciseTableViewController.m */,
+				BFAC6454194CF24A00AC9DF8 /* DefaultCellTitleUnderline.h */,
+				BFAC6455194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m */,
 				BF2098841871F80400D52321 /* TimerViewController.h */,
 				BF2098851871F80400D52321 /* TimerViewController.m */,
 				BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */,
@@ -518,6 +530,7 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BFAC6457194D65E400AC9DF8 /* checkmark.png */,
 				BFAC6446194CCE2800AC9DF8 /* category_blue.png */,
 				BFAC6447194CCE2800AC9DF8 /* category_green.png */,
 				BFAC6448194CCE2800AC9DF8 /* category_red.png */,
@@ -630,6 +643,7 @@
 				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
 				BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */,
 				BFAC644A194CCE2800AC9DF8 /* category_blue.png in Resources */,
+				BFAC6458194D65E400AC9DF8 /* checkmark.png in Resources */,
 				BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */,
 				BFAC644D194CCE2800AC9DF8 /* category_yellow.png in Resources */,
 				BF8122F618C0495200606092 /* cloudflare-512.png in Resources */,
@@ -668,10 +682,10 @@
 				BF2098861871F80400D52321 /* TimerViewController.m in Sources */,
 				BF00D38B18E8592600DA4CD7 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */,
+				BFAC6453194CE4BB00AC9DF8 /* DefaultCell.m in Sources */,
 				BF00D39318E8592600DA4CD7 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */,
 				BF00D38918E8592600DA4CD7 /* NSString+MagicalDataImport.m in Sources */,
-				BFB59D171904883A0014D5CB /* NewExerciseViewController.m in Sources */,
 				BF00D38318E8592600DA4CD7 /* MagicalImportFunctions.m in Sources */,
 				BF00D38C18E8592600DA4CD7 /* NSManagedObject+MagicalFinders.m in Sources */,
 				BF7F054318FB4479003ECD72 /* Workout.m in Sources */,
@@ -688,6 +702,7 @@
 				BF2098801871F80400D52321 /* timerAppDelegate.m in Sources */,
 				BF00D38E18E8592600DA4CD7 /* NSManagedObject+MagicalRequests.m in Sources */,
 				BF20CE9218B159720047D651 /* WorkoutConfigViewController.m in Sources */,
+				BFAC6450194CE32000AC9DF8 /* NewExerciseTableViewController.m in Sources */,
 				BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */,
 				BF00D38418E8592600DA4CD7 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				BF00D38818E8592600DA4CD7 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
@@ -710,6 +725,7 @@
 				BF00D38618E8592600DA4CD7 /* NSNumber+MagicalDataImport.m in Sources */,
 				BF00D39618E8592600DA4CD7 /* MagicalRecord+Actions.m in Sources */,
 				BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */,
+				BFAC6456194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m in Sources */,
 				BF00D39018E8592600DA4CD7 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */,
 				BF00D39418E8592600DA4CD7 /* NSPersistentStore+MagicalRecord.m in Sources */,

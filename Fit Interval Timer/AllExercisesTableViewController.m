@@ -108,10 +108,34 @@
     cell.itemText = cell.exerciseName.text;
     cell.delegate = self;
 
-    UIImage *img = [UIImage imageNamed:@"category_red.png"];
-    [cell.categoyImage setImage:img];
+    UIImage *img = [self checkExerciseCategory:[exercise.category integerValue]];
+    [cell.categoryImage setImage:img];
     
     return cell;
+}
+
+- (UIImage *)checkExerciseCategory:(NSInteger)tag
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    switch (tag) {
+        case 1:
+            return [UIImage imageNamed:@"category_blue.png"];
+            break;
+        case 2:
+            return [UIImage imageNamed:@"category_red.png"];
+            break;
+        case 3:
+            return [UIImage imageNamed:@"category_yellow.png"];
+            break;
+        case 4:
+            return [UIImage imageNamed:@"category_green.png"];
+            break;
+        default:
+            break;
+    }
+    
+    return nil;
 }
 
 //// Change the background color of cells
@@ -131,7 +155,7 @@
 /* Called when a row is selected */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if ([self.presentingViewController isKindOfClass:[SWRevealViewController class]]) {
         // Previous view controller is the WorkoutConfigViewController. Need to pass the selected exercise back.
@@ -144,10 +168,18 @@
 
 }
 
+// Begin scrolling -> hide active cell's utility buttons
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    [self.activeCell closeActivatedCells];
+}
+
 /* Segue */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), segue.identifier);
     
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
         NSLog(@"AddExercise segue");
@@ -156,10 +188,10 @@
         NSLog(@"EditExercise segue");
         
         UINavigationController *navigationController = segue.destinationViewController;
-        NewExerciseViewController *newExerciseViewController = (NewExerciseViewController *)navigationController.childViewControllers[0];
-        newExerciseViewController.title = @"Edit Exercise";
+        NewExerciseTableViewController *newExerciseTableViewController = (NewExerciseTableViewController *)navigationController.childViewControllers[0];
+        newExerciseTableViewController.title = @"Edit Exercise";
         Exercise *selectedExercise = self.exerciseList[self.indexPath.row];
-        newExerciseViewController.exercise = selectedExercise;
+        newExerciseTableViewController.exercise = selectedExercise;
     }
 }
 
