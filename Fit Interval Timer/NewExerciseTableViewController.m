@@ -62,12 +62,8 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:gestureRecognizer];
     
-    // Set the attributes to the corresponding areas
-//    self.exerciseNameTextField.text = self.exercise.exerciseName;
-    
-    // Color customization
-//    self.exerciseNameLabel.textColor = themeNavBar4;
-//    self.exerciseNameTextField.textColor = themeNavBar4;
+    // Set the selected category to class variable
+    selectedCategory = [self.exercise.category integerValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -206,7 +202,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
     [self hideKeyboardOnTap:self];
     
     // Remove the checkmark
-    [self uncheckCategory:[self.exercise.category integerValue]];
+    [self uncheckCategory:selectedCategory];
     
     // Check the new selected category and save to exercise
     [self checkCategory:sender.view.tag];
