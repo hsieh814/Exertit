@@ -10,7 +10,7 @@
 #import "SWRevealViewController.h"
 #import "RunIntervalTrainerViewController.h"
 
-@interface IntervalTimerViewController ()
+@interface IntervalTimerViewController () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -37,11 +37,12 @@ CGRect activeTextFieldRect;
     [super viewDidLoad];
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    // Slide out menu intialization
+    // Slide out menu customization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.revealViewController panGestureRecognizer];
+    [self.revealViewController tapGestureRecognizer];
     
     // Initialize time array with times value to pick from
     self.minArray = [[NSMutableArray alloc] init];
@@ -114,6 +115,7 @@ CGRect activeTextFieldRect;
     
     // Tap gesture: hide keyboard when taping on view
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboardOnTap:)];
+    gestureRecognizer.delegate = self;
     [self.scrollView addGestureRecognizer:gestureRecognizer];
 
     self.warmupDuration.delegate = self;
@@ -150,6 +152,14 @@ CGRect activeTextFieldRect;
     
     self.warmupTextField.textColor = self.lowIntervalTextField.textColor = self.highIntervalTextField.textColor
         = self.cooldownTextField.textColor = self.repetitionsTextField.textColor = themeNavBar4;
+}
+
+// Handle two tap gestures: SWRevealViewController and IntervalTimer for hiding keyboard
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    return YES;
 }
 
 /* Called when a text field is active */

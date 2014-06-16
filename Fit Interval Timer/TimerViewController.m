@@ -26,13 +26,13 @@ static const int TIMER = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Slide out menu intialization
-    
+
+    // Slide out menu customization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
-    
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.revealViewController panGestureRecognizer];
+    [self.revealViewController tapGestureRecognizer];
 
     // Initialize time array with times value to pick from
     self.minArray = [[NSMutableArray alloc] init];

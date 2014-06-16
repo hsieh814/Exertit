@@ -38,17 +38,12 @@
 
     if (_sidebarButton != nil) {
         
-        SWRevealViewController *revealController = [self revealViewController];
-
-        [revealController panGestureRecognizer];
-        [revealController tapGestureRecognizer];
-        
-        // Slide out menu intialization
-        self.sidebarButton.target = revealController;
-        self.sidebarButton.action = @selector(revealToggle:);
-    
+        // Slide out menu customization
+        _sidebarButton.target = self.revealViewController;
+        _sidebarButton.action = @selector(revealToggle:);
         // Set the gesture
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.revealViewController panGestureRecognizer];
+        [self.revealViewController tapGestureRecognizer];
         
         // Tableview customization
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

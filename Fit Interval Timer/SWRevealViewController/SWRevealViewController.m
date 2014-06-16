@@ -703,6 +703,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (UITapGestureRecognizer*)tapGestureRecognizer
 {
+    NSLog(@"[SWRevealViewController] tapGestureRecognizer");
     if ( _tapGestureRecognizer == nil )
     {
         UITapGestureRecognizer *tapRecognizer =
@@ -758,7 +759,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     [self _getDragLocation:&xLocation progress:&dragProgress];
     if ( [_delegate respondsToSelector:@selector(revealController:panGestureBeganFromLocation:progress:)] )
         [_delegate revealController:self panGestureBeganFromLocation:xLocation progress:dragProgress];
-    int i = 0;
 }
 
 - (void)_notifyPanGestureMoved
