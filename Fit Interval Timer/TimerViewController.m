@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 hsieh. All rights reserved.
 //
 
+#import <AudioToolbox/AudioServices.h>
 #import "TimerViewController.h"
 #import "SWRevealViewController.h"
 
@@ -20,6 +21,8 @@ static bool pauseTimer = 1;
 // selectedSwitcher
 static const int STOPWATCH = 0;
 static const int TIMER = 1;
+
+SystemSoundID theSoundID;
 
 @implementation TimerViewController
 
@@ -72,6 +75,16 @@ static const int TIMER = 1;
     self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
     self.resetLabel.layer.borderWidth = 1.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
+    
+    // Initialize system sound
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/alarm.caf"]];
+    if (url != nil)
+    {
+        OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &theSoundID);
+        if (error != kAudioServicesNoError) {
+            NSLog(@"ERROR- cannot create audio service system sound ID.");
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -211,6 +224,9 @@ static const int TIMER = 1;
     } else {
         // Timer
         if (secondsCount == 0 && minutesCount == 0) {
+            // Play system sound when timer count down is done
+            AudioServicesPlaySystemSound(theSoundID);
+
             [self stopRunningTimer];
             [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
 
@@ -219,7 +235,7 @@ static const int TIMER = 1;
             [self displayMinValue:minutesCount andSecValue:secondsCount];
 
             [self enableTimePicker:TRUE];
-            
+
         } else if (secondsCount == 0) {
             minutesCount--;
             secondsCount = 59;
