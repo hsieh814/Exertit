@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
+#import <AudioToolbox/AudioServices.h>
 #import "RunIntervalTrainerViewController.h"
 
 @interface RunIntervalTrainerViewController ()
@@ -26,6 +27,9 @@ int const LOW_INT = 1;
 int const HIGH_INT = 2;
 int const COOL_DOWN = 3;
 int state;
+
+// System sound
+SystemSoundID toCoolDown;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,6 +68,16 @@ int state;
     self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
     self.resetLabel.layer.borderWidth = 1.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
+    
+    // Initialize system sound
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/Modern/sms_alert_circles.caf"]];
+    if (url != nil)
+    {
+        OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &toCoolDown);
+        if (error != kAudioServicesNoError) {
+            NSLog(@"ERROR- cannot create audio service system sound ID.");
+        }
+    }
 }
 
 // Called before exiting the view
@@ -114,17 +128,26 @@ int state;
                     if (![self.cooldownDuration isEqualToString:@"00:00"]) {
                         // Go to cool down
                         state = COOL_DOWN;
+                        AudioServicesPlaySystemSound(toCoolDown);
                     } else {
                         NSLog(@"------ FINISH WITHOUT COOL DOWN ------");
                         [self endIntervalTrainer];
+                        AudioServicesPlaySystemSound(1005);
                         return;
                     }
                 } else {
                     // Go back to low interval
                     state = LOW_INT;
+                    AudioServicesPlaySystemSound(1054);
                 }
             } else {
                 // Either in WARM UP or LOW INT state, just increment to next state
+                if (state == WARM_UP) {
+                    AudioServicesPlaySystemSound(1054);
+                } else {
+                    // Low interval state
+                    AudioServicesPlaySystemSound(1009);
+                }
                 state++;
             }
             [self setMinuteAndSecondsFromStringTime:[self getTimeInStringFormatFromState]];
@@ -132,6 +155,7 @@ int state;
             // Reached the end of the interval training- disable timer
             NSLog(@"------ FINISH ------");
             [self endIntervalTrainer];
+            AudioServicesPlaySystemSound(1005);
         }
         
     } else if (secondsCount == 0) {

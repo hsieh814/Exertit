@@ -22,8 +22,6 @@ static bool pauseTimer = 1;
 static const int STOPWATCH = 0;
 static const int TIMER = 1;
 
-SystemSoundID theSoundID;
-
 @implementation TimerViewController
 
 - (void)viewDidLoad
@@ -75,16 +73,6 @@ SystemSoundID theSoundID;
     self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
     self.resetLabel.layer.borderWidth = 1.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
-    
-    // Initialize system sound
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/alarm.caf"]];
-    if (url != nil)
-    {
-        OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &theSoundID);
-        if (error != kAudioServicesNoError) {
-            NSLog(@"ERROR- cannot create audio service system sound ID.");
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -225,7 +213,7 @@ SystemSoundID theSoundID;
         // Timer
         if (secondsCount == 0 && minutesCount == 0) {
             // Play system sound when timer count down is done
-            AudioServicesPlaySystemSound(theSoundID);
+            AudioServicesPlaySystemSound(1005);
 
             [self stopRunningTimer];
             [self.startLabel setTitle:@"START" forState:UIControlStateNormal];
