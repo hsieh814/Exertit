@@ -54,7 +54,7 @@
 		BF2098901871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098911871F80400D52321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098731871F80400D52321 /* UIKit.framework */; };
 		BF2098991871F80400D52321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2098971871F80400D52321 /* InfoPlist.strings */; };
-		BF20989B1871F80400D52321 /* Fit_Interval_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20989A1871F80400D52321 /* Fit_Interval_TimerTests.m */; };
+		BF20989B1871F80400D52321 /* ExertitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20989A1871F80400D52321 /* ExertitTests.m */; };
 		BF20CE9218B159720047D651 /* WorkoutConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */; };
 		BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */; };
 		BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EA193448E200A5C1DB /* timer_120.png */; };
@@ -174,25 +174,25 @@
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
-		BF20986C1871F80400D52321 /* Fit Interval Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit Interval Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF20986C1871F80400D52321 /* Exertit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exertit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF2098711871F80400D52321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BF2098731871F80400D52321 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		BF2098771871F80400D52321 /* Fit Interval Timer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fit Interval Timer-Info.plist"; sourceTree = "<group>"; };
+		BF2098771871F80400D52321 /* Exertit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Exertit-Info.plist"; sourceTree = "<group>"; };
 		BF2098791871F80400D52321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF20987B1871F80400D52321 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BF20987D1871F80400D52321 /* Fit Interval Timer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fit Interval Timer-Prefix.pch"; sourceTree = "<group>"; };
+		BF20987D1871F80400D52321 /* Exertit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Exertit-Prefix.pch"; sourceTree = "<group>"; };
 		BF20987E1871F80400D52321 /* timerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timerAppDelegate.h; sourceTree = "<group>"; };
 		BF20987F1871F80400D52321 /* timerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timerAppDelegate.m; sourceTree = "<group>"; };
 		BF2098821871F80400D52321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF2098841871F80400D52321 /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		BF2098851871F80400D52321 /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		BF2098871871F80400D52321 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BF20988D1871F80400D52321 /* Fit Interval TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fit Interval TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF20988D1871F80400D52321 /* ExertitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExertitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20988E1871F80400D52321 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		BF2098961871F80400D52321 /* Fit Interval TimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fit Interval TimerTests-Info.plist"; sourceTree = "<group>"; };
+		BF2098961871F80400D52321 /* ExertitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExertitTests-Info.plist"; sourceTree = "<group>"; };
 		BF2098981871F80400D52321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BF20989A1871F80400D52321 /* Fit_Interval_TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fit_Interval_TimerTests.m; sourceTree = "<group>"; };
+		BF20989A1871F80400D52321 /* ExertitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExertitTests.m; sourceTree = "<group>"; };
 		BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutConfigViewController.h; sourceTree = "<group>"; };
 		BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutConfigViewController.m; sourceTree = "<group>"; };
 		BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = interval_trainer_120.png; path = Images/interval_trainer_120.png; sourceTree = "<group>"; };
@@ -422,8 +422,8 @@
 		BF2098631871F80400D52321 = {
 			isa = PBXGroup;
 			children = (
-				BF2098751871F80400D52321 /* Fit Interval Timer */,
-				BF2098941871F80400D52321 /* Fit Interval TimerTests */,
+				BF2098751871F80400D52321 /* Exertit */,
+				BF2098941871F80400D52321 /* ExertitTests */,
 				BF20986E1871F80400D52321 /* Frameworks */,
 				BF20986D1871F80400D52321 /* Products */,
 			);
@@ -432,8 +432,8 @@
 		BF20986D1871F80400D52321 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF20986C1871F80400D52321 /* Fit Interval Timer.app */,
-				BF20988D1871F80400D52321 /* Fit Interval TimerTests.xctest */,
+				BF20986C1871F80400D52321 /* Exertit.app */,
+				BF20988D1871F80400D52321 /* ExertitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -452,7 +452,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BF2098751871F80400D52321 /* Fit Interval Timer */ = {
+		BF2098751871F80400D52321 /* Exertit */ = {
 			isa = PBXGroup;
 			children = (
 				BF2098811871F80400D52321 /* Main.storyboard */,
@@ -494,33 +494,35 @@
 				BF2098871871F80400D52321 /* Images.xcassets */,
 				BF2098761871F80400D52321 /* Supporting Files */,
 			);
+			name = Exertit;
 			path = "Fit Interval Timer";
 			sourceTree = "<group>";
 		};
 		BF2098761871F80400D52321 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF2098771871F80400D52321 /* Fit Interval Timer-Info.plist */,
+				BF2098771871F80400D52321 /* Exertit-Info.plist */,
 				BF2098781871F80400D52321 /* InfoPlist.strings */,
 				BF20987B1871F80400D52321 /* main.m */,
-				BF20987D1871F80400D52321 /* Fit Interval Timer-Prefix.pch */,
+				BF20987D1871F80400D52321 /* Exertit-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BF2098941871F80400D52321 /* Fit Interval TimerTests */ = {
+		BF2098941871F80400D52321 /* ExertitTests */ = {
 			isa = PBXGroup;
 			children = (
-				BF20989A1871F80400D52321 /* Fit_Interval_TimerTests.m */,
+				BF20989A1871F80400D52321 /* ExertitTests.m */,
 				BF2098951871F80400D52321 /* Supporting Files */,
 			);
+			name = ExertitTests;
 			path = "Fit Interval TimerTests";
 			sourceTree = "<group>";
 		};
 		BF2098951871F80400D52321 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF2098961871F80400D52321 /* Fit Interval TimerTests-Info.plist */,
+				BF2098961871F80400D52321 /* ExertitTests-Info.plist */,
 				BF2098971871F80400D52321 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -568,9 +570,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BF20986B1871F80400D52321 /* Fit Interval Timer */ = {
+		BF20986B1871F80400D52321 /* Exertit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF20989E1871F80400D52321 /* Build configuration list for PBXNativeTarget "Fit Interval Timer" */;
+			buildConfigurationList = BF20989E1871F80400D52321 /* Build configuration list for PBXNativeTarget "Exertit" */;
 			buildPhases = (
 				BF2098681871F80400D52321 /* Sources */,
 				BF2098691871F80400D52321 /* Frameworks */,
@@ -580,14 +582,14 @@
 			);
 			dependencies = (
 			);
-			name = "Fit Interval Timer";
+			name = Exertit;
 			productName = "Fit Interval Timer";
-			productReference = BF20986C1871F80400D52321 /* Fit Interval Timer.app */;
+			productReference = BF20986C1871F80400D52321 /* Exertit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BF20988C1871F80400D52321 /* Fit Interval TimerTests */ = {
+		BF20988C1871F80400D52321 /* ExertitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF2098A11871F80400D52321 /* Build configuration list for PBXNativeTarget "Fit Interval TimerTests" */;
+			buildConfigurationList = BF2098A11871F80400D52321 /* Build configuration list for PBXNativeTarget "ExertitTests" */;
 			buildPhases = (
 				BF2098891871F80400D52321 /* Sources */,
 				BF20988A1871F80400D52321 /* Frameworks */,
@@ -598,9 +600,9 @@
 			dependencies = (
 				BF2098931871F80400D52321 /* PBXTargetDependency */,
 			);
-			name = "Fit Interval TimerTests";
+			name = ExertitTests;
 			productName = "Fit Interval TimerTests";
-			productReference = BF20988D1871F80400D52321 /* Fit Interval TimerTests.xctest */;
+			productReference = BF20988D1871F80400D52321 /* ExertitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -618,7 +620,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BF2098671871F80400D52321 /* Build configuration list for PBXProject "Fit Interval Timer" */;
+			buildConfigurationList = BF2098671871F80400D52321 /* Build configuration list for PBXProject "Exertit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -631,8 +633,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF20986B1871F80400D52321 /* Fit Interval Timer */,
-				BF20988C1871F80400D52321 /* Fit Interval TimerTests */,
+				BF20986B1871F80400D52321 /* Exertit */,
+				BF20988C1871F80400D52321 /* ExertitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -744,7 +746,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF20989B1871F80400D52321 /* Fit_Interval_TimerTests.m in Sources */,
+				BF20989B1871F80400D52321 /* ExertitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,7 +755,7 @@
 /* Begin PBXTargetDependency section */
 		BF2098931871F80400D52321 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BF20986B1871F80400D52321 /* Fit Interval Timer */;
+			target = BF20986B1871F80400D52321 /* Exertit */;
 			targetProxy = BF2098921871F80400D52321 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -864,9 +866,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Fit Interval Timer/Fit Interval Timer-Prefix.pch";
-				INFOPLIST_FILE = "Fit Interval Timer/Fit Interval Timer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Fit Interval Timer/Exertit-Prefix.pch";
+				INFOPLIST_FILE = "Fit Interval Timer/Exertit-Info.plist";
+				PRODUCT_NAME = Exertit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -877,9 +879,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Fit Interval Timer/Fit Interval Timer-Prefix.pch";
-				INFOPLIST_FILE = "Fit Interval Timer/Fit Interval Timer-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Fit Interval Timer/Exertit-Prefix.pch";
+				INFOPLIST_FILE = "Fit Interval Timer/Exertit-Info.plist";
+				PRODUCT_NAME = Exertit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -900,8 +902,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Fit Interval TimerTests/Fit Interval TimerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Fit Interval TimerTests/ExertitTests-Info.plist";
+				PRODUCT_NAME = ExertitTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -919,8 +921,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fit Interval Timer/Fit Interval Timer-Prefix.pch";
-				INFOPLIST_FILE = "Fit Interval TimerTests/Fit Interval TimerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Fit Interval TimerTests/ExertitTests-Info.plist";
+				PRODUCT_NAME = ExertitTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -929,7 +931,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF2098671871F80400D52321 /* Build configuration list for PBXProject "Fit Interval Timer" */ = {
+		BF2098671871F80400D52321 /* Build configuration list for PBXProject "Exertit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF20989C1871F80400D52321 /* Debug */,
@@ -938,7 +940,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF20989E1871F80400D52321 /* Build configuration list for PBXNativeTarget "Fit Interval Timer" */ = {
+		BF20989E1871F80400D52321 /* Build configuration list for PBXNativeTarget "Exertit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF20989F1871F80400D52321 /* Debug */,
@@ -947,7 +949,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF2098A11871F80400D52321 /* Build configuration list for PBXNativeTarget "Fit Interval TimerTests" */ = {
+		BF2098A11871F80400D52321 /* Build configuration list for PBXNativeTarget "ExertitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF2098A21871F80400D52321 /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Fit Interval Timer.xcodeproj">
+      location = "self:Exertit.xcodeproj">
    </FileRef>
 </Workspace>
