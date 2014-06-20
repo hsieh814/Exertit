@@ -92,6 +92,7 @@
 		BFC5A7C318C3E9DE0048D410 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */; };
 		BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */; };
 		BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */; };
+		BFF79018195142CD0030B6B5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF79017195142CD0030B6B5 /* iAd.framework */; };
 		BFF8B8E7194E938200786B9B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF8B8E6194E938200786B9B /* AudioToolbox.framework */; };
 		BFFEB93C191349A200AE929C /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEB93B191349A200AE929C /* ExerciseSetting.m */; };
 /* End PBXBuildFile section */
@@ -246,6 +247,7 @@
 		BFD0659418D7E7BD00A64C6D /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 		BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunIntervalTrainerViewController.h; sourceTree = "<group>"; };
 		BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunIntervalTrainerViewController.m; sourceTree = "<group>"; };
+		BFF79017195142CD0030B6B5 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		BFF8B8E6194E938200786B9B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BFFEB93A191349A200AE929C /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
 		BFFEB93B191349A200AE929C /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF79018195142CD0030B6B5 /* iAd.framework in Frameworks */,
 				BFF8B8E7194E938200786B9B /* AudioToolbox.framework in Frameworks */,
 				BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */,
 				BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */,
@@ -438,6 +441,7 @@
 		BF20986E1871F80400D52321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFF79017195142CD0030B6B5 /* iAd.framework */,
 				BFF8B8E6194E938200786B9B /* AudioToolbox.framework */,
 				BF3F532818D2ADE200210568 /* CoreData.framework */,
 				BF20986F1871F80400D52321 /* Foundation.framework */,

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
+#import <iAd/iAd.h>
 #import "AllExercisesTableViewController.h"
 #import "SWRevealViewController.h"
 #import "Exercise.h"
@@ -44,6 +45,9 @@
         // Set the gesture
         [self.revealViewController panGestureRecognizer];
         [self.revealViewController tapGestureRecognizer];
+        
+        // Allow iAds
+        self.canDisplayBannerAds = YES;
         
         // Tableview customization
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

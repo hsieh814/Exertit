@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "NewWorkoutViewController.h"
 #import "WorkoutCell.h"
 
-@interface AllWorkoutsTableViewController : UITableViewController
+@interface AllWorkoutsTableViewController : UITableViewController <ADBannerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic) NSMutableArray *workoutList;
 
 @property (nonatomic, strong) WorkoutCell* activeCell;
 @property (nonatomic, strong) NSIndexPath* indexPath;
+
+@property (weak, nonatomic) IBOutlet ADBannerView *iAdBanner;
 
 @end

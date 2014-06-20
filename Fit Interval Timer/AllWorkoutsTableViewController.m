@@ -40,6 +40,10 @@
     [self.revealViewController panGestureRecognizer];
     [self.revealViewController tapGestureRecognizer];
     
+    // Allow iAds
+    self.canDisplayBannerAds = YES;
+    self.iAdBanner.delegate = self;
+    
     // TableView customization
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = lightBlue;
@@ -251,6 +255,24 @@
     if (self.activeCell == cell) {
         self.activeCell = nil;
     }
+}
+
+#pragma mark - iAdBanner Delegates
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"Error in Loading Banner!");
+}
+
+-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+    NSLog(@"iAd Banner will load!");
+}
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSLog(@"iAd banner Loaded Successfully!");
+}
+
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSLog(@"iAd Banner did finish");
 }
 
 @end
