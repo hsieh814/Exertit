@@ -19,6 +19,4 @@
 @property (nonatomic, strong) WorkoutCell* activeCell;
 @property (nonatomic, strong) NSIndexPath* indexPath;
 
-@property (weak, nonatomic) IBOutlet ADBannerView *iAdBanner;
-
 @end

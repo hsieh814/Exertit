@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/ADBannerView.h>
 #import "NewExerciseTableViewController.h"
 #import "timerAppDelegate.h"
 #import "Workout.h"
@@ -18,7 +19,7 @@
 - (void)allExercisesViewControllerDidSelectWorkout:(AllExercisesTableViewController *)controller didSelectExercise:(Exercise *)exercise;
 @end
 
-@interface AllExercisesTableViewController : UITableViewController
+@interface AllExercisesTableViewController : UITableViewController <ADBannerViewDelegate>
 
 @property (nonatomic, weak) id <AllExercisesTableViewControllerDelegate> delegate;
 
