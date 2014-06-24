@@ -25,7 +25,8 @@
 
 // Tableview color
 #define lightBlue [UIColor colorWithRed:(232.0f/255.0f) green:(252.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0]
-#define mediumBlue [UIColor colorWithRed:(132.0f/255.0f) green:(198.0f/255.0f) blue:(207.0f/255.0f) alpha:1.0]
+//#define mediumBlue [UIColor colorWithRed:(132.0f/255.0f) green:(198.0f/255.0f) blue:(207.0f/255.0f) alpha:1.0]
+#define mediumBlue [UIColor colorWithRed:(177.0f/255.0f) green:(232.0f/255.0f) blue:(240.0f/255.0f) alpha:1.0]
 
 // Slide menu
 //#define darkBlue [UIColor colorWithRed:(41.0f/255.0f) green:(51.0f/255.0f) blue:(51.0f/255.0f) alpha:1.0]

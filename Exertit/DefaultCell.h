@@ -10,4 +10,7 @@
 
 @interface DefaultCell : UITableViewCell
 
+@property CGFloat defaultWidthBorder;
+@property CGFloat defaultHeightBorder;
+
 @end

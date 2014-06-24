@@ -196,7 +196,6 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
 - (void)selectCategory:(UIGestureRecognizer *)sender
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    NSLog(@"tag = %d", sender.view.tag);
     
     // Hide keyboard in case the textfield was active
     [self hideKeyboardOnTap:self];

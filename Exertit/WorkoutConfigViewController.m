@@ -96,6 +96,9 @@ bool createdNewExerciseSetting;
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    // Set the units for weight from user defaults
+    self.unitLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"units"];
 }
 
 // called everytime we enter the view

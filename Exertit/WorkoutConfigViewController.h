@@ -32,6 +32,7 @@
 
 // Weight
 @property (weak, nonatomic) IBOutlet UITextField *weightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 
 // Time picker view
 @property (retain, nonatomic) NSMutableArray *secArray;

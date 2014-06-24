@@ -10,8 +10,8 @@
 
 @implementation DefaultCell : UITableViewCell
 
-CGFloat defaultWidthBorder = 10;
-CGFloat defaultHeightBorder = 2;
+//CGFloat defaultWidthBorder = 10;
+//CGFloat defaultHeightBorder = 2;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -25,6 +25,8 @@ CGFloat defaultHeightBorder = 2;
 - (void)awakeFromNib
 {
     // Initialization code
+    self.defaultWidthBorder = 10;
+    self.defaultHeightBorder = 2;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -39,10 +41,10 @@ CGFloat defaultHeightBorder = 2;
 {
     //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    frame.origin.x += defaultWidthBorder;   // make table start a few pixels right from its origin
-    frame.size.width -= 2 * defaultWidthBorder;    // decrease table's width
-    frame.origin.y += defaultHeightBorder;
-    frame.size.height -= 2 * defaultHeightBorder;  // add a gap between cells
+    frame.origin.x += self.defaultWidthBorder;   // make table start a few pixels right from its origin
+    frame.size.width -= 2 * self.defaultWidthBorder;    // decrease table's width
+    frame.origin.y += self.defaultHeightBorder;
+    frame.size.height -= 2 * self.defaultHeightBorder;  // add a gap between cells
     
     [super setFrame:frame];
 }

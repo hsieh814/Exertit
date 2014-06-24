@@ -108,7 +108,7 @@
         cell.exerciseName.text = exerciseSetting.baseExercise.exerciseName;
     }
     cell.exerciseName.textColor = themeNavBar4;
-
+    
     // Cell customization
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;

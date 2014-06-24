@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DefaultCell.h"
 
 @interface SettingsTableViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
-
-@property (weak, nonatomic) IBOutlet UISegmentedControl *selectTheme;
-
-- (IBAction)changeTheme:(id)sender;
+@property (weak, nonatomic) IBOutlet DefaultCell *SettingCell;
 
 @end
