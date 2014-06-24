@@ -12,8 +12,9 @@
 #import "ExerciseSetting.h"
 #import "SWRevealViewController.h"
 #import "RunWorkoutViewController.h"
+#import "ExerciseCell.h"
 
-@interface WorkoutViewController ()
+@interface WorkoutViewController () <ExerciseCellDelegate>
 
 @end
 
@@ -109,6 +110,13 @@
     }
     cell.exerciseName.textColor = themeNavBar4;
     
+    // For swipe utility buttons
+    cell.itemText = cell.exerciseName.text;
+    cell.delegate = self;
+    
+    UIImage *img = [self checkExerciseCategory:[exerciseSetting.baseExercise.category integerValue]];
+    cell.categoryImage.image = img;
+    
     // Cell customization
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;
@@ -116,23 +124,26 @@
     return cell;
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/* Called when a row is selected */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    // Swipe to delete
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        ExerciseSetting *exerciseSettingToRemove = self.exercisesForWorkout[indexPath.row];
-        [exerciseSettingToRemove deleteEntity];
-        [self saveContext];
-        
-        [self.exercisesForWorkout removeObjectAtIndex:indexPath.row];
-
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        [self enableOrDisableStartButton];
+    if (self.indexPath == nil) {
+        // There are no active cells showing utility buttons, so edit the exercise settings
+        [self performSegueWithIdentifier:@"GoToExercise" sender:self];
+    } else {
+        // Hide the utility buttons of the active cell when tapping on cell.
+        [self.activeCell closeActivatedCells];
     }
+}
+
+// Begin scrolling -> hide active cell's utility buttons
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    [self.activeCell closeActivatedCells];
 }
 
 /* Segue */
@@ -171,6 +182,15 @@
         // Set the title of next controller to the workout's name
         runWorkoutViewController.title = self.workout.workoutName;
     }
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Return NO if you do not want the specified item to be editable.
+    return NO;
 }
 
 - (void)fetchAllExercisesForWorkout
@@ -321,6 +341,85 @@
     snapshot.layer.shadowOpacity = 0.4;
     
     return snapshot;
+}
+
+- (UIImage *)checkExerciseCategory:(NSInteger)tag
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    switch (tag) {
+        case 1:
+            return [UIImage imageNamed:@"category_blue.png"];
+            break;
+        case 2:
+            return [UIImage imageNamed:@"category_red.png"];
+            break;
+        case 3:
+            return [UIImage imageNamed:@"category_yellow.png"];
+            break;
+        case 4:
+            return [UIImage imageNamed:@"category_green.png"];
+            break;
+        default:
+            break;
+    }
+    
+    return nil;
+}
+
+#pragma mark - SwipeableCellDelegate
+
+// No edit button for this view
+- (void)editButtonActionForItemText:(NSString *)itemText {
+}
+
+- (void)deleteButtonActionForItemText:(NSString *)itemText {
+    NSLog(@"Delete for %@", itemText);
+    
+    ExerciseSetting *exerciseSettingToRemove = self.exercisesForWorkout[self.indexPath.row];
+    [exerciseSettingToRemove deleteEntity];
+    [self saveContext];
+    
+    [self.exercisesForWorkout removeObjectAtIndex:self.indexPath.row];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self enableOrDisableStartButton];
+}
+
+//4
+- (void)closeModal
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Called when showing a cell's utility buttons
+- (void)cellDidOpen:(UITableViewCell *)cell
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    self.indexPath = [self.tableView indexPathForCell:cell];
+    
+    if (self.activeCell != nil) {
+        // There is no active cell (no cells with utility buttons showing)
+        [self.activeCell closeActivatedCells];
+    }
+    
+    self.activeCell = (ExerciseCell *)[self.tableView cellForRowAtIndexPath:self.indexPath];
+    
+}
+
+// Called when hiding a cell's utility buttons
+- (void)cellDidClose:(UITableViewCell *)cell
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Avoid setting activeCell to nil when closing a cell that does isn't showing its utility buttons.
+    if (self.activeCell == cell) {
+        self.activeCell = nil;
+    }
+    
+    self.indexPath = nil;
 }
 
 @end

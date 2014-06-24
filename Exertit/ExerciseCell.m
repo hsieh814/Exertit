@@ -69,7 +69,8 @@ CGFloat heightBorder = 2;
 
 // When an utility button is clicked- set the method to perform in the AllExercisesTable class.
 - (IBAction)buttonClicked:(id)sender {
-    
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     if (sender == self.editButton) {
         [self.delegate editButtonActionForItemText:self.itemText];
     } else if (sender == self.deleteButton) {
@@ -160,7 +161,7 @@ CGFloat heightBorder = 2;
             NSLog(@"UIGestureRecognizerStateEnded");
             if (self.startingRightLayoutConstraintConstant == 0) { //1
                 //We were opening
-                CGFloat halfOfButtonOne = CGRectGetWidth(self.editButton.frame) / 2; //2
+                CGFloat halfOfButtonOne = CGRectGetWidth(self.deleteButton.frame) / 2; //2
                 if (self.contentViewRightConstraint.constant >= halfOfButtonOne) { //3
                     //Open all the way
                     [self setConstraintsToShowAllButtons:YES notifyDelegateDidOpen:YES];
@@ -203,16 +204,20 @@ CGFloat heightBorder = 2;
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     // Need the left-most button since the pan goes from (full width)-(width of button2 to edge of right side)
+    if (self.editButton == nil) {
+        // WorkoutView does not have an edit button
+        return CGRectGetWidth(self.frame) - CGRectGetMinX(self.deleteButton.frame);
+    }
+    
     return CGRectGetWidth(self.frame) - CGRectGetMinX(self.editButton.frame);
 }
 
 - (void)updateConstraintsIfNeeded:(BOOL)animated completion:(void (^)(BOOL finished))completion;
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     float duration = 0;
     if (animated) {
-        NSLog(@"Animated!");
         duration = 0.1;
     }
     
@@ -223,7 +228,7 @@ CGFloat heightBorder = 2;
 
 - (void)resetConstraintContstantsToZero:(BOOL)animated notifyDelegateDidClose:(BOOL)notifyDelegate
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (notifyDelegate) {
         [self.delegate cellDidClose:self];
@@ -260,6 +265,7 @@ CGFloat heightBorder = 2;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (notifyDelegate) {
+        NSLog(@"------------");
         [self.delegate cellDidOpen:self];
     }
     

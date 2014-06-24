@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutConfigViewController.h"
+#import "ExerciseCell.h"
+#import "Workout.h"
 
 @interface WorkoutViewController : UITableViewController
 
@@ -16,6 +18,9 @@
 
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) NSString *workoutName;
+
+@property (nonatomic, strong) ExerciseCell* activeCell;
+@property (nonatomic, strong) NSIndexPath* indexPath;
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 

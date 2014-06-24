@@ -513,7 +513,7 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-Gp-jcB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-kt-ZL6">
@@ -578,6 +578,7 @@
         <scene sceneID="Gf1-jB-VPn">
             <objects>
                 <navigationController definesPresentationContext="YES" id="NDB-V1-FBt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ynm-Pa-maH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ol-eP-OzF">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -616,25 +617,56 @@
                             <color key="backgroundColor" red="0.90980392156862744" green="0.9882352941176471" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" rowHeight="60" id="dlM-F7-pNk" customClass="ExerciseCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" rowHeight="60" id="dlM-F7-pNk" customClass="ExerciseCell">
                                 <rect key="frame" x="0.0" y="138" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dlM-F7-pNk" id="aCK-W9-m0L">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exerciseName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiW-qx-deh">
-                                            <rect key="frame" x="48" y="21" width="200" height="21"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-Xu-iKO">
+                                            <rect key="frame" x="230" y="0.0" width="70" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <state key="normal" image="swipe_delete.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="dlM-F7-pNk" eventType="touchUpInside" id="Bkc-bR-9Z6"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58z-tL-1yR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z61-04-KAo">
+                                                    <rect key="frame" x="48" y="21" width="200" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nd6-cI-Ouo">
+                                                    <rect key="frame" x="20" y="24" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="58z-tL-1yR" firstAttribute="top" secondItem="aCK-W9-m0L" secondAttribute="top" id="6ft-iY-JMN"/>
+                                        <constraint firstAttribute="trailing" secondItem="58z-tL-1yR" secondAttribute="trailing" id="hBL-fq-Tf5"/>
+                                        <constraint firstItem="58z-tL-1yR" firstAttribute="leading" secondItem="aCK-W9-m0L" secondAttribute="leading" id="yZQ-yg-i4z"/>
+                                        <constraint firstAttribute="bottom" secondItem="58z-tL-1yR" secondAttribute="bottom" id="yqP-OJ-vlz"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="exerciseName" destination="wiW-qx-deh" id="zl8-T8-oS6"/>
-                                    <segue destination="NDB-V1-FBt" kind="modal" identifier="GoToExercise" id="rAi-fX-6vq"/>
+                                    <outlet property="categoryImage" destination="Nd6-cI-Ouo" id="IRz-6s-2WJ"/>
+                                    <outlet property="contentViewLeftConstraint" destination="yZQ-yg-i4z" id="Wru-hr-Mqd"/>
+                                    <outlet property="contentViewRightConstraint" destination="hBL-fq-Tf5" id="JTJ-96-v7R"/>
+                                    <outlet property="deleteButton" destination="VAw-Xu-iKO" id="tfP-D7-syT"/>
+                                    <outlet property="exerciseName" destination="z61-04-KAo" id="Ae5-vM-YoK"/>
+                                    <outlet property="myContentView" destination="58z-tL-1yR" id="Z3t-bT-WRh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -654,6 +686,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="startButton" destination="1AV-sz-bvg" id="oOJ-m3-oFf"/>
+                        <segue destination="NDB-V1-FBt" kind="modal" identifier="GoToExercise" id="tBt-ga-Djx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAb-lD-7FE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1261,7 +1294,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="GI5-kF-lOt"/>
-        <segue reference="gHq-RZ-zC1"/>
+        <segue reference="tBt-ga-Djx"/>
         <segue reference="L1f-WF-Aii"/>
         <segue reference="y1w-0d-dno"/>
     </inferredMetricsTieBreakers>
