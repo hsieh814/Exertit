@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>repetitions</key>
+	<string>10</string>
+	<key>cooldown</key>
+	<string>02:00</string>
+	<key>highInterval</key>
+	<string>01:00</string>
+	<key>lowInterval</key>
+	<string>01:00</string>
+	<key>warmup</key>
+	<string>02:00</string>
+	<key>units</key>
+	<string>lbs</string>
+</dict>
+</plist>

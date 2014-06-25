@@ -62,6 +62,7 @@
 		BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DD187516BF009B43EF /* MenuViewController.m */; };
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
 		BF393564195A66730060F854 /* slide_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF393563195A66730060F854 /* slide_menu@2x.png */; };
+		BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF393565195A6CA70060F854 /* defaultPrefs.plist */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
 		BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */; };
 		BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BF56718C29A4C009D9BE8 /* MenuCell.m */; };
@@ -202,6 +203,7 @@
 		BF2372E0187516BF009B43EF /* WorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		BF2372E1187516BF009B43EF /* WorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
 		BF393563195A66730060F854 /* slide_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "slide_menu@2x.png"; path = "Images/slide_menu@2x.png"; sourceTree = "<group>"; };
+		BF393565195A6CA70060F854 /* defaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultPrefs.plist; sourceTree = "<group>"; };
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BF73C628190C14A700A099F2 /* RunWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunWorkoutViewController.h; sourceTree = "<group>"; };
 		BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunWorkoutViewController.m; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				BF2098781871F80400D52321 /* InfoPlist.strings */,
 				BF20987B1871F80400D52321 /* main.m */,
 				BF20987D1871F80400D52321 /* Exertit-Prefix.pch */,
+				BF393565195A6CA70060F854 /* defaultPrefs.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */,
 				BFAC644B194CCE2800AC9DF8 /* category_green.png in Resources */,
 				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
+				BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
 				BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */,
 				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,

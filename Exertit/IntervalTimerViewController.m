@@ -99,11 +99,6 @@ CGRect activeTextFieldRect;
     // Set the textfields' text to default value saved
     [self getDefaultTextFieldData];
     
-    // HACK: First time app is launched, there is no default value, so set values to avoid crash
-    if ([self.warmupDuration.text isEqualToString:@""]) {
-        [self hackDefaultValues];
-    }
-    
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
     
@@ -433,18 +428,6 @@ CGRect activeTextFieldRect;
         runIntervalTrainerViewController.cooldownDuration = self.cooldownDuration.text;
         runIntervalTrainerViewController.repetitions = self.repetitions.text;
     }
-}
-
-// HACK: Set default values for initial app launch
--(void)hackDefaultValues
-{
-    self.warmupDuration.text = @"02:00";
-    self.lowIntervalDuration.text = @"01:00";
-    self.highIntervalDuration.text = @"01:00";
-    self.cooldownDuration.text = @"02:00";
-    self.repetitions.text = @"10";
-    
-    [self setDefault:self];
 }
 
 @end
