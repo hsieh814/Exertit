@@ -265,7 +265,6 @@ CGFloat heightBorder = 2;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (notifyDelegate) {
-        NSLog(@"------------");
         [self.delegate cellDidOpen:self];
     }
     

@@ -398,13 +398,12 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    self.indexPath = [self.tableView indexPathForCell:cell];
-    
     if (self.activeCell != nil) {
-        // There is no active cell (no cells with utility buttons showing)
+        // There an active cell (cells with utility buttons showing), need to close the active cell
         [self.activeCell closeActivatedCells];
     }
     
+    self.indexPath = [self.tableView indexPathForCell:cell];
     self.activeCell = (ExerciseCell *)[self.tableView cellForRowAtIndexPath:self.indexPath];
     
 }
