@@ -61,6 +61,7 @@
 		BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0F019344BA000A5C1DB /* workouts_120.png */; };
 		BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DD187516BF009B43EF /* MenuViewController.m */; };
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
+		BF393564195A66730060F854 /* slide_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF393563195A66730060F854 /* slide_menu@2x.png */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
 		BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */; };
 		BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BF56718C29A4C009D9BE8 /* MenuCell.m */; };
@@ -200,6 +201,7 @@
 		BF2372DD187516BF009B43EF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		BF2372E0187516BF009B43EF /* WorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		BF2372E1187516BF009B43EF /* WorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
+		BF393563195A66730060F854 /* slide_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "slide_menu@2x.png"; path = "Images/slide_menu@2x.png"; sourceTree = "<group>"; };
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BF73C628190C14A700A099F2 /* RunWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunWorkoutViewController.h; sourceTree = "<group>"; };
 		BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunWorkoutViewController.m; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF393563195A66730060F854 /* slide_menu@2x.png */,
 				BFAC6457194D65E400AC9DF8 /* checkmark.png */,
 				BFAC6446194CCE2800AC9DF8 /* category_blue.png */,
 				BFAC6447194CCE2800AC9DF8 /* category_green.png */,
@@ -644,6 +647,7 @@
 				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
 				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
 				BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */,
+				BF393564195A66730060F854 /* slide_menu@2x.png in Resources */,
 				BFAC644A194CCE2800AC9DF8 /* category_blue.png in Resources */,
 				BFAC6458194D65E400AC9DF8 /* checkmark.png in Resources */,
 				BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */,

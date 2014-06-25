@@ -82,7 +82,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Workouts" id="guv-dx-DBI">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="aqf-DI-gaY"/>
+                        <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="aqf-DI-gaY"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jV-aI-Vp4">
                             <connections>
                                 <segue destination="qtz-6f-6SF" kind="modal" identifier="AddWorkout" id="uaW-bo-mAN"/>
@@ -549,7 +549,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Exercises" id="uMc-RS-XUD">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="Vev-D9-eUn"/>
+                        <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="Vev-D9-eUn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LPq-hb-2oX">
                             <connections>
                                 <segue destination="4o3-o4-DGq" kind="modal" identifier="AddExercise" id="y1w-0d-dno"/>
@@ -930,7 +930,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="fbQ-XO-rYb">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="77l-AT-CWr"/>
+                        <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="77l-AT-CWr"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -1173,7 +1173,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Interval Trainer" id="zjY-O9-Ja0">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="Fv0-gr-HkQ"/>
+                        <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="Fv0-gr-HkQ"/>
                         <barButtonItem key="rightBarButtonItem" title="Default" id="yq3-b4-yDG">
                             <connections>
                                 <action selector="setDefault:" destination="i6E-f0-6Gx" id="Hgi-zQ-fpg"/>
@@ -1230,7 +1230,7 @@
                         <barButtonItem id="opL-Gb-0Qk"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Settings" id="tZ4-9J-VKy">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="E1y-U1-sJ8"/>
+                        <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="E1y-U1-sJ8"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -1276,6 +1276,7 @@
     <resources>
         <image name="category_blue.png" width="125" height="125"/>
         <image name="category_red.png" width="125" height="125"/>
+        <image name="slide_menu.png" width="22" height="16"/>
         <image name="swipe_delete.png" width="292" height="250"/>
         <image name="swipe_edit.png" width="292" height="250"/>
     </resources>
