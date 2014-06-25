@@ -11,7 +11,6 @@
 #import "SWRevealViewController.h"
 #import "Exercise.h"
 #import "ExerciseCell.h"
-#import "timerAppDelegate.h"
 #import "WorkoutConfigViewController.h"
 
 @interface AllExercisesTableViewController () <ExerciseCellDelegate>

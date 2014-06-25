@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <iAd/ADBannerView.h>
 #import "NewExerciseTableViewController.h"
-#import "timerAppDelegate.h"
 #import "Workout.h"
 #import "ExerciseCell.h"
 

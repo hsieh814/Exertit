@@ -12,7 +12,7 @@
 #import "MenuCell.h"
 #import "SWRevealViewController.h"
 #import "SettingsTableViewController.h"
-#import "timerAppDelegate.h"
+#import "AppDelegate.h"
 
 @interface MenuViewController ()
 

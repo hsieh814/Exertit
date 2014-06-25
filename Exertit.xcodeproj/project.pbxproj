@@ -44,7 +44,7 @@
 		BF2098741871F80400D52321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098731871F80400D52321 /* UIKit.framework */; };
 		BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2098781871F80400D52321 /* InfoPlist.strings */; };
 		BF20987C1871F80400D52321 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20987B1871F80400D52321 /* main.m */; };
-		BF2098801871F80400D52321 /* timerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20987F1871F80400D52321 /* timerAppDelegate.m */; };
+		BF2098801871F80400D52321 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20987F1871F80400D52321 /* AppDelegate.m */; };
 		BF2098831871F80400D52321 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2098811871F80400D52321 /* Main.storyboard */; };
 		BF2098861871F80400D52321 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2098851871F80400D52321 /* TimerViewController.m */; };
 		BF2098881871F80400D52321 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2098871871F80400D52321 /* Images.xcassets */; };
@@ -179,8 +179,8 @@
 		BF2098791871F80400D52321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF20987B1871F80400D52321 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF20987D1871F80400D52321 /* Exertit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Exertit-Prefix.pch"; sourceTree = "<group>"; };
-		BF20987E1871F80400D52321 /* timerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timerAppDelegate.h; sourceTree = "<group>"; };
-		BF20987F1871F80400D52321 /* timerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timerAppDelegate.m; sourceTree = "<group>"; };
+		BF20987E1871F80400D52321 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BF20987F1871F80400D52321 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BF2098821871F80400D52321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF2098841871F80400D52321 /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		BF2098851871F80400D52321 /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
@@ -455,8 +455,8 @@
 			children = (
 				BF2098811871F80400D52321 /* Main.storyboard */,
 				BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */,
-				BF20987E1871F80400D52321 /* timerAppDelegate.h */,
-				BF20987F1871F80400D52321 /* timerAppDelegate.m */,
+				BF20987E1871F80400D52321 /* AppDelegate.h */,
+				BF20987F1871F80400D52321 /* AppDelegate.m */,
 				BFB59D0C19046EEC0014D5CB /* Common.h */,
 				BFB59D0D19046EEC0014D5CB /* Common.m */,
 				BF0E4CB318EA5DA900573517 /* ManagedObjects */,
@@ -703,7 +703,7 @@
 				BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */,
 				BF7F054018FB4479003ECD72 /* Exercise.m in Sources */,
 				BF00D38A18E8592600DA4CD7 /* NSManagedObject+MagicalAggregation.m in Sources */,
-				BF2098801871F80400D52321 /* timerAppDelegate.m in Sources */,
+				BF2098801871F80400D52321 /* AppDelegate.m in Sources */,
 				BF00D38E18E8592600DA4CD7 /* NSManagedObject+MagicalRequests.m in Sources */,
 				BF20CE9218B159720047D651 /* WorkoutConfigViewController.m in Sources */,
 				BFAC6450194CE32000AC9DF8 /* NewExerciseTableViewController.m in Sources */,

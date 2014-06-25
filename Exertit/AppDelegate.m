@@ -1,14 +1,14 @@
 //
-//  timerAppDelegate.m
+//  AppDelegate.m
 //  Fit Interval Timer
 //
 //  Created by Lena Hsieh on 2013-12-30.
 //  Copyright (c) 2013 hsieh. All rights reserved.
 //
 
-#import "timerAppDelegate.h" 
+#import "AppDelegate.h"
 
-@implementation timerAppDelegate {
+@implementation AppDelegate {
 }
 
 @synthesize window = _window;
