@@ -56,6 +56,17 @@
                                                     <color key="textColor" red="0.54509806632995605" green="0.88627457618713379" blue="0.91372555494308472" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uov-lP-vhe" userLabel="circle">
+                                                    <rect key="frame" x="13" y="12" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-oi-gT8" userLabel="number">
+                                                    <rect key="frame" x="13" y="12" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
@@ -72,6 +83,8 @@
                                     <outlet property="contentViewRightConstraint" destination="KA4-rc-FqZ" id="93u-oU-HgV"/>
                                     <outlet property="editButton" destination="cSU-ZF-xS4" id="Fq5-eb-rwN"/>
                                     <outlet property="myContentView" destination="UIs-AR-sTd" id="Efg-DT-y14"/>
+                                    <outlet property="workoutIconCircle" destination="uov-lP-vhe" id="kFo-cF-Vfc"/>
+                                    <outlet property="workoutIconLabel" destination="OaX-oi-gT8" id="11f-Qj-4JX"/>
                                     <outlet property="workoutName" destination="hea-os-j9T" id="boT-fQ-qfn"/>
                                 </connections>
                             </tableViewCell>
@@ -644,6 +657,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=">" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9H-0B-twn">
+                                            <rect key="frame" x="276" y="19" width="11" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" red="0.54509806630000002" green="0.88627457620000005" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="58z-tL-1yR" firstAttribute="top" secondItem="aCK-W9-m0L" secondAttribute="top" id="6ft-iY-JMN"/>

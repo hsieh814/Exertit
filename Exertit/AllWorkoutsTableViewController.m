@@ -44,7 +44,7 @@
     
     // TableView customization
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = lightBlue;
+    self.tableView.backgroundColor = mediumBlue;
     
     // Make tableview start lower
     UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
@@ -116,6 +116,14 @@
     
     cell.itemText = cell.workoutName.text;
     cell.delegate = self;
+    
+    // Left icon: circle and number of exercises
+    cell.workoutIconCircle.layer.cornerRadius = cell.workoutIconCircle.frame.size.height/2;
+    cell.workoutIconCircle.layer.masksToBounds = YES;
+    cell.workoutIconCircle.layer.borderWidth = 1.0;
+    cell.workoutIconCircle.layer.borderColor = themeNavBar4.CGColor;
+    cell.workoutIconLabel.text = [NSString stringWithFormat:@"%d", workout.exerciseGroup.count];
+    cell.workoutIconLabel.textColor = darkBlue;
     
     return cell;
 }

@@ -48,7 +48,7 @@
     
     // TableView customization
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = lightBlue;
+    self.tableView.backgroundColor = mediumBlue;
     
     // Make tableview start lower
 //    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);

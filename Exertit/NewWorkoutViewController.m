@@ -39,7 +39,7 @@
     self.nameTextField.text = self.workout.workoutName;
     
     // Color customization
-    self.view.backgroundColor = lightBlue;
+    self.view.backgroundColor = mediumBlue;
     self.workoutNameLabel.textColor = themeNavBar4;
     self.nameTextField.textColor = themeNavBar4;
 }
