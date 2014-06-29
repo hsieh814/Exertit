@@ -19,6 +19,7 @@
 
 NSString *unitSelected;
 UILabel *unitLabel;
+bool soundOn, vibrateOn;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -75,7 +76,7 @@ UILabel *unitLabel;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,22 +96,42 @@ UILabel *unitLabel;
     switch (indexPath.row) {
         case 0:
         {
-            title.text = @"Alerts";
+            title.text = @"Sound";
+
+            UILabel *alertInfo = [[UILabel alloc]initWithFrame:CGRectMake(40, 40, 250, 50)];
+            alertInfo.text = @"Enable/disable alerts and vibrations when running interval trainer";
+            alertInfo.font = [UIFont systemFontOfSize:14.0];
+            alertInfo.textColor = [UIColor grayColor];
+            alertInfo.numberOfLines = 2;
             
+            UILabel *soundLabel = [[UILabel alloc]initWithFrame:CGRectMake(45, 90, 200, 40)];
+            soundLabel.text = @"Alert";
+            soundLabel.font = [UIFont systemFontOfSize:18.0];
+            UISwitch *soundSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(210, 95, 50, 40)];
+            [soundSwitch addTarget:self action:@selector(toggleSound:) forControlEvents:UIControlEventValueChanged];
+            [soundSwitch setOn:soundOn];
+            
+            NSLog(@"%f, %f", soundSwitch.frame.size.height, soundSwitch.frame.size.width);
+            
+            UILabel *vibrateLabel = [[UILabel alloc]initWithFrame:CGRectMake(45, 140, 200, 40)];
+            vibrateLabel.text = @"Vibrate";
+            vibrateLabel.font = [UIFont systemFontOfSize:18.0];
+            UISwitch *vibrateSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(210, 145, 50, 40)];
+            [vibrateSwitch addTarget:self action:@selector(toggleVibrate:) forControlEvents:UIControlEventValueChanged];
+            [vibrateSwitch setOn:vibrateOn];
+            
+            [cell addSubview:alertInfo];
+            [cell addSubview:soundLabel];
+            [cell addSubview:soundSwitch];
+            [cell addSubview:vibrateLabel];
+            [cell addSubview:vibrateSwitch];
+
             break;
         }
         case 1:
         {
-            title.text = @"Custom Category";
-            
-            break;
-        }
-        case 2:
-        {
-            NSLog(@"UNITS");
             title.text = @"Units";
             
-            NSLog(@"%@", unitSelected);
             unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 60, 100, 40)];
             unitLabel.text = unitSelected;
             unitLabel.font = [UIFont systemFontOfSize:18.0];
@@ -155,14 +176,10 @@ UILabel *unitLabel;
     
     switch (indexPath.row) {
         case 0:
-            // Alerts
+            // Sound
             return 200.0;
             break;
         case 1:
-            // Custom Category
-            return 200.0;
-            break;
-        case 2:
             // Units
             return 140.0;
             break;
@@ -173,26 +190,24 @@ UILabel *unitLabel;
     return 112.0;
 }
 
-/* Save settings to user default */
-- (IBAction)setUserDefaults:(id)sender {
+// Sound toggle (UISwitch)
+-(void)toggleSound:(id)sender
+{
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:unitSelected forKey:@"units"];
-    
-    [defaults synchronize];
+
+    soundOn = !soundOn;
+
+    [self setUserDefaults:self];
 }
 
-/* Get the saved settings */
-- (void)getUserDefaults
+// Vibrate toggle (UISwitch)
+-(void)toggleVibrate:(id)sender
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    vibrateOn = !vibrateOn;
     
-    unitSelected = [defaults objectForKey:@"units"];
-    NSLog(@"%@", unitSelected);
+    [self setUserDefaults:self];
 }
 
 // Unit segment control (English/Metric)
@@ -216,6 +231,31 @@ UILabel *unitLabel;
     unitLabel.text = unitSelected;
     
     [self setUserDefaults:self];
+}
+
+/* Save settings to user default */
+- (IBAction)setUserDefaults:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:unitSelected forKey:@"units"];
+    [defaults setBool:soundOn forKey:@"playSound"];
+    [defaults setBool:vibrateOn forKey:@"vibrate"];
+    
+    [defaults synchronize];
+}
+
+/* Get the saved settings */
+- (void)getUserDefaults
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    unitSelected = [defaults objectForKey:@"units"];
+    soundOn = [defaults boolForKey:@"playSound"];
+    vibrateOn = [defaults boolForKey:@"vibrate"];
 }
 
 @end
