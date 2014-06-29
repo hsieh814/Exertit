@@ -74,7 +74,6 @@
 		BF8122F818C0495B00606092 /* coderwall-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F718C0495B00606092 /* coderwall-512.png */; };
 		BF8122FA18C0497A00606092 /* timer-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F918C0497A00606092 /* timer-512.png */; };
 		BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */; };
-		BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */; };
 		BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */; };
 		BFAC644A194CCE2800AC9DF8 /* category_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6446194CCE2800AC9DF8 /* category_blue.png */; };
 		BFAC644B194CCE2800AC9DF8 /* category_green.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6447194CCE2800AC9DF8 /* category_green.png */; };
@@ -220,8 +219,6 @@
 		BF8122F918C0497A00606092 /* timer-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timer-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Objects/timer/timer-512.png"; sourceTree = "<group>"; };
 		BF9713D118765548002F4BF1 /* AllWorkoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllWorkoutsTableViewController.h; sourceTree = "<group>"; };
 		BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllWorkoutsTableViewController.m; sourceTree = "<group>"; };
-		BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWorkoutViewController.h; sourceTree = "<group>"; };
-		BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWorkoutViewController.m; sourceTree = "<group>"; };
 		BFA8D03318D007C200F58B2B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		BFAC6446194CCE2800AC9DF8 /* category_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_blue.png; path = Images/category_blue.png; sourceTree = "<group>"; };
 		BFAC6447194CCE2800AC9DF8 /* category_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_green.png; path = Images/category_green.png; sourceTree = "<group>"; };
@@ -467,8 +464,6 @@
 				BF2372DD187516BF009B43EF /* MenuViewController.m */,
 				BF9713D118765548002F4BF1 /* AllWorkoutsTableViewController.h */,
 				BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */,
-				BF9713D418765E20002F4BF1 /* NewWorkoutViewController.h */,
-				BF9713D518765E20002F4BF1 /* NewWorkoutViewController.m */,
 				BFC4E0AB18B0353E0082BD3C /* WorkoutViewController.h */,
 				BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */,
 				BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */,
@@ -701,7 +696,6 @@
 				BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */,
 				BFB59D0E19046EEC0014D5CB /* Common.m in Sources */,
 				BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */,
-				BF9713D618765E20002F4BF1 /* NewWorkoutViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
 				BF00D38518E8592600DA4CD7 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */,

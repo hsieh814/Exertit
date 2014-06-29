@@ -109,6 +109,9 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
             [textField setDelegate:self];
             [cell addSubview:textField];
             
+            // Automatically select exericse name textfield when view appears
+            [textField becomeFirstResponder];
+            
             break;
         }
         case 1:

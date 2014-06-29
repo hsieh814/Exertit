@@ -20,7 +20,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSU-ZF-xS4">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSU-ZF-xS4" userLabel="edit">
                                             <rect key="frame" x="161" y="0.0" width="70" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="swipe_edit.png">
@@ -31,12 +31,15 @@
                                                 <action selector="buttonClicked:" destination="NLs-LF-kRK" eventType="touchUpInside" id="EIz-Rz-F0h"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88q-OJ-NJK">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88q-OJ-NJK" userLabel="delete">
                                             <rect key="frame" x="230" y="0.0" width="70" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="swipe_delete.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="NLs-LF-kRK" eventType="touchUpInside" id="rXO-La-f8y"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIs-AR-sTd">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -81,6 +84,7 @@
                                 <connections>
                                     <outlet property="contentViewLeftConstraint" destination="P2P-qn-IoA" id="FJv-t9-Pja"/>
                                     <outlet property="contentViewRightConstraint" destination="KA4-rc-FqZ" id="93u-oU-HgV"/>
+                                    <outlet property="deleteButton" destination="88q-OJ-NJK" id="4bp-BW-s4F"/>
                                     <outlet property="editButton" destination="cSU-ZF-xS4" id="Fq5-eb-rwN"/>
                                     <outlet property="myContentView" destination="UIs-AR-sTd" id="Efg-DT-y14"/>
                                     <outlet property="workoutIconCircle" destination="uov-lP-vhe" id="kFo-cF-Vfc"/>
@@ -98,7 +102,7 @@
                         <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="aqf-DI-gaY"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jV-aI-Vp4">
                             <connections>
-                                <segue destination="qtz-6f-6SF" kind="modal" identifier="AddWorkout" id="uaW-bo-mAN"/>
+                                <action selector="addWorkout:" destination="1mR-fs-wtz" id="sMt-6q-0Mk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -704,74 +708,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAb-lD-7FE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1456" y="451"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wrc-gg-EJa">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="qtz-6f-6SF" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aKS-Z4-WMr"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LYx-Bu-Wrt">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="TDA-h9-FZc" kind="relationship" relationship="rootViewController" id="gAR-KZ-rsa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hXE-Zu-TNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1456" y="-242"/>
-        </scene>
-        <!--New Workout View Controller - New Workout-->
-        <scene sceneID="BHa-G7-s6c">
-            <objects>
-                <viewController id="TDA-h9-FZc" customClass="NewWorkoutViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TAe-lD-nhT"/>
-                        <viewControllerLayoutGuide type="bottom" id="SiJ-4g-c5w"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HbA-G2-1JB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-Fr-y8w">
-                                <rect key="frame" x="48" y="124" width="168" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.25043845660000003" green="0.25043845660000003" blue="0.25043845660000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-rK-3VB">
-                                <rect key="frame" x="39" y="153" width="242" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.0" green="0.49411767719999999" blue="0.96470594409999999" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Workout" id="RuK-po-21Z">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kJk-Xg-HAZ">
-                            <connections>
-                                <action selector="cancel:" destination="TDA-h9-FZc" id="y2F-sM-9wf"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7HF-3s-7BC">
-                            <connections>
-                                <action selector="done:" destination="TDA-h9-FZc" id="koK-Ax-mQV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="nameTextField" destination="VgD-rK-3VB" id="icY-RD-L6g"/>
-                        <outlet property="workoutNameLabel" destination="cLf-Fr-y8w" id="UWE-Nv-31t"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Xk-ag-WAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1888" y="-242"/>
         </scene>
         <!--Run Interval Trainer View Controller-->
         <scene sceneID="emM-VU-KrO">

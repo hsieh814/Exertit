@@ -19,6 +19,7 @@
 
 @implementation AllWorkoutsTableViewController {
     ADBannerView *_bannerView;
+    Workout *newWorkout;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -189,6 +190,28 @@
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
+// Add workout bar button is pressed
+- (IBAction)addWorkout:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    newWorkout = [Workout createEntity];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create New Workout"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Create", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = 1;
+    UITextField *alertTextField = [alert textFieldAtIndex:0];
+    alertTextField.clearButtonMode = YES;
+    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [alertTextField becomeFirstResponder];
+    [alert addSubview:alertTextField];
+    [alert show];
+}
+
 #pragma mark - SwipeableCellDelegate
 - (void)editButtonActionForItemText:(NSString *)itemText {
     NSLog(@"Edit for %@", itemText);
@@ -233,19 +256,45 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    if (buttonIndex == alert.cancelButtonIndex)
-    {
-        NSLog(@"CANCEL alert view");
-        [self.activeCell closeActivatedCells];
+    if (alert.tag == 1) {
+        // Create new workout
+        
+        if (buttonIndex == alert.cancelButtonIndex)
+        {
+            // Delete the newly created exercise
+            [newWorkout deleteEntity];
+        } else {
+            if ([[alert textFieldAtIndex:0].text isEqualToString:@""]) {
+                // don't save the workout since the name is empty
+                [newWorkout deleteEntity];
+            } else {
+                newWorkout.workoutName = [alert textFieldAtIndex:0].text;
+            }
+            
+            [self saveContext];
+            
+            // Reload data
+            [self viewDidAppear:YES];
+        }
+        
     }
     else
     {
-        NSLog(@"RENAME alert view");
-        Workout *editWorkout = self.workoutList[self.indexPath.row];
-        editWorkout.workoutName = [[alert textFieldAtIndex:0]text];
+        // Rename workout
+        if (buttonIndex == alert.cancelButtonIndex)
+        {
+            NSLog(@"CANCEL alert view");
+            [self.activeCell closeActivatedCells];
+        }
+        else
+        {
+            NSLog(@"RENAME alert view");
+            Workout *editWorkout = self.workoutList[self.indexPath.row];
+            editWorkout.workoutName = [[alert textFieldAtIndex:0]text];
         
-        // Reload data
-        [self viewDidAppear:YES];
+            // Reload data
+            [self viewDidAppear:YES];
+        }
     }
 }
 

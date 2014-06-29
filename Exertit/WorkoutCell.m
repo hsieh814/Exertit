@@ -68,7 +68,8 @@ CGFloat workoutHeightBorder = 2;
 
 // When an utility button is clicked- set the method to perform in the AllExercisesTable class.
 - (IBAction)buttonClicked:(id)sender {
-    
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
     if (sender == self.editButton) {
         [self.delegate editButtonActionForItemText:self.itemText];
     } else if (sender == self.deleteButton) {

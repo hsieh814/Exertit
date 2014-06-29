@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
-#import "NewWorkoutViewController.h"
 #import "WorkoutCell.h"
 
 @interface AllWorkoutsTableViewController : UITableViewController <ADBannerViewDelegate>
@@ -18,5 +17,7 @@
 
 @property (nonatomic, strong) WorkoutCell* activeCell;
 @property (nonatomic, strong) NSIndexPath* indexPath;
+
+- (IBAction)addWorkout:(id)sender;
 
 @end
