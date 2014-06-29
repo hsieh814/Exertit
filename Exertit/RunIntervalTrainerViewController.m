@@ -30,6 +30,7 @@ int state;
 
 // System sound
 SystemSoundID lowIntervalSoundID, highIntervalSoundID, cooldownSoundID, doneSoundID;
+bool playSound, vibrate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,6 +71,7 @@ SystemSoundID lowIntervalSoundID, highIntervalSoundID, cooldownSoundID, doneSoun
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
     
     [self setupSystemSounds];
+    [self getUserDefaults];
 }
 
 // Called before exiting the view
@@ -124,11 +126,6 @@ SystemSoundID lowIntervalSoundID, highIntervalSoundID, cooldownSoundID, doneSoun
 {
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    bool playSound = [defaults objectForKey:@"playSound"];
-    bool vibrate = [defaults objectForKey:@"vibrate"];
-    
     if (playSound) {
         AudioServicesPlaySystemSound(soundID);
     }
@@ -136,7 +133,16 @@ SystemSoundID lowIntervalSoundID, highIntervalSoundID, cooldownSoundID, doneSoun
     if (vibrate) {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
+}
 
+// Get the user default settings for sound
+-(void)getUserDefaults
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    playSound = [defaults boolForKey:@"playSound"];
+    vibrate = [defaults boolForKey:@"vibrate"];
 }
 
 // Called every second when timePicker is active
