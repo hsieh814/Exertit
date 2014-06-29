@@ -29,7 +29,7 @@ int const COOL_DOWN = 3;
 int state;
 
 // System sound
-SystemSoundID toCoolDown;
+SystemSoundID lowIntervalSoundID, highIntervalSoundID, cooldownSoundID, doneSoundID;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,15 +69,7 @@ SystemSoundID toCoolDown;
     self.resetLabel.layer.borderWidth = 1.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
     
-    // Initialize system sound
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/Modern/sms_alert_circles.caf"]];
-    if (url != nil)
-    {
-        OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &toCoolDown);
-        if (error != kAudioServicesNoError) {
-            NSLog(@"ERROR- cannot create audio service system sound ID.");
-        }
-    }
+    [self setupSystemSounds];
 }
 
 // Called before exiting the view
@@ -113,6 +105,40 @@ SystemSoundID toCoolDown;
     [self displayMinValue:minutesCount andSecValue:secondsCount];
 }
 
+// Setup system sounds: add url to array
+-(void)setupSystemSounds
+{
+    NSURL *lowIntervalUrl = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/SIMToolkitPositiveACK.caf"]];
+    NSURL *highIntervalUrl = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/sms-received3.caf"]];
+    NSURL *cooldownUrl = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/Modern/sms_alert_circles.caf"]];
+    NSURL *doneUrl = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/System/Library/Audio/UISounds/alarm.caf"]];
+
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)lowIntervalUrl, &lowIntervalSoundID);
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)highIntervalUrl, &highIntervalSoundID);
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)cooldownUrl, &cooldownSoundID);
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)doneUrl, &doneSoundID);
+}
+
+// Play the sound and/or vibrate depending on user default settings
+-(void)playSound:(SystemSoundID)soundID
+{
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    bool playSound = [defaults objectForKey:@"playSound"];
+    bool vibrate = [defaults objectForKey:@"vibrate"];
+    
+    if (playSound) {
+        AudioServicesPlaySystemSound(soundID);
+    }
+    
+    if (vibrate) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
+
+}
+
 // Called every second when timePicker is active
 - (void)timer {
 
@@ -128,25 +154,25 @@ SystemSoundID toCoolDown;
                     if (![self.cooldownDuration isEqualToString:@"00:00"]) {
                         // Go to cool down
                         state = COOL_DOWN;
-                        AudioServicesPlaySystemSound(toCoolDown);
+                        [self playSound:cooldownSoundID];
                     } else {
                         NSLog(@"------ FINISH WITHOUT COOL DOWN ------");
                         [self endIntervalTrainer];
-                        AudioServicesPlaySystemSound(1005);
+                        [self playSound:doneSoundID];
                         return;
                     }
                 } else {
                     // Go back to low interval
                     state = LOW_INT;
-                    AudioServicesPlaySystemSound(1054);
+                    [self playSound:lowIntervalSoundID];
                 }
             } else {
                 // Either in WARM UP or LOW INT state, just increment to next state
                 if (state == WARM_UP) {
-                    AudioServicesPlaySystemSound(1054);
+                    [self playSound:lowIntervalSoundID];
                 } else {
                     // Low interval state
-                    AudioServicesPlaySystemSound(1009);
+                    [self playSound:highIntervalSoundID];
                 }
                 state++;
             }
@@ -155,7 +181,7 @@ SystemSoundID toCoolDown;
             // Reached the end of the interval training- disable timer
             NSLog(@"------ FINISH ------");
             [self endIntervalTrainer];
-            AudioServicesPlaySystemSound(1005);
+            [self playSound:doneSoundID];
         }
         
     } else if (secondsCount == 0) {
