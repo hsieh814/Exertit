@@ -11,6 +11,7 @@
 #import "Workout.h"
 #import "WorkoutCell.h"
 #import "Exercise.h"
+#import "ExerciseSetting.h"
 #import "WorkoutViewController.h"
 
 @interface AllWorkoutsTableViewController () <WorkoutCellDelegate>

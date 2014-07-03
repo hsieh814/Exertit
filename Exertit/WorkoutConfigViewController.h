@@ -12,10 +12,10 @@
 #import "ExerciseCell.h"
 #import "ExerciseSetting.h"
 
-@interface WorkoutConfigViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>
+@interface WorkoutConfigViewController : UIViewController /*<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>*/
 
 // Selected exercise
-@property (weak, nonatomic) IBOutlet UIButton *selectedExerciseButton;
+@property (weak, nonatomic) UIButton *selectedExerciseButton;
 @property (weak, nonatomic) IBOutlet UILabel *selectedExerciseArrow;
 
 // Duration

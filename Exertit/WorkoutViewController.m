@@ -157,21 +157,21 @@
     
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
         
-        WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navController.childViewControllers[0];
-        workoutConfigViewController.workout = self.workout;
+        WorkoutConfigTableViewController *workoutConfigTableViewController = (WorkoutConfigTableViewController *)navController.childViewControllers[0];
+        workoutConfigTableViewController.workout = self.workout;
         
         // Set the title of next controller to the workout's name
-        workoutConfigViewController.title = self.workout.workoutName;
+        workoutConfigTableViewController.title = self.workout.workoutName;
         
     } else if ([segue.identifier isEqualToString:@"GoToExercise"]) {
 
-        WorkoutConfigViewController *workoutConfigViewController = (WorkoutConfigViewController *)navController.childViewControllers[0];
+        WorkoutConfigTableViewController *workoutConfigTableViewController = (WorkoutConfigTableViewController *)navController.childViewControllers[0];
         
         ExerciseSetting *selectedExerciseSetting = self.exercisesForWorkout[indexPath.row];
-        workoutConfigViewController.exerciseSetting = selectedExerciseSetting;
+        workoutConfigTableViewController.exerciseSetting = selectedExerciseSetting;
         
         // Set the title of next controller to the workout's name
-        workoutConfigViewController.title = selectedExerciseSetting.baseExercise.exerciseName;
+        workoutConfigTableViewController.title = selectedExerciseSetting.baseExercise.exerciseName;
         
     } else if ([segue.identifier isEqualToString:@"StartWorkout"]) {
         

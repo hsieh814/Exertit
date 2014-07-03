@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WorkoutConfigViewController.h"
+#import "WorkoutConfigTableViewController.h"
 #import "ExerciseCell.h"
 #import "Workout.h"
 
