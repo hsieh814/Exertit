@@ -129,10 +129,7 @@
 {
     //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    if (self.indexPath == nil) {
-        // There are no active cells showing utility buttons, so edit the exercise settings
-        [self performSegueWithIdentifier:@"GoToExercise" sender:self];
-    } else {
+    if (self.indexPath != nil) {
         // Hide the utility buttons of the active cell when tapping on cell.
         [self.activeCell closeActivatedCells];
     }
@@ -369,8 +366,10 @@
 
 #pragma mark - SwipeableCellDelegate
 
-// No edit button for this view
 - (void)editButtonActionForItemText:(NSString *)itemText {
+    NSLog(@"Edit for %@", itemText);
+
+    [self performSegueWithIdentifier:@"GoToExercise" sender:self];
 }
 
 - (void)deleteButtonActionForItemText:(NSString *)itemText {
