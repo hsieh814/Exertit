@@ -71,13 +71,6 @@ bool createdNewExerciseSetting;
     seconds = nil;
     
     [self initialSetup];
-    
-    // Dismiss keyboard when outside is touched
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning
@@ -324,7 +317,11 @@ bool createdNewExerciseSetting;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Dismiss keyboards
+    [self.view endEditing:YES];
+
     switch (indexPath.row) {
         case 0:
             [self performSegueWithIdentifier:@"selectExercise" sender:self];
@@ -408,19 +405,6 @@ bool createdNewExerciseSetting;
     } else {
         minutes = [self.minArray objectAtIndex:row];
     }
-}
-
-/* Hide keyboard when empty space is touched */
--(void)dismissKeyboard {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    UIView *v = self.view;
-    
-    if ([v isEqual:0]) {
-        NSLog(@"hello");
-    }
-    
-    [self.view endEditing:YES];
 }
 
 #pragma mark - Bar buttons: done and cancel

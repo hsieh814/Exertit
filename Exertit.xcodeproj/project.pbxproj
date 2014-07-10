@@ -53,7 +53,6 @@
 		BF2098911871F80400D52321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098731871F80400D52321 /* UIKit.framework */; };
 		BF2098991871F80400D52321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2098971871F80400D52321 /* InfoPlist.strings */; };
 		BF20989B1871F80400D52321 /* ExertitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20989A1871F80400D52321 /* ExertitTests.m */; };
-		BF20CE9218B159720047D651 /* WorkoutConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */; };
 		BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */; };
 		BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EA193448E200A5C1DB /* timer_120.png */; };
 		BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EC1934496C00A5C1DB /* timer_120.png */; };
@@ -191,8 +190,6 @@
 		BF2098961871F80400D52321 /* ExertitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExertitTests-Info.plist"; sourceTree = "<group>"; };
 		BF2098981871F80400D52321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF20989A1871F80400D52321 /* ExertitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExertitTests.m; sourceTree = "<group>"; };
-		BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutConfigViewController.h; sourceTree = "<group>"; };
-		BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutConfigViewController.m; sourceTree = "<group>"; };
 		BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = interval_trainer_120.png; path = Images/interval_trainer_120.png; sourceTree = "<group>"; };
 		BF22E0EA193448E200A5C1DB /* timer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer_120.png; path = Images/timer_120.png; sourceTree = "<group>"; };
 		BF22E0EC1934496C00A5C1DB /* timer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer_120.png; path = Images/timer_120.png; sourceTree = "<group>"; };
@@ -471,8 +468,6 @@
 				BFC4E0AC18B0353E0082BD3C /* WorkoutViewController.m */,
 				BF4637F41960D1AD00DBA240 /* WorkoutConfigTableViewController.h */,
 				BF4637F51960D1AD00DBA240 /* WorkoutConfigTableViewController.m */,
-				BF20CE9018B159720047D651 /* WorkoutConfigViewController.h */,
-				BF20CE9118B159720047D651 /* WorkoutConfigViewController.m */,
 				BF73C628190C14A700A099F2 /* RunWorkoutViewController.h */,
 				BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */,
 				BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */,
@@ -709,7 +704,6 @@
 				BF00D38A18E8592600DA4CD7 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				BF2098801871F80400D52321 /* AppDelegate.m in Sources */,
 				BF00D38E18E8592600DA4CD7 /* NSManagedObject+MagicalRequests.m in Sources */,
-				BF20CE9218B159720047D651 /* WorkoutConfigViewController.m in Sources */,
 				BFAC6450194CE32000AC9DF8 /* NewExerciseTableViewController.m in Sources */,
 				BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */,
 				BF00D38418E8592600DA4CD7 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
