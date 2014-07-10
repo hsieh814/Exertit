@@ -81,6 +81,22 @@ static const int TIMER = 1;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // Keep the screen from sleeping in the timer view.
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    // Allow the screen to sleep since exiting timer view.
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    
+    // Stop the timer
+    [self stopRunningTimer];
+}
+
 /* UIPickerViewDataSource */
 
 // returns the number of 'columns' to display.

@@ -74,11 +74,18 @@ bool playSound, vibrate;
     [self getUserDefaults];
 }
 
-// Called before exiting the view
--(void)viewWillDisappear:(BOOL)animated
-{
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // Keep the screen from sleeping in the timer view.
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
+}
 
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    // Allow the screen to sleep since exiting timer view.
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    
     // Stop the timer
     [self stopRunningTimer];
 }
