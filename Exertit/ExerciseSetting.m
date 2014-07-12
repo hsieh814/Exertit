@@ -1,8 +1,8 @@
 //
 //  ExerciseSetting.m
-//  Fit Interval Timer
+//  Exertit
 //
-//  Created by Lena Hsieh on 2014-05-01.
+//  Created by Lena Hsieh on 2014-07-09.
 //  Copyright (c) 2014 hsieh. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @dynamic sets;
 @dynamic timeInterval;
 @dynamic weight;
+@dynamic note;
 @dynamic baseExercise;
 @dynamic workoutGroup;
 

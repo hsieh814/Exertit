@@ -9,6 +9,7 @@
 #import "WorkoutConfigTableViewController.h"
 #import "DefaultCell.h"
 #import "Exercise.h"
+#import "Toast/UIView+Toast.h"
 
 @interface WorkoutConfigTableViewController ()
 
@@ -103,7 +104,7 @@ bool createdNewExerciseSetting;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,6 +123,35 @@ bool createdNewExerciseSetting;
     
     switch (indexPath.row) {
         case 0:
+        {
+            self.clearButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 142, 44)];
+            self.clearButton.backgroundColor = [UIColor whiteColor];
+            self.clearButton.layer.borderColor = appleRed.CGColor;
+            self.clearButton.layer.borderWidth = 2.0;
+            self.clearButton.layer.cornerRadius = 20.0f;
+            [self.clearButton setTitle:@"Clear" forState:UIControlStateNormal];
+            [self.clearButton setTitleColor:appleRed forState:UIControlStateNormal];
+            self.clearButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+            [self.clearButton addTarget:self action:@selector(clearDefault:) forControlEvents:UIControlEventTouchUpInside];
+            
+            self.defaultButton = [[UIButton alloc] initWithFrame:CGRectMake(150, 10, 142, 44)];
+            self.defaultButton.backgroundColor = [UIColor whiteColor];
+            self.defaultButton.layer.borderColor = darkGreen.CGColor;
+            self.defaultButton.layer.borderWidth = 2.0;
+            self.defaultButton.layer.cornerRadius = 20.0f;
+            [self.defaultButton setTitle:@"Set Default" forState:UIControlStateNormal];
+            [self.defaultButton setTitleColor:darkGreen forState:UIControlStateNormal];
+            self.defaultButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+            [self.defaultButton addTarget:self action:@selector(setDefault:) forControlEvents:UIControlEventTouchUpInside];
+            
+            cell.backgroundColor = mediumBlue;
+            
+            [cell addSubview:self.clearButton];
+            [cell addSubview:self.defaultButton];
+            
+            break;
+        }
+        case 1:
         {
             self.selectedExerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 15, 220, 40)];
             self.selectedExerciseLabel.textColor = themeNavBar4;
@@ -143,7 +173,7 @@ bool createdNewExerciseSetting;
             
             break;
         }
-        case 1:
+        case 2:
         {
             title.text = @"Duration";
             
@@ -151,7 +181,7 @@ bool createdNewExerciseSetting;
             self.durationText.layer.borderColor = themeNavBar4.CGColor;
             self.durationText.layer.borderWidth = 1.0;
             self.durationText.layer.cornerRadius = 8.0;
-            self.durationText.textColor = themeNavBar4;
+            self.durationText.textColor = grey;
             self.durationText.font = [UIFont systemFontOfSize:20.0];
             self.durationText.textAlignment = NSTextAlignmentCenter;
             
@@ -174,13 +204,13 @@ bool createdNewExerciseSetting;
             if (!createdNewExerciseSetting) {
                 // Set the saved values for the time picker and time label
                 int totalTimeInSeconds = [self.exerciseSetting.timeInterval intValue];
+
                 int min = totalTimeInSeconds / 60;
                 int sec = (totalTimeInSeconds % 60) / 5;
                 self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:min], [self.secArray objectAtIndex:sec]];
                 
                 [self.timePicker selectRow:min inComponent:0 animated:YES];
                 [self.timePicker selectRow:sec inComponent:1 animated:YES];
-                
                 minutes = [NSString stringWithFormat:@"%02zd", min];
                 seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
             }
@@ -190,11 +220,13 @@ bool createdNewExerciseSetting;
             
             break;
         }
-        case 2:
+        case 3:
         {
             // Reps
             title.text = @"Reps";
             self.repsText = [[UILabel alloc] initWithFrame:CGRectMake(100, 15, 80, 40)];
+            self.repsText.textColor = grey;
+            self.repsText.font = [UIFont systemFontOfSize:20.0];
             self.repsStepperItem = [[UIStepper alloc] initWithFrame:CGRectMake(155, 20, 100, 40)];
             self.repsStepperItem.tintColor = themeNavBar4;
             [self.repsStepperItem addTarget:self action:@selector(repsStepper:) forControlEvents:UIControlEventValueChanged];
@@ -204,12 +236,14 @@ bool createdNewExerciseSetting;
             [cell addSubview:self.repsStepperItem];
             
             // Sets
-            UILabel *setsTitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 60, 40, 40)];
+            UILabel *setsTitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 65, 40, 40)];
             [setsTitle setFont:[UIFont boldSystemFontOfSize:18.0]];
             setsTitle.textColor = themeNavBar4;
             setsTitle.text = @"Sets";
             
-            self.setsText = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 80, 40)];
+            self.setsText = [[UILabel alloc] initWithFrame:CGRectMake(100, 65, 80, 40)];
+            self.setsText.textColor = grey;
+            self.setsText.font = [UIFont systemFontOfSize:20.0];
             self.setsStepperItem = [[UIStepper alloc] initWithFrame:CGRectMake(155, 70, 100, 40)];
             self.setsStepperItem.tintColor = themeNavBar4;
             [self.setsStepperItem addTarget:self action:@selector(setsStepper:) forControlEvents:UIControlEventValueChanged];
@@ -221,19 +255,19 @@ bool createdNewExerciseSetting;
             if (!createdNewExerciseSetting) {
                 NSInteger repInt = [self.exerciseSetting.reps integerValue];
                 NSInteger setInt = [self.exerciseSetting.sets integerValue];
-                
+
                 self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
                 self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
             }
             
             break;
         }
-        case 3:
+        case 4:
         {
             title.text = @"Weight";
 
             self.weightText = [[UITextField alloc] initWithFrame:CGRectMake(150, 15, 100, 40)];
-            self.weightText.textColor = themeNavBar4;
+            self.weightText.textColor = grey;
             self.weightText.layer.borderWidth = 1.0;
             self.weightText.layer.borderColor = themeNavBar4.CGColor;
             self.weightText.layer.borderWidth = 1.0;
@@ -261,12 +295,12 @@ bool createdNewExerciseSetting;
 
             break;
         }
-        case 4:
+        case 5:
         {
             title.text = @"Note";
             [cell addSubview:title];
 
-            
+
             
             break;
         }
@@ -289,22 +323,25 @@ bool createdNewExerciseSetting;
     
     switch (indexPath.row) {
         case 0:
+            // Clear and default buttons
+            return 70.0;
+        case 1:
             // Select Exericse
             return 80.0;
             break;
-        case 1:
+        case 2:
             // Duration
             return 80.0;
             break;
-        case 2:
+        case 3:
             // Reps and Sets
             return 130.0;
             break;
-        case 3:
+        case 4:
             // Weight
             return 80.0;
             break;
-        case 4:
+        case 5:
             // Note
             return 140.0;
             break;
@@ -323,7 +360,7 @@ bool createdNewExerciseSetting;
     [self.view endEditing:YES];
 
     switch (indexPath.row) {
-        case 0:
+        case 1:
             [self performSegueWithIdentifier:@"selectExercise" sender:self];
             break;
         default:
@@ -427,7 +464,6 @@ bool createdNewExerciseSetting;
     [self saveContext];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-
 }
 
 - (IBAction)cancel:(id)sender {
@@ -466,6 +502,47 @@ bool createdNewExerciseSetting;
     [self.setsText setText:[NSString stringWithFormat:@"%02d", (int)value] ];
 }
 
+#pragma mark - Clear and set defaults
+
+// Clear ExerciseSetting values (reps, sets.=, etc.)
+- (void)clearDefault:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Toast message
+    [self.view makeToast:@"Clear exercise settings" duration:(1.5) position:@"top"];
+    
+    // Clear the data for ExerciseSetting object.
+    self.exerciseSetting.reps = 0;
+    self.exerciseSetting.sets = 0;
+    self.exerciseSetting.timeInterval = 0;
+    self.exerciseSetting.weight = 0;
+    [self saveContext];
+    
+    // Clear the text values for the view.
+    self.repsText.text = @"00";
+    self.repsStepperItem.value = 0;
+    self.setsText.text = @"00";
+    self.setsStepperItem.value = 0;
+    self.durationText.text = @"00:00";
+    [self.timePicker selectRow:0 inComponent:0 animated:NO];
+    [self.timePicker selectRow:0 inComponent:1 animated:NO];
+    self.weightText.text = 0;
+}
+
+// Save the values to Exercise (reps, sets, etc.)
+- (void)setDefault:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Toast message
+    [self.view makeToast:@"Set exercise settings as default" duration:(1.5) position:@"top"];
+    
+    self.exercise.reps = [NSNumber numberWithInteger:[self.repsText.text integerValue]];
+    self.exercise.sets = [NSNumber numberWithInteger:[self.setsText.text integerValue]];
+    self.exercise.weight = [NSNumber numberWithInteger:[self.weightText.text integerValue]];
+    self.exercise.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
+    [self saveContext];
+}
+
 #pragma mark - AllExercisesTableViewControllerDelegate
 
 // Pass the selected Exercise object
@@ -477,7 +554,27 @@ bool createdNewExerciseSetting;
     [self.selectedExerciseLabel setText:exercise.exerciseName];
     
     self.exerciseSetting.baseExercise = exercise;
-    NSLog(@"%@", self.exerciseSetting.baseExercise);
+    self.exercise = exercise;
+    
+    if (createdNewExerciseSetting) {
+        // display the default values for the exercise
+        int repInt = [self.exercise.reps integerValue];
+        int setInt = [self.exercise.sets integerValue];
+        self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
+        self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
+        
+        self.weightText.text = [NSString stringWithFormat:@"%d", [self.exercise.weight intValue]];
+
+        int totalTimeInSeconds = [self.exercise.timeInterval intValue];
+        int min = totalTimeInSeconds / 60;
+        int sec = (totalTimeInSeconds % 60) / 5;
+        self.durationText.text = [NSString stringWithFormat:@"%@:%@", [self.minArray objectAtIndex:min], [self.secArray objectAtIndex:sec]];
+        [self.timePicker selectRow:min inComponent:0 animated:YES];
+        [self.timePicker selectRow:sec inComponent:1 animated:YES];
+        minutes = [NSString stringWithFormat:@"%02zd", min];
+        seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
+    }
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

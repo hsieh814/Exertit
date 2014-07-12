@@ -148,8 +148,6 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    // index of the selected row
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UINavigationController *navController = segue.destinationViewController;
     
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
@@ -164,12 +162,11 @@
 
         WorkoutConfigTableViewController *workoutConfigTableViewController = (WorkoutConfigTableViewController *)navController.childViewControllers[0];
         
-        ExerciseSetting *selectedExerciseSetting = self.exercisesForWorkout[indexPath.row];
+        ExerciseSetting *selectedExerciseSetting = self.exercisesForWorkout[self.indexPath.row];
         workoutConfigTableViewController.exerciseSetting = selectedExerciseSetting;
         
         // Set the title of next controller to the workout's name
         workoutConfigTableViewController.title = selectedExerciseSetting.baseExercise.exerciseName;
-        
     } else if ([segue.identifier isEqualToString:@"StartWorkout"]) {
         
         RunWorkoutViewController *runWorkoutViewController = (RunWorkoutViewController *)navController.childViewControllers[0];

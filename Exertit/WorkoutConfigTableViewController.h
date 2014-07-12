@@ -31,6 +31,10 @@
 @property (strong) UITextField *weightText;
 @property (strong) UILabel *unitLabel;
 
+// Clear and default buttons
+@property (strong) UIButton *clearButton;
+@property (strong) UIButton *defaultButton;
+
 // Time picker view
 @property (retain, nonatomic) NSMutableArray *secArray;
 @property (retain, nonatomic) NSMutableArray *minArray;
@@ -42,5 +46,6 @@
 
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) ExerciseSetting *exerciseSetting;
+@property (nonatomic, strong) Exercise *exercise;
 
 @end

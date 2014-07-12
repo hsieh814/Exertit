@@ -22,11 +22,13 @@
 #define appleYellow [UIColor colorWithRed:(254.0f/255.0f) green:(240.0f/255.0f) blue:(136.0f/255.0f) alpha:1.0]
 #define appleBlue [UIColor colorWithRed:(54.0f/255.0f) green:(162.0f/255.0f) blue:(231.0f/255.0f) alpha:1.0]
 #define appleGreen [UIColor colorWithRed:(136.0f/255.0f) green:(226.0f/255.0f) blue:(83.0f/255.0f) alpha:1.0]
+#define darkGreen [UIColor colorWithRed:(0.0f/255.0f) green:(153.0f/255.0f) blue:(66.0f/255.0f) alpha:1.0]
 
 // Tableview color
 #define lightBlue [UIColor colorWithRed:(232.0f/255.0f) green:(252.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0]
 #define mediumBlue [UIColor colorWithRed:(219.0f/255.0f) green:(250.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0]
 //#define darkBlue [UIColor colorWithRed:(0.0f/255.0f) green:(65.0f/255.0f) blue:(74.0f/255.0f) alpha:1.0]
+#define grey [UIColor colorWithRed:(145.0f/255.0f) green:(145.0f/255.0f) blue:(145.0f/255.0f) alpha:1.0]
 
 // Slide menu
 //#define darkBlue [UIColor colorWithRed:(41.0f/255.0f) green:(51.0f/255.0f) blue:(51.0f/255.0f) alpha:1.0]

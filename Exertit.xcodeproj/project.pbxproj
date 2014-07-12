@@ -53,6 +53,7 @@
 		BF2098911871F80400D52321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098731871F80400D52321 /* UIKit.framework */; };
 		BF2098991871F80400D52321 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF2098971871F80400D52321 /* InfoPlist.strings */; };
 		BF20989B1871F80400D52321 /* ExertitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF20989A1871F80400D52321 /* ExertitTests.m */; };
+		BF21431D1970D2AE00A91710 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BF21431C1970D2AE00A91710 /* UIView+Toast.m */; };
 		BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */; };
 		BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EA193448E200A5C1DB /* timer_120.png */; };
 		BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0EC1934496C00A5C1DB /* timer_120.png */; };
@@ -64,9 +65,10 @@
 		BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF393565195A6CA70060F854 /* defaultPrefs.plist */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
 		BF4637F61960D1AD00DBA240 /* WorkoutConfigTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4637F51960D1AD00DBA240 /* WorkoutConfigTableViewController.m */; };
+		BF642B51196E43F20067DC7F /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = BF642B50196E43F20067DC7F /* Exercise.m */; };
+		BF642B54196E43F20067DC7F /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF642B53196E43F20067DC7F /* ExerciseSetting.m */; };
 		BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */; };
 		BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BF56718C29A4C009D9BE8 /* MenuCell.m */; };
-		BF7F054018FB4479003ECD72 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7F053F18FB4479003ECD72 /* Exercise.m */; };
 		BF7F054318FB4479003ECD72 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7F054218FB4479003ECD72 /* Workout.m */; };
 		BF8122F018C0469000606092 /* google_earth-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122EF18C0469000606092 /* google_earth-512.png */; };
 		BF8122F418C0494900606092 /* reddit-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F318C0494900606092 /* reddit-512.png */; };
@@ -93,7 +95,6 @@
 		BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */; };
 		BFF79018195142CD0030B6B5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF79017195142CD0030B6B5 /* iAd.framework */; };
 		BFF8B8E7194E938200786B9B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF8B8E6194E938200786B9B /* AudioToolbox.framework */; };
-		BFFEB93C191349A200AE929C /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFEB93B191349A200AE929C /* ExerciseSetting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,8 @@
 		BF2098961871F80400D52321 /* ExertitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExertitTests-Info.plist"; sourceTree = "<group>"; };
 		BF2098981871F80400D52321 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF20989A1871F80400D52321 /* ExertitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExertitTests.m; sourceTree = "<group>"; };
+		BF21431B1970D2AE00A91710 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		BF21431C1970D2AE00A91710 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = interval_trainer_120.png; path = Images/interval_trainer_120.png; sourceTree = "<group>"; };
 		BF22E0EA193448E200A5C1DB /* timer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer_120.png; path = Images/timer_120.png; sourceTree = "<group>"; };
 		BF22E0EC1934496C00A5C1DB /* timer_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timer_120.png; path = Images/timer_120.png; sourceTree = "<group>"; };
@@ -204,12 +207,14 @@
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BF4637F41960D1AD00DBA240 /* WorkoutConfigTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutConfigTableViewController.h; sourceTree = "<group>"; };
 		BF4637F51960D1AD00DBA240 /* WorkoutConfigTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutConfigTableViewController.m; sourceTree = "<group>"; };
+		BF642B4F196E43F20067DC7F /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		BF642B50196E43F20067DC7F /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		BF642B52196E43F20067DC7F /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
+		BF642B53196E43F20067DC7F /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 		BF73C628190C14A700A099F2 /* RunWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunWorkoutViewController.h; sourceTree = "<group>"; };
 		BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunWorkoutViewController.m; sourceTree = "<group>"; };
 		BF7BF56618C29A4C009D9BE8 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		BF7BF56718C29A4C009D9BE8 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
-		BF7F053E18FB4479003ECD72 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
-		BF7F053F18FB4479003ECD72 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		BF7F054118FB4479003ECD72 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
 		BF7F054218FB4479003ECD72 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		BF8122EF18C0469000606092 /* google_earth-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google_earth-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Google_Services/google_earth/google_earth-512.png"; sourceTree = "<group>"; };
@@ -246,8 +251,6 @@
 		BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunIntervalTrainerViewController.m; sourceTree = "<group>"; };
 		BFF79017195142CD0030B6B5 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		BFF8B8E6194E938200786B9B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		BFFEB93A191349A200AE929C /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
-		BFFEB93B191349A200AE929C /* ExerciseSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSetting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +387,7 @@
 			children = (
 				BF00D34618E8592600DA4CD7 /* MagicalRecord */,
 				BF2372D61875164F009B43EF /* SWRevealViewController */,
+				BF21431A1970D2AE00A91710 /* Toast */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -391,10 +395,10 @@
 		BF0E4CB318EA5DA900573517 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				BF7F053E18FB4479003ECD72 /* Exercise.h */,
-				BF7F053F18FB4479003ECD72 /* Exercise.m */,
-				BFFEB93A191349A200AE929C /* ExerciseSetting.h */,
-				BFFEB93B191349A200AE929C /* ExerciseSetting.m */,
+				BF642B52196E43F20067DC7F /* ExerciseSetting.h */,
+				BF642B53196E43F20067DC7F /* ExerciseSetting.m */,
+				BF642B4F196E43F20067DC7F /* Exercise.h */,
+				BF642B50196E43F20067DC7F /* Exercise.m */,
 				BF7F054118FB4479003ECD72 /* Workout.h */,
 				BF7F054218FB4479003ECD72 /* Workout.m */,
 			);
@@ -520,6 +524,15 @@
 				BF2098971871F80400D52321 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF21431A1970D2AE00A91710 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				BF21431B1970D2AE00A91710 /* UIView+Toast.h */,
+				BF21431C1970D2AE00A91710 /* UIView+Toast.m */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		BF2372D61875164F009B43EF /* SWRevealViewController */ = {
@@ -700,7 +713,6 @@
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
 				BF00D38518E8592600DA4CD7 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */,
-				BF7F054018FB4479003ECD72 /* Exercise.m in Sources */,
 				BF00D38A18E8592600DA4CD7 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				BF2098801871F80400D52321 /* AppDelegate.m in Sources */,
 				BF00D38E18E8592600DA4CD7 /* NSManagedObject+MagicalRequests.m in Sources */,
@@ -716,7 +728,7 @@
 				BF20987C1871F80400D52321 /* main.m in Sources */,
 				BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */,
 				BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */,
-				BFFEB93C191349A200AE929C /* ExerciseSetting.m in Sources */,
+				BF642B54196E43F20067DC7F /* ExerciseSetting.m in Sources */,
 				BF00D38D18E8592600DA4CD7 /* NSManagedObject+MagicalRecord.m in Sources */,
 				BF00D39718E8592600DA4CD7 /* MagicalRecord+ErrorHandling.m in Sources */,
 				BFC4E0AD18B0353E0082BD3C /* WorkoutViewController.m in Sources */,
@@ -724,12 +736,14 @@
 				BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */,
 				BF00D39B18E8592600DA4CD7 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				BF00D39518E8592600DA4CD7 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
+				BF21431D1970D2AE00A91710 /* UIView+Toast.m in Sources */,
 				BF00D38618E8592600DA4CD7 /* NSNumber+MagicalDataImport.m in Sources */,
 				BF00D39618E8592600DA4CD7 /* MagicalRecord+Actions.m in Sources */,
 				BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */,
 				BFAC6456194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m in Sources */,
 				BF00D39018E8592600DA4CD7 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */,
+				BF642B51196E43F20067DC7F /* Exercise.m in Sources */,
 				BF00D39418E8592600DA4CD7 /* NSPersistentStore+MagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
