@@ -10,7 +10,7 @@
 #import "AllExercisesTableViewController.h"
 #import "ExerciseSetting.h"
 
-@interface WorkoutConfigTableViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, AllExercisesTableViewControllerDelegate>
+@interface WorkoutConfigTableViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, AllExercisesTableViewControllerDelegate>
 
 // Selected exercise
 @property (strong) UILabel *selectedExerciseLabel;
@@ -30,6 +30,9 @@
 // Weight
 @property (strong) UITextField *weightText;
 @property (strong) UILabel *unitLabel;
+
+// Note
+@property (strong) UITextView *noteText;
 
 // Clear and default buttons
 @property (strong) UIButton *clearButton;

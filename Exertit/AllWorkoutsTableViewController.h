@@ -10,7 +10,7 @@
 #import <iAd/iAd.h>
 #import "WorkoutCell.h"
 
-@interface AllWorkoutsTableViewController : UITableViewController <ADBannerViewDelegate>
+@interface AllWorkoutsTableViewController : UITableViewController <ADBannerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic) NSMutableArray *workoutList;

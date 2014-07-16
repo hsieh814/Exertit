@@ -106,6 +106,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
             textField.text = self.exercise.exerciseName;
             textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
             textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            textField.delegate = self;
             [textField setDelegate:self];
             [cell addSubview:textField];
             
@@ -303,6 +304,18 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     [textField resignFirstResponder];
+}
+
+// Called everytime user enters character in textbox; used for setting max length of exercise name
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    if (textField.text.length >= EXERCISE_MAX_LENGTH && range.length == 0) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 /* Save data */

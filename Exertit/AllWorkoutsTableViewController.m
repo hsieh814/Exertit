@@ -208,9 +208,22 @@
     alertTextField.clearButtonMode = YES;
     alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    alertTextField.delegate = self;
     [alertTextField becomeFirstResponder];
     [alert addSubview:alertTextField];
     [alert show];
+}
+
+// Called everytime user enters character in textbox; used for setting max length of workout name
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (textField.text.length >= WORKOUT_MAX_LENGTH && range.length == 0) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark - SwipeableCellDelegate

@@ -42,7 +42,7 @@ bool createdNewExerciseSetting;
     self.tableView.backgroundColor = mediumBlue;
     
     // Make tableview start lower
-    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 10, 0);
     self.tableView.contentInset = inset;
     
     // Initialize time array with times value to pick from
@@ -286,7 +286,9 @@ bool createdNewExerciseSetting;
             self.unitLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"units"];
             
             if (!createdNewExerciseSetting) {
-                self.weightText.text = [NSString stringWithFormat:@"%d", [self.exerciseSetting.weight intValue]];
+                if ([self.exerciseSetting.weight intValue] != 0) {
+                    self.weightText.text = [NSString stringWithFormat:@"%d", [self.exerciseSetting.weight intValue]];
+                }
             }
             
             [cell addSubview:title];
@@ -298,10 +300,23 @@ bool createdNewExerciseSetting;
         case 5:
         {
             title.text = @"Note";
-            [cell addSubview:title];
-
-
             
+            self.noteText = [[UITextView alloc] initWithFrame:CGRectMake(20, 55, 260, 125)];
+            self.noteText.layer.borderColor = themeNavBar4.CGColor;
+            self.noteText.layer.borderWidth = 1.0;
+            self.noteText.layer.cornerRadius = 8.0;
+            self.noteText.clipsToBounds = YES;
+            self.noteText.font = [UIFont systemFontOfSize:16.0];
+            self.noteText.textColor = grey;
+            self.noteText.delegate = self;
+            
+            if (!createdNewExerciseSetting) {
+                self.noteText.text = self.exerciseSetting.note;
+            }
+            
+            [cell addSubview:title];
+            [cell addSubview:self.noteText];
+
             break;
         }
         default:
@@ -343,13 +358,12 @@ bool createdNewExerciseSetting;
             break;
         case 5:
             // Note
-            return 140.0;
+            return 220.0;
             break;
         default:
+            return 100;
             break;
     }
-    
-    return 112.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -366,6 +380,14 @@ bool createdNewExerciseSetting;
         default:
             break;
     }
+}
+
+// For max length of notes
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    return textView.text.length + (text.length - range.length) <= NOTE_MAX_LENGTH;
 }
 
 /* Segue */
@@ -426,7 +448,7 @@ bool createdNewExerciseSetting;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if (component == 1) {
         return [self.secArray objectAtIndex:row];
@@ -453,6 +475,7 @@ bool createdNewExerciseSetting;
     self.exerciseSetting.sets = [NSNumber numberWithInteger:[self.setsText.text integerValue]];
     self.exerciseSetting.weight = [NSNumber numberWithInteger:[self.weightText.text integerValue]];
     self.exerciseSetting.timeInterval = [NSNumber numberWithDouble:nsTimeInterval];
+    self.exerciseSetting.note = self.noteText.text;
     
     // Only need to set the index if it is a new ExerciseSetting- not when editting
     if (createdNewExerciseSetting) {
@@ -511,13 +534,6 @@ bool createdNewExerciseSetting;
     // Toast message
     [self.view makeToast:@"Clear exercise settings" duration:(1.5) position:@"top"];
     
-    // Clear the data for ExerciseSetting object.
-    self.exerciseSetting.reps = 0;
-    self.exerciseSetting.sets = 0;
-    self.exerciseSetting.timeInterval = 0;
-    self.exerciseSetting.weight = 0;
-    [self saveContext];
-    
     // Clear the text values for the view.
     self.repsText.text = @"00";
     self.repsStepperItem.value = 0;
@@ -526,7 +542,8 @@ bool createdNewExerciseSetting;
     self.durationText.text = @"00:00";
     [self.timePicker selectRow:0 inComponent:0 animated:NO];
     [self.timePicker selectRow:0 inComponent:1 animated:NO];
-    self.weightText.text = 0;
+    self.weightText.text = nil;
+    self.noteText.text = @"";
 }
 
 // Save the values to Exercise (reps, sets, etc.)
@@ -558,8 +575,8 @@ bool createdNewExerciseSetting;
     
     if (createdNewExerciseSetting) {
         // display the default values for the exercise
-        int repInt = [self.exercise.reps integerValue];
-        int setInt = [self.exercise.sets integerValue];
+        int repInt = [self.exercise.reps intValue];
+        int setInt = [self.exercise.sets intValue];
         self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
         self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
         
