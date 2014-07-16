@@ -121,6 +121,50 @@
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;
     
+    // Check tag to prevent creating duplicate labels
+    if ([cell viewWithTag:1 ] == nil) {
+        // Labels for displaying exercise config settings
+        self.rep = [[UILabel alloc] initWithFrame:CGRectMake(50, 40, 50, 20)];
+        self.rep.textColor = grey;
+        self.rep.font = [UIFont systemFontOfSize:12.0];
+        self.rep.tag = 1;
+        
+        self.set = [[UILabel alloc] initWithFrame:CGRectMake(105, 40, 50, 20)];
+        self.set.textColor = grey;
+        self.set.font = [UIFont systemFontOfSize:12.0];
+        self.set.tag = 2;
+        
+        self.weight = [[UILabel alloc] initWithFrame:CGRectMake(160, 40, 50, 20)];
+        self.weight.textColor = grey;
+        self.weight.font = [UIFont systemFontOfSize:12.0];
+        self.weight.tag = 3;
+        
+        self.time = [[UILabel alloc] initWithFrame:CGRectMake(215, 40, 50, 20)];
+        self.time.textColor = grey;
+        self.time.font = [UIFont systemFontOfSize:12.0];
+        self.time.tag = 4;
+        
+        [cell addSubview:self.rep];
+        [cell addSubview:self.set];
+        [cell addSubview:self.weight];
+        [cell addSubview:self.time];
+    }
+    
+    // Set/update the exerice settings labels
+    NSInteger repInt = [exerciseSetting.reps integerValue];
+    ((UILabel*)[cell viewWithTag:1]).text = [@"R: " stringByAppendingString:[NSString stringWithFormat: @"%02ld", (long)repInt]];
+
+    NSInteger setInt = [exerciseSetting.sets integerValue];
+    ((UILabel*)[cell viewWithTag:2]).text = [@"S: " stringByAppendingString:[NSString stringWithFormat: @"%02ld", (long)setInt]];
+    
+    ((UILabel*)[cell viewWithTag:3]).text = [@"W: " stringByAppendingString:[NSString stringWithFormat:@"%d", [exerciseSetting.weight intValue]]];
+
+    int totalTimeInSeconds = [exerciseSetting.timeInterval intValue];
+    int min = totalTimeInSeconds / 60;
+    int sec = (totalTimeInSeconds % 60) / 5;
+    NSString *s = [NSString stringWithFormat:@"T: %02zd:%02zd",  min, sec * 5];
+    ((UILabel*)[cell viewWithTag:4]).text = s;
+    
     return cell;
 }
 

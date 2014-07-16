@@ -24,4 +24,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
+@property (strong) UILabel *set, *rep, *weight, *time;
+
 @end
