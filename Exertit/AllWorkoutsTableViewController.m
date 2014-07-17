@@ -21,7 +21,9 @@
 @implementation AllWorkoutsTableViewController {
     ADBannerView *_bannerView;
     Workout *newWorkout;
+    NSString *tmpItemText;
 }
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -186,6 +188,17 @@
     self.workoutList = [[Workout findAllSortedBy:@"workoutName" ascending:YES] mutableCopy];
 }
 
+// Check if the workout with same name already exists
+- (BOOL)containsWorkout:(NSString *)workoutName
+{
+    NSArray *array = [Workout findByAttribute:@"workoutName" withValue:workoutName];
+    if ([array count] == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 /* Save data to the store */
 - (void)saveContext {
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
@@ -197,21 +210,7 @@
     
     newWorkout = [Workout createEntity];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create New Workout"
-                                                    message:nil
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Create", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    alert.tag = 1;
-    UITextField *alertTextField = [alert textFieldAtIndex:0];
-    alertTextField.clearButtonMode = YES;
-    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
-    alertTextField.delegate = self;
-    [alertTextField becomeFirstResponder];
-    [alert addSubview:alertTextField];
-    [alert show];
+    [self newWorkoutAlert];
 }
 
 // Called everytime user enters character in textbox; used for setting max length of workout name
@@ -230,20 +229,8 @@
 - (void)editButtonActionForItemText:(NSString *)itemText {
     NSLog(@"Edit for %@", itemText);
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rename Workout"
-                                                    message:nil
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Rename", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    UITextField *alertTextField = [alert textFieldAtIndex:0];
-    alertTextField.text = itemText;
-    alertTextField.clearButtonMode = YES;
-    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
-    [alertTextField becomeFirstResponder];
-    [alert addSubview:alertTextField];
-    [alert show];
+    tmpItemText = itemText;
+    [self renameWorkoutAlert:itemText];
 }
 
 - (void)deleteButtonActionForItemText:(NSString *)itemText {
@@ -266,48 +253,145 @@
     [self.tableView deleteRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
+// New workout name alert
+- (void)newWorkoutAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create New Workout"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Create", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = 1;
+    UITextField *alertTextField = [alert textFieldAtIndex:0];
+    alertTextField.clearButtonMode = YES;
+    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    alertTextField.delegate = self;
+    [alertTextField becomeFirstResponder];
+    [alert addSubview:alertTextField];
+    [alert show];
+}
+
+// Rename workout name alert
+- (void)renameWorkoutAlert:(NSString *)itemText
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rename Workout"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Rename", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField *alertTextField = [alert textFieldAtIndex:0];
+    alert.tag = 2;
+    alertTextField.text = itemText;
+    alertTextField.clearButtonMode = YES;
+    alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [alertTextField becomeFirstResponder];
+    [alert addSubview:alertTextField];
+    [alert show];
+}
+
+// Workout name is empty error alert
+- (void)workoutNameIsEmptyAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout creation failed"
+                                                    message:@"Cannot create workout with empty name"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    alert.tag = 3;
+    [alert show];
+}
+
+// Workout name is duplicated error alert
+- (void)workoutNameIsDuplicatedAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout creation failed"
+                                                    message:@"Cannot create workout with duplicate name"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    alert.tag = 4;
+    [alert show];
+}
+
+
 - (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     if (alert.tag == 1) {
-        // Create new workout
-        
+        // Create new workout alert
         if (buttonIndex == alert.cancelButtonIndex)
         {
             // Delete the newly created exercise
             [newWorkout deleteEntity];
+            tmpItemText = nil;
         } else {
             if ([[alert textFieldAtIndex:0].text isEqualToString:@""]) {
-                // don't save the workout since the name is empty
-                [newWorkout deleteEntity];
+                // ERROR: empty
+                [self workoutNameIsEmptyAlert];
             } else {
-                newWorkout.workoutName = [alert textFieldAtIndex:0].text;
+                // Check if a workout with the same name already exists
+                NSString *workoutName = [alert textFieldAtIndex:0].text;
+                if (![self containsWorkout:workoutName]) {
+                    // Create workout
+                    newWorkout.workoutName = workoutName;
+                    [self saveContext];
+                    tmpItemText = nil;
+                    
+                    // Reload data
+                    [self viewDidAppear:YES];
+                } else {
+                    // ERROR: duplicate
+                    [self workoutNameIsDuplicatedAlert];
+                }
             }
-            
-            [self saveContext];
-            
-            // Reload data
-            [self viewDidAppear:YES];
         }
-        
     }
-    else
-    {
-        // Rename workout
-        if (buttonIndex == alert.cancelButtonIndex)
+    else if (alert.tag == 2) {
         {
-            NSLog(@"CANCEL alert view");
-            [self.activeCell closeActivatedCells];
+            // Rename workout alert
+            if (buttonIndex == alert.cancelButtonIndex)
+            {
+                NSLog(@"CANCEL alert view");
+                [self.activeCell closeActivatedCells];
+                tmpItemText = nil;
+            }
+            else
+            {
+                NSLog(@"RENAME alert view");
+                if ([[alert textFieldAtIndex:0].text isEqualToString:@""]) {
+                    // ERROR: empty
+                    [self workoutNameIsEmptyAlert];
+                } else {
+                    // Check if a workout with the same name already exists
+                    NSString *workoutName = [alert textFieldAtIndex:0].text;
+                    if (![self containsWorkout:workoutName]) {
+                        // Create workout
+                        Workout *editWorkout = self.workoutList[self.indexPath.row];
+                        editWorkout.workoutName = workoutName;
+                        tmpItemText = nil;
+                        
+                        // Reload data
+                        [self viewDidAppear:YES];
+
+                    } else {
+                        // ERROR: duplicate
+                        [self workoutNameIsDuplicatedAlert];
+                    }
+                }
+
+            }
         }
-        else
-        {
-            NSLog(@"RENAME alert view");
-            Workout *editWorkout = self.workoutList[self.indexPath.row];
-            editWorkout.workoutName = [[alert textFieldAtIndex:0]text];
-        
-            // Reload data
-            [self viewDidAppear:YES];
+    }
+    else if (alert.tag == 3 || alert.tag == 4) {
+        if (tmpItemText != nil) {
+            [self renameWorkoutAlert:tmpItemText];
+        } else {
+            [self newWorkoutAlert];
         }
     }
 }
