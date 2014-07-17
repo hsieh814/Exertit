@@ -505,11 +505,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="8lV-Re-XBz">
-                            <rect key="frame" x="0.0" y="64" width="320" height="52"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AV-sz-bvg">
-                                    <rect key="frame" x="89" y="6" width="142" height="44"/>
+                                    <rect key="frame" x="89" y="9" width="142" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                     <state key="normal" title="START">
@@ -524,7 +524,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" rowHeight="65" id="dlM-F7-pNk" customClass="ExerciseCell">
-                                <rect key="frame" x="0.0" y="138" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="143" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dlM-F7-pNk" id="aCK-W9-m0L">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>

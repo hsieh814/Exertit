@@ -41,10 +41,12 @@
     
     // Change start button text color
     [self.startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.startButton.backgroundColor = appleGreen;
-    self.startButton.layer.borderColor = appleGreen.CGColor;
-    self.startButton.layer.borderWidth = 1.0;
-    self.startButton.layer.cornerRadius = 8.0f;
+    self.startButton.backgroundColor = [UIColor whiteColor];
+    self.startButton.layer.borderColor = darkGreen.CGColor;
+    self.startButton.layer.borderWidth = 2.0;
+    self.startButton.layer.cornerRadius = 20.0f;
+    self.startButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+    [self.startButton setTitleColor:darkGreen forState:UIControlStateNormal];
     
     // TableView customization
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -144,10 +146,10 @@
         self.time.font = [UIFont systemFontOfSize:12.0];
         self.time.tag = 4;
         
-        [cell addSubview:self.rep];
-        [cell addSubview:self.set];
-        [cell addSubview:self.weight];
-        [cell addSubview:self.time];
+        [cell.myContentView addSubview:self.rep];
+        [cell.myContentView addSubview:self.set];
+        [cell.myContentView addSubview:self.weight];
+        [cell.myContentView addSubview:self.time];
     }
     
     // Set/update the exerice settings labels
