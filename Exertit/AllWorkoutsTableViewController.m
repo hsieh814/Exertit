@@ -126,7 +126,7 @@
     cell.workoutIconCircle.layer.masksToBounds = YES;
     cell.workoutIconCircle.layer.borderWidth = 1.0;
     cell.workoutIconCircle.layer.borderColor = themeNavBar4.CGColor;
-    cell.workoutIconLabel.text = [NSString stringWithFormat:@"%d", workout.exerciseGroup.count];
+    cell.workoutIconLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)workout.exerciseGroup.count];
     cell.workoutIconLabel.textColor = darkBlue;
     
     return cell;
@@ -374,14 +374,18 @@
                         Workout *editWorkout = self.workoutList[self.indexPath.row];
                         editWorkout.workoutName = workoutName;
                         tmpItemText = nil;
-                        
-                        // Reload data
-                        [self viewDidAppear:YES];
 
                     } else {
-                        // ERROR: duplicate
-                        [self workoutNameIsDuplicatedAlert];
+                        // Only display duplicated error when the re-name is not equal to the current name
+                        if (![tmpItemText isEqualToString:workoutName]) {
+                            // ERROR: duplicate
+                            [self workoutNameIsDuplicatedAlert];
+                            return;
+                        }
                     }
+                    
+                    // Reload data
+                    [self viewDidAppear:YES];
                 }
 
             }
