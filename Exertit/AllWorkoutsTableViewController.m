@@ -336,6 +336,7 @@
             } else {
                 // Check if a workout with the same name already exists
                 NSString *workoutName = [alert textFieldAtIndex:0].text;
+                workoutName = [workoutName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 if (![self containsWorkout:workoutName]) {
                     // Create workout
                     newWorkout.workoutName = workoutName;
@@ -369,6 +370,7 @@
                 } else {
                     // Check if a workout with the same name already exists
                     NSString *workoutName = [alert textFieldAtIndex:0].text;
+                    workoutName = [workoutName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                     if (![self containsWorkout:workoutName]) {
                         // Create workout
                         Workout *editWorkout = self.workoutList[self.indexPath.row];

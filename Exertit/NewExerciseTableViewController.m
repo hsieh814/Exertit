@@ -374,18 +374,20 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
 - (IBAction)done:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+    NSString *exerciseText = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
     if ([textField.text isEqualToString:@""]) {
         // Empty name
         [self exerciseNameIsEmptyAlert];
         return;
     } else {
-        if (![self containsExercise:textField.text]) {
+        if (![self containsExercise:exerciseText]) {
             // Create/Rename the exercise
-            self.exercise.exerciseName = textField.text;
+            self.exercise.exerciseName = exerciseText;
             self.exercise.category = [NSNumber numberWithInteger:selectedCategory];
         } else {
             // Duplicate name
-            if (![self.exercise.exerciseName isEqualToString:textField.text]) {
+            if (![self.exercise.exerciseName isEqualToString:exerciseText]) {
                 // Name was changed, and is a duplicate
                 [self exerciseNameIsDuplicatedAlert];
                 return;
