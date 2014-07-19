@@ -22,6 +22,7 @@
     ADBannerView *_bannerView;
     Workout *newWorkout;
     NSString *tmpItemText;
+    bool createNewWorkout;
 }
 
 
@@ -209,6 +210,7 @@
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     newWorkout = [Workout createEntity];
+    createNewWorkout = YES;
     
     [self newWorkoutAlert];
 }
@@ -230,6 +232,8 @@
     NSLog(@"Edit for %@", itemText);
     
     tmpItemText = itemText;
+    createNewWorkout = NO;
+    
     [self renameWorkoutAlert:itemText];
 }
 
@@ -296,7 +300,7 @@
 // Workout name is empty error alert
 - (void)workoutNameIsEmptyAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout creation failed"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[self getAlertErrorTitle]
                                                     message:@"Cannot create workout with empty name"
                                                    delegate:self
                                           cancelButtonTitle:nil
@@ -308,7 +312,7 @@
 // Workout name is duplicated error alert
 - (void)workoutNameIsDuplicatedAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout creation failed"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[self getAlertErrorTitle]
                                                     message:@"Cannot create workout with duplicate name"
                                                    delegate:self
                                           cancelButtonTitle:nil
@@ -317,6 +321,14 @@
     [alert show];
 }
 
+// Get the alert message title depending it creating or renaming workout
+- (NSString *)getAlertErrorTitle {
+    if (createNewWorkout) {
+        return @"Workout Creation Failed";
+    }
+    
+    return @"Workout Renaming Failed";
+}
 
 - (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
 {

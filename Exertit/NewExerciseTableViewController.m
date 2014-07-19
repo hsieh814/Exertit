@@ -340,6 +340,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
     return YES;
 }
 
+// Get the alert message title depending it creating or renaming exercise
 - (NSString *)getAlertErrorTitle {
     if (createNewExercise) {
         return @"Exercise Creation Failed";
@@ -347,7 +348,6 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
     
     return @"Exercise Renaming Failed";
 }
-
 
 // Workout name is empty error alert
 - (void)exerciseNameIsEmptyAlert
