@@ -13,6 +13,7 @@
 @interface NewExerciseTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet DefaultCell *defaultCell;
+@property (nonatomic) NSMutableArray *exerciseList;
 @property (nonatomic, strong) Exercise *exercise;
 
 - (IBAction)done:(id)sender;

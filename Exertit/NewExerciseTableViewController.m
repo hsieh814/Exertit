@@ -329,15 +329,69 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check;
     }];
 }
 
+// Check if the exericse with same name already exists
+- (BOOL)containsExercise:(NSString *)exerciseName
+{
+    NSArray *array = [Exercise findByAttribute:@"exerciseName" withValue:exerciseName];
+    if ([array count] == 0) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (NSString *)getAlertErrorTitle {
+    if (createNewExercise) {
+        return @"Exercise Creation Failed";
+    }
+    
+    return @"Exercise Renaming Failed";
+}
+
+
+// Workout name is empty error alert
+- (void)exerciseNameIsEmptyAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[self getAlertErrorTitle]
+                                                    message:@"Cannot have exercise with empty name"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+// Workout name is duplicated error alert
+- (void)exerciseNameIsDuplicatedAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[self getAlertErrorTitle]
+                                                    message:@"Cannot have exercises with duplicate name"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
 - (IBAction)done:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if ([textField.text isEqualToString:@""]) {
-        // don't save exercise since empty name
-        [self.exercise deleteEntity];
+        // Empty name
+        [self exerciseNameIsEmptyAlert];
+        return;
     } else {
-        self.exercise.exerciseName = textField.text;
-        self.exercise.category = [NSNumber numberWithInteger:selectedCategory];
+        if (![self containsExercise:textField.text]) {
+            // Create/Rename the exercise
+            self.exercise.exerciseName = textField.text;
+            self.exercise.category = [NSNumber numberWithInteger:selectedCategory];
+        } else {
+            // Duplicate name
+            if (![self.exercise.exerciseName isEqualToString:textField.text]) {
+                // Name was changed, and is a duplicate
+                [self exerciseNameIsDuplicatedAlert];
+                return;
+            }
+        }
+        
     }
     
     // save the context

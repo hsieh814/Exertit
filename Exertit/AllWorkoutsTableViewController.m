@@ -387,7 +387,6 @@
                     // Reload data
                     [self viewDidAppear:YES];
                 }
-
             }
         }
     }
