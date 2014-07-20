@@ -518,65 +518,11 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    CGRect contentFrame = self.view.frame;
-    CGRect bannerFrame = self.bannerView.frame;
-    
-    CGFloat navAndStatusHeight = self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
-    
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
-    // If configured to support iOS <6.0, then we need to set the currentContentSizeIdentifier in order to resize the banner properly.
-    // This continues to work on iOS 6.0, so we won't need to do anything further to resize the banner.
-    if (contentFrame.size.width < contentFrame.size.height) {
-        _bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
-    } else {
-        _bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
-    }
-    bannerFrame = _bannerView.frame;
-#else
-    // If configured to support iOS >= 6.0 only, then we want to avoid currentContentSizeIdentifier as it is deprecated.
-    // Fortunately all we need to do is ask the banner for a size that fits into the layout area we are using.
-    // At this point in this method contentFrame=self.view.bounds, so we'll use that size for the layout.
-    bannerFrame.size = [_bannerView sizeThatFits:contentFrame.size];
-#endif
-    
-    //    [UIView beginAnimations:@"fixupViews" context:nil];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration: 0.25];
-    if (adBannerViewIsVisible) {
-        NSLog(@"SHOW");
-        
-        bannerFrame.origin.x = 0;
-        bannerFrame.origin.y = navAndStatusHeight;
-        self.bannerView.frame = bannerFrame;
-        
-        contentFrame.origin.x = 0;
-        contentFrame.origin.y = navAndStatusHeight + bannerFrame.size.height;
-        contentFrame.size.height = self.view.frame.size.height - navAndStatusHeight - bannerFrame.size.height;
-        self.tableView.frame = contentFrame;
-        
-    } else {
-        NSLog(@"HIDE");
-        
-        bannerFrame.origin.x = 0;
-        bannerFrame.origin.y = navAndStatusHeight - (bannerFrame.size.height);
-        self.bannerView.frame = bannerFrame;
-        
-        contentFrame.origin.x = 0;
-        contentFrame.origin.y = navAndStatusHeight;
-        contentFrame.size.height = self.view.frame.size.height - navAndStatusHeight;
-        self.tableView.frame = contentFrame;
-    }
-    [UIView commitAnimations];
-}
-
--(void)fixupAdView {
-    NSLog(@"FIXUP");
-    
     CGRect contentFrame = self.contentView.frame;
     CGRect bannerFrame = self.bannerView.frame;
     
     CGFloat navAndStatusHeight = self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
-
+    
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
     // If configured to support iOS <6.0, then we need to set the currentContentSizeIdentifier in order to resize the banner properly.
     // This continues to work on iOS 6.0, so we won't need to do anything further to resize the banner.
@@ -593,16 +539,15 @@
     bannerFrame.size = [_bannerView sizeThatFits:contentFrame.size];
 #endif
     
-    [UIView beginAnimations:@"fixupViews" context:nil];
     if (adBannerViewIsVisible) {
         NSLog(@"SHOW");
         
         bannerFrame.origin.x = 0;
-        bannerFrame.origin.y = navAndStatusHeight;
+        bannerFrame.origin.y = self.view.frame.size.height - bannerFrame.size.height;
         self.bannerView.frame = bannerFrame;
         
         contentFrame.origin.x = 0;
-        contentFrame.origin.y = navAndStatusHeight + bannerFrame.size.height;
+        contentFrame.origin.y = navAndStatusHeight;
         contentFrame.size.height = self.contentView.frame.size.height - navAndStatusHeight - bannerFrame.size.height;
         self.tableView.frame = contentFrame;
         
@@ -610,7 +555,7 @@
         NSLog(@"HIDE");
         
         bannerFrame.origin.x = 0;
-        bannerFrame.origin.y = navAndStatusHeight - (bannerFrame.size.height);
+        bannerFrame.origin.y = self.view.frame.size.height + (bannerFrame.size.height);
         self.bannerView.frame = bannerFrame;
         
         contentFrame.origin.x = 0;
@@ -618,7 +563,6 @@
         contentFrame.size.height = self.contentView.frame.size.height - navAndStatusHeight;
         self.tableView.frame = contentFrame;
     }
-    [UIView commitAnimations];
 }
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
@@ -626,7 +570,19 @@
     
     if (adBannerViewIsVisible) {
         adBannerViewIsVisible = NO;
-        [self fixupAdView];
+    
+        [UIView animateWithDuration:0.25 animations:^{
+            // -viewDidLayoutSubviews will handle positioning the banner such that it is either visible
+            // or hidden depending upon whether its bannerLoaded property is YES or NO (It will be
+            // NO if -bannerView:didFailToReceiveAdWithError: was last called).  We just need our view
+            // to (re)lay itself out so -viewDidLayoutSubviews will be called.
+            // You must not call [self.view layoutSubviews] directly.  However, you can flag the view
+            // as requiring layout...
+            [self.view setNeedsLayout];
+            // ...then ask it to lay itself out immediately if it is flagged as requiring layout...
+            [self.view layoutIfNeeded];
+            // ...which has the same effect.
+        }];
     }
 }
 
@@ -639,7 +595,19 @@
     
     if (!adBannerViewIsVisible) {
         adBannerViewIsVisible = YES;
-        [self fixupAdView];
+    
+        [UIView animateWithDuration:0.25 animations:^{
+            // -viewDidLayoutSubviews will handle positioning the banner such that it is either visible
+            // or hidden depending upon whether its bannerLoaded property is YES or NO (It will be
+            // YES if -bannerViewDidLoadAd: was last called).  We just need our view
+            // to (re)lay itself out so -viewDidLayoutSubviews will be called.
+            // You must not call [self.view layoutSubviews] directly.  However, you can flag the view
+            // as requiring layout...
+            [self.view setNeedsLayout];
+            // ...then ask it to lay itself out immediately if it is flagged as requiring layout...
+            [self.view layoutIfNeeded];
+            // ...which has the same effect.
+        }];
     }
 
 }
