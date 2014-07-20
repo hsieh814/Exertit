@@ -10,13 +10,17 @@
 #import <iAd/iAd.h>
 #import "WorkoutCell.h"
 
-@interface AllWorkoutsTableViewController : UITableViewController <ADBannerViewDelegate, UITextFieldDelegate>
+@interface AllWorkoutsTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ADBannerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic) NSMutableArray *workoutList;
 
 @property (nonatomic, strong) WorkoutCell* activeCell;
 @property (nonatomic, strong) NSIndexPath* indexPath;
+
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet ADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)addWorkout:(id)sender;
 
