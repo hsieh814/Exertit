@@ -5,20 +5,6 @@
     </dependencies>
     <scenes>
         <!--All Workouts Table View Controller - Workouts-->
-        <scene sceneID="W05-AI-UY7">
-            <objects>
-                <tableViewController id="1mR-fs-wtz" customClass="AllWorkoutsTableViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Workouts" id="guv-dx-DBI"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="sidebarButton" destination="aqf-DI-gaY" id="7QX-bX-vBw"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xOV-UJ-wLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1366" y="-244"/>
-        </scene>
-        <!--All Workouts Table View Controller - Workouts-->
         <scene sceneID="TLC-XG-1eK">
             <objects>
                 <viewController id="SmY-TC-AUu" customClass="AllWorkoutsTableViewController" sceneMemberID="viewController">
@@ -127,7 +113,7 @@
                         <barButtonItem key="leftBarButtonItem" image="slide_menu.png" id="aqf-DI-gaY"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jV-aI-Vp4">
                             <connections>
-                                <action selector="addWorkout:" destination="1mR-fs-wtz" id="sMt-6q-0Mk"/>
+                                <action selector="addWorkout:" destination="SmY-TC-AUu" id="Fon-eA-JnZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -135,6 +121,7 @@
                     <connections>
                         <outlet property="bannerView" destination="6TB-PB-0Wy" id="aVy-EQ-BCu"/>
                         <outlet property="contentView" destination="Kae-1Q-CAp" id="FU9-e8-ulV"/>
+                        <outlet property="sidebarButton" destination="aqf-DI-gaY" id="ajw-XQ-noq"/>
                         <outlet property="tableView" destination="fmU-xO-L0Z" id="CWq-x0-hBJ"/>
                         <segue destination="iUr-fp-oIT" kind="push" identifier="goToWorkout" id="iRD-Nm-ZOk"/>
                     </connections>

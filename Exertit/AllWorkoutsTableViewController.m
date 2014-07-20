@@ -19,7 +19,6 @@
 @end
 
 @implementation AllWorkoutsTableViewController {
-//    ADBannerView *_bannerView;
     Workout *newWorkout;
     NSString *tmpItemText;
     bool createNewWorkout;
