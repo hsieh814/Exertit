@@ -25,7 +25,6 @@
     bool adBannerViewIsVisible;
 }
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,6 +61,7 @@
     // Allow iAds
     self.canDisplayBannerAds = YES;
     self.bannerView.delegate = self;
+    self.bannerView.tag = 1;
     adBannerViewIsVisible = NO;
 
 //    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
@@ -86,18 +86,6 @@
     
     // Reload table
     [self.tableView reloadData];
-    
-//    // Hide iAd
-//    CGRect bannerFrame = self.bannerView.frame;
-//    bannerFrame.origin.x = 0;
-//    bannerFrame.origin.y = -50;//self.navigationController.navigationBar.frame.size.height - (bannerFrame.size.height);
-//    self.bannerView.frame = bannerFrame;
-//    
-//    CGRect contentFrame = self.contentView.frame;
-//    contentFrame.origin.x = 0;
-//    contentFrame.origin.y = 60;//self.navigationController.navigationBar.frame.size.height;
-//    contentFrame.size.height = self.contentView.frame.size.height - self.navigationController.navigationBar.frame.size.height;
-//    self.tableView.frame = contentFrame;
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,7 +117,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.workoutList objectAtIndex:indexPath.row];
@@ -566,6 +554,11 @@
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
     NSLog(@"Error in Loading Banner!");
+    NSLog(@"Workout tag = %d", banner.tag);
+
+    if (banner.tag != 1) {
+        return;
+    }
     
     if (adBannerViewIsVisible) {
         adBannerViewIsVisible = NO;
@@ -591,6 +584,11 @@
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner{
     NSLog(@"iAd banner Loaded Successfully!");
+    NSLog(@"Workout tag = %d", banner.tag);
+
+    if (banner.tag != 1) {
+        return;
+    }
     
     if (!adBannerViewIsVisible) {
         adBannerViewIsVisible = YES;

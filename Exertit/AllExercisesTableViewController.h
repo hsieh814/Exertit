@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iAd/ADBannerView.h>
+#import <iAd/iAd.h>
 #import "NewExerciseTableViewController.h"
 #import "Workout.h"
 #import "ExerciseCell.h"
@@ -18,7 +18,7 @@
 - (void)allExercisesViewControllerDidSelectWorkout:(AllExercisesTableViewController *)controller didSelectExercise:(Exercise *)exercise;
 @end
 
-@interface AllExercisesTableViewController : UITableViewController <ADBannerViewDelegate>
+@interface AllExercisesTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ADBannerViewDelegate>
 
 @property (nonatomic, weak) id <AllExercisesTableViewControllerDelegate> delegate;
 
@@ -30,5 +30,9 @@
 
 // Select Exercise
 @property (nonatomic, strong) Workout *workout;
+
+@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet ADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
