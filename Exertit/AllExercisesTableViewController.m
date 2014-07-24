@@ -11,6 +11,7 @@
 #import "Exercise.h"
 #import "ExerciseCell.h"
 #import "WorkoutConfigTableViewController.h"
+#import "AppDelegate.h"
 
 @interface AllExercisesTableViewController () <ExerciseCellDelegate>
 
@@ -57,8 +58,9 @@
         
         // Allow iAds
         self.canDisplayBannerAds = YES;
+        AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication ]delegate];
+        self.bannerView = appdelegate.bannerView;
         self.bannerView.delegate = self;
-        self.bannerView.tag = 2;
         adBannerViewIsVisible = NO;
         
 //        // On iOS 6 ADBannerView introduces a new initializer, use it when available.

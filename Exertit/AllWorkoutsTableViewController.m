@@ -13,6 +13,7 @@
 #import "Exercise.h"
 #import "ExerciseSetting.h"
 #import "WorkoutViewController.h"
+#import "AppDelegate.h"
 
 @interface AllWorkoutsTableViewController () <WorkoutCellDelegate>
 
@@ -60,10 +61,13 @@
     
     // Allow iAds
     self.canDisplayBannerAds = YES;
+    AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication ]delegate];
+    self.bannerView = appdelegate.bannerView;
     self.bannerView.delegate = self;
-    self.bannerView.tag = 1;
     adBannerViewIsVisible = NO;
 
+    [self.view addSubview:self.bannerView];
+    
 //    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
 //    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
 //        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
@@ -554,11 +558,6 @@
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
     NSLog(@"Error in Loading Banner!");
-    NSLog(@"Workout tag = %d", banner.tag);
-
-    if (banner.tag != 1) {
-        return;
-    }
     
     if (adBannerViewIsVisible) {
         adBannerViewIsVisible = NO;
@@ -584,11 +583,6 @@
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner{
     NSLog(@"iAd banner Loaded Successfully!");
-    NSLog(@"Workout tag = %d", banner.tag);
-
-    if (banner.tag != 1) {
-        return;
-    }
     
     if (!adBannerViewIsVisible) {
         adBannerViewIsVisible = YES;

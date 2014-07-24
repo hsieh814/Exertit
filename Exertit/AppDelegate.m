@@ -34,6 +34,18 @@
     NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
     
+    // iAds
+    self.bannerView = [[ADBannerView alloc]initWithFrame:CGRectZero];
+//    self.bannerView = [[ADBannerView alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
+    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
+        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+    } else {
+        _bannerView = [[ADBannerView alloc] init];
+    }
+    self.bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+    self.bannerView.delegate = self;
+    
     return YES;
 }
 

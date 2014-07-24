@@ -32,7 +32,7 @@
 @property (nonatomic, strong) Workout *workout;
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet ADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) ADBannerView *bannerView;
 
 @end
