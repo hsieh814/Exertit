@@ -29,7 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *setsTotal;
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *previousArrowButton;
 @property (weak, nonatomic) IBOutlet UIButton *previousExerciseName;
+@property (weak, nonatomic) IBOutlet UIButton *nextArrowButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextExerciseName;
 
 - (IBAction)startTimer:(id)sender;

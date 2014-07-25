@@ -46,13 +46,33 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     [self.previousExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
     [self.nextExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
     
-    // Cicle button
-    self.startLabel.layer.cornerRadius = self.startLabel.bounds.size.width/2.0;
-    self.startLabel.layer.borderWidth = 1.0;
+    // Start and reset buttons
+    self.startLabel.layer.cornerRadius = 20.0f;
+    self.startLabel.layer.borderWidth = 2.0;
     self.startLabel.layer.borderColor = self.startLabel.titleLabel.textColor.CGColor;
-    self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
-    self.resetLabel.layer.borderWidth = 1.0;
+    self.resetLabel.layer.cornerRadius = 20.0f;
+    self.resetLabel.layer.borderWidth = 2.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
+    
+    // Previous/Next exercise buttons
+    self.previousArrowButton.backgroundColor = previousColor;
+    [self.previousArrowButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.previousExerciseName setTitleColor:previousColor forState:UIControlStateNormal];
+    UIView *previousBottomBorder = [[UIView alloc] initWithFrame:CGRectMake(0, self.previousExerciseName.frame.size.height - 4.0f,
+                                                                    self.previousExerciseName.frame.size.width, 4)];
+    previousBottomBorder.backgroundColor = previousColor;
+    [self.previousExerciseName addSubview:previousBottomBorder];
+    
+    self.nextArrowButton.backgroundColor = nextColor;
+    [self.nextArrowButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.nextExerciseName setTitleColor:nextColor forState:UIControlStateNormal];
+    UIView *nextBottomBorder = [[UIView alloc] initWithFrame:CGRectMake(0, self.previousExerciseName.frame.size.height - 4.0f,
+                                                                    self.previousExerciseName.frame.size.width, 4)];
+    nextBottomBorder.backgroundColor = nextColor;
+    [self.nextExerciseName addSubview:nextBottomBorder];
+    
+    // Exercise name
+    self.nameLabel.layer.borderWidth = 2.0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,11 +93,12 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     self.setsTotal.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.sets];
     self.weightLabel.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.weight];
     
+    self.nameLabel.layer.borderColor = [self checkExerciseCategory:[self.exerciseSetting.baseExercise.category integerValue]].CGColor;
+    
     // Set the min and sec display
     [self setMinuteAndSecondsFromTimeInterval];
     
     if ([self.exerciseSetting.timeInterval intValue] == 0) {
-        NSLog(@"Time 00:00");
         [self enableTimer:NO];
     } else {
         [self enableTimer:YES];
@@ -85,19 +106,56 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     
     // Set previous exercise label if not the first exercise
     if (exerciseIndex != 0) {
+        [self enableArrowButton:self.previousArrowButton];
         ExerciseSetting *previousExerciseSetting = [self.exercisesForWorkout objectAtIndex:(exerciseIndex - 1)];
-        [self.previousExerciseName setTitle:[NSString stringWithFormat:@"< %@", previousExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
+        [self.previousExerciseName setTitle:[NSString stringWithFormat:@"%@", previousExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
     } else {
         [self.previousExerciseName setTitle:@"" forState:UIControlStateNormal];
+        [self disableArrowButton:self.previousArrowButton];
     }
     
     // Set next exercise label if not the last exercise
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
+        [self enableArrowButton:self.nextArrowButton];
         ExerciseSetting *nextExerciseSetting = [self.exercisesForWorkout objectAtIndex:(exerciseIndex + 1)];
-        [self.nextExerciseName setTitle:[NSString stringWithFormat:@"%@ >", nextExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
+        [self.nextExerciseName setTitle:[NSString stringWithFormat:@"%@", nextExerciseSetting.baseExercise.exerciseName] forState:UIControlStateNormal];
     } else {
         [self.nextExerciseName setTitle:@"Done Workout!" forState:UIControlStateNormal];
+        [self disableArrowButton:self.nextArrowButton];
     }
+}
+
+// Disable and fade the arrow button
+-(void)disableArrowButton:(UIButton *)button {
+    button.enabled = NO;
+    button.alpha = 0.3;
+}
+
+// Enable and high opacity for arrow button
+-(void)enableArrowButton:(UIButton *)button {
+    button.enabled = YES;
+    button.alpha = 1.0;
+}
+
+// Return border color for exercise name depending on the category
+- (UIColor *)checkExerciseCategory:(NSInteger)tag
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    switch (tag) {
+        case 1:
+            return appleBlue;
+        case 2:
+            return appleRed;
+        case 3:
+            return appleYellow;
+        case 4:
+            return appleGreen;
+        default:
+            break;
+    }
+    
+    return nil;
 }
 
 // Convert the TimeInterval to ints for minutes and seconds and display
