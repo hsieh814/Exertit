@@ -283,6 +283,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
         exerciseIndex++;
         [self startNextExercise];
+    } else {
+        // Clicked the "Done Workout!" button, exit the view.
+        [self stopWorkout:self];
     }
     
 }
