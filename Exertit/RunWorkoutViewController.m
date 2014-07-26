@@ -70,6 +70,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
                                                                     self.previousExerciseName.frame.size.width, 4)];
     nextBottomBorder.backgroundColor = nextColor;
     [self.nextExerciseName addSubview:nextBottomBorder];
+
+    // Add gradient to arrow buttons
+    [self addGradientToArrowButtons];
     
     // Initialize note view and customize note button
     [self initializeNotesView];
@@ -88,6 +91,31 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addGradientToArrowButtons {
+    NSArray *colors = [NSArray arrayWithObjects:
+                      (id)[UIColor whiteColor].CGColor,
+                      (id)nextColor.CGColor,
+                      nil];
+    NSArray *locations = [NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0f],
+                          [NSNumber numberWithFloat:1.0f],
+                          nil];
+    
+    // Previous button
+    CAGradientLayer *previousGradientLayer = [CAGradientLayer layer];
+    previousGradientLayer.frame = self.nextArrowButton.layer.bounds;
+    previousGradientLayer.colors = colors;
+    previousGradientLayer.locations = locations;
+    [self.previousArrowButton.layer addSublayer:previousGradientLayer];
+    
+    // Next button
+    CAGradientLayer *nextGradientLayer = [CAGradientLayer layer];
+    nextGradientLayer.frame = self.nextArrowButton.layer.bounds;
+    nextGradientLayer.colors = colors;
+    nextGradientLayer.locations = locations;
+    [self.nextArrowButton.layer addSublayer:nextGradientLayer];
 }
 
 /* Display the next ExerciseSetting info */
