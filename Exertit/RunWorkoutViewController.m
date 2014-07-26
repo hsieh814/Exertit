@@ -71,6 +71,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     nextBottomBorder.backgroundColor = nextColor;
     [self.nextExerciseName addSubview:nextBottomBorder];
     
+         
     // Exercise name
     self.nameLabel.layer.borderWidth = 2.0;
 }

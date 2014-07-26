@@ -236,21 +236,21 @@
                                 <rect key="frame" x="79" y="336" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" red="0.25043845660000003" green="0.25043845660000003" blue="0.25043845660000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.43118223852040816" green="0.43118223852040816" blue="0.43118223852040816" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sets :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-of-6A4">
                                 <rect key="frame" x="79" y="366" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" red="0.25043845660000003" green="0.25043845660000003" blue="0.25043845660000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.43118223849999998" green="0.43118223849999998" blue="0.43118223849999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdB-Cf-z9l">
                                 <rect key="frame" x="79" y="396" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" red="0.25043845660000003" green="0.25043845660000003" blue="0.25043845660000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.43118223849999998" green="0.43118223849999998" blue="0.43118223849999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jf-Aj-f8H">
@@ -581,7 +581,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nd6-cI-Ouo">
-                                                    <rect key="frame" x="20" y="19" width="15" height="15"/>
+                                                    <rect key="frame" x="20" y="18" width="17" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -1150,8 +1150,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="category_blue.png" width="125" height="125"/>
-        <image name="category_red.png" width="125" height="125"/>
+        <image name="category_blue.png" width="120" height="108"/>
+        <image name="category_red.png" width="118" height="106"/>
         <image name="slide_menu.png" width="22" height="16"/>
         <image name="swipe_delete.png" width="292" height="250"/>
         <image name="swipe_edit.png" width="292" height="250"/>
