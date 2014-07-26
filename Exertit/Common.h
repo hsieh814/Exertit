@@ -46,7 +46,9 @@
 
 // RunWorkout: next/previous exercise buttons
 #define previousColor [UIColor colorWithRed:(149.0f/255.0f) green:(222.0f/255.0f) blue:(232.0f/255.0f) alpha:1.0]
-#define nextColor [UIColor colorWithRed:(95.0f/255.0f) green:(207.0f/255.0f) blue:(222.0f/255.0f) alpha:1.0]
+//#define previousColor [UIColor colorWithRed:(122.0f/255.0f) green:(203.0f/255.0f) blue:(214.0f/255.0f) alpha:1.0]
+//#define nextColor [UIColor colorWithRed:(95.0f/255.0f) green:(207.0f/255.0f) blue:(222.0f/255.0f) alpha:1.0]
+#define nextColor [UIColor colorWithRed:(75.0f/255.0f) green:(189.0f/255.0f) blue:(204.0f/255.0f) alpha:1.0]
 
 // Max length of names
 #define WORKOUT_MAX_LENGTH 20

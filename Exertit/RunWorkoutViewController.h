@@ -10,7 +10,7 @@
 #import "Workout.h"
 #import "ExerciseSetting.h"
 
-@interface RunWorkoutViewController : UIViewController
+@interface RunWorkoutViewController : UIViewController <UIGestureRecognizerDelegate>
 
 // Timer
 @property (nonatomic, strong) NSTimer *secondsTimer;
@@ -19,7 +19,10 @@
 @property (nonatomic, strong) ExerciseSetting *exerciseSetting;
 @property (nonatomic) NSMutableArray *exercisesForWorkout;
 
+@property (weak, nonatomic) IBOutlet UIImageView *categoryImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *noteButton;
+@property (strong) UITextView *noteView;
 @property (weak, nonatomic) IBOutlet UILabel *minDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *secDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *colonLabel;
@@ -34,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextArrowButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextExerciseName;
 
+- (IBAction)showNotes:(id)sender;
 - (IBAction)startTimer:(id)sender;
 - (IBAction)resetTimer:(id)sender;
 - (IBAction)previousExercise:(id)sender;

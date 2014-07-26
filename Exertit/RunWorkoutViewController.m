@@ -71,9 +71,17 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     nextBottomBorder.backgroundColor = nextColor;
     [self.nextExerciseName addSubview:nextBottomBorder];
     
-         
-    // Exercise name
-    self.nameLabel.layer.borderWidth = 2.0;
+    // Initialize note view and customize note button
+    [self initializeNotesView];
+    self.noteButton.layer.cornerRadius = self.noteButton.layer.frame.size.width/2.0;
+    self.noteButton.layer.borderWidth = 2.0;
+    self.noteButton.layer.borderColor = themeNavBar4.CGColor;
+    [self.noteButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    
+    // Tap gesture: hide note view when taping on view
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideNoteView:)];
+    gestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,9 +101,15 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     self.repsTotal.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.reps];
     self.setsTotal.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.sets];
     self.weightLabel.text = [NSString stringWithFormat:@"%@", self.exerciseSetting.weight];
+    self.categoryImage.image = [self checkExerciseCategory:[self.exerciseSetting.baseExercise.category integerValue]];
     
-    self.nameLabel.layer.borderColor = [self checkExerciseCategory:[self.exerciseSetting.baseExercise.category integerValue]].CGColor;
-    
+    if (![self.exerciseSetting.note isEqualToString:@""]) {
+        self.noteButton.enabled = YES;
+        self.noteButton.alpha = 1.0;
+    } else {
+        self.noteButton.enabled = NO;
+        self.noteButton.alpha = 0.2;
+    }
     // Set the min and sec display
     [self setMinuteAndSecondsFromTimeInterval];
     
@@ -138,20 +152,20 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     button.alpha = 1.0;
 }
 
-// Return border color for exercise name depending on the category
-- (UIColor *)checkExerciseCategory:(NSInteger)tag
+// Return category image for exercise name depending on the category
+- (UIImage *)checkExerciseCategory:(NSInteger)tag
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     switch (tag) {
         case 1:
-            return appleBlue;
+            return [UIImage imageNamed:@"category_blue.png"];
         case 2:
-            return appleRed;
+            return [UIImage imageNamed:@"category_red.png"];
         case 3:
-            return appleYellow;
+            return [UIImage imageNamed:@"category_yellow.png"];
         case 4:
-            return appleGreen;
+            return [UIImage imageNamed:@"category_green.png"];
         default:
             break;
     }
@@ -203,9 +217,43 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     [self.resetLabel setAlpha:transparency];
 }
 
+- (void)initializeNotesView {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    self.noteView = [[UITextView alloc] initWithFrame:CGRectMake(20, 312, 280, 115)];
+    self.noteView.layer.borderColor = themeNavBar4.CGColor;
+    self.noteView.layer.borderWidth = 1.0;
+    self.noteView.layer.cornerRadius = 8.0;
+    self.noteView.font = [UIFont systemFontOfSize:16.0];
+    self.noteView.textColor = grey;
+    self.noteView.editable = NO;
+    self.noteView.hidden = YES;
+    
+    [self.view addSubview:self.noteView];
+}
+
+/* Show the notes */
+- (IBAction)showNotes:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (![self.exerciseSetting.note isEqualToString:@""]) {
+        self.noteView.text = self.exerciseSetting.note;
+        self.noteView.hidden = NO;
+    }
+}
+
+- (IBAction)hideNoteView:(id)sender {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    self.noteView.hidden = YES;
+}
+
 /* Start timer if there is a time set for the exercise */
 - (IBAction)startTimer:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Hide the note view
+    [self hideNoteView:self];
     
     if (pauseTimer) {
         // Change label to PAUSE
@@ -233,6 +281,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
 - (IBAction)resetTimer:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+    // Hide the note view
+    [self hideNoteView:self];
+    
     // Stop the timer
     [self.secondsTimer invalidate];
     self.secondsTimer = nil;
@@ -270,6 +321,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
 - (IBAction)previousExercise:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+    // Hide the note view
+    [self hideNoteView:self];
+    
     if (exerciseIndex != 0) {
         exerciseIndex--;
         [self startNextExercise];
@@ -280,6 +334,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
 - (IBAction)nextExercise:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+    // Hide the note view
+    [self hideNoteView:self];
+    
     // Make we did not reach the end of the workout (ie. there are still exercises left)
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
         exerciseIndex++;
