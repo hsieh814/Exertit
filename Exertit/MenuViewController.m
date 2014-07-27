@@ -72,6 +72,12 @@
         case 5:
             [self performSegueWithIdentifier:@"Settings" sender:self];
             break;
+        case 6:
+//            [self performSegueWithIdentifier:@"HowTo" sender:self];
+            break;
+        case 7:
+            [self performSegueWithIdentifier:@"About" sender:self];
+            break;
     }
 }
 

@@ -155,7 +155,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aer-eh-8bV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3124" y="1873"/>
+            <point key="canvasLocation" x="3216" y="1201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R4T-kb-8Qk">
@@ -170,7 +170,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7g-0u-4Ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="451"/>
+            <point key="canvasLocation" x="2336" y="-260"/>
         </scene>
         <!--Run Workout View Controller - kk-->
         <scene sceneID="zfx-MP-bPY">
@@ -372,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bb4-8A-SSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2666" y="451"/>
+            <point key="canvasLocation" x="2758" y="-260"/>
         </scene>
         <!--Workout Config Table View Controller-->
         <scene sceneID="cHg-a0-Dmn">
@@ -418,7 +418,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o42-7c-XIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2666" y="1159"/>
+            <point key="canvasLocation" x="2758" y="451"/>
         </scene>
         <!--All Exercises Table View Controller - Exercises-->
         <scene sceneID="998-UP-Ilg">
@@ -516,7 +516,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrB-Ec-PFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="1873"/>
+            <point key="canvasLocation" x="2336" y="1201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gf1-jB-VPn">
@@ -532,7 +532,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m97-61-iLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="1159"/>
+            <point key="canvasLocation" x="2336" y="451"/>
         </scene>
         <!--Workout View Controller - workout name-->
         <scene sceneID="tcZ-Rq-YVK">
@@ -646,7 +646,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAb-lD-7FE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="451"/>
+            <point key="canvasLocation" x="1548" y="-260"/>
         </scene>
         <!--Run Interval Trainer View Controller-->
         <scene sceneID="emM-VU-KrO">
@@ -748,7 +748,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cw2-Wl-YTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970" y="1873"/>
+            <point key="canvasLocation" x="1887" y="1905"/>
         </scene>
         <!--Timer View Controller - Timer-->
         <scene sceneID="ufC-wZ-h7g">
@@ -840,7 +840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="1873"/>
+            <point key="canvasLocation" x="1458" y="1201"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="ZH0-Qq-aWC">
@@ -912,11 +912,70 @@
                         <segue destination="vXZ-lx-hvc" kind="custom" identifier="Timer" customClass="SWRevealViewControllerSegue" id="x6f-G8-QRS"/>
                         <segue destination="i6E-f0-6Gx" kind="custom" identifier="IntervalTimer" customClass="SWRevealViewControllerSegue" id="brh-Kf-i4J"/>
                         <segue destination="thw-RJ-vhI" kind="custom" identifier="AllExercises" customClass="SWRevealViewControllerSegue" id="TQ4-FN-9Dh"/>
+                        <segue destination="MXp-mG-OoE" kind="custom" identifier="About" customClass="SWRevealViewControllerSegue" id="Vce-no-hKE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKM-os-7MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="161" y="-260"/>
+        </scene>
+        <!--About View Controller - About-->
+        <scene sceneID="Xzy-8p-f9C">
+            <objects>
+                <viewController title="About" id="MXp-mG-OoE" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DbU-2L-VWZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="KLp-Pi-deg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tDT-ha-aJE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exertit_512.png" translatesAutoresizingMaskIntoConstraints="NO" id="z5W-ho-FCz">
+                                <rect key="frame" x="10" y="74" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Have a question? Feature requests?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNr-Ad-9Kn">
+                                <rect key="frame" x="20" y="387" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shoot me an email at :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obg-6z-4dQ">
+                                <rect key="frame" x="20" y="415" width="166" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exertit.app@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8F-Fz-HDw">
+                                <rect key="frame" x="63" y="444" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT3-XP-hH3">
+                                <rect key="frame" x="91" y="487" width="120" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Contact Us">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="emailAction:" destination="MXp-mG-OoE" eventType="touchUpInside" id="dVD-9w-xib"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailButton" destination="nT3-XP-hH3" id="Jgj-79-cxm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bk-Ml-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="1905"/>
         </scene>
         <!--Interval Timer View Controller - Interval Trainer-->
         <scene sceneID="iSD-2F-oWG">
@@ -1094,7 +1153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgh-VU-c6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="1873"/>
+            <point key="canvasLocation" x="1458" y="1905"/>
         </scene>
         <!--Settings Table View Controller - Settings-->
         <scene sceneID="Whz-Mq-nKX">
@@ -1134,7 +1193,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkn-hr-LJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="1873"/>
+            <point key="canvasLocation" x="797" y="1195"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="15Q-zX-I9u">
@@ -1165,12 +1224,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2N-TH-cLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="1873"/>
+            <point key="canvasLocation" x="2792" y="1201"/>
         </scene>
     </scenes>
     <resources>
         <image name="category_blue.png" width="120" height="108"/>
         <image name="category_red.png" width="118" height="106"/>
+        <image name="exertit_512.png" width="512" height="512"/>
         <image name="slide_menu.png" width="22" height="16"/>
         <image name="swipe_delete.png" width="292" height="250"/>
         <image name="swipe_edit.png" width="292" height="250"/>
@@ -1181,9 +1241,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="GI5-kF-lOt"/>
+        <segue reference="WBr-jU-3T2"/>
         <segue reference="tBt-ga-Djx"/>
-        <segue reference="Ca1-ln-vaj"/>
-        <segue reference="y1w-0d-dno"/>
     </inferredMetricsTieBreakers>
 </document>

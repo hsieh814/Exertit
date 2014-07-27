@@ -38,6 +38,8 @@
 		BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7CD194BEE05004AA489 /* swipe_delete.png */; };
 		BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D5194BF65E004AA489 /* swipe_edit.png */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
+		BF1072441984BE8F00F73BE9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1072431984BE8F00F73BE9 /* AboutViewController.m */; };
+		BF1072461984C19600F73BE9 /* exertit_512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1072451984C19600F73BE9 /* exertit_512.png */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
@@ -171,6 +173,9 @@
 		BF04D7D5194BF65E004AA489 /* swipe_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_edit.png; path = Images/swipe_edit.png; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		BF1072421984BE8F00F73BE9 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		BF1072431984BE8F00F73BE9 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		BF1072451984C19600F73BE9 /* exertit_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_512.png; path = Images/exertit_512.png; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Exertit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exertit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -488,6 +493,8 @@
 				BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */,
 				BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */,
 				BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */,
+				BF1072421984BE8F00F73BE9 /* AboutViewController.h */,
+				BF1072431984BE8F00F73BE9 /* AboutViewController.m */,
 				BF0E4CB218EA5D9800573517 /* Libraries */,
 				BF8122EE18C0467B00606092 /* Images */,
 				BF2098871871F80400D52321 /* Images.xcassets */,
@@ -547,6 +554,7 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF1072451984C19600F73BE9 /* exertit_512.png */,
 				BF393563195A66730060F854 /* slide_menu@2x.png */,
 				BFAC6457194D65E400AC9DF8 /* checkmark.png */,
 				BFAC6446194CCE2800AC9DF8 /* category_blue.png */,
@@ -668,6 +676,7 @@
 				BFBAC98A19359BB800F93A1B /* settings_120.png in Resources */,
 				BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */,
 				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
+				BF1072461984C19600F73BE9 /* exertit_512.png in Resources */,
 				BFBAC9901935A30400F93A1B /* about_120.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
 				BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */,
@@ -744,6 +753,7 @@
 				BF00D39018E8592600DA4CD7 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */,
 				BF642B51196E43F20067DC7F /* Exercise.m in Sources */,
+				BF1072441984BE8F00F73BE9 /* AboutViewController.m in Sources */,
 				BF00D39418E8592600DA4CD7 /* NSPersistentStore+MagicalRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
