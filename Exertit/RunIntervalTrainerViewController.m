@@ -214,25 +214,25 @@ bool playSound, vibrate;
         case WARM_UP:
             NSLog(@"++++++ WARM UP");
             self.categoryLabel.text = @"WARM UP";
-            self.categoryLabel.textColor = themeBlue;
+            self.categoryLabel.backgroundColor = themeOrange;
             return self.warmupDuration;
             break;
         case LOW_INT:
             NSLog(@"++++++ LOW INTERVAL");
             self.categoryLabel.text = @"LOW";
-            self.categoryLabel.textColor = themeGreen;
+            self.categoryLabel.backgroundColor = themeGreen;
             return self.lowIntervalDuration;
             break;
         case HIGH_INT:
             NSLog(@"++++++ HIGH INTERVAL");
             self.categoryLabel.text = @"HIGH";
-            self.categoryLabel.textColor = themeRed;
+            self.categoryLabel.backgroundColor = themeRed;
             return self.highIntervalDuration;
             break;
         case COOL_DOWN:
             NSLog(@"++++++ COOL DOWN");
             self.categoryLabel.text = @"COOL DOWN";
-            self.categoryLabel.textColor = themeBlue;
+            self.categoryLabel.backgroundColor = themeBlue;
             return self.cooldownDuration;
             break;
         default:
@@ -269,8 +269,8 @@ bool playSound, vibrate;
     
     [self.pauseLabel setTitle:@"START" forState:UIControlStateNormal];
     
-    self.categoryLabel.text = @"FINISHED";
-    self.categoryLabel.textColor = themeBlue;
+    self.categoryLabel.text = @"DONE!";
+    self.categoryLabel. backgroundColor = [UIColor lightGrayColor];
 }
 
 /* PAUSE and RESET timer buttons*/
