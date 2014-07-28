@@ -66,12 +66,12 @@ static const int TIMER = 1;
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:16], NSFontAttributeName, nil];
     [self.switcher setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
-    // Cicle button
-    self.startLabel.layer.cornerRadius = self.startLabel.bounds.size.width/2.0;
-    self.startLabel.layer.borderWidth = 1.0;
+    // START/RESET buttons customization
+    self.startLabel.layer.cornerRadius = 20.0f;
+    self.startLabel.layer.borderWidth = 2.0;
     self.startLabel.layer.borderColor = self.startLabel.titleLabel.textColor.CGColor;
-    self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
-    self.resetLabel.layer.borderWidth = 1.0;
+    self.resetLabel.layer.cornerRadius = 20.0f;
+    self.resetLabel.layer.borderWidth = 2.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
 }
 

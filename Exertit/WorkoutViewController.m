@@ -41,11 +41,11 @@
     
     // Change start button text color
     self.startButton.backgroundColor = [UIColor whiteColor];
-    self.startButton.layer.borderColor = darkGreen.CGColor;
+    self.startButton.layer.borderColor = appleGreen.CGColor;
     self.startButton.layer.borderWidth = 2.0;
     self.startButton.layer.cornerRadius = 20.0f;
     self.startButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
-    [self.startButton setTitleColor:darkGreen forState:UIControlStateNormal];
+    [self.startButton setTitleColor:appleGreen forState:UIControlStateNormal];
     
     // TableView customization
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

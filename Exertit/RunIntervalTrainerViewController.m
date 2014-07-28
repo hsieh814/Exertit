@@ -63,11 +63,11 @@ bool playSound, vibrate;
     [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
     
     // Cicle button
-    self.pauseLabel.layer.cornerRadius = self.pauseLabel.bounds.size.width/2.0;
-    self.pauseLabel.layer.borderWidth = 1.0;
+    self.pauseLabel.layer.cornerRadius = 20.0f;
+    self.pauseLabel.layer.borderWidth = 2.0;
     self.pauseLabel.layer.borderColor = self.pauseLabel.titleLabel.textColor.CGColor;
-    self.resetLabel.layer.cornerRadius = self.resetLabel.bounds.size.width/2.0;
-    self.resetLabel.layer.borderWidth = 1.0;
+    self.resetLabel.layer.cornerRadius = 20.0;
+    self.resetLabel.layer.borderWidth = 2.0;
     self.resetLabel.layer.borderColor = self.resetLabel.titleLabel.textColor.CGColor;
     
     [self setupSystemSounds];
