@@ -16,6 +16,7 @@
 
 static int minutesCount = 0;
 static int secondsCount = 0;
+static int milliCount = 0;
 static bool pauseTimer = 1;
 
 // selectedSwitcher
@@ -202,32 +203,39 @@ static const int TIMER = 1;
         // Stopwatch
         minutesCount = 0;
         secondsCount = 0;
+        milliCount = 0;
     } else {
         // Set the timer back to the selected min and sec
         minutesCount = self.setMin;
         secondsCount = self.setSec;
+        milliCount = 0;
         
         // Enable the time picker
         [self enableTimePicker:YES];
     }
 
     // Reset the min and sec display
-    [self displayMinValue:minutesCount andSecValue:secondsCount];
+    [self displayMinValue:minutesCount andSecValue:secondsCount andMilliValue:milliCount];
 }
 
-// Called every second when timePicker is active
+// Called every millisec when timePicker is active
 - (void)timer {
     if (self.selectedSwitcher == STOPWATCH) {
         // Stopwatch
-        if (secondsCount == 59) {
-            minutesCount++;
-            secondsCount = 0;
+        if (milliCount == 99) {
+            milliCount = 0;
+            if (secondsCount == 59) {
+                minutesCount++;
+                secondsCount = 0;
+            } else {
+                secondsCount++;
+            }
         } else {
-            secondsCount++;
+            milliCount++;
         }
     } else {
         // Timer
-        if (secondsCount == 0 && minutesCount == 0) {
+        if (secondsCount == 0 && minutesCount == 0 && milliCount == 0) {
             // Play system sound when timer count down is done
             AudioServicesPlaySystemSound(1005);
 
@@ -236,19 +244,25 @@ static const int TIMER = 1;
 
             minutesCount = self.setMin;
             secondsCount = self.setSec;
-            [self displayMinValue:minutesCount andSecValue:secondsCount];
+            milliCount = 0;
+            [self displayMinValue:minutesCount andSecValue:secondsCount andMilliValue:milliCount];
 
             [self enableTimePicker:TRUE];
 
-        } else if (secondsCount == 0) {
-            minutesCount--;
-            secondsCount = 59;
+        } else if (milliCount == 0) {
+            milliCount = 99;
+            if (secondsCount == 0) {
+                minutesCount--;
+                secondsCount = 59;
+            } else {
+                secondsCount--;
+            }
         } else {
-            secondsCount--;
+            milliCount--;
         }
     }
     
-    [self displayMinValue:minutesCount andSecValue:secondsCount];
+    [self displayMinValue:minutesCount andSecValue:secondsCount andMilliValue:milliCount];
 }
 
 // Segmented control: stopwatch and timer
@@ -266,6 +280,7 @@ static const int TIMER = 1;
             [self enableTimePicker:NO];
             minutesCount = 0;
             secondsCount = 0;
+            milliCount = 0;
             break;
         case 1:
             // timer
@@ -273,24 +288,26 @@ static const int TIMER = 1;
             [self enableTimePicker:YES];
             minutesCount = self.setMin;
             secondsCount = self.setSec;
+            milliCount = 99;
             break;
         default:
             break;
     }
     
-    [self displayMinValue:minutesCount andSecValue:secondsCount];
+    [self displayMinValue:minutesCount andSecValue:secondsCount andMilliValue:milliCount];
 }
 
 // Change the display values for the min and sec labels
--(void)displayMinValue:(int)minutes andSecValue:(int)seconds {
+-(void)displayMinValue:(int)minutes andSecValue:(int)seconds andMilliValue:(int)millisecs {
     self.minDisplay.text = [NSString stringWithFormat:@"%02d", minutes];
     self.secDisplay.text = [NSString stringWithFormat:@"%02d", seconds];
+    self.milliDisplay.text = [NSString stringWithFormat:@"%02d", millisecs];
 }
 
 // Run the timer
 -(void)runTimer
 {
-    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+    self.secondsTimer = [NSTimer scheduledTimerWithTimeInterval:0.01
                                                          target: self
                                                        selector:@selector(timer)
                                                        userInfo:nil

@@ -23,6 +23,7 @@
 // Labels for min and sec
 @property (strong, nonatomic) IBOutlet UILabel *minDisplay;
 @property (strong, nonatomic) IBOutlet UILabel *secDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *milliDisplay;
 
 // Time picker
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
