@@ -13,6 +13,7 @@
 - (void)deleteButtonActionForItemText:(NSString *)itemText;
 - (void)cellDidOpen:(UITableViewCell *)cell;
 - (void)cellDidClose:(UITableViewCell *)cell;
+- (void)cellIsSwiping:(BOOL)isSwiping;
 @end
 
 @interface WorkoutCell : UITableViewCell

@@ -97,17 +97,20 @@ CGFloat workoutHeightBorder = 2;
 
 - (void)panThisCell:(UIPanGestureRecognizer *)recognizer
 {
-    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
             NSLog(@"UIGestureRecognizerStateBegan");
+            // Notify AllWorkouts that cell began swipe; need to stop scrolling of tableview
+            [self.delegate cellIsSwiping:YES];
+            
             self.panStartPoint = [recognizer translationInView:self.myContentView];
             self.startingRightLayoutConstraintConstant = self.contentViewRightConstraint.constant;
             break;
             
         case UIGestureRecognizerStateChanged: {
-            NSLog(@"UIGestureRecognizerStateChanged");
+//            NSLog(@"UIGestureRecognizerStateChanged");
             CGPoint currentPoint = [recognizer translationInView:self.myContentView];
             CGFloat deltaX = currentPoint.x - self.panStartPoint.x;
             BOOL panningLeft = NO;
@@ -158,6 +161,9 @@ CGFloat workoutHeightBorder = 2;
             
         case UIGestureRecognizerStateEnded:
             NSLog(@"UIGestureRecognizerStateEnded");
+            // Notify AllWorkouts that cell stopped swipe; need to enable scrolling of tableview
+            [self.delegate cellIsSwiping:NO];
+            
             if (self.startingRightLayoutConstraintConstant == 0) { //1
                 //We were opening
                 CGFloat halfOfButtonOne = CGRectGetWidth(self.editButton.frame) / 2; //2
@@ -183,7 +189,7 @@ CGFloat workoutHeightBorder = 2;
             break;
             
         case UIGestureRecognizerStateCancelled:
-            NSLog(@"UIGestureRecognizerStateCancelled");
+//            NSLog(@"UIGestureRecognizerStateCancelled");
             if (self.startingRightLayoutConstraintConstant == 0) {
                 //We were closed - reset everything to 0
                 [self resetConstraintContstantsToZero:YES notifyDelegateDidClose:YES];

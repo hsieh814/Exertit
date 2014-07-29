@@ -39,7 +39,7 @@
 - (void)viewDidLoad
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
+
     // Slide out menu customization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
@@ -91,6 +91,11 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     return YES;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
 }
 
 #pragma mark - Table view data source
@@ -228,6 +233,47 @@
 }
 
 #pragma mark - SwipeableCellDelegate
+
+// Called when showing a cell's utility buttons
+- (void)cellDidOpen:(UITableViewCell *)cell
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    self.indexPath = [self.tableView indexPathForCell:cell];
+    
+    if (self.activeCell != nil) {
+        // There is no active cell (no cells with utility buttons showing)
+        [self.activeCell closeActivatedCells];
+    }
+    
+    self.activeCell = (WorkoutCell *)[self.tableView cellForRowAtIndexPath:self.indexPath];
+    
+}
+
+// Called when hiding a cell's utility buttons
+- (void)cellDidClose:(UITableViewCell *)cell
+{
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Avoid setting activeCell to nil when closing a cell that does isn't showing its utility buttons.
+    if (self.activeCell == cell) {
+        self.activeCell = nil;
+    }
+}
+
+// WorkoutCell notify that the cell is started/stopped swipe; need to stop scrolling
+- (void)cellIsSwiping:(BOOL)isSwiping {
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (isSwiping) {
+        NSLog(@"-------------NO");
+        self.tableView.scrollEnabled = NO;
+    } else {
+        NSLog(@"-------------YES");
+        self.tableView.scrollEnabled = YES;
+    }
+}
+
 - (void)editButtonActionForItemText:(NSString *)itemText {
     NSLog(@"Edit for %@", itemText);
     
@@ -417,33 +463,6 @@
 - (void)closeModal
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-// Called when showing a cell's utility buttons
-- (void)cellDidOpen:(UITableViewCell *)cell
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    self.indexPath = [self.tableView indexPathForCell:cell];
-    
-    if (self.activeCell != nil) {
-        // There is no active cell (no cells with utility buttons showing)
-        [self.activeCell closeActivatedCells];
-    }
-    
-    self.activeCell = (WorkoutCell *)[self.tableView cellForRowAtIndexPath:self.indexPath];
-    
-}
-
-// Called when hiding a cell's utility buttons
-- (void)cellDidClose:(UITableViewCell *)cell
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    // Avoid setting activeCell to nil when closing a cell that does isn't showing its utility buttons.
-    if (self.activeCell == cell) {
-        self.activeCell = nil;
-    }
 }
 
 #pragma mark - iAdBanner Delegates
