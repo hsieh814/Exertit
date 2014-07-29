@@ -288,7 +288,7 @@ static const int TIMER = 1;
             [self enableTimePicker:YES];
             minutesCount = self.setMin;
             secondsCount = self.setSec;
-            milliCount = 99;
+            milliCount = 0;
             break;
         default:
             break;
