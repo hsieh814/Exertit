@@ -560,6 +560,11 @@ bool createdNewExerciseSetting;
     // Toast message
     [self.view makeToast:@"Set exercise settings as default" duration:(1.5) position:@"top"];
     
+    // self.exericse is not set when editing existing ExerciseSetting, hence cannot save default
+    if (!createdNewExerciseSetting) {
+        self.exercise = self.exerciseSetting.baseExercise;
+    }
+    
     self.exercise.reps = [NSNumber numberWithInteger:[self.repsText.text integerValue]];
     self.exercise.sets = [NSNumber numberWithInteger:[self.setsText.text integerValue]];
     self.exercise.weight = [NSNumber numberWithInteger:[self.weightText.text integerValue]];
