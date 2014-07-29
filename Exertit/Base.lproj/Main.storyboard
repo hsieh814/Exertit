@@ -323,7 +323,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-GR-1aH">
-                                <rect key="frame" x="20" y="94" width="30" height="30"/>
+                                <rect key="frame" x="20" y="91" width="30" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftf-NX-qHE">
@@ -468,7 +468,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="category_blue.png" highlightedImage="category_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ief-dN-Bwz">
-                                                    <rect key="frame" x="20" y="24" width="15" height="15"/>
+                                                    <rect key="frame" x="23" y="21" width="17" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -600,7 +600,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nd6-cI-Ouo">
-                                                    <rect key="frame" x="20" y="18" width="17" height="17"/>
+                                                    <rect key="frame" x="20" y="17" width="17" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -1285,8 +1285,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="category_blue.png" width="120" height="108"/>
-        <image name="category_red.png" width="118" height="106"/>
+        <image name="category_blue.png" width="108" height="120"/>
+        <image name="category_red.png" width="106" height="118"/>
         <image name="exertit_full.png" width="786" height="251"/>
         <image name="slide_menu.png" width="22" height="16"/>
         <image name="swipe_delete.png" width="292" height="250"/>
@@ -1298,9 +1298,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="GI5-kF-lOt"/>
-        <segue reference="WBr-jU-3T2"/>
         <segue reference="tBt-ga-Djx"/>
+        <segue reference="Ca1-ln-vaj"/>
+        <segue reference="WBr-jU-3T2"/>
     </inferredMetricsTieBreakers>
 </document>
