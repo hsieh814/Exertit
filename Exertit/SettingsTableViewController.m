@@ -120,6 +120,19 @@ bool soundOn, vibrateOn;
             [vibrateSwitch addTarget:self action:@selector(toggleVibrate:) forControlEvents:UIControlEventValueChanged];
             [vibrateSwitch setOn:vibrateOn];
             
+            // Add a line between Alert and Vibrate
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            [path moveToPoint:CGPointMake(40.0, 135.0)];
+            [path addLineToPoint:CGPointMake(280.0, 135.0)];
+            
+            CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+            shapeLayer.path = [path CGPath];
+            shapeLayer.strokeColor = [themeNavBar4 CGColor];
+            shapeLayer.lineWidth = 1.0;
+            shapeLayer.fillColor = [[UIColor clearColor] CGColor];
+            
+            [cell.layer addSublayer:shapeLayer];
+            
             [cell addSubview:alertInfo];
             [cell addSubview:soundLabel];
             [cell addSubview:soundSwitch];
