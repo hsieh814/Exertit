@@ -471,6 +471,13 @@ bool createdNewExerciseSetting;
 - (IBAction)done:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+    // Prevent creating ExerciseSetting with no exercise selected
+    if ([self.selectedExerciseLabel.text isEqualToString:@"Select Exercise"]) {
+        // Nothing selected, so just as if calling cancel button
+        [self cancel:self];
+        return;
+    }
+    
     self.exerciseSetting.reps = [NSNumber numberWithInteger:[self.repsText.text integerValue]];
     self.exerciseSetting.sets = [NSNumber numberWithInteger:[self.setsText.text integerValue]];
     self.exerciseSetting.weight = [NSNumber numberWithInteger:[self.weightText.text integerValue]];
