@@ -47,6 +47,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    [self.revealViewController.frontViewController.view setUserInteractionEnabled:NO];
+    [self.revealViewController.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    [self.revealViewController.frontViewController.view setUserInteractionEnabled:YES];
+}
+
 /*  1- Click a cell on the slide out menu
     2- Calls didSelectRowAtIndexPath to determine the segue to perform
     3- Calls prepareForSegue to set the new Front view

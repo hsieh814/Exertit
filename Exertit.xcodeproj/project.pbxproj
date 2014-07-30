@@ -65,6 +65,8 @@
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
 		BF30A6871985BE9D00482A7E /* exertit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF30A6861985BE9D00482A7E /* exertit_full.png */; };
 		BF33A7641988912A00405D1A /* exertit_full_white.png in Resources */ = {isa = PBXBuildFile; fileRef = BF33A7631988912A00405D1A /* exertit_full_white.png */; };
+		BF33A76A198895CF00405D1A /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF33A769198895CF00405D1A /* HowToViewController.m */; };
+		BF33A76D19889A4E00405D1A /* HowToPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF33A76C19889A4E00405D1A /* HowToPageContentViewController.m */; };
 		BF393564195A66730060F854 /* slide_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF393563195A66730060F854 /* slide_menu@2x.png */; };
 		BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF393565195A6CA70060F854 /* defaultPrefs.plist */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
@@ -211,6 +213,10 @@
 		BF2372E1187516BF009B43EF /* WorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
 		BF30A6861985BE9D00482A7E /* exertit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_full.png; path = Images/exertit_full.png; sourceTree = "<group>"; };
 		BF33A7631988912A00405D1A /* exertit_full_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_full_white.png; path = Images/exertit_full_white.png; sourceTree = "<group>"; };
+		BF33A768198895CF00405D1A /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
+		BF33A769198895CF00405D1A /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
+		BF33A76B19889A4E00405D1A /* HowToPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToPageContentViewController.h; sourceTree = "<group>"; };
+		BF33A76C19889A4E00405D1A /* HowToPageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToPageContentViewController.m; sourceTree = "<group>"; };
 		BF393563195A66730060F854 /* slide_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "slide_menu@2x.png"; path = "Images/slide_menu@2x.png"; sourceTree = "<group>"; };
 		BF393565195A6CA70060F854 /* defaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultPrefs.plist; sourceTree = "<group>"; };
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -495,6 +501,10 @@
 				BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */,
 				BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */,
 				BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */,
+				BF33A768198895CF00405D1A /* HowToViewController.h */,
+				BF33A769198895CF00405D1A /* HowToViewController.m */,
+				BF33A76B19889A4E00405D1A /* HowToPageContentViewController.h */,
+				BF33A76C19889A4E00405D1A /* HowToPageContentViewController.m */,
 				BFC5A7C118C3E9DE0048D410 /* SettingsTableViewController.h */,
 				BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */,
 				BF1072421984BE8F00F73BE9 /* AboutViewController.h */,
@@ -738,11 +748,13 @@
 				BF00D38418E8592600DA4CD7 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				BF00D38818E8592600DA4CD7 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				BF00D38718E8592600DA4CD7 /* NSObject+MagicalDataImport.m in Sources */,
+				BF33A76D19889A4E00405D1A /* HowToPageContentViewController.m in Sources */,
 				BF00D39A18E8592600DA4CD7 /* MagicalRecord+Setup.m in Sources */,
 				BF00D39218E8592600DA4CD7 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				BF00D38F18E8592600DA4CD7 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				BF00D39918E8592600DA4CD7 /* MagicalRecord+Options.m in Sources */,
 				BF20987C1871F80400D52321 /* main.m in Sources */,
+				BF33A76A198895CF00405D1A /* HowToViewController.m in Sources */,
 				BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */,
 				BFD0659518D7E7BD00A64C6D /* ExerciseCell.m in Sources */,
 				BF642B54196E43F20067DC7F /* ExerciseSetting.m in Sources */,

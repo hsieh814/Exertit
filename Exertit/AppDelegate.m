@@ -34,6 +34,12 @@
     NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
     
+    // Override the page view indicators
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+
     return YES;
 }
 

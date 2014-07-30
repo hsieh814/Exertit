@@ -1057,7 +1057,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     // symetric replacement of frontViewPosition
     [self _getAdjustedFrontViewPosition:&frontViewPosition forSymetry:symetry];
-    
+
     // restore user interaction and animate to the final position
     [self _restoreUserInteraction];
     [self _notifyPanGestureEnded];
