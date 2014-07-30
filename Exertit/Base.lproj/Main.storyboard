@@ -932,11 +932,20 @@
                         <segue destination="i6E-f0-6Gx" kind="custom" identifier="IntervalTimer" customClass="SWRevealViewControllerSegue" id="brh-Kf-i4J"/>
                         <segue destination="thw-RJ-vhI" kind="custom" identifier="AllExercises" customClass="SWRevealViewControllerSegue" id="TQ4-FN-9Dh"/>
                         <segue destination="MXp-mG-OoE" kind="custom" identifier="About" customClass="SWRevealViewControllerSegue" id="Vce-no-hKE"/>
+                        <segue destination="fVt-aW-zam" kind="custom" identifier="HowTo" customClass="SWRevealViewControllerSegue" id="0ae-Yo-Lo5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKM-os-7MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="161" y="-260"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="EkK-QL-aZz">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="fVt-aW-zam" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rz-Gq-aou" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="329" y="1905"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="Xzy-8p-f9C">
@@ -1299,8 +1308,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="GI5-kF-lOt"/>
-        <segue reference="tBt-ga-Djx"/>
-        <segue reference="Ca1-ln-vaj"/>
+        <segue reference="TQ4-FN-9Dh"/>
         <segue reference="WBr-jU-3T2"/>
+        <segue reference="tBt-ga-Djx"/>
     </inferredMetricsTieBreakers>
 </document>

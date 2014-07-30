@@ -129,7 +129,7 @@
     cell.workoutIconCircle.layer.borderColor = themeNavBar4.CGColor;
     cell.workoutIconLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)workout.exerciseGroup.count];
     cell.workoutIconLabel.textColor = darkBlue;
-    
+
     return cell;
 }
 

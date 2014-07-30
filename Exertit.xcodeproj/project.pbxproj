@@ -64,6 +64,7 @@
 		BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DD187516BF009B43EF /* MenuViewController.m */; };
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
 		BF30A6871985BE9D00482A7E /* exertit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF30A6861985BE9D00482A7E /* exertit_full.png */; };
+		BF33A7641988912A00405D1A /* exertit_full_white.png in Resources */ = {isa = PBXBuildFile; fileRef = BF33A7631988912A00405D1A /* exertit_full_white.png */; };
 		BF393564195A66730060F854 /* slide_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF393563195A66730060F854 /* slide_menu@2x.png */; };
 		BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF393565195A6CA70060F854 /* defaultPrefs.plist */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
@@ -209,6 +210,7 @@
 		BF2372E0187516BF009B43EF /* WorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		BF2372E1187516BF009B43EF /* WorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
 		BF30A6861985BE9D00482A7E /* exertit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_full.png; path = Images/exertit_full.png; sourceTree = "<group>"; };
+		BF33A7631988912A00405D1A /* exertit_full_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_full_white.png; path = Images/exertit_full_white.png; sourceTree = "<group>"; };
 		BF393563195A66730060F854 /* slide_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "slide_menu@2x.png"; path = "Images/slide_menu@2x.png"; sourceTree = "<group>"; };
 		BF393565195A6CA70060F854 /* defaultPrefs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultPrefs.plist; sourceTree = "<group>"; };
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -556,6 +558,7 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF33A7631988912A00405D1A /* exertit_full_white.png */,
 				BF30A6861985BE9D00482A7E /* exertit_full.png */,
 				BF1072451984C19600F73BE9 /* exertit_512.png */,
 				BF393563195A66730060F854 /* slide_menu@2x.png */,
@@ -687,6 +690,7 @@
 				BF2098831871F80400D52321 /* Main.storyboard in Resources */,
 				BFAC644C194CCE2800AC9DF8 /* category_red.png in Resources */,
 				BF8122F818C0495B00606092 /* coderwall-512.png in Resources */,
+				BF33A7641988912A00405D1A /* exertit_full_white.png in Resources */,
 				BF22E0EF19344A7000A5C1DB /* exercises_120.png in Resources */,
 				BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */,
 			);

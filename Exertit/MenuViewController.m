@@ -73,7 +73,7 @@
             [self performSegueWithIdentifier:@"Settings" sender:self];
             break;
         case 6:
-//            [self performSegueWithIdentifier:@"HowTo" sender:self];
+            [self performSegueWithIdentifier:@"HowTo" sender:self];
             break;
         case 7:
             [self performSegueWithIdentifier:@"About" sender:self];
@@ -102,20 +102,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if (section == 0) {
-        // List of favorite workouts
-        return [self.favoriteWorkoutList count];
-    } else {
-        // Default menu
-        return 8;
-    }
+    return 8;
 }
 
 // Set the row height
@@ -124,78 +116,49 @@
     return 60;
 }
 
-// Titles for the table sections
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    if (section == 0){
-////        return @"Favorites";
-//        return @"";
-//    } else {
-//        return @" ";
-//    }
-//}
-
-// Customize header colors
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
-    // Set the text color of our header/footer text.
-//    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-//    [header.textLabel setTextColor:[UIColor whiteColor]];
-    
-    // Set the background color of our header/footer.
-//    header.contentView.backgroundColor = [UIColor colorWithRed:64/255.0f green:136/255.0f blue:255/255.0f alpha:1.0f];
-    
-    // You can also do this to set the background color of our header/footer,
-    //    but the gradients/other effects will be retained.
-    // view.tintColor = [UIColor blackColor];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
     MenuCell *cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
 
-    if (indexPath.section == 0) {
-        // Favorite list
-        Workout *workout = [self.favoriteWorkoutList objectAtIndex:indexPath.row];
-        cell.menuCellName.text = workout.workoutName;
-        cell.menuCellImage.image = [UIImage imageNamed:@"mandriva-512.png"];
-        
-    } else if (indexPath.section == 1) {
-        // Default menu list
-        switch (indexPath.row) {
-            case 0:
-                break;
-            case 1:
-                cell.menuCellName.text = @"All Workouts";
-                cell.menuCellImage.image = [UIImage imageNamed:@"workouts_120.png"];
-                break;
-            case 2:
-                cell.menuCellName.text = @"All Exercises";
-                cell.menuCellImage.image = [UIImage imageNamed:@"exercises_120.png"];
-                break;
-            case 3:
-                cell.menuCellName.text = @"Timer";
-                cell.menuCellImage.image = [UIImage imageNamed:@"timer_120.png"];
-                break;
-            case 4:
-                cell.menuCellName.text = @"Interval Trainer";
-                cell.menuCellImage.image = [UIImage imageNamed:@"interval_trainer_120.png"];
-                break;
-            case 5:
-                cell.menuCellName.text = @"Settings";
-                cell.menuCellImage.image = [UIImage imageNamed:@"settings_120.png"];
-                break;
-            case 6:
-                cell.menuCellName.text = @"How-to-Guide";
-                cell.menuCellImage.image = [UIImage imageNamed:@"howtoguide_120.png"];
-                break;
-            case 7:
-                cell.menuCellName.text = @"About";
-                cell.menuCellImage.image = [UIImage imageNamed:@"about_120.png"];
-                break;
+    // Default menu list
+    switch (indexPath.row) {
+        case 0:
+        {
+            UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(cell.menuCellImage.frame.origin.x, cell.menuCellImage.frame.origin.y, 160, 40)];
+            logo.image = [UIImage imageNamed:@"exertit_full_white.png"];
+            cell.menuCellName.text = @"";
+            [cell addSubview:logo];
+            break;
         }
-        
+        case 1:
+            cell.menuCellName.text = @"All Workouts";
+            cell.menuCellImage.image = [UIImage imageNamed:@"workouts_120.png"];
+            break;
+        case 2:
+            cell.menuCellName.text = @"All Exercises";
+            cell.menuCellImage.image = [UIImage imageNamed:@"exercises_120.png"];
+            break;
+        case 3:
+            cell.menuCellName.text = @"Timer";
+            cell.menuCellImage.image = [UIImage imageNamed:@"timer_120.png"];
+            break;
+        case 4:
+            cell.menuCellName.text = @"Interval Trainer";
+            cell.menuCellImage.image = [UIImage imageNamed:@"interval_trainer_120.png"];
+            break;
+        case 5:
+            cell.menuCellName.text = @"Settings";
+            cell.menuCellImage.image = [UIImage imageNamed:@"settings_120.png"];
+            break;
+        case 6:
+            cell.menuCellName.text = @"How-to-Guide";
+            cell.menuCellImage.image = [UIImage imageNamed:@"howtoguide_120.png"];
+            break;
+        case 7:
+            cell.menuCellName.text = @"About";
+            cell.menuCellImage.image = [UIImage imageNamed:@"about_120.png"];
+            break;
     }
     
     cell.backgroundColor = darkBlue;
@@ -203,6 +166,5 @@
         
     return cell;
 }
-
 
 @end
