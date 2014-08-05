@@ -63,6 +63,11 @@
 		BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BF22E0F019344BA000A5C1DB /* workouts_120.png */; };
 		BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372DD187516BF009B43EF /* MenuViewController.m */; };
 		BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2372E1187516BF009B43EF /* WorkoutCell.m */; };
+		BF29CCA91990901F006848D8 /* guide2_iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF29CCA81990901F006848D8 /* guide2_iphone5.png */; };
+		BF29CCAB19909AD6006848D8 /* guide3_iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF29CCAA19909AD6006848D8 /* guide3_iphone5.png */; };
+		BF29CCAD19909E55006848D8 /* guide4_iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF29CCAC19909E55006848D8 /* guide4_iphone5.png */; };
+		BF29CCAF1990A34E006848D8 /* guide5_iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF29CCAE1990A34E006848D8 /* guide5_iphone5.png */; };
+		BF29CCB11990A41C006848D8 /* guide1_iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF29CCB01990A41C006848D8 /* guide1_iphone5.png */; };
 		BF30A6871985BE9D00482A7E /* exertit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = BF30A6861985BE9D00482A7E /* exertit_full.png */; };
 		BF33A7641988912A00405D1A /* exertit_full_white.png in Resources */ = {isa = PBXBuildFile; fileRef = BF33A7631988912A00405D1A /* exertit_full_white.png */; };
 		BF33A76A198895CF00405D1A /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF33A769198895CF00405D1A /* HowToViewController.m */; };
@@ -211,6 +216,11 @@
 		BF2372DD187516BF009B43EF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		BF2372E0187516BF009B43EF /* WorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutCell.h; sourceTree = "<group>"; };
 		BF2372E1187516BF009B43EF /* WorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutCell.m; sourceTree = "<group>"; };
+		BF29CCA81990901F006848D8 /* guide2_iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide2_iphone5.png; path = Images/guide2_iphone5.png; sourceTree = "<group>"; };
+		BF29CCAA19909AD6006848D8 /* guide3_iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide3_iphone5.png; path = Images/guide3_iphone5.png; sourceTree = "<group>"; };
+		BF29CCAC19909E55006848D8 /* guide4_iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide4_iphone5.png; path = Images/guide4_iphone5.png; sourceTree = "<group>"; };
+		BF29CCAE1990A34E006848D8 /* guide5_iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide5_iphone5.png; path = Images/guide5_iphone5.png; sourceTree = "<group>"; };
+		BF29CCB01990A41C006848D8 /* guide1_iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide1_iphone5.png; path = Images/guide1_iphone5.png; sourceTree = "<group>"; };
 		BF30A6861985BE9D00482A7E /* exertit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_full.png; path = Images/exertit_full.png; sourceTree = "<group>"; };
 		BF33A7631988912A00405D1A /* exertit_full_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_full_white.png; path = Images/exertit_full_white.png; sourceTree = "<group>"; };
 		BF33A768198895CF00405D1A /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
@@ -568,6 +578,11 @@
 		BF8122EE18C0467B00606092 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BF29CCB01990A41C006848D8 /* guide1_iphone5.png */,
+				BF29CCA81990901F006848D8 /* guide2_iphone5.png */,
+				BF29CCAA19909AD6006848D8 /* guide3_iphone5.png */,
+				BF29CCAC19909E55006848D8 /* guide4_iphone5.png */,
+				BF29CCAE1990A34E006848D8 /* guide5_iphone5.png */,
 				BF33A7631988912A00405D1A /* exertit_full_white.png */,
 				BF30A6861985BE9D00482A7E /* exertit_full.png */,
 				BF1072451984C19600F73BE9 /* exertit_512.png */,
@@ -676,13 +691,16 @@
 			files = (
 				BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */,
 				BFAC644B194CCE2800AC9DF8 /* category_green.png in Resources */,
+				BF29CCA91990901F006848D8 /* guide2_iphone5.png in Resources */,
 				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
 				BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
+				BF29CCAD19909E55006848D8 /* guide4_iphone5.png in Resources */,
 				BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */,
 				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
 				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
 				BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */,
+				BF29CCB11990A41C006848D8 /* guide1_iphone5.png in Resources */,
 				BF393564195A66730060F854 /* slide_menu@2x.png in Resources */,
 				BF30A6871985BE9D00482A7E /* exertit_full.png in Resources */,
 				BFAC644A194CCE2800AC9DF8 /* category_blue.png in Resources */,
@@ -690,6 +708,7 @@
 				BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */,
 				BFAC644D194CCE2800AC9DF8 /* category_yellow.png in Resources */,
 				BF8122F618C0495200606092 /* cloudflare-512.png in Resources */,
+				BF29CCAF1990A34E006848D8 /* guide5_iphone5.png in Resources */,
 				BFBAC98A19359BB800F93A1B /* settings_120.png in Resources */,
 				BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */,
 				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
@@ -701,6 +720,7 @@
 				BFAC644C194CCE2800AC9DF8 /* category_red.png in Resources */,
 				BF8122F818C0495B00606092 /* coderwall-512.png in Resources */,
 				BF33A7641988912A00405D1A /* exertit_full_white.png in Resources */,
+				BF29CCAB19909AD6006848D8 /* guide3_iphone5.png in Resources */,
 				BF22E0EF19344A7000A5C1DB /* exercises_120.png in Resources */,
 				BF22E0F119344BA000A5C1DB /* workouts_120.png in Resources */,
 			);

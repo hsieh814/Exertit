@@ -28,7 +28,17 @@
     [super viewDidLoad];
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
+    if (IS_IPHONE_5) {
+        self.tutorialImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, 320, 457)];
+    } else {
+        self.tutorialImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, 320, 369)];
+    }
+    
+//    self.tutorialImage.layer.borderWidth = 3.0;
+//    self.tutorialImage.layer.borderColor = [UIColor redColor].CGColor;
     self.tutorialImage.image = [UIImage imageNamed:self.imageFile];
+    
+    [self.view addSubview:self.tutorialImage];
 }
 
 - (void)didReceiveMemoryWarning

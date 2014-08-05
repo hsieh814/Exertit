@@ -10,7 +10,7 @@
 
 @interface HowToPageContentViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *tutorialImage;
+@property (strong, nonatomic) UIImageView *tutorialImage;
 @property NSString *imageFile;
 @property NSUInteger pageIndex;
 

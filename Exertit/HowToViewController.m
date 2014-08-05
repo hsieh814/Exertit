@@ -37,7 +37,7 @@
     // View customization
     self.title = @"How-To Guide";
     
-    self.pageImages = @[@"category_blue", @"category_red", @"category_yellow", @"category_green"];
+    self.pageImages = @[@"guide1_iphone5", @"guide2_iphone5", @"guide3_iphone5", @"guide4_iphone5", @"guide5_iphone5", @"guide6_iphone5"];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
@@ -49,7 +49,8 @@
     // Change the size of page view controller
     CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    self.pageViewController.view.frame = CGRectMake(0, navBarHeight + statusBarHeight, self.view.frame.size.width, self.view.frame.size.height - navBarHeight - statusBarHeight - 10);
+    NSLog(@"%f, %f, %f", self.view.frame.size.height, navBarHeight, statusBarHeight);
+    self.pageViewController.view.frame = CGRectMake(0, 0/*navBarHeight + statusBarHeight*/, self.view.frame.size.width, self.view.frame.size.height - 10);
 
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
