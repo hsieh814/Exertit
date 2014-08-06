@@ -140,10 +140,14 @@
     switch (indexPath.row) {
         case 0:
         {
-            UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(cell.menuCellImage.frame.origin.x, cell.menuCellImage.frame.origin.y, 160, 40)];
+            UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(cell.menuCellImage.frame.origin.x, cell.menuCellImage.frame.origin.y, 130, 40)];
             logo.image = [UIImage imageNamed:@"exertit_full_white.png"];
             cell.menuCellName.text = @"";
             [cell addSubview:logo];
+            
+            // Cannot select cell
+            [cell setUserInteractionEnabled:NO];
+            
             break;
         }
         case 1:

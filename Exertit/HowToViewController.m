@@ -37,7 +37,7 @@
     // View customization
     self.title = @"How-To Guide";
     
-    self.pageImages = @[@"guide1_iphone5", @"guide2_iphone5", @"guide3_iphone5", @"guide4_iphone5", @"guide5_iphone5", @"guide6_iphone5"];
+    self.pageImages = @[@"guide_iphone5_1", @"guide_iphone5_2", @"guide_iphone5_3", @"guide_iphone5_4", @"guide_iphone5_5", @"guide_iphone5_6", @"guide_iphone5_7"];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
@@ -116,7 +116,7 @@
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
-    return 4;
+    return [self.pageImages count];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
