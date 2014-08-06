@@ -155,7 +155,7 @@ bool createdNewExerciseSetting;
         {
             self.selectedExerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 15, 220, 40)];
             self.selectedExerciseLabel.textColor = themeNavBar4;
-            self.selectedExerciseLabel.font = [UIFont systemFontOfSize:22.0];
+            self.selectedExerciseLabel.font = [UIFont systemFontOfSize:20.0];
             
             if (createdNewExerciseSetting) {
                 self.selectedExerciseLabel.text = @"Select Exercise";

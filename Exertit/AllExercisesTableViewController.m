@@ -129,15 +129,18 @@
 
     switch (tag) {
         case 1:
-            return [UIImage imageNamed:@"category_blue.png"];
+            return [UIImage imageNamed:@"category_default.png"];
             break;
         case 2:
-            return [UIImage imageNamed:@"category_red.png"];
+            return [UIImage imageNamed:@"category_blue.png"];
             break;
         case 3:
-            return [UIImage imageNamed:@"category_yellow.png"];
+            return [UIImage imageNamed:@"category_red.png"];
             break;
         case 4:
+            return [UIImage imageNamed:@"category_yellow.png"];
+            break;
+        case 5:
             return [UIImage imageNamed:@"category_green.png"];
             break;
         default:

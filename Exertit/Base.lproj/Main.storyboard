@@ -1333,7 +1333,7 @@
     <resources>
         <image name="category_blue.png" width="108" height="120"/>
         <image name="category_red.png" width="106" height="118"/>
-        <image name="exertit_full.png" width="786" height="251"/>
+        <image name="exertit_full.png" width="647" height="251"/>
         <image name="slide_menu.png" width="22" height="16"/>
         <image name="swipe_delete.png" width="292" height="250"/>
         <image name="swipe_edit.png" width="292" height="250"/>

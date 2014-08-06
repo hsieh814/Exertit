@@ -292,6 +292,7 @@
     alertTextField.clearButtonMode = YES;
     alertTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    alertTextField.delegate = self;
     [alertTextField becomeFirstResponder];
     [alert addSubview:alertTextField];
     [alert show];

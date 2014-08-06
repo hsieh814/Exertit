@@ -47,6 +47,7 @@
 		BF1182D41991A19A00BDD877 /* guide_iphone5_5.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182CF1991A19A00BDD877 /* guide_iphone5_5.png */; };
 		BF1182D61991B32900BDD877 /* guide_iphone5_6.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182D51991B32900BDD877 /* guide_iphone5_6.png */; };
 		BF1182D81991B90700BDD877 /* guide_iphone5_7.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182D71991B90700BDD877 /* guide_iphone5_7.png */; };
+		BF1182DA1991E46300BDD877 /* category_default.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182D91991E46300BDD877 /* category_default.png */; };
 		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
@@ -194,6 +195,7 @@
 		BF1182CF1991A19A00BDD877 /* guide_iphone5_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_iphone5_5.png; path = Images/guide_iphone5_5.png; sourceTree = "<group>"; };
 		BF1182D51991B32900BDD877 /* guide_iphone5_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_iphone5_6.png; path = Images/guide_iphone5_6.png; sourceTree = "<group>"; };
 		BF1182D71991B90700BDD877 /* guide_iphone5_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_iphone5_7.png; path = Images/guide_iphone5_7.png; sourceTree = "<group>"; };
+		BF1182D91991E46300BDD877 /* category_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_default.png; path = Images/category_default.png; sourceTree = "<group>"; };
 		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Exertit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exertit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -594,6 +596,7 @@
 				BF1072451984C19600F73BE9 /* exertit_512.png */,
 				BF393563195A66730060F854 /* slide_menu@2x.png */,
 				BFAC6457194D65E400AC9DF8 /* checkmark.png */,
+				BF1182D91991E46300BDD877 /* category_default.png */,
 				BFAC6446194CCE2800AC9DF8 /* category_blue.png */,
 				BFAC6447194CCE2800AC9DF8 /* category_green.png */,
 				BFAC6448194CCE2800AC9DF8 /* category_red.png */,
@@ -721,6 +724,7 @@
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
 				BF1182D41991A19A00BDD877 /* guide_iphone5_5.png in Resources */,
 				BF1182D81991B90700BDD877 /* guide_iphone5_7.png in Resources */,
+				BF1182DA1991E46300BDD877 /* category_default.png in Resources */,
 				BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */,
 				BF2098831871F80400D52321 /* Main.storyboard in Resources */,
 				BF1182D11991A19A00BDD877 /* guide_iphone5_2.png in Resources */,
