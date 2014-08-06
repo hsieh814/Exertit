@@ -400,7 +400,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
         return;
     } else {
         if (![self containsExercise:exerciseText]) {
-            // Create/Rename the exercise
+            // Create the exercise
             self.exercise.exerciseName = exerciseText;
             self.exercise.category = [NSNumber numberWithInteger:selectedCategory];
         } else {
@@ -409,6 +409,10 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
                 // Name was changed, and is a duplicate
                 [self exerciseNameIsDuplicatedAlert];
                 return;
+            } else {
+                // Rename the exercise
+                self.exercise.exerciseName = exerciseText;
+                self.exercise.category = [NSNumber numberWithInteger:selectedCategory];
             }
         }
         
