@@ -128,14 +128,18 @@
 // Set the row height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    if (IS_IPHONE_5) {
+        return 60;
+    } else {
+        return 56;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
     MenuCell *cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
-
+    
     // Default menu list
     switch (indexPath.row) {
         case 0:
@@ -182,7 +186,7 @@
     
     cell.backgroundColor = darkBlue;
     cell.menuCellName.textColor = [UIColor whiteColor];
-        
+    
     return cell;
 }
 
