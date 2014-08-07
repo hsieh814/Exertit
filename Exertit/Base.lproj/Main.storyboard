@@ -1063,7 +1063,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="awesome features!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGS-2k-qya">
-                                <rect key="frame" x="20" y="275" width="280" height="21"/>
+                                <rect key="frame" x="20" y="276" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -1074,6 +1074,16 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="emailButton" destination="nT3-XP-hH3" id="Jgj-79-cxm"/>
+                        <outlet property="logo" destination="z5W-ho-FCz" id="QaW-O4-dvi"/>
+                        <outlet property="text1" destination="aCF-Ha-2W8" id="dcY-bx-Fk6"/>
+                        <outlet property="text2" destination="rnA-wT-p6b" id="sfp-Fo-8Fi"/>
+                        <outlet property="text3" destination="llc-IT-b2G" id="1NO-q0-8MS"/>
+                        <outlet property="text4" destination="sqw-9q-psY" id="C2A-MK-ugc"/>
+                        <outlet property="text5" destination="IGS-2k-qya" id="AtW-Sb-BKi"/>
+                        <outlet property="text6" destination="WNr-Ad-9Kn" id="lc6-3z-M93"/>
+                        <outlet property="text7" destination="obg-6z-4dQ" id="Hs7-aC-GcJ"/>
+                        <outlet property="text8" destination="i8F-Fz-HDw" id="ldC-LV-V23"/>
+                        <outlet property="version" destination="EzR-F8-CO6" id="Wze-r9-fzs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bk-Ml-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>

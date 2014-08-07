@@ -44,7 +44,25 @@
     self.emailButton.layer.borderWidth = 2.0;
     self.emailButton.layer.cornerRadius = 20.0f;
     [self.emailButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
-    
+}
+
+// Can only change the frame here (not in viewDidLoad because the views are not set yet)
+- (void)viewDidAppear:(BOOL)animated {
+    if (!IS_IPHONE_5) {
+        self.logo.frame = CGRectMake(38, 71, 241, 70);
+        
+        self.text1.frame = CGRectMake(self.text1.frame.origin.x, self.text1.frame.origin.y - 30, self.text1.frame.size.width, self.text1.frame.size.height);
+        self.text2.frame = CGRectMake(self.text2.frame.origin.x, self.text2.frame.origin.y - 30, self.text2.frame.size.width, self.text2.frame.size.height);
+        self.text3.frame = CGRectMake(self.text3.frame.origin.x, self.text3.frame.origin.y - 30, self.text3.frame.size.width, self.text3.frame.size.height);
+        self.text4.frame = CGRectMake(self.text4.frame.origin.x, self.text4.frame.origin.y - 30, self.text4.frame.size.width, self.text4.frame.size.height);
+        self.text5.frame = CGRectMake(self.text5.frame.origin.x, self.text5.frame.origin.y - 30, self.text5.frame.size.width, self.text5.frame.size.height);
+        self.text6.frame = CGRectMake(self.text6.frame.origin.x, self.text6.frame.origin.y - 45, self.text6.frame.size.width, self.text6.frame.size.height);
+        self.text7.frame = CGRectMake(self.text7.frame.origin.x, self.text7.frame.origin.y - 45, self.text7.frame.size.width, self.text7.frame.size.height);
+        self.text8.frame = CGRectMake(self.text8.frame.origin.x, self.text8.frame.origin.y - 45, self.text8.frame.size.width, self.text8.frame.size.height);
+
+        self.emailButton.frame = CGRectMake(self.emailButton.frame.origin.x, self.emailButton.frame.origin.y - 40, self.emailButton.frame.size.width, self.emailButton.frame.size.height);
+        self.version.frame = CGRectMake(self.version.frame.origin.x, self.version.frame.origin.y - 80, self.version.frame.size.width, self.version.frame.size.height);
+    }
 }
 
 - (void)didReceiveMemoryWarning
