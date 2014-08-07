@@ -128,19 +128,19 @@
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     switch (tag) {
-        case 1:
+        case 0:
             return [UIImage imageNamed:@"category_default.png"];
             break;
-        case 2:
+        case 1:
             return [UIImage imageNamed:@"category_blue.png"];
             break;
-        case 3:
+        case 2:
             return [UIImage imageNamed:@"category_red.png"];
             break;
-        case 4:
+        case 3:
             return [UIImage imageNamed:@"category_yellow.png"];
             break;
-        case 5:
+        case 4:
             return [UIImage imageNamed:@"category_green.png"];
             break;
         default:

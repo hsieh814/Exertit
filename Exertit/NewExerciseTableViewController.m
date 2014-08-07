@@ -64,6 +64,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
     
     // Set the selected category to class variable
     selectedCategory = [self.exercise.category integerValue];
+    NSLog(@"%@", self.exercise.category);
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,7 +124,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
             category1Icon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
             category1Label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 180, 30)];
             category1Check = [[UIImageView alloc] initWithFrame:CGRectMake(225, 5, 20, 20)];
-            [category1 setTag:1];
+            [category1 setTag:0];
             UITapGestureRecognizer *categoryGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectCategory:)];
             [category1 addGestureRecognizer:categoryGesture1];
             category1Label.text = @"Default";
@@ -136,7 +137,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
             category2Icon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
             category2Label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 180, 30)];
             category2Check = [[UIImageView alloc] initWithFrame:CGRectMake(225, 5, 20, 20)];
-            [category2 setTag:2];
+            [category2 setTag:1];
             UITapGestureRecognizer *categoryGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectCategory:)];
             [category2 addGestureRecognizer:categoryGesture2];
             category2Label.text = @"Blue";
@@ -149,7 +150,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
             category3Icon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
             category3Label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 180, 30)];
             category3Check = [[UIImageView alloc] initWithFrame:CGRectMake(225, 5, 20, 20)];
-            [category3 setTag:3];
+            [category3 setTag:2];
             UITapGestureRecognizer *categoryGesture3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectCategory:)];
             [category3 addGestureRecognizer:categoryGesture3];
             category3Label.text = @"Red";
@@ -162,7 +163,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
             category4Icon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
             category4Label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 180, 30)];
             category4Check = [[UIImageView alloc] initWithFrame:CGRectMake(225, 5, 20, 20)];
-            [category4 setTag:4];
+            [category4 setTag:3];
             UITapGestureRecognizer *categoryGesture4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectCategory:)];
             [category4 addGestureRecognizer:categoryGesture4];
             category4Label.text = @"Yellow";
@@ -175,7 +176,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
             category5Icon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
             category5Label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 180, 30)];
             category5Check = [[UIImageView alloc] initWithFrame:CGRectMake(225, 5, 20, 20)];
-            [category5 setTag:5];
+            [category5 setTag:4];
             UITapGestureRecognizer *categoryGesture5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectCategory:)];
             [category5 addGestureRecognizer:categoryGesture5];
             category5Label.text = @"Green";
@@ -231,19 +232,19 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     switch (tag) {
-        case 1:
+        case 0:
             category1Check.image = nil;
             break;
-        case 2:
+        case 1:
             category2Check.image = nil;
             break;
-        case 3:
+        case 2:
             category3Check.image = nil;
             break;
-        case 4:
+        case 3:
             category4Check.image = nil;
             break;
-        case 5:
+        case 4:
             category5Check.image = nil;
             break;
         default:
@@ -257,19 +258,19 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
 //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
     switch (tag) {
-        case 1:
+        case 0:
             category1Check.image = [UIImage imageNamed:@"checkmark.png"];
             break;
-        case 2:
+        case 1:
             category2Check.image = [UIImage imageNamed:@"checkmark.png"];
             break;
-        case 3:
+        case 2:
             category3Check.image = [UIImage imageNamed:@"checkmark.png"];
             break;
-        case 4:
+        case 3:
             category4Check.image = [UIImage imageNamed:@"checkmark.png"];
             break;
-        case 5:
+        case 4:
             category5Check.image = [UIImage imageNamed:@"checkmark.png"];
             break;
         default:
