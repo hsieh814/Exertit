@@ -213,6 +213,9 @@ bool createdNewExerciseSetting;
                 [self.timePicker selectRow:sec inComponent:1 animated:YES];
                 minutes = [NSString stringWithFormat:@"%02zd", min];
                 seconds = [NSString stringWithFormat:@"%02zd", sec * 5];
+            } else {
+                // Default value
+                self.durationText.text = @"00:00";
             }
             
             [cell addSubview:title];
@@ -258,6 +261,10 @@ bool createdNewExerciseSetting;
 
                 self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
                 self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
+            } else {
+                // Default value of "00"
+                self.repsText.text = @"00";
+                self.setsText.text = @"00";
             }
             
             break;
@@ -280,7 +287,6 @@ bool createdNewExerciseSetting;
             
             self.unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(255, 15, 25, 40)];
             self.unitLabel.textColor = themeNavBar4;
-            
             
             // Set the units for weight from user defaults
             self.unitLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"units"];
@@ -592,8 +598,13 @@ bool createdNewExerciseSetting;
         self.repsText.text = [NSString stringWithFormat: @"%02ld", (long)repInt];
         self.setsText.text = [NSString stringWithFormat: @"%02ld", (long)setInt];
         
-        self.weightText.text = [NSString stringWithFormat:@"%d", [self.exercise.weight intValue]];
-
+        // Set the weight value if not 0, else use placeholder value of 0
+        if ([self.exercise.weight intValue] != 0) {
+            self.weightText.text = [NSString stringWithFormat:@"%d", [self.exercise.weight intValue]];
+        } else {
+            self.weightText.placeholder = @"0";
+        }
+        
         int totalTimeInSeconds = [self.exercise.timeInterval intValue];
         int min = totalTimeInSeconds / 60;
         int sec = (totalTimeInSeconds % 60) / 5;
