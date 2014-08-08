@@ -103,18 +103,17 @@ static const int TIMER = 1;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     if (!IS_IPHONE_5) {
-        self.minDisplay.frame = CGRectMake(self.minDisplay.frame.origin.x, self.minDisplay.frame.origin.y - 25, self.minDisplay.frame.size.width, self.minDisplay.frame.size.height);
-        self.colonDisplay.frame = CGRectMake(self.colonDisplay.frame.origin.x, self.colonDisplay.frame.origin.y - 25, self.colonDisplay.frame.size.width, self.colonDisplay.frame.size.height);
-        self.secDisplay.frame = CGRectMake(self.secDisplay.frame.origin.x, self.secDisplay.frame.origin.y - 25, self.secDisplay.frame.size.width, self.secDisplay.frame.size.height);
-        self.dotDisplay.frame = CGRectMake(self.dotDisplay.frame.origin.x, self.dotDisplay.frame.origin.y - 25, self.dotDisplay.frame.size.width, self.dotDisplay.frame.size.height);
-        self.milliDisplay.frame = CGRectMake(self.milliDisplay.frame.origin.x, self.milliDisplay.frame.origin.y - 25, self.milliDisplay.frame.size.width, self.milliDisplay.frame.size.height);
-        
-        self.startLabel.frame = CGRectMake(self.startLabel.frame.origin.x, self.startLabel.frame.origin.y - 25, self.startLabel.frame.size.width, self.startLabel.frame.size.height);
-        self.resetLabel.frame = CGRectMake(self.resetLabel.frame.origin.x, self.resetLabel.frame.origin.y - 25, self.resetLabel.frame.size.width, self.resetLabel.frame.size.height);
-        
-        self.switcher.frame = CGRectMake(self.switcher.frame.origin.x, self.switcher.frame.origin.y - 50, self.switcher.frame.size.width, self.switcher.frame.size.height);
-        self.timePicker.frame = CGRectMake(self.timePicker.frame.origin.x, self.timePicker.frame.origin.y - 50, self.timePicker.frame.size.width, self.timePicker.frame.size.height);
-        
+//        self.minDisplay.frame = CGRectMake(self.minDisplay.frame.origin.x, self.minDisplay.frame.origin.y - 25, self.minDisplay.frame.size.width, self.minDisplay.frame.size.height);
+//        self.colonDisplay.frame = CGRectMake(self.colonDisplay.frame.origin.x, self.colonDisplay.frame.origin.y - 25, self.colonDisplay.frame.size.width, self.colonDisplay.frame.size.height);
+//        self.secDisplay.frame = CGRectMake(self.secDisplay.frame.origin.x, self.secDisplay.frame.origin.y - 25, self.secDisplay.frame.size.width, self.secDisplay.frame.size.height);
+//        self.dotDisplay.frame = CGRectMake(self.dotDisplay.frame.origin.x, self.dotDisplay.frame.origin.y - 25, self.dotDisplay.frame.size.width, self.dotDisplay.frame.size.height);
+//        self.milliDisplay.frame = CGRectMake(self.milliDisplay.frame.origin.x, self.milliDisplay.frame.origin.y - 25, self.milliDisplay.frame.size.width, self.milliDisplay.frame.size.height);
+//        
+//        self.startLabel.frame = CGRectMake(self.startLabel.frame.origin.x, self.startLabel.frame.origin.y - 25, self.startLabel.frame.size.width, self.startLabel.frame.size.height);
+//        self.resetLabel.frame = CGRectMake(self.resetLabel.frame.origin.x, self.resetLabel.frame.origin.y - 25, self.resetLabel.frame.size.width, self.resetLabel.frame.size.height);
+//        
+//        self.switcher.frame = CGRectMake(self.switcher.frame.origin.x, self.switcher.frame.origin.y - 50, self.switcher.frame.size.width, self.switcher.frame.size.height);
+//        self.timePicker.frame = CGRectMake(self.timePicker.frame.origin.x, self.timePicker.frame.origin.y - 50, self.timePicker.frame.size.width, self.timePicker.frame.size.height);
     }
 }
 
