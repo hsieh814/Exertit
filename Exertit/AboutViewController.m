@@ -47,7 +47,7 @@
 }
 
 // Can only change the frame here (not in viewDidLoad because the views are not set yet)
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidLayoutSubviews {
     if (!IS_IPHONE_5) {
         self.logo.frame = CGRectMake(38, 71, 241, 70);
         
