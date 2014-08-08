@@ -847,6 +847,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="colonDisplay" destination="Vq6-iY-tkD" id="IAC-mE-5LI"/>
+                        <outlet property="dotDisplay" destination="eoQ-yv-Tjx" id="mUY-dj-0W4"/>
                         <outlet property="milliDisplay" destination="jxr-OZ-pd6" id="1XS-TB-MY7"/>
                         <outlet property="minDisplay" destination="4G9-0g-8jW" id="U84-YU-mzR"/>
                         <outlet property="resetLabel" destination="vhZ-Q5-cyF" id="EYk-fx-3wX"/>
