@@ -75,11 +75,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     [self addGradientToArrowButtons];
     
     // Initialize note view and customize note button
-    [self initializeNotesView];
-    self.noteButton.layer.cornerRadius = self.noteButton.layer.frame.size.width/2.0;
-    self.noteButton.layer.borderWidth = 2.0;
-    self.noteButton.layer.borderColor = themeNavBar4.CGColor;
-    [self.noteButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    [self initializeNotesViewAndButton];
     
     // Tap gesture: hide note view when taping on view
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideNoteView:)];
@@ -245,10 +241,14 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     [self.resetLabel setAlpha:transparency];
 }
 
-- (void)initializeNotesView {
+- (void)initializeNotesViewAndButton {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
-    self.noteView = [[UITextView alloc] initWithFrame:CGRectMake(20, 312, 280, 115)];
+    if (IS_IPHONE_5) {
+        self.noteView = [[UITextView alloc] initWithFrame:CGRectMake(20, 312, 280, 115)];
+    } else {
+        self.noteView = [[UITextView alloc] initWithFrame:CGRectMake(20, 270, 280, 95)];
+    }
     self.noteView.layer.borderColor = themeNavBar4.CGColor;
     self.noteView.layer.borderWidth = 1.0;
     self.noteView.layer.cornerRadius = 8.0;
@@ -256,6 +256,11 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     self.noteView.textColor = grey;
     self.noteView.editable = NO;
     self.noteView.hidden = YES;
+    
+    self.noteButton.layer.cornerRadius = self.noteButton.layer.frame.size.width/2.0;
+    self.noteButton.layer.borderWidth = 2.0;
+    self.noteButton.layer.borderColor = themeNavBar4.CGColor;
+    [self.noteButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
     
     [self.view addSubview:self.noteView];
 }
