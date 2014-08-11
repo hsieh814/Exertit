@@ -315,7 +315,7 @@ CGRect activeTextFieldRect;
         isSetWarmup = YES;
     }
     [self enableStartButton];
-    
+
 }
 
 - (IBAction)setLowInterval:(id)sender {
@@ -364,7 +364,6 @@ CGRect activeTextFieldRect;
     } else {
         isSetRepetition = YES;
     }
-    
     [self enableStartButton];
 }
 

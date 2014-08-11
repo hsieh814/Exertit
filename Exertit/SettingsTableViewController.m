@@ -83,7 +83,7 @@ bool soundOn, vibrateOn;
 {
     DefaultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingCell" forIndexPath:indexPath];
     
-    // Change spacing between cell
+    // Change spacing between DefaultCell
     [cell setDefaultHeightBorder:6];
     [cell setDefaultWidthBorder:10];
     

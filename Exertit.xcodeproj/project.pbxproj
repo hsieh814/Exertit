@@ -37,6 +37,7 @@
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
 		BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7CD194BEE05004AA489 /* swipe_delete.png */; };
 		BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D5194BF65E004AA489 /* swipe_edit.png */; };
+		BF0999541998266F0091DE65 /* IntervalTimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0999531998266F0091DE65 /* IntervalTimerTableViewController.m */; };
 		BF0E67DC189E034800A0456F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0E67DB189E034800A0456F /* SWRevealViewController.m */; };
 		BF1072441984BE8F00F73BE9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1072431984BE8F00F73BE9 /* AboutViewController.m */; };
 		BF1072461984C19600F73BE9 /* exertit_512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1072451984C19600F73BE9 /* exertit_512.png */; };
@@ -183,6 +184,8 @@
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
 		BF04D7CD194BEE05004AA489 /* swipe_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_delete.png; path = Images/swipe_delete.png; sourceTree = "<group>"; };
 		BF04D7D5194BF65E004AA489 /* swipe_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_edit.png; path = Images/swipe_edit.png; sourceTree = "<group>"; };
+		BF0999521998266F0091DE65 /* IntervalTimerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerTableViewController.h; sourceTree = "<group>"; };
+		BF0999531998266F0091DE65 /* IntervalTimerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerTableViewController.m; sourceTree = "<group>"; };
 		BF0E67DA189E034800A0456F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		BF0E67DB189E034800A0456F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		BF1072421984BE8F00F73BE9 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 				BF2098851871F80400D52321 /* TimerViewController.m */,
 				BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */,
 				BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */,
+				BF0999521998266F0091DE65 /* IntervalTimerTableViewController.h */,
+				BF0999531998266F0091DE65 /* IntervalTimerTableViewController.m */,
 				BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */,
 				BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */,
 				BF33A768198895CF00405D1A /* HowToViewController.h */,
@@ -776,6 +781,7 @@
 				BF2098801871F80400D52321 /* AppDelegate.m in Sources */,
 				BF00D38E18E8592600DA4CD7 /* NSManagedObject+MagicalRequests.m in Sources */,
 				BFAC6450194CE32000AC9DF8 /* NewExerciseTableViewController.m in Sources */,
+				BF0999541998266F0091DE65 /* IntervalTimerTableViewController.m in Sources */,
 				BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */,
 				BF00D38418E8592600DA4CD7 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				BF00D38818E8592600DA4CD7 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
