@@ -35,7 +35,7 @@
     
     self.tableView.backgroundColor = darkBlue;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    self.tableView.separatorColor = themeNavBar4;
+    self.tableView.separatorColor = themeNavBar;
 
     // This will remove extra separators from tableview
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

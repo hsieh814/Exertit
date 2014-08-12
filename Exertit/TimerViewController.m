@@ -63,7 +63,7 @@ static const int TIMER = 1;
     // Color and text customization
     [self.startLabel setTitleColor:appleGreen forState:UIControlStateNormal];
     [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
-    self.switcher.tintColor = themeNavBar4;
+    self.switcher.tintColor = themeNavBar;
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:16], NSFontAttributeName, nil];
     [self.switcher setTitleTextAttributes:attributes forState:UIControlStateNormal];
     

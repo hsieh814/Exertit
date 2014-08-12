@@ -119,7 +119,7 @@ bool createdNewExerciseSetting;
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 15, 260, 40)];
     [title setFont:[UIFont boldSystemFontOfSize:18.0]];
-    title.textColor = themeNavBar4;
+    title.textColor = themeNavBar;
     
     switch (indexPath.row) {
         case 0:
@@ -154,7 +154,7 @@ bool createdNewExerciseSetting;
         case 1:
         {
             self.selectedExerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 15, 220, 40)];
-            self.selectedExerciseLabel.textColor = themeNavBar4;
+            self.selectedExerciseLabel.textColor = themeNavBar;
             self.selectedExerciseLabel.font = [UIFont systemFontOfSize:20.0];
             
             if (createdNewExerciseSetting) {
@@ -164,7 +164,7 @@ bool createdNewExerciseSetting;
             }
             
             UILabel *selectedExericseArrow = [[UILabel alloc] initWithFrame:CGRectMake(260, 15, 40, 40)];
-            selectedExericseArrow.textColor = themeNavBar4;
+            selectedExericseArrow.textColor = themeNavBar;
             selectedExericseArrow.font = [UIFont boldSystemFontOfSize:24.0];
             selectedExericseArrow.text = @">";
             
@@ -178,7 +178,7 @@ bool createdNewExerciseSetting;
             title.text = @"Duration";
             
             self.durationText = [[UITextField alloc] initWithFrame:CGRectMake(150, 15, 100, 40)];
-            self.durationText.layer.borderColor = themeNavBar4.CGColor;
+            self.durationText.layer.borderColor = themeNavBar.CGColor;
             self.durationText.layer.borderWidth = 1.0;
             self.durationText.layer.cornerRadius = 8.0;
             self.durationText.textColor = grey;
@@ -231,7 +231,7 @@ bool createdNewExerciseSetting;
             self.repsText.textColor = grey;
             self.repsText.font = [UIFont systemFontOfSize:20.0];
             self.repsStepperItem = [[UIStepper alloc] initWithFrame:CGRectMake(155, 20, 100, 40)];
-            self.repsStepperItem.tintColor = themeNavBar4;
+            self.repsStepperItem.tintColor = themeNavBar;
             [self.repsStepperItem addTarget:self action:@selector(repsStepper:) forControlEvents:UIControlEventValueChanged];
             
             [cell addSubview:title];
@@ -241,14 +241,14 @@ bool createdNewExerciseSetting;
             // Sets
             UILabel *setsTitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 65, 40, 40)];
             [setsTitle setFont:[UIFont boldSystemFontOfSize:18.0]];
-            setsTitle.textColor = themeNavBar4;
+            setsTitle.textColor = themeNavBar;
             setsTitle.text = @"Sets";
             
             self.setsText = [[UILabel alloc] initWithFrame:CGRectMake(100, 65, 80, 40)];
             self.setsText.textColor = grey;
             self.setsText.font = [UIFont systemFontOfSize:20.0];
             self.setsStepperItem = [[UIStepper alloc] initWithFrame:CGRectMake(155, 70, 100, 40)];
-            self.setsStepperItem.tintColor = themeNavBar4;
+            self.setsStepperItem.tintColor = themeNavBar;
             [self.setsStepperItem addTarget:self action:@selector(setsStepper:) forControlEvents:UIControlEventValueChanged];
             
             [cell addSubview:setsTitle];
@@ -276,7 +276,7 @@ bool createdNewExerciseSetting;
             self.weightText = [[UITextField alloc] initWithFrame:CGRectMake(150, 15, 100, 40)];
             self.weightText.textColor = grey;
             self.weightText.layer.borderWidth = 1.0;
-            self.weightText.layer.borderColor = themeNavBar4.CGColor;
+            self.weightText.layer.borderColor = themeNavBar.CGColor;
             self.weightText.layer.borderWidth = 1.0;
             self.weightText.layer.cornerRadius = 8.0;
             self.weightText.textAlignment = NSTextAlignmentCenter;
@@ -286,7 +286,7 @@ bool createdNewExerciseSetting;
             self.weightText.placeholder = @"0";
             
             self.unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(255, 15, 25, 40)];
-            self.unitLabel.textColor = themeNavBar4;
+            self.unitLabel.textColor = themeNavBar;
             
             // Set the units for weight from user defaults
             self.unitLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"units"];
@@ -308,7 +308,7 @@ bool createdNewExerciseSetting;
             title.text = @"Note";
             
             self.noteText = [[UITextView alloc] initWithFrame:CGRectMake(20, 55, 260, 125)];
-            self.noteText.layer.borderColor = themeNavBar4.CGColor;
+            self.noteText.layer.borderColor = themeNavBar.CGColor;
             self.noteText.layer.borderWidth = 1.0;
             self.noteText.layer.cornerRadius = 8.0;
             self.noteText.clipsToBounds = YES;

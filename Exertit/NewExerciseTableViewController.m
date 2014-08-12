@@ -94,7 +94,7 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 260, 20)];
     [title setFont:[UIFont boldSystemFontOfSize:18.0]];
-    title.textColor = themeNavBar4;
+    title.textColor = themeNavBar;
     
     DefaultCellTitleUnderline *titleUnderline = [[DefaultCellTitleUnderline alloc]initWithFrame:CGRectMake(20, 43, 260, 1)];
     

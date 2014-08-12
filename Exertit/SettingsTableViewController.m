@@ -89,7 +89,7 @@ bool soundOn, vibrateOn;
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 260, 20)];
     [title setFont:[UIFont boldSystemFontOfSize:16.0]];
-    title.textColor = themeNavBar4;
+    title.textColor = themeNavBar;
     
     DefaultCellTitleUnderline *titleUnderline = [[DefaultCellTitleUnderline alloc]initWithFrame:CGRectMake(20, 43, 260, 1)];
     
@@ -127,7 +127,7 @@ bool soundOn, vibrateOn;
             
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             shapeLayer.path = [path CGPath];
-            shapeLayer.strokeColor = [themeNavBar4 CGColor];
+            shapeLayer.strokeColor = [themeNavBar CGColor];
             shapeLayer.lineWidth = 1.0;
             shapeLayer.fillColor = [[UIColor clearColor] CGColor];
             
@@ -152,7 +152,7 @@ bool soundOn, vibrateOn;
             NSArray *unitArray = [NSArray arrayWithObjects:@"English", @"Metric", nil];
             UISegmentedControl *unitSegmentedControl = [[UISegmentedControl alloc] initWithItems:unitArray];
             unitSegmentedControl.frame = CGRectMake(100, 60, 170, 40);
-            unitSegmentedControl.tintColor = themeNavBar4;
+            unitSegmentedControl.tintColor = themeNavBar;
             
             if ([unitSelected  isEqual:@"kg"]) {
                 NSLog(@"kg");

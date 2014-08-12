@@ -108,7 +108,7 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *exercise = self.exerciseList[indexPath.row];
     cell.exerciseName.text = exercise.exerciseName;
-    cell.exerciseName.textColor = themeNavBar4;
+    cell.exerciseName.textColor = themeNavBar;
     
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;

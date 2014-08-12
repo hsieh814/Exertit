@@ -109,7 +109,7 @@
     } else {
         cell.exerciseName.text = exerciseSetting.baseExercise.exerciseName;
     }
-    cell.exerciseName.textColor = themeNavBar4;
+    cell.exerciseName.textColor = themeNavBar;
     
     // For swipe utility buttons
     cell.itemText = cell.exerciseName.text;

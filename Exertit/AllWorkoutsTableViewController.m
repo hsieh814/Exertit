@@ -114,7 +114,7 @@
     WorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WorkoutCell"];
     Workout *workout = [self.workoutList objectAtIndex:indexPath.row];
     cell.workoutName.text = workout.workoutName;
-    cell.workoutName.textColor = themeNavBar4;
+    cell.workoutName.textColor = themeNavBar;
 
     cell.layer.cornerRadius = 8.0f;
     cell.layer.masksToBounds = YES;
@@ -126,7 +126,7 @@
     cell.workoutIconCircle.layer.cornerRadius = cell.workoutIconCircle.frame.size.height/2;
     cell.workoutIconCircle.layer.masksToBounds = YES;
     cell.workoutIconCircle.layer.borderWidth = 1.0;
-    cell.workoutIconCircle.layer.borderColor = themeNavBar4.CGColor;
+    cell.workoutIconCircle.layer.borderColor = themeNavBar.CGColor;
     cell.workoutIconLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)workout.exerciseGroup.count];
     cell.workoutIconLabel.textColor = darkBlue;
 

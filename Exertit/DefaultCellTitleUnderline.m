@@ -26,7 +26,7 @@
     // Draw a line to underline DefaultCell's title
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetStrokeColorWithColor(context, [themeNavBar4 CGColor]);
+    CGContextSetStrokeColorWithColor(context, [themeNavBar CGColor]);
     CGContextSetLineWidth(context, 3.0);
     CGContextMoveToPoint(context, 0.0, 0.0);
     CGContextAddLineToPoint(context, 280, 0.0);

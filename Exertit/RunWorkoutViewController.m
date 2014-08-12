@@ -43,8 +43,8 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     // Color and text customization
     [self.startLabel setTitleColor:appleGreen forState:UIControlStateNormal];
     [self.resetLabel setTitleColor:appleRed forState:UIControlStateNormal];
-    [self.previousExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
-    [self.nextExerciseName setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    [self.previousExerciseName setTitleColor:themeNavBar forState:UIControlStateNormal];
+    [self.nextExerciseName setTitleColor:themeNavBar forState:UIControlStateNormal];
     
     // Start and reset buttons
     self.startLabel.layer.cornerRadius = 20.0f;
@@ -249,7 +249,7 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     } else {
         self.noteView = [[UITextView alloc] initWithFrame:CGRectMake(20, 270, 280, 95)];
     }
-    self.noteView.layer.borderColor = themeNavBar4.CGColor;
+    self.noteView.layer.borderColor = themeNavBar.CGColor;
     self.noteView.layer.borderWidth = 1.0;
     self.noteView.layer.cornerRadius = 8.0;
     self.noteView.font = [UIFont systemFontOfSize:16.0];
@@ -259,8 +259,8 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     
     self.noteButton.layer.cornerRadius = self.noteButton.layer.frame.size.width/2.0;
     self.noteButton.layer.borderWidth = 2.0;
-    self.noteButton.layer.borderColor = themeNavBar4.CGColor;
-    [self.noteButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    self.noteButton.layer.borderColor = themeNavBar.CGColor;
+    [self.noteButton setTitleColor:themeNavBar forState:UIControlStateNormal];
     
     [self.view addSubview:self.noteView];
 }

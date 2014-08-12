@@ -40,10 +40,10 @@
     
     // Contact Us button customization
     self.emailButton.backgroundColor = [UIColor whiteColor];
-    self.emailButton.layer.borderColor = themeNavBar4.CGColor;
+    self.emailButton.layer.borderColor = themeNavBar.CGColor;
     self.emailButton.layer.borderWidth = 2.0;
     self.emailButton.layer.cornerRadius = 20.0f;
-    [self.emailButton setTitleColor:themeNavBar4 forState:UIControlStateNormal];
+    [self.emailButton setTitleColor:themeNavBar forState:UIControlStateNormal];
 }
 
 // Can only change the frame here (not in viewDidLoad because the views are not set yet)
