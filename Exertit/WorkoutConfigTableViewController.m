@@ -136,11 +136,11 @@ bool createdNewExerciseSetting;
             
             self.defaultButton = [[UIButton alloc] initWithFrame:CGRectMake(150, 10, 142, 44)];
             self.defaultButton.backgroundColor = [UIColor whiteColor];
-            self.defaultButton.layer.borderColor = darkGreen.CGColor;
+            self.defaultButton.layer.borderColor = appleBlue.CGColor;
             self.defaultButton.layer.borderWidth = 2.0;
             self.defaultButton.layer.cornerRadius = 20.0f;
             [self.defaultButton setTitle:@"Set Default" forState:UIControlStateNormal];
-            [self.defaultButton setTitleColor:darkGreen forState:UIControlStateNormal];
+            [self.defaultButton setTitleColor:appleBlue forState:UIControlStateNormal];
             self.defaultButton.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
             [self.defaultButton addTarget:self action:@selector(setDefault:) forControlEvents:UIControlEventTouchUpInside];
             

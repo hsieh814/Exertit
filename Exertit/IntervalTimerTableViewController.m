@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "DefaultCell.h"
 #import "RunIntervalTrainerViewController.h"
+#import "Toast/UIView+Toast.h"
 
 @interface IntervalTimerTableViewController ()
 
@@ -305,6 +306,9 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 /* Save the textfields' text as default */
 - (IBAction)setDefault:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Toast message
+    [self.view makeToast:@"Set interval durations as default" duration:(1.5) position:@"top"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
