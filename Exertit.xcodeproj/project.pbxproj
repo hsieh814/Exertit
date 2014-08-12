@@ -34,6 +34,7 @@
 		BF00D39B18E8592600DA4CD7 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37D18E8592600DA4CD7 /* MagicalRecord+ShorthandSupport.m */; };
 		BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37F18E8592600DA4CD7 /* MagicalRecord.m */; };
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
+		BF03B3891999C4F5001C8930 /* exertit_hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF03B3881999C4F5001C8930 /* exertit_hexagon.png */; };
 		BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7CD194BEE05004AA489 /* swipe_delete.png */; };
 		BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D5194BF65E004AA489 /* swipe_edit.png */; };
 		BF0999541998266F0091DE65 /* IntervalTimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0999531998266F0091DE65 /* IntervalTimerTableViewController.m */; };
@@ -179,6 +180,7 @@
 		BF00D38218E8592600DA4CD7 /* MagicalRecordVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordVersion.h; sourceTree = "<group>"; };
 		BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllExercisesTableViewController.h; sourceTree = "<group>"; };
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
+		BF03B3881999C4F5001C8930 /* exertit_hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exertit_hexagon.png; path = Images/exertit_hexagon.png; sourceTree = "<group>"; };
 		BF04D7CD194BEE05004AA489 /* swipe_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_delete.png; path = Images/swipe_delete.png; sourceTree = "<group>"; };
 		BF04D7D5194BF65E004AA489 /* swipe_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_edit.png; path = Images/swipe_edit.png; sourceTree = "<group>"; };
 		BF0999521998266F0091DE65 /* IntervalTimerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerTableViewController.h; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				BF1182D71991B90700BDD877 /* guide_iphone5_7.png */,
 				BF33A7631988912A00405D1A /* exertit_full_white.png */,
 				BF30A6861985BE9D00482A7E /* exertit_full.png */,
+				BF03B3881999C4F5001C8930 /* exertit_hexagon.png */,
 				BF1072451984C19600F73BE9 /* exertit_512.png */,
 				BF393563195A66730060F854 /* slide_menu@2x.png */,
 				BFAC6457194D65E400AC9DF8 /* checkmark.png */,
@@ -722,6 +725,7 @@
 				BF1072461984C19600F73BE9 /* exertit_512.png in Resources */,
 				BFBAC9901935A30400F93A1B /* about_120.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
+				BF03B3891999C4F5001C8930 /* exertit_hexagon.png in Resources */,
 				BF1182D41991A19A00BDD877 /* guide_iphone5_5.png in Resources */,
 				BF1182D81991B90700BDD877 /* guide_iphone5_7.png in Resources */,
 				BF1182DA1991E46300BDD877 /* category_default.png in Resources */,
