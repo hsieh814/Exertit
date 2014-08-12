@@ -144,11 +144,6 @@
     switch (indexPath.row) {
         case 0:
         {
-//            UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(cell.menuCellImage.frame.origin.x, cell.menuCellImage.frame.origin.y, 130, 40)];
-//            logo.image = [UIImage imageNamed:@"exertit_full_white.png"];
-//            cell.menuCellName.text = @"";
-//            [cell addSubview:logo];
-            
             cell.menuCellName.text = @"XERTIT";
             cell.menuCellImage.image = [UIImage imageNamed:@"exertit_hexagon.png"];
             
@@ -178,7 +173,7 @@
             cell.menuCellImage.image = [UIImage imageNamed:@"settings_120.png"];
             break;
         case 6:
-            cell.menuCellName.text = @"How-to-Guide";
+            cell.menuCellName.text = @"How-To Guide";
             cell.menuCellImage.image = [UIImage imageNamed:@"howtoguide_120.png"];
             break;
         case 7:
