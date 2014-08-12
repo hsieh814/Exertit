@@ -9,6 +9,7 @@
 #import "HowToViewController.h"
 #import "HowToPageContentViewController.h"
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 
 @interface HowToViewController ()
 
@@ -65,7 +66,7 @@
 
 - (HowToPageContentViewController *)viewControllerAtIndex:(NSUInteger)index
 {
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    NSLog(@"[%@] %@ ---> %d", NSStringFromClass([self class]), NSStringFromSelector(_cmd), index);
 
     if (([self.pageImages count] == 0) || (index >= [self.pageImages count])) {
         return nil;
@@ -75,7 +76,7 @@
     HowToPageContentViewController *howToPageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HowToPageContentViewController"];
     howToPageContentViewController.pageIndex = index;
     howToPageContentViewController.imageFile = self.pageImages[index];
-    
+
     return howToPageContentViewController;
 }
 

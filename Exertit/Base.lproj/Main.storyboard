@@ -982,7 +982,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="ZH0-Qq-aWC">
             <objects>
-                <viewController id="EbL-XK-Bkt" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="root" id="EbL-XK-Bkt" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gq4-eI-6eE"/>
                         <viewControllerLayoutGuide type="bottom" id="EIQ-UY-8b0"/>
@@ -1086,7 +1086,7 @@
         <!--How To View Controller-->
         <scene sceneID="1dh-2t-KQr">
             <objects>
-                <viewController id="tGe-Aw-ID6" customClass="HowToViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowTo" id="tGe-Aw-ID6" customClass="HowToViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mhw-4K-en1"/>
                         <viewControllerLayoutGuide type="bottom" id="n7R-08-eWU"/>

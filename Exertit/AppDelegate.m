@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HowToViewController.h"
 
 @implementation AppDelegate {
 }
@@ -40,6 +41,19 @@
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
 
+/*************** HACK For testing initial launch ***************/
+//[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunched"];
+//[[NSUserDefaults standardUserDefaults] synchronize];
+/*************** HACK For testing initial launch ***************/
+    
+    // Replace the root view controller if initial app launch
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunched"]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        HowToViewController *split = [storyboard instantiateViewControllerWithIdentifier:@"HowTo"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.window.rootViewController = split;
+    }
+    
     return YES;
 }
 
