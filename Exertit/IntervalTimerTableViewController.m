@@ -22,7 +22,6 @@ NSString *seconds;
 NSString *minutes;
 UITextField *selectedTextField;
 bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepetition;
-CGRect activeTextFieldRect;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -120,14 +119,11 @@ CGRect activeTextFieldRect;
     self.cooldownDuration.delegate = self;
     self.repetitions.delegate = self;
     
-    // Tap gesture: hide keyboard when taping on view
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboardOnTap:)];
-    [self.view addGestureRecognizer:gestureRecognizer];
-    
     // Set the textfields' text to default value saved
     [self getDefaultTextFieldData];
     
-    self.tableView.delegate = self;
+    // Set the textfield values as set
+    isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,22 +135,30 @@ CGRect activeTextFieldRect;
 // Blue background for cell1 and rounded corners for the rest
 - (void)cellCustomization {
     self.cell1.backgroundColor = mediumBlue;
+    UITapGestureRecognizer *gestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.cell1 addGestureRecognizer:gestureRecognizer1];
     
     self.cell2.layer.cornerRadius = 8.0f;
     self.cell2.layer.masksToBounds = YES;
     // Change spacing between DefaultCell (increase gap)
     [self.cell2 setDefaultHeightBorder:4];
     [self.cell2 setDefaultWidthBorder:10];
+    UITapGestureRecognizer *gestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.cell2 addGestureRecognizer:gestureRecognizer2];
     
     self.cell3.layer.cornerRadius = 8.0f;
     self.cell3.layer.masksToBounds = YES;
     [self.cell3 setDefaultHeightBorder:4];
     [self.cell3 setDefaultWidthBorder:10];
+    UITapGestureRecognizer *gestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.cell3 addGestureRecognizer:gestureRecognizer3];
     
     self.cell4.layer.cornerRadius = 8.0f;
     self.cell4.layer.masksToBounds = YES;
     [self.cell4 setDefaultHeightBorder:4];
     [self.cell4 setDefaultWidthBorder:10];
+    UITapGestureRecognizer *gestureRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.cell4 addGestureRecognizer:gestureRecognizer4];
 }
 
 /* Change all the textfields' border color */
@@ -215,12 +219,6 @@ CGRect activeTextFieldRect;
     [self.view endEditing:YES];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-}
-
 #pragma mark - Picker delegate
 
 // returns the number of 'columns' to display.
@@ -233,7 +231,7 @@ CGRect activeTextFieldRect;
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+//    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     // Fool user with circular time picker by setting the number of rows to a large numnber
     if (component == 1) {
@@ -301,24 +299,6 @@ CGRect activeTextFieldRect;
     [selectedTextField resignFirstResponder];
 }
 
-#pragma mark - TextField delegate
-// Hide keyboard for textfield when Return key is pressed.
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    [selectedTextField resignFirstResponder];
-    return YES;
-}
-
-// Hide keyboard when tapping outside of textfield.
-- (IBAction)hideKeyboardOnTap:(id)sender
-{
-    //    NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    
-    [selectedTextField resignFirstResponder];
-}
-
 #pragma mark - User Defaults
 
 /* Save the textfields' text as default */
@@ -368,7 +348,6 @@ CGRect activeTextFieldRect;
 
 - (IBAction)setWarmup:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    activeTextFieldRect = self.warmupDuration.frame;
     
     if ([self.warmupDuration.text isEqualToString:@""]) {
         isSetWarmup = NO;
@@ -380,7 +359,6 @@ CGRect activeTextFieldRect;
 
 - (IBAction)setLowInterval:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    activeTextFieldRect = self.lowIntervalDuration.frame;
     
     if ([self.lowIntervalDuration.text isEqualToString:@""] || [self.lowIntervalDuration.text isEqualToString:@"00:00"]) {
         isSetLowInterval = NO;
@@ -392,7 +370,6 @@ CGRect activeTextFieldRect;
 
 - (IBAction)setHighInterval:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    activeTextFieldRect = self.highIntervalDuration.frame;
     
     if ([self.highIntervalDuration.text isEqualToString:@""] || [self.highIntervalDuration.text isEqualToString:@"00:00"]) {
         isSetHighInterval = NO;
@@ -404,7 +381,6 @@ CGRect activeTextFieldRect;
 
 - (IBAction)setRepetitionsNumber:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    activeTextFieldRect = self.cooldownDuration.frame;
     
     int repetitionText = [self.repetitions.text intValue];
     if ([self.repetitions.text isEqualToString:@""] || repetitionText == 0) {
@@ -417,7 +393,6 @@ CGRect activeTextFieldRect;
 
 - (IBAction)setCooldown:(id)sender {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-    activeTextFieldRect = self.cooldownDuration.frame;
     
     if ([self.cooldownDuration.text isEqualToString:@""]) {
         isSetCooldown = NO;
