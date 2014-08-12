@@ -135,6 +135,7 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
 // Blue background for cell1 and rounded corners for the rest
 - (void)cellCustomization {
     self.cell1.backgroundColor = mediumBlue;
+    // Tap recognizer to dismiss keyboard when a cell is tapped
     UITapGestureRecognizer *gestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [self.cell1 addGestureRecognizer:gestureRecognizer1];
     

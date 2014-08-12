@@ -33,7 +33,6 @@
 		BF00D39A18E8592600DA4CD7 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37B18E8592600DA4CD7 /* MagicalRecord+Setup.m */; };
 		BF00D39B18E8592600DA4CD7 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37D18E8592600DA4CD7 /* MagicalRecord+ShorthandSupport.m */; };
 		BF00D39C18E8592600DA4CD7 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00D37F18E8592600DA4CD7 /* MagicalRecord.m */; };
-		BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */; };
 		BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */; };
 		BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7CD194BEE05004AA489 /* swipe_delete.png */; };
 		BF04D7D6194BF65E004AA489 /* swipe_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = BF04D7D5194BF65E004AA489 /* swipe_edit.png */; };
@@ -178,8 +177,6 @@
 		BF00D38018E8592600DA4CD7 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		BF00D38118E8592600DA4CD7 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		BF00D38218E8592600DA4CD7 /* MagicalRecordVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordVersion.h; sourceTree = "<group>"; };
-		BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerViewController.h; sourceTree = "<group>"; };
-		BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
 		BF01DD5D18C8083D004F5CAD /* AllExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllExercisesTableViewController.h; sourceTree = "<group>"; };
 		BF01DD5E18C8083D004F5CAD /* AllExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExercisesTableViewController.m; sourceTree = "<group>"; };
 		BF04D7CD194BEE05004AA489 /* swipe_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe_delete.png; path = Images/swipe_delete.png; sourceTree = "<group>"; };
@@ -516,8 +513,6 @@
 				BFAC6455194CF24A00AC9DF8 /* DefaultCellTitleUnderline.m */,
 				BF2098841871F80400D52321 /* TimerViewController.h */,
 				BF2098851871F80400D52321 /* TimerViewController.m */,
-				BF01DD5A18C8059A004F5CAD /* IntervalTimerViewController.h */,
-				BF01DD5B18C8059A004F5CAD /* IntervalTimerViewController.m */,
 				BF0999521998266F0091DE65 /* IntervalTimerTableViewController.h */,
 				BF0999531998266F0091DE65 /* IntervalTimerTableViewController.m */,
 				BFECF18A190339F900E99A0C /* RunIntervalTrainerViewController.h */,
@@ -771,7 +766,6 @@
 				BF7F054318FB4479003ECD72 /* Workout.m in Sources */,
 				BF4637F61960D1AD00DBA240 /* WorkoutConfigTableViewController.m in Sources */,
 				BF00D39118E8592600DA4CD7 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
-				BF01DD5C18C8059A004F5CAD /* IntervalTimerViewController.m in Sources */,
 				BFB59D0E19046EEC0014D5CB /* Common.m in Sources */,
 				BF01DD5F18C8083D004F5CAD /* AllExercisesTableViewController.m in Sources */,
 				BF2372E5187516BF009B43EF /* WorkoutCell.m in Sources */,
