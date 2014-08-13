@@ -940,6 +940,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Exertit/Exertit-Prefix.pch";
 				INFOPLIST_FILE = "Exertit/Exertit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Exertit;
 				WRAPPER_EXTENSION = app;
 			};
@@ -953,6 +954,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Exertit/Exertit-Prefix.pch";
 				INFOPLIST_FILE = "Exertit/Exertit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Exertit;
 				WRAPPER_EXTENSION = app;
 			};

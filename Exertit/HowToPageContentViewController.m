@@ -40,7 +40,7 @@
     if (self.pageIndex == 6 && ![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunched"]) {
         // INITIAL LAUNCH
         // Add "Got it" button
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(81, 359, 140, 50)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(81, 370, 140, 50)];
         [button setTitle:@"Got It!" forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
         [button setTitleColor:themeNavBar forState:UIControlStateNormal];

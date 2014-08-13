@@ -41,10 +41,10 @@
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
 
-/*************** HACK For testing initial launch ***************/
-//[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunched"];
-//[[NSUserDefaults standardUserDefaults] synchronize];
-/*************** HACK For testing initial launch ***************/
+    /*************** INTERNAL: For testing initial launch ***************/
+    //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunched"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+    /*********************************************************************/
     
     // Replace the root view controller if initial app launch
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunched"]) {

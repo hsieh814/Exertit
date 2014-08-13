@@ -182,6 +182,8 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     
     switch (tag) {
+        case 0:
+            return [UIImage imageNamed:@"category_default.png"];
         case 1:
             return [UIImage imageNamed:@"category_blue.png"];
         case 2:
