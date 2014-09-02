@@ -149,7 +149,7 @@ bool soundOn, vibrateOn;
             unitLabel.text = unitSelected;
             unitLabel.font = [UIFont systemFontOfSize:18.0];
             
-            NSArray *unitArray = [NSArray arrayWithObjects:@"English", @"Metric", nil];
+            NSArray *unitArray = [NSArray arrayWithObjects:@"Metric", @"Imperial", nil];
             UISegmentedControl *unitSegmentedControl = [[UISegmentedControl alloc] initWithItems:unitArray];
             unitSegmentedControl.frame = CGRectMake(100, 60, 170, 40);
             unitSegmentedControl.tintColor = themeNavBar;
