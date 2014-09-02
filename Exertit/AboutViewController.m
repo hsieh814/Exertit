@@ -49,7 +49,7 @@
 // Can only change the frame here (not in viewDidLoad because the views are not set yet)
 - (void)viewDidLayoutSubviews {
     if (!IS_IPHONE_5) {
-        self.logo.frame = CGRectMake(38, 71, 241, 70);
+        self.logo.frame = CGRectMake(0, 65, 320, 80);
         
         self.text1.frame = CGRectMake(self.text1.frame.origin.x, self.text1.frame.origin.y - 30, self.text1.frame.size.width, self.text1.frame.size.height);
         self.text2.frame = CGRectMake(self.text2.frame.origin.x, self.text2.frame.origin.y - 30, self.text2.frame.size.width, self.text2.frame.size.height);
@@ -75,8 +75,8 @@
 - (IBAction)emailAction:(id)sender {
     MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
 	mailController.mailComposeDelegate = self;
-    [mailController setToRecipients:[NSArray arrayWithObject:@"exertit.app@gmail.com"]];
-    [mailController setTitle:@"Email Exertit"];
+    [mailController setToRecipients:[NSArray arrayWithObject:@"support@caffethread.com"]];
+    [mailController setTitle:@"Email Exert It"];
 	[mailController setSubject:@"Question/feedback"];
 	[self presentViewController:mailController animated:YES completion:NULL];
 }

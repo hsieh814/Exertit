@@ -139,12 +139,13 @@
 {
 
     MenuCell *cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
-    
+    cell.menuCellName.font = [UIFont fontWithName:@"Montserrat-Regular" size:15.0];
+
     // Default menu list
     switch (indexPath.row) {
         case 0:
         {
-            cell.menuCellName.text = @"XERTIT";
+            cell.menuCellName.text = @"xert It";
             cell.menuCellImage.image = [UIImage imageNamed:@"exertit_hexagon.png"];
             
             // Cannot select cell
