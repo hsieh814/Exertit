@@ -10,6 +10,7 @@
 #import "Exercise.h"
 #import "DefaultCell.h"
 #import "DefaultCellTitleUnderline.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface NewExerciseTableViewController ()
 
@@ -65,6 +66,15 @@ UIImageView *category1Check, *category2Check, *category3Check, *category4Check, 
     // Set the selected category to class variable
     selectedCategory = [self.exercise.category integerValue];
     NSLog(@"%@", self.exercise.category);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+ 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"NewExercise"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning

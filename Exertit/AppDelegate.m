@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HowToViewController.h"
+#import "GAI.h"
 
 @implementation AppDelegate {
 }
@@ -53,6 +54,24 @@
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.window.rootViewController = split;
     }
+    
+    // Google Analytics
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-54254442-2"];
+    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIAppVersion value:version];
+    [tracker set:kGAISampleRate value:@"50.0"];
     
     return YES;
 }

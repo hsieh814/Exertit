@@ -11,6 +11,7 @@
 #import "DefaultCell.h"
 #import "RunIntervalTrainerViewController.h"
 #import "Toast/UIView+Toast.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface IntervalTimerTableViewController ()
 
@@ -125,6 +126,15 @@ bool isSetWarmup, isSetLowInterval, isSetHighInterval, isSetCooldown, isSetRepet
     
     // Set the textfield values as set
     isSetWarmup = isSetLowInterval = isSetHighInterval = isSetCooldown = isSetRepetition = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+ 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"IntervalTimer"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,6 +8,7 @@
 
 #import <AudioToolbox/AudioServices.h>
 #import "RunIntervalTrainerViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface RunIntervalTrainerViewController ()
 
@@ -78,7 +79,11 @@ bool playSound, vibrate;
     [super viewDidAppear:animated];
     // Keep the screen from sleeping in the timer view.
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-    
+ 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"RunInterval"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

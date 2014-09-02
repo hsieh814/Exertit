@@ -8,6 +8,7 @@
 
 #import "AboutViewController.h"
 #import "SWRevealViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface AboutViewController ()
 
@@ -44,6 +45,15 @@
     self.emailButton.layer.borderWidth = 2.0;
     self.emailButton.layer.cornerRadius = 20.0f;
     [self.emailButton setTitleColor:themeNavBar forState:UIControlStateNormal];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+ 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"About"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 // Can only change the frame here (not in viewDidLoad because the views are not set yet)

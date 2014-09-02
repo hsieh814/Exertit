@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "DefaultCell.h"
 #import "DefaultCellTitleUnderline.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface SettingsTableViewController ()
 
@@ -48,6 +49,15 @@ bool soundOn, vibrateOn;
     // Get the saved user settings
     [self getUserDefaults];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+ 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Settings"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 // called everytime we enter the view

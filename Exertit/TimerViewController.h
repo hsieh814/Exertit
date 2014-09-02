@@ -45,6 +45,4 @@
 - (IBAction)resetTimer:(id)sender;
 - (IBAction)indexChanged:(id)sender;
 
--(void)displayMinValue:(int)minutes andSecValue:(int)seconds;
-
 @end

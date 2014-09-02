@@ -16,4 +16,6 @@
     #define MR_SHORTHAND
     #import "CoreData+MagicalRecord.h"
     #import "Common.h"
+    #import "GAI.h"
+    #import "GAIFields.h"
 #endif

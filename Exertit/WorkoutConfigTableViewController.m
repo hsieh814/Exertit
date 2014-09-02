@@ -10,6 +10,7 @@
 #import "DefaultCell.h"
 #import "Exercise.h"
 #import "Toast/UIView+Toast.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface WorkoutConfigTableViewController ()
 
@@ -72,6 +73,15 @@ bool createdNewExerciseSetting;
     seconds = nil;
     
     [self initialSetup];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"WorkoutConfig"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning

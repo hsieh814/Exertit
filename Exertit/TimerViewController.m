@@ -9,6 +9,7 @@
 #import <AudioToolbox/AudioServices.h>
 #import "TimerViewController.h"
 #import "SWRevealViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface TimerViewController ()
 
@@ -86,7 +87,11 @@ static const int TIMER = 1;
     [super viewDidAppear:animated];
     // Keep the screen from sleeping in the timer view.
     [UIApplication sharedApplication].idleTimerDisabled = YES;
-
+    
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Timer"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

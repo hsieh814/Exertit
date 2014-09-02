@@ -12,6 +12,7 @@
 #import "Exercise.h"
 #import "ExerciseCell.h"
 #import "WorkoutConfigTableViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface AllExercisesTableViewController () <ExerciseCellDelegate>
 
@@ -73,6 +74,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"AllExercises"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
     // Fetch all exercises
     [self fetchAllExercises];

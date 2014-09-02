@@ -110,6 +110,9 @@
 		BFECF18C190339F900E99A0C /* RunIntervalTrainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */; };
 		BFF215E719B527B700C9717E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFF215E419B527B700C9717E /* Montserrat-Bold.ttf */; };
 		BFF215E819B527B700C9717E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFF215E519B527B700C9717E /* Montserrat-Regular.ttf */; };
+		BFF215F619B562CC00C9717E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF215F519B562CC00C9717E /* SystemConfiguration.framework */; };
+		BFF215F819B562D900C9717E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF215F719B562D900C9717E /* libz.dylib */; };
+		BFF215FC19B56D7B00C9717E /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF215FB19B56D7B00C9717E /* libGoogleAnalyticsServices.a */; };
 		BFF79018195142CD0030B6B5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF79017195142CD0030B6B5 /* iAd.framework */; };
 		BFF8B8E7194E938200786B9B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF8B8E6194E938200786B9B /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
@@ -286,6 +289,20 @@
 		BFECF18B190339F900E99A0C /* RunIntervalTrainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunIntervalTrainerViewController.m; sourceTree = "<group>"; };
 		BFF215E419B527B700C9717E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		BFF215E519B527B700C9717E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		BFF215EB19B562B000C9717E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		BFF215EC19B562B000C9717E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		BFF215ED19B562B000C9717E /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		BFF215EE19B562B000C9717E /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		BFF215EF19B562B000C9717E /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		BFF215F019B562B000C9717E /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		BFF215F119B562B000C9717E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		BFF215F219B562B000C9717E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		BFF215F319B562B000C9717E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		BFF215F419B562B000C9717E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		BFF215F519B562CC00C9717E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BFF215F719B562D900C9717E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BFF215F919B56D2F00C9717E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = ../../../Downloads/GoogleAnalyticsServicesiOS_3.09/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		BFF215FB19B56D7B00C9717E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		BFF79017195142CD0030B6B5 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		BFF8B8E6194E938200786B9B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -295,6 +312,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF215F819B562D900C9717E /* libz.dylib in Frameworks */,
+				BFF215F619B562CC00C9717E /* SystemConfiguration.framework in Frameworks */,
+				BFF215FC19B56D7B00C9717E /* libGoogleAnalyticsServices.a in Frameworks */,
 				BFF79018195142CD0030B6B5 /* iAd.framework in Frameworks */,
 				BFF8B8E7194E938200786B9B /* AudioToolbox.framework in Frameworks */,
 				BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */,
@@ -422,6 +442,7 @@
 		BF0E4CB218EA5D9800573517 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BFF215EA19B5628100C9717E /* GoogleAnalytics */,
 				BF00D34618E8592600DA4CD7 /* MagicalRecord */,
 				BF2372D61875164F009B43EF /* SWRevealViewController */,
 				BF21431A1970D2AE00A91710 /* Toast */,
@@ -479,6 +500,9 @@
 		BF20986E1871F80400D52321 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFF215F919B56D2F00C9717E /* libGoogleAnalyticsServices.a */,
+				BFF215F719B562D900C9717E /* libz.dylib */,
+				BFF215F519B562CC00C9717E /* SystemConfiguration.framework */,
 				BFF79017195142CD0030B6B5 /* iAd.framework */,
 				BFF8B8E6194E938200786B9B /* AudioToolbox.framework */,
 				BF3F532818D2ADE200210568 /* CoreData.framework */,
@@ -636,6 +660,24 @@
 				BFF215E519B527B700C9717E /* Montserrat-Regular.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		BFF215EA19B5628100C9717E /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				BFF215FB19B56D7B00C9717E /* libGoogleAnalyticsServices.a */,
+				BFF215EB19B562B000C9717E /* GAI.h */,
+				BFF215EC19B562B000C9717E /* GAIDictionaryBuilder.h */,
+				BFF215ED19B562B000C9717E /* GAIEcommerceFields.h */,
+				BFF215EE19B562B000C9717E /* GAIEcommerceProduct.h */,
+				BFF215EF19B562B000C9717E /* GAIEcommerceProductAction.h */,
+				BFF215F019B562B000C9717E /* GAIEcommercePromotion.h */,
+				BFF215F119B562B000C9717E /* GAIFields.h */,
+				BFF215F219B562B000C9717E /* GAILogger.h */,
+				BFF215F319B562B000C9717E /* GAITrackedViewController.h */,
+				BFF215F419B562B000C9717E /* GAITracker.h */,
+			);
+			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -958,6 +1000,11 @@
 				GCC_PREFIX_HEADER = "Exertit/Exert It-Prefix.pch";
 				INFOPLIST_FILE = "Exertit/Exert It-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Lena/Downloads/GoogleAnalyticsServicesiOS_3.09,
+					"$(PROJECT_DIR)/Exertit",
+				);
 				PRODUCT_NAME = "Exert It";
 				PROVISIONING_PROFILE = "a04fc794-c137-443a-8dc4-5314e216c0e5";
 				WRAPPER_EXTENSION = app;
@@ -974,6 +1021,11 @@
 				GCC_PREFIX_HEADER = "Exertit/Exert It-Prefix.pch";
 				INFOPLIST_FILE = "Exertit/Exert It-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Lena/Downloads/GoogleAnalyticsServicesiOS_3.09,
+					"$(PROJECT_DIR)/Exertit",
+				);
 				PRODUCT_NAME = "Exert It";
 				PROVISIONING_PROFILE = "a04fc794-c137-443a-8dc4-5314e216c0e5";
 				WRAPPER_EXTENSION = app;

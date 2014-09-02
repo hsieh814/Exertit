@@ -10,6 +10,7 @@
 #import "HowToPageContentViewController.h"
 #import "SWRevealViewController.h"
 #import "AppDelegate.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface HowToViewController ()
 
@@ -56,6 +57,15 @@
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+ 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"HowTo"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning

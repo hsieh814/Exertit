@@ -13,6 +13,7 @@
 #import "SWRevealViewController.h"
 #import "SettingsTableViewController.h"
 #import "AppDelegate.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface MenuViewController ()
 
@@ -51,6 +52,11 @@
     [super viewWillAppear:animated];
     NSLog(@"[%@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"MenuView"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
     [self.revealViewController.frontViewController.view setUserInteractionEnabled:NO];
     [self.revealViewController.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }

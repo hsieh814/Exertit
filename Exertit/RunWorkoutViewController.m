@@ -9,6 +9,7 @@
 #import "RunWorkoutViewController.h"
 #import "ExerciseSetting.h"
 #import "Exercise.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface RunWorkoutViewController ()
 
@@ -81,6 +82,15 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideNoteView:)];
     gestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Google Analytics
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"RunWorkout"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning
