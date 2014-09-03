@@ -1,0 +1,7 @@
+[{ "workoutName" : "Demo Workout",
+    "exerciseSetting": [
+        {"exerciseName":"Push-Up", "reps":15, "sets":3, "index":0, "category":1},
+        {"exerciseName":"Sit-Up", "reps":20, "sets":3, "index":1, "category":2},
+        {"exerciseName":"Squats", "reps":10, "sets":3, "index":3, "category":3}
+    ]
+}]

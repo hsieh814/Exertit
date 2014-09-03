@@ -91,6 +91,8 @@
 		BF8122F818C0495B00606092 /* coderwall-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F718C0495B00606092 /* coderwall-512.png */; };
 		BF8122FA18C0497A00606092 /* timer-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F918C0497A00606092 /* timer-512.png */; };
 		BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */; };
+		BF9D53A319B6AC9E0024CDE8 /* DemoWorkout.json in Resources */ = {isa = PBXBuildFile; fileRef = BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */; };
+		BF9D53A419B6AD000024CDE8 /* DemoWorkout.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */; };
 		BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA8D03218D007C200F58B2B /* DataModel.xcdatamodeld */; };
 		BFAC644A194CCE2800AC9DF8 /* category_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6446194CCE2800AC9DF8 /* category_blue.png */; };
 		BFAC644B194CCE2800AC9DF8 /* category_green.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAC6447194CCE2800AC9DF8 /* category_green.png */; };
@@ -126,6 +128,19 @@
 			remoteInfo = "Fit Interval Timer";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BF9D53A119B6AAA60024CDE8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				BF9D53A419B6AD000024CDE8 /* DemoWorkout.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BF00D34918E8592600DA4CD7 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
@@ -262,6 +277,7 @@
 		BF8122F918C0497A00606092 /* timer-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timer-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Objects/timer/timer-512.png"; sourceTree = "<group>"; };
 		BF9713D118765548002F4BF1 /* AllWorkoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllWorkoutsTableViewController.h; sourceTree = "<group>"; };
 		BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllWorkoutsTableViewController.m; sourceTree = "<group>"; };
+		BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DemoWorkout.json; sourceTree = "<group>"; };
 		BFA8D03318D007C200F58B2B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		BFAC6446194CCE2800AC9DF8 /* category_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_blue.png; path = Images/category_blue.png; sourceTree = "<group>"; };
 		BFAC6447194CCE2800AC9DF8 /* category_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_green.png; path = Images/category_green.png; sourceTree = "<group>"; };
@@ -555,6 +571,7 @@
 				BFC5A7C218C3E9DE0048D410 /* SettingsTableViewController.m */,
 				BF1072421984BE8F00F73BE9 /* AboutViewController.h */,
 				BF1072431984BE8F00F73BE9 /* AboutViewController.m */,
+				BF9D53A519B6AFF00024CDE8 /* PreloadData */,
 				BF0E4CB218EA5D9800573517 /* Libraries */,
 				BF8122EE18C0467B00606092 /* Images */,
 				BF2098871871F80400D52321 /* Images.xcassets */,
@@ -653,6 +670,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		BF9D53A519B6AFF00024CDE8 /* PreloadData */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */,
+			);
+			name = PreloadData;
+			sourceTree = "<group>";
+		};
 		BFF215E319B5279400C9717E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +715,7 @@
 				BF2098681871F80400D52321 /* Sources */,
 				BF2098691871F80400D52321 /* Frameworks */,
 				BF20986A1871F80400D52321 /* Resources */,
+				BF9D53A119B6AAA60024CDE8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -782,6 +808,7 @@
 				BF1182D01991A19A00BDD877 /* guide_iphone5_1.png in Resources */,
 				BF03B38B1999DC53001C8930 /* guide_iphone5_7_launch.png in Resources */,
 				BF1072461984C19600F73BE9 /* exertit_512.png in Resources */,
+				BF9D53A319B6AC9E0024CDE8 /* DemoWorkout.json in Resources */,
 				BFBAC9901935A30400F93A1B /* about_120.png in Resources */,
 				BF20987A1871F80400D52321 /* InfoPlist.strings in Resources */,
 				BF03B3891999C4F5001C8930 /* exertit_hexagon.png in Resources */,

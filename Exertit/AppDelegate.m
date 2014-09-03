@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "HowToViewController.h"
 #import "GAI.h"
+#import "Workout.h"
+#import "Exercise.h"
+#import "ExerciseSetting.h"
 
 @implementation AppDelegate {
 }
@@ -22,9 +25,6 @@
 
     // Setup Core Data with Magical Record
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"Data"];
-
-    // Set the status bar text color to white rather than default black
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // Change the navigation bar color to the theme color, and the text to white
     [[UINavigationBar appearance] setBarTintColor:themeNavBar];
@@ -47,33 +47,77 @@
     //[[NSUserDefaults standardUserDefaults] synchronize];
     /*********************************************************************/
     
-    // Replace the root view controller if initial app launch
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunched"]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        HowToViewController *split = [storyboard instantiateViewControllerWithIdentifier:@"HowTo"];
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.window.rootViewController = split;
+        // Display How-To Guide
+        [self replaceRootViewWithTutorial];
+        
+        // Pre-load Demo Workout
+        [self preloadData];
     }
     
     // Google Analytics
+    [self initializeGoogleAnalytics];
     
-    // Optional: automatically send uncaught exceptions to Google Analytics.
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    [GAI sharedInstance].dispatchInterval = 20;
-    
-    // Optional: set Logger to VERBOSE for debug information.
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    return YES;
+}
 
-    // Initialize tracker. Replace with your tracking ID.
+// Replace the root view controller with the How-To Guide
+- (void)replaceRootViewWithTutorial
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    HowToViewController *split = [storyboard instantiateViewControllerWithIdentifier:@"HowTo"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.window.rootViewController = split;
+}
+
+// Pre-load with a Demo Workout from Workout.json
+- (void)preloadData
+{
+    NSError* err = nil;
+    NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"DemoWorkout" ofType:@"json"];
+    NSArray* Workouts = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:dataPath]
+                                                        options:kNilOptions
+                                                          error:&err];
+    NSLog(@"Imported Workouts: %@", Workouts);
+    
+    [Workouts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Workout *workout = [Workout createEntity];
+        workout.workoutName = [obj objectForKey:@"workoutName"];
+        
+        NSArray *array = [obj objectForKey:@"exerciseSetting"];
+        NSLog(@"Imported array: %@", array);
+        
+        NSMutableArray *settings = [[NSMutableArray alloc] init];
+        for (id object in array) {
+            ExerciseSetting *exerciseSetting = [ExerciseSetting createEntity];
+            exerciseSetting.index = [object objectForKey:@"index"];
+            exerciseSetting.reps = [object objectForKey:@"reps"];
+            exerciseSetting.sets = [object objectForKey:@"sets"];
+            
+            Exercise *exercise = [Exercise createEntity];
+            exercise.exerciseName = [object objectForKey:@"exerciseName"];
+            exercise.category = [object objectForKey:@"category"];
+            
+            exerciseSetting.baseExercise = exercise;
+            
+            [settings addObject:exerciseSetting];
+        }
+        
+        workout.exerciseGroup = [NSSet setWithArray:settings];
+        
+        [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+    }];
+}
+
+// Google Analytics setup
+- (void)initializeGoogleAnalytics
+{
+    // Initialize tracker
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-54254442-2"];
     NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIAppVersion value:version];
     [tracker set:kGAISampleRate value:@"50.0"];
-    
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
