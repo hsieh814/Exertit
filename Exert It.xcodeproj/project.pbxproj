@@ -50,7 +50,6 @@
 		BF1182D61991B32900BDD877 /* guide_iphone5_6.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182D51991B32900BDD877 /* guide_iphone5_6.png */; };
 		BF1182D81991B90700BDD877 /* guide_iphone5_7.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182D71991B90700BDD877 /* guide_iphone5_7.png */; };
 		BF1182DA1991E46300BDD877 /* category_default.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1182D91991E46300BDD877 /* category_default.png */; };
-		BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1FFC0018C2AD97009224C9 /* mandriva-512.png */; };
 		BF2098701871F80400D52321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF20986F1871F80400D52321 /* Foundation.framework */; };
 		BF2098721871F80400D52321 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098711871F80400D52321 /* CoreGraphics.framework */; };
 		BF2098741871F80400D52321 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2098731871F80400D52321 /* UIKit.framework */; };
@@ -86,11 +85,6 @@
 		BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */; };
 		BF7BF56818C29A4C009D9BE8 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BF56718C29A4C009D9BE8 /* MenuCell.m */; };
 		BF7F054318FB4479003ECD72 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7F054218FB4479003ECD72 /* Workout.m */; };
-		BF8122F018C0469000606092 /* google_earth-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122EF18C0469000606092 /* google_earth-512.png */; };
-		BF8122F418C0494900606092 /* reddit-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F318C0494900606092 /* reddit-512.png */; };
-		BF8122F618C0495200606092 /* cloudflare-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F518C0495200606092 /* cloudflare-512.png */; };
-		BF8122F818C0495B00606092 /* coderwall-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F718C0495B00606092 /* coderwall-512.png */; };
-		BF8122FA18C0497A00606092 /* timer-512.png in Resources */ = {isa = PBXBuildFile; fileRef = BF8122F918C0497A00606092 /* timer-512.png */; };
 		BF9713D318765548002F4BF1 /* AllWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */; };
 		BF9D53A319B6AC9E0024CDE8 /* DemoWorkout.json in Resources */ = {isa = PBXBuildFile; fileRef = BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */; };
 		BF9D53A419B6AD000024CDE8 /* DemoWorkout.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */; };
@@ -220,7 +214,6 @@
 		BF1182D51991B32900BDD877 /* guide_iphone5_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_iphone5_6.png; path = Images/guide_iphone5_6.png; sourceTree = "<group>"; };
 		BF1182D71991B90700BDD877 /* guide_iphone5_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_iphone5_7.png; path = Images/guide_iphone5_7.png; sourceTree = "<group>"; };
 		BF1182D91991E46300BDD877 /* category_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = category_default.png; path = Images/category_default.png; sourceTree = "<group>"; };
-		BF1FFC0018C2AD97009224C9 /* mandriva-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandriva-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Operating_Sysytems/mandriva/mandriva-512.png"; sourceTree = "<group>"; };
 		BF20986C1871F80400D52321 /* Exert It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exert It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20986F1871F80400D52321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF2098711871F80400D52321 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -273,11 +266,6 @@
 		BF7BF56718C29A4C009D9BE8 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		BF7F054118FB4479003ECD72 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
 		BF7F054218FB4479003ECD72 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
-		BF8122EF18C0469000606092 /* google_earth-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google_earth-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Google_Services/google_earth/google_earth-512.png"; sourceTree = "<group>"; };
-		BF8122F318C0494900606092 /* reddit-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Logos/reddit/reddit-512.png"; sourceTree = "<group>"; };
-		BF8122F518C0495200606092 /* cloudflare-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloudflare-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Logos/cloudflare/cloudflare-512.png"; sourceTree = "<group>"; };
-		BF8122F718C0495B00606092 /* coderwall-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coderwall-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Logos/coderwall/coderwall-512.png"; sourceTree = "<group>"; };
-		BF8122F918C0497A00606092 /* timer-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timer-512.png"; path = "../../../../Library/Containers/com.visualpharm.Icons8/Data/Documents/Icons8/Icons/Windows8/PNG/Objects/timer/timer-512.png"; sourceTree = "<group>"; };
 		BF9713D118765548002F4BF1 /* AllWorkoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllWorkoutsTableViewController.h; sourceTree = "<group>"; };
 		BF9713D218765548002F4BF1 /* AllWorkoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllWorkoutsTableViewController.m; sourceTree = "<group>"; };
 		BF9D53A219B6AC9E0024CDE8 /* DemoWorkout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DemoWorkout.json; sourceTree = "<group>"; };
@@ -673,12 +661,6 @@
 				BF22E0EC1934496C00A5C1DB /* timer_120.png */,
 				BF22E0EA193448E200A5C1DB /* timer_120.png */,
 				BF22E0E81934400A00A5C1DB /* interval_trainer_120.png */,
-				BF1FFC0018C2AD97009224C9 /* mandriva-512.png */,
-				BF8122F918C0497A00606092 /* timer-512.png */,
-				BF8122F718C0495B00606092 /* coderwall-512.png */,
-				BF8122F518C0495200606092 /* cloudflare-512.png */,
-				BF8122F318C0494900606092 /* reddit-512.png */,
-				BF8122EF18C0469000606092 /* google_earth-512.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -798,12 +780,9 @@
 			files = (
 				BF22E0E91934400A00A5C1DB /* interval_trainer_120.png in Resources */,
 				BFAC644B194CCE2800AC9DF8 /* category_green.png in Resources */,
-				BF8122F018C0469000606092 /* google_earth-512.png in Resources */,
 				BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */,
 				BF2098881871F80400D52321 /* Images.xcassets in Resources */,
 				BF04D7CE194BEE05004AA489 /* swipe_delete.png in Resources */,
-				BF8122FA18C0497A00606092 /* timer-512.png in Resources */,
-				BF1FFC0118C2AD97009224C9 /* mandriva-512.png in Resources */,
 				BFF215E819B527B700C9717E /* Montserrat-Regular.ttf in Resources */,
 				BF22E0EB193448E200A5C1DB /* timer_120.png in Resources */,
 				BF1182D61991B32900BDD877 /* guide_iphone5_6.png in Resources */,
@@ -813,11 +792,9 @@
 				BFAC6458194D65E400AC9DF8 /* checkmark.png in Resources */,
 				BFBAC98E19359F6F00F93A1B /* howtoguide_120.png in Resources */,
 				BFAC644D194CCE2800AC9DF8 /* category_yellow.png in Resources */,
-				BF8122F618C0495200606092 /* cloudflare-512.png in Resources */,
 				BFF215E719B527B700C9717E /* Montserrat-Bold.ttf in Resources */,
 				BFBAC98A19359BB800F93A1B /* settings_120.png in Resources */,
 				BF22E0ED1934496C00A5C1DB /* timer_120.png in Resources */,
-				BF8122F418C0494900606092 /* reddit-512.png in Resources */,
 				BF1182D01991A19A00BDD877 /* guide_iphone5_1.png in Resources */,
 				BF03B38B1999DC53001C8930 /* guide_iphone5_7_launch.png in Resources */,
 				BF1072461984C19600F73BE9 /* exertit_512.png in Resources */,
@@ -832,7 +809,6 @@
 				BF2098831871F80400D52321 /* Main.storyboard in Resources */,
 				BF1182D11991A19A00BDD877 /* guide_iphone5_2.png in Resources */,
 				BFAC644C194CCE2800AC9DF8 /* category_red.png in Resources */,
-				BF8122F818C0495B00606092 /* coderwall-512.png in Resources */,
 				BF1182D21991A19A00BDD877 /* guide_iphone5_3.png in Resources */,
 				BF22E0EF19344A7000A5C1DB /* exercises_120.png in Resources */,
 				BF1182D31991A19A00BDD877 /* guide_iphone5_4.png in Resources */,
