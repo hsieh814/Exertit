@@ -113,6 +113,7 @@
     
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *exercise = self.exerciseList[indexPath.row];
+    cell.exerciseName.font = [UIFont fontWithName:@"Montserrat-Regular" size:17.0];
     cell.exerciseName.text = exercise.exerciseName;
     cell.exerciseName.textColor = themeNavBar;
     

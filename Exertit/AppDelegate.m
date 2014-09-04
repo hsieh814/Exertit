@@ -93,6 +93,7 @@
             exerciseSetting.index = [object objectForKey:@"index"];
             exerciseSetting.reps = [object objectForKey:@"reps"];
             exerciseSetting.sets = [object objectForKey:@"sets"];
+            exerciseSetting.weight = [object objectForKey:@"weight"];
             
             Exercise *exercise = [Exercise createEntity];
             exercise.exerciseName = [object objectForKey:@"exerciseName"];
