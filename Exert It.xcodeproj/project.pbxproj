@@ -80,6 +80,7 @@
 		BF393566195A6CA70060F854 /* defaultPrefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF393565195A6CA70060F854 /* defaultPrefs.plist */; };
 		BF3F532918D2ADE200210568 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3F532818D2ADE200210568 /* CoreData.framework */; };
 		BF4637F61960D1AD00DBA240 /* WorkoutConfigTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4637F51960D1AD00DBA240 /* WorkoutConfigTableViewController.m */; };
+		BF5C294C19B8B2870034C8E9 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C294B19B8B2870034C8E9 /* iRate.m */; };
 		BF642B51196E43F20067DC7F /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = BF642B50196E43F20067DC7F /* Exercise.m */; };
 		BF642B54196E43F20067DC7F /* ExerciseSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BF642B53196E43F20067DC7F /* ExerciseSetting.m */; };
 		BF73C62A190C14A700A099F2 /* RunWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF73C629190C14A700A099F2 /* RunWorkoutViewController.m */; };
@@ -260,6 +261,8 @@
 		BF3F532818D2ADE200210568 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BF4637F41960D1AD00DBA240 /* WorkoutConfigTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutConfigTableViewController.h; sourceTree = "<group>"; };
 		BF4637F51960D1AD00DBA240 /* WorkoutConfigTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutConfigTableViewController.m; sourceTree = "<group>"; };
+		BF5C294A19B8B2870034C8E9 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		BF5C294B19B8B2870034C8E9 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		BF642B4F196E43F20067DC7F /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
 		BF642B50196E43F20067DC7F /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		BF642B52196E43F20067DC7F /* ExerciseSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSetting.h; sourceTree = "<group>"; };
@@ -458,6 +461,7 @@
 		BF0E4CB218EA5D9800573517 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF5C294919B8B2790034C8E9 /* iRate */,
 				BFF215EA19B5628100C9717E /* GoogleAnalytics */,
 				BF00D34618E8592600DA4CD7 /* MagicalRecord */,
 				BF2372D61875164F009B43EF /* SWRevealViewController */,
@@ -627,6 +631,15 @@
 				BF0E67DB189E034800A0456F /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		BF5C294919B8B2790034C8E9 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C294A19B8B2870034C8E9 /* iRate.h */,
+				BF5C294B19B8B2870034C8E9 /* iRate.m */,
+			);
+			name = iRate;
 			sourceTree = "<group>";
 		};
 		BF8122EE18C0467B00606092 /* Images */ = {
@@ -848,6 +861,7 @@
 				BF2372E3187516BF009B43EF /* MenuViewController.m in Sources */,
 				BFAC6453194CE4BB00AC9DF8 /* DefaultCell.m in Sources */,
 				BF00D39318E8592600DA4CD7 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				BF5C294C19B8B2870034C8E9 /* iRate.m in Sources */,
 				BFA8D03418D007C200F58B2B /* DataModel.xcdatamodeld in Sources */,
 				BF00D38918E8592600DA4CD7 /* NSString+MagicalDataImport.m in Sources */,
 				BF00D38318E8592600DA4CD7 /* MagicalImportFunctions.m in Sources */,

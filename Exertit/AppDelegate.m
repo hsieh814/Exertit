@@ -12,12 +12,23 @@
 #import "Workout.h"
 #import "Exercise.h"
 #import "ExerciseSetting.h"
+#import "iRate.h"
 
 @implementation AppDelegate {
 }
 
 @synthesize window = _window;
 
++ (void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].daysUntilPrompt = 3;
+    [iRate sharedInstance].usesUntilPrompt = 3;
+    [iRate sharedInstance].remindPeriod = 1;
+    [iRate sharedInstance].message = @"If you enjoy using Exert It, please take a moment to rate it. \nIt would make my day! \nThanks for your support!";
+    [iRate sharedInstance].updateMessage = @"I know you already rated, but it would be awesome if you rate it again for my updated version. \nThanks for your support!";
+    [iRate sharedInstance].promptForNewVersionIfUserRated = YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
