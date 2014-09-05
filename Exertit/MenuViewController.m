@@ -145,7 +145,6 @@
 {
 
     MenuCell *cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
-    cell.menuCellName.font = [UIFont fontWithName:@"Montserrat-Regular" size:15.0];
 
     // Default menu list
     switch (indexPath.row) {
