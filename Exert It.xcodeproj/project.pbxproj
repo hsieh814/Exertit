@@ -1016,7 +1016,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Exertit/Exert It-Prefix.pch";
 				INFOPLIST_FILE = "Exertit/Exert It-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Lena/Downloads/GoogleAnalyticsServicesiOS_3.09,
@@ -1037,7 +1037,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Exertit/Exert It-Prefix.pch";
 				INFOPLIST_FILE = "Exertit/Exert It-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Lena/Downloads/GoogleAnalyticsServicesiOS_3.09,
