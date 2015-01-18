@@ -267,8 +267,7 @@
 - (void)newWorkoutAlert
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create New Workout"
-                                                    message:nil
-                                                   delegate:self
+                                                    message:nil delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"Create", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -279,7 +278,7 @@
     alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
     alertTextField.delegate = self;
     [alertTextField becomeFirstResponder];
-    [alert addSubview:alertTextField];
+//    [alert addSubview:alertTextField]; // SDK 7.1 fix for alertview, somehow the textfield does not display properly
     [alert show];
 }
 
@@ -300,7 +299,7 @@
     alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
     alertTextField.delegate = self;
     [alertTextField becomeFirstResponder];
-    [alert addSubview:alertTextField];
+//    [alert addSubview:alertTextField]; // SDK 7.1 fix for alertview, somehow the textfield does not display properly
     [alert show];
 }
 

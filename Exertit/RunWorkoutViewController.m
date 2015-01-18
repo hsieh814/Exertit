@@ -369,6 +369,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     // Hide the note view
     [self hideNoteView:self];
     
+    // Stop the timer when switching views
+    [self resetTimer:self];
+    
     if (exerciseIndex != 0) {
         exerciseIndex--;
         [self startNextExercise];
@@ -382,6 +385,9 @@ int exerciseIndex, minutesCount, secondsCount, pauseTimer;
     // Hide the note view
     [self hideNoteView:self];
     
+    // Stop the timer when switching views
+    [self resetTimer:self];
+
     // Make we did not reach the end of the workout (ie. there are still exercises left)
     if ( (exerciseIndex + 1) < [self.exercisesForWorkout count]) {
         exerciseIndex++;
